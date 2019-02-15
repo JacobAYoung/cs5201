@@ -44,6 +44,10 @@ public:
   //Stores everything within the ptr_to_data array
   Cylindrical(const T &radius, const T &theta, const T &z);
 
+  //Cylindrical: Copy constructor for copying source data to the calling object
+  //Param1: Cylindrical object
+  //Pre: Cylindrical object is created
+  //Post: Copys the source object to the calling object
   Cylindrical(const Cylindrical<T> &source);
 
   //~Cylindrical: Destructs the created object
@@ -57,6 +61,10 @@ public:
   //Post: Returns the data from the pointer of the specified position
   T &operator[](const int &i);
 
+  //operator[]: [] operator that returns the data of the pointer at the specified position but not editable
+  //Param1: Position number
+  //Pre: The position of the data is known
+  //Post: Returns the data from the pointer of the specified position
   T &operator[](const int i) const;
 
   //operator=: = operator that sets the rhs Cylindrical object equal to the lhs Cylindrical object
@@ -90,6 +98,9 @@ public:
   //Post: Returns the Z data from the data array pointer
   T GetZ() const;
 
+  //PrintPoints: Get the cartesian points associated with the Cylindrical object
+  //Pre: The Cylindrical object is created
+  //Post: Returns the cartestian points created from the Cylindrical object coordinates
   string PrintPoints() const;
 };
 
@@ -139,9 +150,15 @@ Cylindrical<T> operator-(const Cylindrical<T> &source);
 template <typename T>
 Cylindrical<T> operator!(const Cylindrical<T> &source);
 
+//operator<<: << operator that directs the output of the cylindrical object
+//Pre: The Cylindrical object is created
+//Post: Returns the ostream of the radius, theta and z values
 template <class T>
 std::ostream &operator<<(std::ostream &out, const Cylindrical<T> &source);
 
+//operator>>: >> operator that directs the input of data to the Cylindrical object data
+//Pre: The Cylindrical object is created and theres data being streamed into the object
+//Post: Sets the radius, theta and z values in the Cylindrical object
 template <class T>
 std::istream &operator>>(std::istream &in, const Cylindrical<T> &source);
 
