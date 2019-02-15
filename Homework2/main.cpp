@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
     Cylindrical<double> cylindrical;
     vector<Cylindrical<double>> vect;
@@ -17,7 +17,13 @@ int main()
 
     try
     {
-        file.open("data.txt");
+        if (argc > 2 || argc < 2)
+        {
+            throw std::runtime_error("Parameter error");
+        }
+
+        file.open(argv[1]);
+
         if (!file.good())
         {
             throw std::runtime_error("Error opening file!");
@@ -31,8 +37,13 @@ int main()
         {
             throw std::runtime_error("Not accurate amount of cylindrical objects");
         }
+
         for (int i = 0; i < lines; i++)
         {
+            if (file.eof())
+            {
+                throw std::runtime_error("Too many objects trying to be declared from file");
+            }
             getline(file, line);
             for (unsigned int i = 0; i < line.size(); i++)
             {
