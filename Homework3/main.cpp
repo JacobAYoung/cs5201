@@ -1,11 +1,4 @@
-///Author: Jake Young
-///Date: 2-15-2019
-///PRE: None
-///POST: This is the main function that will call all code and will be used to define any other class
-
 #include <iostream>
-#include "Cylindrical.h"
-#include "Norm.h"
 #include <fstream>
 #include <sstream>
 
@@ -13,9 +6,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    Cylindrical<double> cylindrical;
-    vector<Cylindrical<double>> vect;
-    Norm<double, Cylindrical<double>> norm;
     string line = "";
     int lines = 0;
     ifstream file;
@@ -59,17 +49,10 @@ int main(int argc, char *argv[])
             }
 
             istringstream ss(line);
-            ss >> cylindrical;
-            vect.push_back(cylindrical);
+            //ss >> cylindrical;
+            //vect.push_back(cylindrical);
         }
         file.close();
-
-        cout << std::fixed;
-        cout << std::setprecision(7) << -vect[0];
-        cout << !vect[1];
-        cout << (vect[2] == vect[3]) << endl;
-        cout << vect[4].PrintPoints() << endl;
-        cout << norm(vect) << endl;
     }
     catch (const std::exception &e)
     {
