@@ -11,6 +11,7 @@ class MyVector
   private:
     int numElements;
     float *ptr_to_data;
+    void copy(const MyVector &source);
 
   public:
     MyVector();
@@ -18,10 +19,10 @@ class MyVector
     MyVector(const MyVector &source);
     ~MyVector();
     float &operator[](int i);
-    int numElements();
+    int GetNumElements();
     MyVector &operator=(const MyVector &source);
-    MyVector &operator=(float numb);
-    void setSize(int n);
+    MyVector &operator=(const float val);
+    void SetSize(const int n);
 };
 
 #include "MyVector.hpp"

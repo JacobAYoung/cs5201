@@ -1,11 +1,13 @@
 #include <iostream>
 #include <fstream>
+#include "MyVector.h"
 #include <sstream>
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
+    MyVector vector;
     string line = "";
     int lines = 0;
     ifstream file;
@@ -27,11 +29,6 @@ int main(int argc, char *argv[])
         getline(file, line);
         istringstream inputStream(line);
         inputStream >> lines;
-
-        if (lines <= 0)
-        {
-            throw std::runtime_error("Not accurate amount of cylindrical objects");
-        }
 
         for (int i = 0; i < lines; i++)
         {
