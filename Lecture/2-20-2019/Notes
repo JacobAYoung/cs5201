@@ -1,0 +1,98 @@
+Static variables:
+  It's commonly thought that functions have no "state". But static variables give you a way to give a function a "state".
+  They are initialized and allocated only one time, and persist to the end of the program.
+
+float f(float p); //an expensive function. Takes a lot of compute power and a lot of time.
+float remember(float x)
+{
+  static bool firstTime = true;
+  static float previousX;
+  static float previousFX;
+  if (firstTime || x != previousX)
+  {
+    firstTime = false;
+    previousX = x;
+    previousFX = f(x);
+  }
+  return previousFX;
+}
+
+Note:
+  s1 and s5 are non local static objects.
+  They are created first and in that order, and destroyed in reverse order.
+  The local (static) objects are created only once and destroyed in random order relative to themselves and non-local objects.
+
+
+Dynamic Objects:
+  Allocated by a call to new and deallocated by a delete.
+  Objects are created only as needed.
+  There doesn't need to be an association between dynamic objects and variables.
+  new will invoke the appropriate constructor
+  new array of objects require a default constructor.
+
+  The upside to dynamic memory is the flexibility.
+  The downside is the memory management required.
+
+Construction:
+  int * p = new int; //Note: new's operand is a type
+  or int * p = new int[size]; //Must have a default constructor
+
+Destruction:
+  Always match every call to new with a call to the appropriate delete.
+
+Bad Deletions -> Biiiiiiigggg probbbbleemmmssss!
+
+  1.) Dangling pointer - "Shallow" copies are created where a pointer is copied instead of what it points to. When both pointers
+    are deleted, you have a double deletion.
+
+  Fix: Make your own copy constructors.
+
+ex:
+class Bad
+{
+  public:
+    Bad() { p = new int(0); }
+    ~Bad() { delete p; }
+    int * p;
+};
+
+void f()
+{
+  Bad apple1;
+  Bad apple2(apple1);
+}
+
+When control leaves the scope of f, both objects are out of scope and then deleted.
+
+
+class good
+{
+  public:
+    good() { p = new int(0); }
+    ~good() { delete p; }
+    good(const good& source) : p(new int(*source.p)) {}
+    good& operator=(const good& source)
+    {
+      if (source.p != p)
+      {
+        delete p;
+        p = new int(*source.p);
+      }
+      return (*this);
+    }
+    int * p;
+};
+
+  2.) Dangling pointers - Set a pointer to an automatic object. (automatic object = Not dynamic and not static)
+  When the object goes out of scope, you have a pointer pointing to nothing.
+
+  Fix: Don't point to automatic variables.
+
+  3.) Deleting a function parameter - you pass a pointer to a function and then delete it there. There in the calling function,
+    the pointer is useless.
+
+  Fix: Don't do this.
+
+  4.) Garbage - Not deleting an object. When this happens, you've "leaked" memory.
+
+  Fix: Be responsible: Use "smart pointers".

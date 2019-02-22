@@ -1,0 +1,22 @@
+More Semantics:
+  The Goal: Good, Fast code. One big problem is the generation of temporary objects.
+  Consider:
+
+  Array squares(const Array& s)
+  {
+    int n = s.getSize();
+    Array sqArray(n);
+    for (int i = 0; i < n; i++)
+    {
+      sqArray[i] = s[i];
+    }
+    return sqArray;
+  }
+
+  int main()
+  {
+    Array Stuff[1000];
+    Stuff = squares(Stuff);
+  }
+
+  So, what's the problem? Copies - so many copies of Arrays.

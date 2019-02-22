@@ -7,8 +7,10 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    MyVector vector;
+    vector<MyVector<double>> vect;
+
     string line = "";
+
     int lines = 0;
     ifstream file;
 
@@ -30,6 +32,11 @@ int main(int argc, char *argv[])
         istringstream inputStream(line);
         inputStream >> lines;
 
+        if (lines <= 0)
+        {
+            throw std::runtime_error("Check how many objects you would like to create at the top of your file.");
+        }
+        MyVector<double> myVector(lines);
         for (int i = 0; i < lines; i++)
         {
             if (file.eof())
@@ -46,10 +53,18 @@ int main(int argc, char *argv[])
             }
 
             istringstream ss(line);
-            //ss >> cylindrical;
-            //vect.push_back(cylindrical);
+            ss >> myVector;
+            vect.push_back(myVector);
         }
         file.close();
+
+        //cout << vect[0] << endl;
+        //cout << vect[1] << endl;
+
+        //cout << -vect[2].GetNumElements() << endl;
+        //cout << vect[2].GetNumElements() << endl;
+        //cout << vect[3] << endl;
+        cout << vect[0] * vect[1] << endl;
     }
     catch (const std::exception &e)
     {
