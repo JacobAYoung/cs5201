@@ -20,3 +20,107 @@ More Semantics:
   }
 
   So, what's the problem? Copies - so many copies of Arrays.
+  Many of the copies are temp objects that just get tossed.
+  It'd be nice if we could use them or reuse them. The difficulty is
+    that we (compiler) had no way to identify temp objects.
+
+  In c++11, we do.
+  rvalues vs lvalues
+
+  A lvalue (formally left-hand values) is an expression with a locatable memory - locator value.
+  It has some permanent piece of memory.
+
+  ex: int x;
+      x = 10; //lvalue
+
+  ex: int x;
+      int& getX() { return x; }
+      getX() = 10; //an lvalue not a variable
+
+  A rvalue is an expression that gives a temporary object.
+
+  ex: int x;
+      int getX() { return 4; }
+      getX(); //a temporary object - an rvalue
+      x = getX(); //assigning from a temporary object
+
+  Can we identify temp objets? In c++ 03 (or before), answer is no.
+  A rvalue reference is a reference that will only bind to a temporary object.
+
+  ex: Pre <= c++03 const int& z = getX(); //Good
+                int& z = getX(); //not good
+
+  So, an rvalue reference can "detect" temporary objects.
+  Now, consider these 2 functions:
+    1.) void printref(const string& s) { cout << s; }
+    2.) void printref(string&& s) {cout << s; }
+
+  Function #1 will accept any argument (mutable or not) lvalue or rvalue
+    if function #2 is not present. But if function #2 is present, function #1
+      will accept all except mutable rvalue refs.
+
+
+  Move constructor:
+    Like a copy constructor, a move constructor builds a new object from an old one.
+    But rather then create new memory, it will simply "move" the object.
+    It can (do that) because it knows the argument is a temporary object.
+    - An rvalue reference. If the argument is a primitive, then it simply makes a copy.
+    But if the object to copy has/is a pointer, it will steal the pointer and nullify
+      the pointer to the old object. The old object. won't need that pointer because it's about to go away.
+
+
+  For the Array class:
+
+    class Array
+    {
+      public:
+        Array(Array&& other) : ptr_to_data(other.ptr_to_data), size(other.size)
+        {
+          other.ptr_to_data = nullptr;
+          other.size = 0;
+        }
+    };
+
+  We set the other's ptr_to_data to null pointer because other is a temporary object
+    about to go away. And when it does, it calls its destructor which will
+      delete the pointer. Hence, we avoid crashes later.
+
+  Now, suppose that there is a member of the class that is an object
+    (that is not a primitive). Let's suppose that we have:
+
+      class data
+      {
+        private:
+          string name;
+          int size;
+        public:
+          data(const int s, const string& n); //sets size and name
+          data(const data& d) : name(d.name), size(d.size) {}
+          data(data&& other) : name(other.name), size(other.size) {}
+      };
+
+      class Array
+      {
+        private:
+          float* ptr_to_data;
+          data size_n_name;
+      };
+
+  Will our move constructor for the array class work? Answer: No
+  We must do this:
+
+    #include <utility> //for std::move
+
+    Array(Array&& other) : ptr_to_data(other.ptr_to_data),
+                           size_n_name(std::move(other.size_n_name))
+                           {
+                            other.ptr_to_data = nullptr;
+                           }
+
+  ...And we have to do the same for class data.
+  The reason: the "other" in Array's move constructor is an rvalue reference.
+  But, here that rvalue reference isn't an rvalue, it's an lvalue.
+  It's scope is a new scope where that rvalue reference is (semi) permanent -
+    a lvalue.
+  So, we have to use std::move to accomplish the task. How does it work?
+  By casting it.
