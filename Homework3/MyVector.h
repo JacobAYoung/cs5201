@@ -1,8 +1,8 @@
 #pragma once
 
-#include <vector>
-#include <math.h>
+#include <cmath>
 #include <iomanip>
+#include <utility>
 
 using namespace std;
 
@@ -12,17 +12,18 @@ class MyVector
 private:
   int numElements;
   T *ptr_to_data;
-  void copy(const MyVector &source);
+  void copy(const MyVector<T> &source);
 
 public:
   MyVector();
   MyVector(int n);
-  MyVector(const MyVector &source);
+  MyVector(const MyVector<T> &source);
+  MyVector(MyVector<T> &&source);
   ~MyVector();
   T &operator[](const int &i);
   T &operator[](const int &i) const;
   int GetNumElements() const;
-  MyVector<T> &operator=(const MyVector &source);
+  MyVector<T> &operator=(const MyVector<T> &source);
   MyVector<T> &operator=(const T val);
   void SetSize(const int n);
 };
@@ -41,19 +42,22 @@ template <class T>
 bool operator!=(const MyVector<T> &lhs, const MyVector<T> &rhs);
 
 template <class T>
-MyVector<T> &operator+(const MyVector<T> &lhs, const MyVector<T> &rhs);
+MyVector<T> operator+(const MyVector<T> &lhs, const MyVector<T> &rhs);
 
 //operator-: - operator That finds the reflection through the origin
 //Pre: The data pointer must be constructed and filled with data to find the reflection through the origin
 //Post: Returns a Cylindrical object of type T that has the adjusted coordinates for the reflection through the origin
 template <typename T>
-MyVector<T> &operator-(const MyVector<T> &source);
+MyVector<T> operator-(const MyVector<T> &source);
 
 template <typename T>
-MyVector<T> &operator-(const MyVector<T> &lhs, const MyVector<T> &rhs);
+MyVector<T> operator-(const MyVector<T> &lhs, const MyVector<T> &rhs);
 
 template <typename T>
 T operator*(const MyVector<T> &lhs, const MyVector<T> &rhs);
+
+template <typename T>
+MyVector<T> operator*(const T &lhs, const MyVector<T> &rhs);
 
 //operator<<: << operator that directs the output of the cylindrical object
 //Pre: The Cylindrical object is created

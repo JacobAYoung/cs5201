@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "MyVector.h"
+#include <vector>
 #include <sstream>
 
 using namespace std;
@@ -58,13 +59,41 @@ int main(int argc, char *argv[])
         }
         file.close();
 
-        //cout << vect[0] << endl;
-        //cout << vect[1] << endl;
-
-        //cout << -vect[2].GetNumElements() << endl;
-        //cout << vect[2].GetNumElements() << endl;
-        //cout << vect[3] << endl;
+        cout << vect[0] + vect[1] << endl;
+        cout << vect[0] - vect[1] << endl;
         cout << vect[0] * vect[1] << endl;
+        cout << vect[1][0] << endl;
+
+        vector<vector<double>> matrix;
+        for (int i = 0; i < lines; i++)
+        {
+            vector<double> subVector;
+            matrix.push_back(subVector);
+            for (int j = 0; j < lines; j++)
+            {
+                matrix[i].push_back(vect[j][i]);
+            }
+        }
+
+        //for (int i = 0; i < 3; i++)
+        //{
+        for (double j = 0.01; j < 1; j += 0.01)
+        {
+            if (((0.0 * vect[0]) + (j * vect[1]) + (j * vect[2])) == vect[3])
+            {
+                cout << "found it! " << j << endl;
+            }
+        }
+        //}
+
+        for (int i = 0; i < lines; i++)
+        {
+            for (int j = 0; j < lines; j++)
+            {
+                cout << "|" << matrix[i][j] << "| ";
+            }
+            cout << endl;
+        }
     }
     catch (const std::exception &e)
     {

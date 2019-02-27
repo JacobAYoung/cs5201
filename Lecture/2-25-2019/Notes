@@ -1,0 +1,115 @@
+The copy and swap idiom - to overload the assignment operator
+
+In the array class, we had
+
+  Array& Array::operator=(const Array& s)
+  {
+    if (ptr_to_data != s.ptr_to_data)
+    {
+      setSize(s.m_size);
+      for (int i = 0; i < m_size; i++)
+      {
+        ptr_to_data[i] = s.ptr_to_data[i];
+      }
+    }
+    return (*this);
+  }
+
+Can we do better? - Yes.
+
+Problems with the foregoing code are
+  1.) The self-assign check - mostly just an exercise; waste of time.
+  2.) The stroll down the array - This we're already coded.
+
+Answer:
+  Array& Array::operator=(Array s)
+  {
+    swap(*this, s);
+    return (*this);
+  }
+
+This is truly amazing code!
+
+What is so important here is that you be very careful about the swap you use!
+It is often said that your user-defined types should create or recreate the
+  "big three": copy constructor, assignment operator, and destructor.
+We assert that it really should be the "big three and n half".
+Write your own swap.
+
+class array
+{
+  public:
+    friend void swap(Array& A1, Array& A2)
+    {
+      std::swap(A1.m_size, A2.m_size);
+      std::swap(A1.ptr_to_data, A2.ptr_to_data);
+    }
+};
+
+Why? Why make our own swap? Why not use the std swap in the first place?
+Ans: Well, when the std swap swaps, it uses the assignment (=) operator!
+
+So, make your own swap!
+
+The next point to understand: The pass by value/copy. Why?
+
+
+
+
+
+Smart Pointers - Chapter 14
+
+
+Pointers are very necessary in robust c++ coding. But, the built in ptrs are too weak
+  and too strong. They give the programmer too much freedom to screwup.
+It's too easy to make fatal mistakes.
+
+Aggregation: The combining of objects inside other objects.
+In doing so, you must be aware of memory management concerns/dangers/issues/Problems/etc.
+If a pointer is contained, who controls the lifetime of the object that is pointed to.
+When a built-in pointer is a member variable of an object, it is called "Referential Aggregation".
+(Sometimes referred to "Referential Aggrevation").
+Because of default copy behavior, when an aggregate is copied, the pointer is
+  getting copied and not that to which the pointer points.
+Leaks are caused in many ways.
+But they can be created in anti-ninjamanic ways.
+(Example: When an exception is thrown.)
+
+Good programmers will define pointer objects that act as smart pointers;
+They intercept indirection and perform the necessary house keeping to prevent leaks.
+We write smart pointers to establish a 1-1 relationship between pointer and object.
+We'll create two classes: The copied builtin pointer class, and extend that for
+  the copied object class.
+
+template <class T>
+class CBPtr //copied built-in pointer
+{
+  public:
+    CBPtr() : the_p(0) {} //default to null
+    CBPtr(T* justnewed) : the_p(justnewed) {}
+    ~CBPtr() { delete the_p; }
+    CBPtr(const CBPtr<T>& aCP) : the_p(aCP.isNull() ? 0 : new(*aCP.the_p)) {}
+    CBPtr<T>& operator=(T* p)
+    {
+      delete the_p;
+      the_p = p;
+      return (*this);
+    }
+    CBPtr<T>& operator=(const CBPtr<T>& rhs)
+    {
+      if (the_p != rhs.the_p)
+      {
+        delete the_p;
+        the_p = rhs.isNull() ? 0 : new T(*rhs.the_p);
+      }
+      return (*this);
+    }
+    T& operator*() const { return *the_p; }
+    bool isNull() const { return the_p == NULL; }
+    T* ReleaseControl()
+    {
+      T* save_p = the_p;
+      the_p = 0;
+      return save_p;
+    }
+};
