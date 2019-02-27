@@ -97,3 +97,19 @@ void f()
 {
   NonLeaker l(-1);
 }
+
+Review of Linear Algebra:
+
+Definition: A vector space is a set of vectors (v) on which is defined a set of operations,
+  + and *, vector addition and scalar multiplication, in conjunction with a set of scalars.
+
+V - for all
+Backwards E - There exists
+C with line through it - element of
+o - fee
+Backwards c with line through it - such that
+
+I.) V is closed under +
+  1.) alpha + beta = beta + alpha, V alpha, beta C V
+  2.) (alpha + beta) + alpha = alpha + (beta + alpha), V alpha, beta, alpha C V
+  More.. but harder to write on a laptop.
