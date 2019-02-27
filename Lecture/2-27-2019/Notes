@@ -1,0 +1,99 @@
+class CBPtr
+{
+  public:
+    friend bool operator==(const CBPtr<T>& lhs, const CBPtr<T>& rhs)
+    {
+      return lhs.the_p == rhs.the_p;
+    }
+    friend bool operator!=(const CBPtr<T>& lhs, const CBPtr<T>& rhs)
+    {
+      return lhs.the_p != rhs.the_p;
+    }
+  protected:
+    T* the_p;
+};
+
+- This class is for built in objects.
+
+
+Benefits:
+  1.) We establish a one-to-one relationship between the pointer and the object.
+  2.) Automatic copy made when c++ generated copy constructor is built, since it will call the CBPtr's c.c.
+  3.) Our delete will automatically take care of memory - no garbage.
+  4.) The assignment operator will create a new heap object.
+  5.) Overloaded the * operator for access to the object.
+  6.) A test for null ptr.
+  7.) Overloads of == and !=
+
+...for objects of non-primitive type.
+template <class T>
+class COPtr : public CBPtr
+{
+  public:
+    COPtr() : CBPtr<T>() {}
+    COPtr(const COPtr<T>& p) : CBPtr<T>(p) {}
+    COPtr(T* just_newed) : CBPtr<T>(just_newed) {}
+    COPtr<T>& operator=(T* rhs)
+    {
+      CBPtr<T>::operator=(rhs);
+      return (*this);
+    }
+    COPtr<T>& operator=(const COPtr<T>& rhs)
+    {
+      CBPtr<T>::operator=(rhs);
+      return (*this);
+    }
+    T* operator->() const {return the_p;}
+};
+
+Note: The CBPtr class is for built in pointers and should not have the member access
+  operator-> defined.
+  The COPtr class does and should. It should return the built in pointer to a class object
+    or an object of a pointer like class with an overload of the member access (->) operator.
+
+
+ex:
+class Leaker
+{
+  public:
+    Leaker(const int size) : p(new float(0)), array(size) {}
+    Leaker(const Leaker& lkr) : p(new float(*lkr.p)) {}
+    Leaker& operator=(const Leaker& lkr)
+    {
+      p = new float(*lkr.p);
+      array = lkr.array;
+      return (*this);
+    }
+    ~Leaker() {delete p;}
+  private:
+    float *p;
+    Array<int> array;
+};
+
+void f()
+{
+  Leaker l(-1);
+}
+
+So, when f is called, we create (attempt) a Leaker object passing (-1) for the size
+  of the array.
+The float is allocated.
+Then we try to create the Array w/ a negative size. It throws an exception.
+All fully-constructed objects deallocated.
+But the Leaker object is not constructed, and so we have a leak.
+
+Now, let's rewrite the Leaker class...
+
+class NonLeaker
+{
+  public:
+    NonLeaker(const int size) : p(new float(0)), array(size) {}
+  private:
+    CBPtr<float> p;
+    Array<int> array;
+};
+
+void f()
+{
+  NonLeaker l(-1);
+}
