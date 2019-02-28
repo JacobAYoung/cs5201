@@ -56,7 +56,7 @@ bool LinearIndependent<T>::CheckLinearIndependent(vector<vector<T>> &matrix, con
                 flag++;
         }
         count++;
-        if (count == 500)
+        if (count == MAX_ITERATIONS)
         {
             return false;
         }

@@ -12,6 +12,7 @@ class LinearIndependent
 private:
   vector<T> data;
   const double EPSILON = 0.0001;
+  const int MAX_ITERATIONS = 500;
 
 public:
   LinearIndependent();

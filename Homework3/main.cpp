@@ -89,15 +89,6 @@ int main(int argc, char *argv[])
             }
         }
         cout << linear.GetEpsilon() << endl;
-
-        // for (int i = 0; i < lines; i++)
-        // {
-        //     for (int j = 0; j < lines; j++)
-        //     {
-        //         cout << "|" << matrix[i][j] << "| ";
-        //     }
-        //     cout << endl;
-        // }
     }
     catch (const std::exception &e)
     {
