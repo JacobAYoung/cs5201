@@ -78,15 +78,16 @@ int main(int argc, char *argv[])
         cout.precision(4);
         cout.setf(ios::fixed);
         LinearIndependent<double> linear(lines - 1);
-        bool test = linear.CheckLinearIndependent(matrix, lines - 1);
-        cout << test << endl;
-        if (test)
+        bool linearIndependent = linear.CheckLinearIndependent(matrix, lines - 1);
+        cout << linearIndependent << endl;
+        if (linearIndependent)
         {
             vector<double> data = linear.GetData();
             for (unsigned int i = 0; i < data.size(); i++)
             {
-                cout << data[i] << endl;
+                cout << data[i] << " ";
             }
+            cout << endl;
         }
         cout << linear.GetEpsilon() << endl;
     }
