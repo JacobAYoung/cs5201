@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "MyVector.h"
+#include "LinearIndependent.h"
 #include <vector>
 #include <sstream>
 
@@ -74,26 +75,29 @@ int main(int argc, char *argv[])
                 matrix[i].push_back(vect[j][i]);
             }
         }
-
-        //for (int i = 0; i < 3; i++)
-        //{
-        for (double j = 0.01; j < 1; j += 0.01)
+        cout.precision(4);
+        cout.setf(ios::fixed);
+        LinearIndependent<double> linear(lines - 1);
+        bool test = linear.CheckLinearIndependent(matrix, lines - 1);
+        cout << test << endl;
+        if (test)
         {
-            if (((0.0 * vect[0]) + (j * vect[1]) + (j * vect[2])) == vect[3])
+            vector<double> data = linear.GetData();
+            for (unsigned int i = 0; i < data.size(); i++)
             {
-                cout << "found it! " << j << endl;
+                cout << data[i] << endl;
             }
         }
-        //}
+        cout << linear.GetEpsilon() << endl;
 
-        for (int i = 0; i < lines; i++)
-        {
-            for (int j = 0; j < lines; j++)
-            {
-                cout << "|" << matrix[i][j] << "| ";
-            }
-            cout << endl;
-        }
+        // for (int i = 0; i < lines; i++)
+        // {
+        //     for (int j = 0; j < lines; j++)
+        //     {
+        //         cout << "|" << matrix[i][j] << "| ";
+        //     }
+        //     cout << endl;
+        // }
     }
     catch (const std::exception &e)
     {
