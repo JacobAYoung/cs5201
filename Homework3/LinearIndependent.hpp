@@ -1,6 +1,13 @@
+const double EPSILON = 0.0001;
+const int MAX_ITERATIONS = 500;
+
 template <class T>
 LinearIndependent<T>::LinearIndependent(int size)
 {
+    if (size < 0)
+    {
+        throw std::range_error("Cannot have negative size");
+    }
     for (int i = 0; i < size; i++)
     {
         data.push_back(0);

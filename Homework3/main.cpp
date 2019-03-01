@@ -1,3 +1,10 @@
+///Author: Jake Young
+///Date: 2-29-2019
+///PRE: None
+/// POST: This main function will declare a MyVector class object and
+/// LinearIndependent object that will do some vector math and check if the
+/// matrix is linear independent or not
+
 #include <iostream>
 #include <fstream>
 #include "MyVector.h"

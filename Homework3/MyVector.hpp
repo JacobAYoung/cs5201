@@ -86,6 +86,12 @@ MyVector<T> &MyVector<T>::operator=(const MyVector<T> &source)
 }
 
 template <class T>
+int MyVector<T>::GetNumElements() const
+{
+    return numElements;
+}
+
+template <class T>
 void MyVector<T>::SetSize(const int size)
 {
     if (size < 0)
@@ -99,12 +105,6 @@ void MyVector<T>::SetSize(const int size)
         this->ptr_to_data = new T[numElements];
     }
     return;
-}
-
-template <class T>
-int MyVector<T>::GetNumElements() const
-{
-    return numElements;
 }
 
 template <class T>
@@ -125,18 +125,37 @@ bool operator==(const MyVector<T> &lhs, const MyVector<T> &rhs)
             }
         }
     }
+    else
+    {
+        return false;
+    }
     return equal;
 }
 
-// template <class T>
-// bool operator!=(const MyVector<T> &lhs, const MyVector<T> &rhs)
-// {
-//     if ((lhs.GetR() != rhs.GetR()) || (lhs.GetTheta() != rhs.GetTheta()) || (lhs.GetZ() != rhs.GetZ()))
-//     {
-//         return true;
-//     }
-//     return false;
-// }
+template <class T>
+bool operator!=(const MyVector<T> &lhs, const MyVector<T> &rhs)
+{
+    bool notEqual = false;
+    if (lhs.GetNumElements() == rhs.GetNumElements())
+    {
+        for (int i = 0; i < rhs.GetNumElements(); i++)
+        {
+            if (std::abs(lhs[i] - rhs[i]) < .001)
+            {
+                notEqual = false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+    else
+    {
+        return true;
+    }
+    return notEqual;
+}
 
 template <class T>
 MyVector<T> operator+(const MyVector<T> &lhs, const MyVector<T> &rhs)
@@ -174,17 +193,6 @@ MyVector<T> operator-(const MyVector<T> &lhs, const MyVector<T> &rhs)
     return temp;
 }
 
-template <class T>
-MyVector<T> operator-(const MyVector<T> &source)
-{
-    MyVector<T> temp(source);
-    for (int i = 0; i < temp.GetNumElements(); i++)
-    {
-        temp[i] *= -1;
-    }
-    return temp;
-}
-
 template <typename T>
 T operator*(const MyVector<T> &lhs, const MyVector<T> &rhs)
 {
@@ -203,13 +211,13 @@ T operator*(const MyVector<T> &lhs, const MyVector<T> &rhs)
     return total;
 }
 
-template <typename T>
-MyVector<T> operator*(const T &lhs, const MyVector<T> &rhs)
+template <class T>
+MyVector<T> operator-(const MyVector<T> &source)
 {
-    MyVector<T> temp(rhs);
-    for (int i = 0; i < rhs.GetNumElements(); i++)
+    MyVector<T> temp(source);
+    for (int i = 0; i < temp.GetNumElements(); i++)
     {
-        temp[i] = lhs * rhs[i];
+        temp[i] *= -1;
     }
     return temp;
 }
@@ -217,7 +225,11 @@ MyVector<T> operator*(const T &lhs, const MyVector<T> &rhs)
 template <class T>
 std::ostream &operator<<(std::ostream &out, const MyVector<T> &source)
 {
-    return out << source[0] << " " << source[1] << " " << source[2] << " " << source[3];
+    for (int i = 0; i < source.GetNumElements(); i++)
+    {
+        out << source[i] << " ";
+    }
+    return out;
 }
 
 template <class T>
