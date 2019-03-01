@@ -59,7 +59,8 @@ int main(int argc, char *argv[])
             vect.push_back(myVector);
         }
         file.close();
-
+        cout.precision(8);
+        cout.setf(ios::fixed);
         cout << vect[0] + vect[1] << endl;
         cout << vect[0] - vect[1] << endl;
         cout << vect[0] * vect[1] << endl;
@@ -75,8 +76,6 @@ int main(int argc, char *argv[])
                 matrix[i].push_back(vect[j][i]);
             }
         }
-        cout.precision(4);
-        cout.setf(ios::fixed);
         LinearIndependent<double> linear(lines - 1);
         bool linearIndependent = linear.CheckLinearIndependent(matrix, lines - 1);
         cout << linearIndependent << endl;

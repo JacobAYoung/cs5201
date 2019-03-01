@@ -6,11 +6,15 @@ MyVector<T>::MyVector()
 }
 
 template <class T>
-MyVector<T>::MyVector(int n)
+MyVector<T>::MyVector(int size)
 {
-    numElements = n;
-    ptr_to_data = new T[n];
-    for (int i = 0; i < n; i++)
+    if (size < 0)
+    {
+        throw std::range_error("Cannot have negative size");
+    }
+    numElements = size;
+    ptr_to_data = new T[size];
+    for (int i = 0; i < size; i++)
     {
         this->ptr_to_data[i] = 0;
     }
@@ -26,15 +30,6 @@ MyVector<T>::MyVector(const MyVector<T> &source)
         this->ptr_to_data[i] = 0;
     }
     copy(source);
-}
-
-template <class T>
-MyVector<T>::MyVector(MyVector<T> &&source)
-{
-    ptr_to_data = source.ptr_to_data;
-    numElements = std::move(source.numElements);
-    source.ptr_to_data = nullptr;
-    source.numElements = 0;
 }
 
 template <class T>
@@ -93,6 +88,10 @@ MyVector<T> &MyVector<T>::operator=(const MyVector<T> &source)
 template <class T>
 void MyVector<T>::SetSize(const int size)
 {
+    if (size < 0)
+    {
+        throw std::range_error("Cannot have negative size");
+    }
     if (size != numElements)
     {
         delete[] ptr_to_data;
@@ -100,16 +99,6 @@ void MyVector<T>::SetSize(const int size)
         this->ptr_to_data = new T[numElements];
     }
     return;
-}
-
-template <class T>
-MyVector<T> &MyVector<T>::operator=(const T val)
-{
-    for (int i = 0; i < numElements; i++)
-    {
-        this->ptr_to_data[i] = val;
-    }
-    return (*this);
 }
 
 template <class T>
