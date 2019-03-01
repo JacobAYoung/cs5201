@@ -43,7 +43,8 @@ int main(int argc, char *argv[])
 
         if (lines <= 0)
         {
-            throw std::runtime_error("Check how many objects you would like to create at the top of your file.");
+            throw std::runtime_error("Check how many objects you would like "
+                                     "to create at the top of your file.");
         }
         MyVector<double> myVector(lines);
         for (int i = 0; i < lines; i++)
