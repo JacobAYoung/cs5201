@@ -1,0 +1,46 @@
+ex: 1.) Let V be the set of real n-tuples^1, and the set of scalars (All reals)^1.
+Is this a vector space? What is + and . mean here?
+Let's use the "usual" meaning of both
+  - Adding two n-tuples means an n-tuple whose components are the usual real sums
+    of the components of the add ends; and scalar multiplication results in an n-tuple
+    whose components are the product of the scalar multiple and that component.
+
+    u = <x1 y1 z1> v = <x2 y2 z2>  C c R
+
+    Is this a vector space? Yes
+
+
+"n-tuples" are ordered sets of n-things
+
+
+Definition: A Subset, S, of a vector space, V, is a subset of the vectors of V
+  of the same operations.
+
+  Further, to show s C V is a vector space it is only necessary to show the clause properties
+
+Definition: A linear combination of vectors in a set, V, is any sum of constant multiples
+  of the vectors.
+
+One very important property of vector space is linear independence
+
+Defn: A set S = {alpha 1, ... , alpha n} C V is said to be linearly dependent
+  if there exist constants ai, not all zero, such that
+  a1 alpha1 + a2 alpha2 + ... + an alphan = 0
+
+  If the only scalar to (*) is a1=a2=..=an=0
+  Then S is said to be linearly independent
+
+Another way to characterize linear dependence is that at least vector in the set can be written as a linear
+  combination of the other vectors.
+
+Defn If a set S = {alpha1, ... , alphan} spans a vector space V, then
+  any vector in V can be written as a linear combination of some subset of S.
+
+Defn If S spans a vector space V and is linear independent, then S is called a basis
+  for V. (The number of vectors in a basis for V is called its dimension.)
+
+- A basis for V forms a set of basic building blocks for V.
+
+For R^3 = R x R x R or 3 - dimensional space (ordered triples)
+
+The set {i^, j^, k^} is orthogonal
