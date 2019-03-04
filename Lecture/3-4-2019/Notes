@@ -1,0 +1,77 @@
+Your matrix class - ideas
+  1.) my-vect<my-vect<T>> elm;
+    Quick and easy
+  2.) my-vect<T> * elm;
+    elm = new my-vect<T>[rows];
+  3.) T* elm;
+    elm = new T[rows x columns];
+    Terrible pointer arithmetic
+  4.) T** elm;
+    elm = new T*[rows];
+    for (int i = 0; i < rows; i++)
+      elm[i] = new T[cols];
+
+Inner Product Spaces
+
+Def: An inner product space on V is a real valued function over v with
+  1.) (alpha, alpha) > 0, alpha (element of) V, alpha != (the zero vector)
+  2.) (alpha, beta) = (beta, alpha) alpha, beta (element of) V
+  3.) (alpha + beta, gamma) = (alpha, gamma) + (beta, gamma)
+  4.) (calpha, beta) = c(alpha, beta), c (element of) (all reals)
+
+Thus 1 (Cauchy - Schwarz Inequality)
+  For any alpha, beta (element of) V, (alpha, beta)^2 <= abs(alpha)^2 abs(beta)^2,
+                                          where abs(alpha)^2 = sq((alpha, alpha))
+
+Thus 2 (Triangle Inequality)
+  For any two vectors alpha, beta (element of) V
+
+  abs(alpha + beta) <= abs(alpha) + abs(beta)
+
+Cauchy - Schawrz Inequality
+
+proof: If alpha = (the zero vect), then (alpha, beta) = 0 and the Inequality holds
+  Let's assume alpha != (the zero vect) and let r (element of) (all reals) -> r != 0
+  0 <= (ralpha + beta, ralpha + beta)
+      = r^2(alpha, alpha) + 2r(alpha, beta) + (beta, beta)
+      0 <= ar^2 + 2br + c, quadratic in r
+      where a = (alpha, alpha), b = (alpha, beta), c = (beta, beta)
+
+Well, for a quadratic to be greater then or equal to zero, then can at most one real root.
+Algebraically, how?
+Quadratic equation: Ax^2 + Bx + C
+(B +- sq(B^2 - 4AC)) / 2A
+
+4b^2 - 4ac <= 0 -> b^2 <= ac
+(alpha, beta)^2 <= (alpha, alpha)*(beta, beta)
+(alpha, beta)^2 <= abs(alpha)^2 abs(beta)^2
+
+Important Fact: Orthogonal bases for vector spaces are really important.
+Def: Let V be an inner product space. alpha, beta (element of) V
+  are orthogonal if and only if (alpha, beta) = 0
+
+In (all reals)^2 or (all reals)^3, orthogonality is typically thought of as
+  "perpendicularity".
+
+Why is a orthogonal basis so nice?
+
+Let's let S = {alpha1, ..., alphan} be an orthonormal basis for vector space V:
+  This means that every pair of these vectors are not only orthogonal, but each one of them
+  is of unit length.
+
+Then, for any vector v (element of) V, (backwards E) constants a1, ..., an (such that)
+  r = a1 alpha1 + a2 alpha2 + .... + an alphan
+
+So, why is S so important?
+
+It's really easy to find the a's.
+
+Notice:
+  (v, alpha) = (a1 alpha1 + ... an alphan, alpha1)
+             = alpha1 (alpha1, alpha1) + alpha2 (alpha2, alpha1) + .... + an (alphan, alpha1)
+             = alpha1 + 0
+  (v, alpha2) = alpha2
+  (v, alphan) = alphan
+
+Gram Schmidt Process:
+Takes any basis and produces from it an orthonormal basis.
