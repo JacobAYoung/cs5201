@@ -1,0 +1,31 @@
+A norm is a way to measure something.
+
+We demand certain properties.
+
+Defn: Let V be a vector space. N : V -> R is a norm if:
+  1.) N(v) >= 0, (For all) v (element of) V ; N(v) = 0 only if V = 0
+  2.) N(alpha v^) = abs(alpha) N(v^), V v^ (element of) V, alpha (element of) R
+  3.) N(v^ + w^) <= N(v^) +N(w^), V v^, w^ (element of) V
+
+
+The most important result:
+Then (Equivalence of Norms)
+  Let N and M be norms on R^n then (backwards E) constants
+  c1 and c1 > 0 such that
+
+  c1 M(v^) <= N(v^) <= c2 M(v^), V v (element of) V
+
+Then (a lemma, continuity of Norms)
+  Let N(x^) be a norm on R^n. Then N(x^) is a continuous function of the components of x
+
+
+Proof: Show if xi = yi, then N(x^) = N(y^)
+
+We have:
+  (x^ - y^) = (sum)^n(low i) (xi - yi) e^(low i)
+
+
+  so, N(x^ - y^) <= (sum)^n(low i) |xi - yi| N(e^(low i)) <= (sum)^n(low i) max{|xi - yi|} N(e^(low i))
+
+Now, using the Reverse Triangle Inequality:
+  | N(x) - N(y) | <= N(x^ - y^) <= || x^ - y^ || (low infinity) c , c = (sum)(low i) N(e^(low i))
