@@ -1,0 +1,28 @@
+Equivalence of Norms (revisited):
+
+Defn: Let's say that a sequence of vectors {v1, v2, v3,...} in R^n converge to a
+  vector v^ (element of) R^n iff || v - vi || -> 0 as i -> oo
+
+So, v^(low i) -> v^ using the M norm only if it also does the same in the N norm.
+
+Matrix Norms:
+
+Theorem: Let (low n)A(low n) be a nxn matrix w/ real entries ((low n)A(low n) (element of) (low n)R(low n))
+and V = R^n, then the following are equivalent
+
+  1.) Ax = B has a unique solution x (element of) V for any B (element of) V
+  2.) Ax = 0 implies x = 0
+  3.) A^-1 exists
+  4.) det(A) != 0
+  5.) dim(A) = n
+
+For matrix norms, we add two more qualifications.
+
+  4.) || A B || <= ||A|| * ||B||
+  5.) || Ax ||(low v) <= ||A|| * ||x||(low v)
+
+
+The Frobenius Norm:
+
+  Let (low n)A(low n) of reals and consider the P(low 2) norm, ||(dot)||(low 2)
+    Then ||Ax||(low 2) = [ (sum^n)i=1 |(sum^n)j=1 a(low ij) x(low j)|^2 ]^1/2
