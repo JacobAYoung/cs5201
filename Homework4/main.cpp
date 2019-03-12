@@ -10,13 +10,14 @@
 #include "MyVector.h"
 #include <vector>
 #include <sstream>
+#include "Matrix.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    MyVector<MyVector<double>> vect;
-
+    //MyVector<MyVector<double>> vect;
+    //;
     string line = "";
 
     int lines = 0;
@@ -39,13 +40,14 @@ int main(int argc, char *argv[])
         getline(file, line);
         istringstream inputStream(line);
         inputStream >> lines;
-
+        Matrix<double> matrix(lines, lines);
         if (lines <= 0)
         {
             throw std::runtime_error("Check how many objects you would like "
                                      "to create at the top of your file.");
         }
         MyVector<double> myVector(lines);
+        getline(file, line);
         for (int i = 0; i < lines; i++)
         {
             if (file.eof())
@@ -61,16 +63,18 @@ int main(int argc, char *argv[])
                     throw std::runtime_error("Contains a character");
                 }
             }
+
             if (line != "")
             {
                 istringstream ss(line);
                 ss >> myVector;
-                vect.PushBack(myVector);
+                matrix.PushBack(myVector);
             }
         }
         file.close();
         cout.precision(8);
         cout.setf(ios::fixed);
+        cout << matrix[0] << endl;
         // cout << vect[0] << endl;
         // cout << vect[1] << endl;
         // cout << vect[0] + vect[1] << endl;
