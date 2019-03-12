@@ -1,0 +1,49 @@
+Gram-Schmidt Orthogonalization:
+
+Suppose we have a set of S={alpha1, ... alphan} a basis for a vector space V = R^n.
+We'd like to build orthogonal basis for V.
+We'll call the vectors Bi's, so T = {B1, .. Bn} will be an orthonormal set/basis.
+
+Start: Let B1 = alpha1 . Now pick another vector in S (alpha 2) and we'll initially think of it as B2.
+
+I want the set {B1, B2} to be an orthogonal pair and have it span the same subspace
+as {alpha1, alpha2} = {B1, alpha2}
+If so, then there have to be constants a1 and a2 such that,
+B2 = a1*alpha1 + a2*alpha2
+   = a1*B1 + a2*alpha2
+
+But B1 and B2 must also be orthogonal.
+
+(B1, B2) = 0 = (B1, a1*B1 + a2*alpha2) = a1(B1, B1) + a2(B1, alpha2)
+
+Let a2 = 1. Solving for a1
+
+a1 = -(B1, alpha2)/(B1, B1)
+
+Thus, B2 = alpha2 - ((B1, alpha2)/(B1, B1)) * B1
+
+Now, let {B1, B2, B3} be such that it spans the same subspace as {alpha1, alpha2, alpha3} =>
+  {B1, B2, alpha3}. I need B3 to be a linear combination of {B1, B2, alpha3}
+  and B1 (orthogonal) B2 (orthogonal) B3. B3 = b1B1 + b2B2 + b3Alpha3
+
+0 = (B1, B3) = (B1, b1B1 + b2B2 + b3Alpha3) = b1(B1, B1) + b2(B1, B2) + b3(B1, alpha3)
+0 = (B2, B3) = (B2, b1B1 + b2B2 + b3Alpha3) = b1(B2, B1) + b2(B2, B2) + b3(B2, alpha3)
+
+Let b3 = 1
+
+B3 = alpha3 - ((B1, alpha3)/(B1, B1))* B1 - ((B2, alpha3)/(B2, B2))*B2
+
+Bk = alphak - ((B1, alphak)/(B1, B1))* B1 - ((B2, alphak)/(B2, B2))*B2 - ... - ((Bk-1, alphak)/(Bk-1, Bk-1))*Bk
+
+f(x) = (x-1)^2
+roots f(x) = 0 => 2 repeated real roots: x = 1, 1
+
+Suppose there is a really small error in computation or ...
+(E = epsilon = error)
+f(x) = (x-1)^2 + E^2
+
+roots: 1+- Ei
+
+expecting: 1
+
+f(x) = (x-1)^2 - E^2 => roots: 1 +- E
