@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <utility>
 #include "MyVector.h"
+#include "GaussElimination.h"
 
 using namespace std;
 
@@ -21,9 +22,20 @@ class Matrix
     void PushBack(const MyVector<T> &source);
     int GetRows() const;
     int GetColumns() const;
+    Matrix<T> Transpose(const Matrix<T> &source);
     MyVector<T> &operator[](const int &i);
     MyVector<T> &operator[](const int &i) const;
+    MyVector<T> Eliminate(const MyVector<T> &B);
 };
+
+template <typename T>
+Matrix<T> operator*(const Matrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const Matrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const Matrix<T> &lhs, const Matrix<T> &rhs);
 
 template <class T>
 std::ostream &operator<<(std::ostream &out, const MyVector<T> &source);

@@ -40,7 +40,8 @@ int main(int argc, char *argv[])
         getline(file, line);
         istringstream inputStream(line);
         inputStream >> lines;
-        Matrix<double> matrix(lines, lines);
+        Matrix<double> matrix1(lines, lines);
+        Matrix<double> matrix2(lines, 1);
         if (lines <= 0)
         {
             throw std::runtime_error("Check how many objects you would like "
@@ -68,17 +69,31 @@ int main(int argc, char *argv[])
             {
                 istringstream ss(line);
                 ss >> myVector;
-                matrix.PushBack(myVector);
+                matrix1.PushBack(myVector);
             }
         }
+        getline(file, line);
+        getline(file, line);
+        istringstream ss(line);
+        ss >> myVector;
         file.close();
         cout.precision(8);
         cout.setf(ios::fixed);
-        cout << matrix[0] << endl;
-        // cout << vect[0] << endl;
-        // cout << vect[1] << endl;
-        // cout << vect[0] + vect[1] << endl;
-        //cout << vect << endl;
+        cout << "Matrix 1:" << endl;
+        for (int i = 0; i < matrix1.GetRows(); i++)
+        {
+            for (int j = 0; j < matrix1.GetColumns(); j++)
+            {
+                cout << matrix1[i][j] << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+        cout << "Gauss Eliminate" << endl;
+        MyVector<double> x = matrix1.Eliminate(myVector);
+        matrix2.PushBack(x);
+        cout << matrix1 * matrix2 << endl;
     }
     catch (const std::exception &e)
     {
