@@ -86,10 +86,6 @@ int main(int argc, char *argv[])
         //Output
         cout.precision(8);
         cout.setf(ios::fixed);
-
-        cout << endl;
-        cout << endl;
-
         cout << "A * A^T:" << endl;
         cout << matrix1 * matrix1.Transpose() << endl;
         cout << endl;

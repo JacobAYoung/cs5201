@@ -143,7 +143,7 @@ bool operator==(const MyVector<T> &lhs, const MyVector<T> &rhs)
     {
         for (int i = 0; i < rhs.GetNumElements(); i++)
         {
-            if (std::abs(lhs[i] - rhs[i]) < .001)
+            if (abs(lhs[i] - rhs[i]) < .001)
             {
                 equal = true;
             }
@@ -168,7 +168,7 @@ bool operator!=(const MyVector<T> &lhs, const MyVector<T> &rhs)
     {
         for (int i = 0; i < rhs.GetNumElements(); i++)
         {
-            if (std::abs(lhs[i] - rhs[i]) < .001)
+            if (abs(lhs[i] - rhs[i]) < .001)
             {
                 notEqual = false;
             }

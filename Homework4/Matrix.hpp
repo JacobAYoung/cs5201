@@ -20,6 +20,35 @@ Matrix<T>::Matrix(int rows, int columns)
 }
 
 template <class T>
+Matrix<T>::Matrix(const Matrix<T> &source)
+{
+    numRows = source.numRows;
+    numColumns = source.numColumns;
+    for (int i = 0; i < numRows; i++)
+    {
+        MyVector<double> tempVect(numColumns);
+        myVect.PushBack(tempVect);
+    }
+    copy(source);
+}
+
+template <class T>
+Matrix<T>::~Matrix() {}
+
+template <class T>
+void Matrix<T>::copy(const Matrix<T> &source)
+{
+    for (int i = 0; i < GetRows(); i++)
+    {
+        for (int j = 0; j < GetColumns(); j++)
+        {
+            myVect[i][j] = source[i][j];
+        }
+    }
+    return;
+}
+
+template <class T>
 void Matrix<T>::PushBack(const MyVector<T> &source)
 {
     int counter = 0;
@@ -63,9 +92,9 @@ template <class T>
 Matrix<T> Matrix<T>::Transpose()
 {
     Matrix<T> temp(this->GetColumns(), this->GetRows());
-    for (int i = 0; i < this->GetRows(); ++i)
+    for (int i = 0; i < this->GetRows(); i++)
     {
-        for (int j = 0; j < this->GetColumns(); ++j)
+        for (int j = 0; j < this->GetColumns(); j++)
         {
             temp[j][i] = myVect[i][j];
         }
@@ -125,6 +154,18 @@ Matrix<T> Matrix<T>::operator*(const T &val)
         }
     }
     return temp;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator=(const Matrix<T> &source)
+{
+    if (*this != source)
+    {
+        numColumns = source.numColumns;
+        numRows = source.numRows;
+        myVect = source.myVect;
+    }
+    return (*this);
 }
 
 template <typename T>

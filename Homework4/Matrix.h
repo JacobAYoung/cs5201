@@ -40,6 +40,16 @@ class Matrix
      * 
      */
     MyVector<MyVector<T>> myVect;
+    /**
+     * @brief Copy function that copies all the data from the source to the c.o.
+     * matrix
+     * @Pre Matrix object is created and another matrix object is created to be
+     * copied from
+     * @Post Copies all the data from the source matrix object and replaces the
+     * c.o. data values
+     * @param source Matrix object
+     */
+    void copy(const Matrix<T> &source);
 
   public:
     /**
@@ -60,6 +70,20 @@ class Matrix
      * @param columns Number of columns
      */
     Matrix(int rows, int columns);
+    /**
+     * @brief Copy constructor
+     * @Pre A c.o. matrix is created and a source matrix object is created to be
+     * copied from
+     * @Post Copies the source matrix object to the c.o.
+     * @param source Matrix object
+     */
+    Matrix(const Matrix<T> &source);
+    /**
+     * @brief Destroy the Matrix object
+     * @Pre Matrix object is created
+     * @Post c.o. matrix will be destroyed and deleted from memory.
+     */
+    ~Matrix();
     /**
      * @brief Add a vector onto the matrix
      * @Pre A matrix object is created
@@ -122,15 +146,59 @@ class Matrix
      * from the c.o. object and B vector
      */
     MyVector<T> Eliminate(const MyVector<T> &B);
-
+    /**
+     * @brief Scalar multiplcation of a matrix and a T value. The T value must
+     * be on the right side of the multiplcation equation.
+     * @Pre Matrix object is created
+     * @Post Matrix c.o. is multiplied by the value
+     * @param val Value to be multiplied against matrix
+     * @return Matrix<T> A matrix that has been multiplied by the value
+     */
     Matrix<T> operator*(const T &val);
+    /**
+     * @brief Assignment operator that sets the rhs Matrix object to the c.o.
+     * @Pre A matrix object is created and another to be copied from
+     * @Post Copies the rhs matrix object to the matrix c.o.
+     * @param source Matrix object
+     * @return Matrix<T> The c.o. is now equal to the rhs matrix object
+     */
+    Matrix<T> operator=(const Matrix<T> &source);
 };
+/**
+ * @brief Equals operator. Checks to see if the two matrix objects are the same
+ * @Pre Two matrix objects are created
+ * @Post Returns true or false depending on if the matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs Matrix object
+ * @param rhs Matrix object
+ * @return true If the two matrix objects are the same
+ * @return false If the two matrix objects aren't the same
+ */
 template <typename T>
 bool operator==(const Matrix<T> &lhs, const Matrix<T> &rhs);
-
+/**
+ * @brief Not Equals operator. Checks to see if the two matrix objects are not the same
+ * @Pre Two matrix objects are created
+ * @Post Returns true or false depending on if the matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs Matrix object
+ * @param rhs Matrix object
+ * @return true If the two matrix objects aren't the same
+ * @return false If the two matrix objects are the same
+ */
 template <typename T>
 bool operator!=(const Matrix<T> &lhs, const Matrix<T> &rhs);
-
+/**
+ * @brief Negates every value within the matrix
+ * @Pre A matrix object is created
+ * @Post Negates every value within the matrix
+ * 
+ * @tparam T template T
+ * @param source Matrix object
+ * @return Matrix<T> A matrix that has every value negated
+ */
 template <typename T>
 Matrix<T> operator-(const Matrix<T> &source);
 /**
