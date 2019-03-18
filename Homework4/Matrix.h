@@ -22,7 +22,7 @@ class Matrix
     void PushBack(const MyVector<T> &source);
     int GetRows() const;
     int GetColumns() const;
-    Matrix<T> Transpose(const Matrix<T> &source);
+    Matrix<T> Transpose();
     MyVector<T> &operator[](const int &i);
     MyVector<T> &operator[](const int &i) const;
     MyVector<T> Eliminate(const MyVector<T> &B);

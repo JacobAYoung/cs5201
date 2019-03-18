@@ -2,8 +2,8 @@
 ///Date: 2-29-2019
 ///PRE: None
 /// POST: This main function will declare a MyVector class object and
-/// LinearIndependent object that will do some vector math and check if the
-/// matrix is linear independent or not
+/// Matrix object that we weill use to run calculations with Ax =b and other
+/// matrix computations.
 
 #include <iostream>
 #include <fstream>
@@ -16,8 +16,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    //MyVector<MyVector<double>> vect;
-    //;
     string line = "";
 
     int lines = 0;
@@ -40,6 +38,7 @@ int main(int argc, char *argv[])
         getline(file, line);
         istringstream inputStream(line);
         inputStream >> lines;
+        //Define matricies
         Matrix<double> matrix1(lines, lines);
         Matrix<double> matrix2(lines, 1);
         if (lines <= 0)
@@ -48,7 +47,6 @@ int main(int argc, char *argv[])
                                      "to create at the top of your file.");
         }
         MyVector<double> myVector(lines);
-        getline(file, line);
         for (int i = 0; i < lines; i++)
         {
             if (file.eof())
@@ -71,28 +69,35 @@ int main(int argc, char *argv[])
                 ss >> myVector;
                 matrix1.PushBack(myVector);
             }
+            else
+            {
+                i--;
+            }
         }
+        //Copy a blank line for file format
         getline(file, line);
+        //Copy the vector
         getline(file, line);
         istringstream ss(line);
         ss >> myVector;
+        //Close the file
         file.close();
+
+        //Output
         cout.precision(8);
         cout.setf(ios::fixed);
-        cout << "Matrix 1:" << endl;
-        for (int i = 0; i < matrix1.GetRows(); i++)
+        cout << "A * A^T:" << endl;
+        cout << matrix1 * matrix1.Transpose() << endl;
+        cout << endl;
+        cout << "x:" << endl;
+        MyVector<double> x = matrix1.Eliminate(myVector);
+        for (int i = 0; i < lines; i++)
         {
-            for (int j = 0; j < matrix1.GetColumns(); j++)
-            {
-                cout << matrix1[i][j] << " ";
-            }
-            cout << endl;
+            cout << x[i] << endl;
         }
         cout << endl;
-
-        cout << "Gauss Eliminate" << endl;
-        MyVector<double> x = matrix1.Eliminate(myVector);
         matrix2.PushBack(x);
+        cout << "A * x:" << endl;
         cout << matrix1 * matrix2 << endl;
     }
     catch (const std::exception &e)

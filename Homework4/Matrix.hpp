@@ -60,14 +60,14 @@ int Matrix<T>::GetColumns() const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::Transpose(const Matrix<T> &source)
+Matrix<T> Matrix<T>::Transpose()
 {
-    Matrix<T> temp(source.GetColumns(), source.GetRows());
-    for (int i = 0; i < source.GetRows(); ++i)
+    Matrix<T> temp(this->GetColumns(), this->GetRows());
+    for (int i = 0; i < this->GetRows(); ++i)
     {
-        for (int j = 0; j < source.GetColumns(); ++j)
+        for (int j = 0; j < this->GetColumns(); ++j)
         {
-            temp[j][i] = source[i][j];
+            temp[j][i] = myVect[i][j];
         }
     }
     return temp;
@@ -102,8 +102,15 @@ MyVector<T> &Matrix<T>::operator[](const int &i) const
 template <class T>
 MyVector<T> Matrix<T>::Eliminate(const MyVector<T> &B)
 {
-    GaussElimination<T> source;
-    return source.GaussEliminate(myVect, B);
+    if (GetColumns() == B.GetNumElements())
+    {
+        GaussElimination<T> source;
+        return source.GaussEliminate(myVect, B);
+    }
+    else
+    {
+        throw std::range_error("Sizes don't match");
+    }
 }
 
 template <class T>

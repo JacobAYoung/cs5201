@@ -60,6 +60,8 @@ public:
    * @param source The MyVector object that will be copied from
    */
   MyVector(const MyVector<T> &source);
+
+  MyVector(MyVector<T> &&source);
   /**
    * @brief Destroy the My Vector object
    * 

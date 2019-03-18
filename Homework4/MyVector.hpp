@@ -33,6 +33,16 @@ MyVector<T>::MyVector(const MyVector<T> &source)
 }
 
 template <class T>
+MyVector<T>::MyVector(MyVector<T> &&source)
+{
+    this->numElements = source.numElements;
+    this->ptr_to_data = std::move(source.ptr_to_data);
+
+    source.numElements = 0;
+    source.ptr_to_data = nullptr;
+}
+
+template <class T>
 void MyVector<T>::copy(const MyVector<T> &source)
 {
     for (int i = 0; i < source.GetNumElements(); i++)

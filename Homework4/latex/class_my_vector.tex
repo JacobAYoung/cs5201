@@ -1,0 +1,182 @@
+\hypertarget{class_my_vector}{}\section{My\+Vector$<$ T $>$ Class Template Reference}
+\label{class_my_vector}\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_my_vector_ac356762c5ced52c0d934476cef32e472}{My\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new My Vector object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector_a9f780e2c6c6f35610a656b64395c6d1b}{My\+Vector}} (int size)
+\begin{DoxyCompactList}\small\item\em Construct a new My Vector object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector_aaf93995f4a267cc279867c10cfbef623}{My\+Vector}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_my_vector_a7b2d4483f19b1ea3525e49336c857111}\label{class_my_vector_a7b2d4483f19b1ea3525e49336c857111}} 
+{\bfseries My\+Vector} (\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&\&source)
+\item 
+\mbox{\hyperlink{class_my_vector_abe59f181259ff63fa583f4bd87a9737e}{$\sim$\+My\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the My Vector object. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_my_vector_a52eca35ed558d978bf5a8541f9d0115c}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i)
+\begin{DoxyCompactList}\small\item\em operator\mbox{[}\mbox{]}\+: \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_my_vector_a01d48c27ba17ad15aa29b2f039c303cd}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em operator\mbox{[}\mbox{]}\+: \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position but it\textquotesingle{}s a constant value \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_my_vector_a459ecae4c3fc3836415467db79bd0af2}{operator=}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Assignment operator for assigning a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object to another. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_my_vector_a5806423f48877c084cc436ecdffa756c}{Get\+Num\+Elements}} () const
+\begin{DoxyCompactList}\small\item\em Get the Num Elements object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_my_vector_a54da580455b3348ddc47a6359e9db444}{Set\+Size}} (const int n)
+\begin{DoxyCompactList}\small\item\em Set the Size of the object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}\label{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}} 
+void {\bfseries Push\+Back} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ double $>$ \&source)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_my_vector_ac356762c5ced52c0d934476cef32e472}\label{class_my_vector_ac356762c5ced52c0d934476cef32e472}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!MyVector@{MyVector}}
+\index{MyVector@{MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new My Vector object. 
+
+//\+Pre\+: Construct a new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object //\+Post\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created \mbox{\Hypertarget{class_my_vector_a9f780e2c6c6f35610a656b64395c6d1b}\label{class_my_vector_a9f780e2c6c6f35610a656b64395c6d1b}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!MyVector@{MyVector}}
+\index{MyVector@{MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Construct a new My Vector object. 
+
+//\+Pre\+: Construct a new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object with the known size of a vector. Size cannot be $<$ 0 //\+Post\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created with a certain vector size 
+\begin{DoxyParams}{Parameters}
+{\em size} & Size of the vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_vector_aaf93995f4a267cc279867c10cfbef623}\label{class_my_vector_aaf93995f4a267cc279867c10cfbef623}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!MyVector@{MyVector}}
+\index{MyVector@{MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is being copied //\+Post\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created with a certain vector size 
+\begin{DoxyParams}{Parameters}
+{\em source} & The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object that will be copied from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_vector_abe59f181259ff63fa583f4bd87a9737e}\label{class_my_vector_abe59f181259ff63fa583f4bd87a9737e}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!````~MyVector@{$\sim$MyVector}}
+\index{````~MyVector@{$\sim$MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{$\sim$MyVector()}{~MyVector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the My Vector object. 
+
+//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object will be destroied //\+Post\+: The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is deallocated from memory 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_my_vector_a5806423f48877c084cc436ecdffa756c}\label{class_my_vector_a5806423f48877c084cc436ecdffa756c}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!GetNumElements@{GetNumElements}}
+\index{GetNumElements@{GetNumElements}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{GetNumElements()}{GetNumElements()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::Get\+Num\+Elements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Num Elements object. 
+
+//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created //\+Post\+: Returns the number of elements within the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \begin{DoxyReturn}{Returns}
+int The value of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object\textquotesingle{}s number of elements within the vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_vector_a459ecae4c3fc3836415467db79bd0af2}\label{class_my_vector_a459ecae4c3fc3836415467db79bd0af2}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Assignment operator for assigning a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object to another. 
+
+//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and want\textquotesingle{}s to be assigned to calling object //\+Post\+: Sets the calling object \mbox{\hyperlink{class_my_vector}{My\+Vector}} object to the source \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$\& Assigns the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object source to the calling object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_vector_a52eca35ed558d978bf5a8541f9d0115c}\label{class_my_vector_a52eca35ed558d978bf5a8541f9d0115c}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption})}
+
+
+
+operator\mbox{[}\mbox{]}\+: \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position 
+
+//\+Pre\+: The position of the data is known //\+Post\+: Returns the data from the pointer of the specified position 
+\begin{DoxyParams}{Parameters}
+{\em i} & Position number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& Returns the data from the pointer at the specific position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_vector_a01d48c27ba17ad15aa29b2f039c303cd}\label{class_my_vector_a01d48c27ba17ad15aa29b2f039c303cd}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+operator\mbox{[}\mbox{]}\+: \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position but it\textquotesingle{}s a constant value 
+
+//\+Pre\+: The position of the data is known //\+Post\+: Returns the data from the pointer of the specified position as a constant value 
+\begin{DoxyParams}{Parameters}
+{\em i} & Position number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& Returns the data from the pointer at the specific position as a constant value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_vector_a54da580455b3348ddc47a6359e9db444}\label{class_my_vector_a54da580455b3348ddc47a6359e9db444}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::Set\+Size (\begin{DoxyParamCaption}\item[{const int}]{n }\end{DoxyParamCaption})}
+
+
+
+Set the Size of the object. 
+
+//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and want\textquotesingle{}s to set the size //\+Post\+: Sets the calling object\textquotesingle{}s size to the value of n 
+\begin{DoxyParams}{Parameters}
+{\em n} & size \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+My\+Vector.\+h\item 
+My\+Vector.\+hpp\end{DoxyCompactItemize}
