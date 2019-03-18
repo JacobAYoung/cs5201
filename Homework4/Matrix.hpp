@@ -157,7 +157,7 @@ Matrix<T> Matrix<T>::operator*(const T &val)
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator=(const Matrix<T> &source)
+Matrix<T> &Matrix<T>::operator=(const Matrix<T> &source)
 {
     if (*this != source)
     {

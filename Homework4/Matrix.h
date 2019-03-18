@@ -162,7 +162,7 @@ class Matrix
      * @param source Matrix object
      * @return Matrix<T> The c.o. is now equal to the rhs matrix object
      */
-    Matrix<T> operator=(const Matrix<T> &source);
+    Matrix<T> &operator=(const Matrix<T> &source);
 };
 /**
  * @brief Equals operator. Checks to see if the two matrix objects are the same
