@@ -1,8 +1,17 @@
-///Author: Jake Young
-///Date: 2-29-2019
-///PRE: MyVector object is created
-/// POST: Creates a MyVector object for which you can call any function within
-/// the class and use it to mess with vectors
+/**
+ * @file MyVector.h
+ * @author Jake Young
+ * @Pre MyVector object is created
+ * @Post Creates a MyVector object for which you can call any function within 
+ * the class and use it to mess with vectors
+ * @brief A similar concept to the std::vector object that can do specific
+ * calculations and operations.
+ * @version 0.1
+ * @date 2019-03-17
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 
 #pragma once
 
@@ -56,11 +65,17 @@ public:
    * @brief Copy constructor
    * 
    * //Pre: MyVector object is being copied
-   * //Post: A new MyVector object is created with a certain vector size
+   * //Post: A new MyVector object is created with a certain vector size. Throws
+   * an error if the size is below 0
    * @param source The MyVector object that will be copied from
    */
   MyVector(const MyVector<T> &source);
-
+  /**
+   * @brief Construct a new My Vector object
+   * @Pre A MyVector object is created and a temporary object is created
+   * @Post Allocates memory for a MyVector object
+   * @param source 
+   */
   MyVector(MyVector<T> &&source);
   /**
    * @brief Destroy the My Vector object
@@ -73,7 +88,8 @@ public:
    * @brief operator[]: [] operator that returns the data of the pointer at the specified position
    * 
    * //Pre: The position of the data is known
-   * //Post: Returns the data from the pointer of the specified position
+   * //Post: Returns the data from the pointer of the specified position. Throws
+   * an error if the position is out of the size.
    * @param i Position number
    * @return T& Returns the data from the pointer at the specific position
    */
@@ -84,7 +100,7 @@ public:
    * 
    * //Pre: The position of the data is known
    * //Post: Returns the data from the pointer of the specified position as a
-   * constant value
+   * constant value. Throws an error if the position is out of the size.
    * @param i Position number
    * @return T& Returns the data from the pointer at the specific position as a
    * constant value
@@ -112,11 +128,21 @@ public:
    * @brief Set the Size of the object
    * 
    * //Pre: MyVector object is created and want's to set the size
-   * //Post: Sets the calling object's size to the value of n
+   * //Post: Sets the calling object's size to the value of n. Throws an error
+   * if the size is below 0
    * @param n size
    */
   void SetSize(const int n);
-
+  /**
+   * @brief Adds values onto the MyVector object. I had to declare it as a
+   * double because there was no easy way of me using a template value with it.
+   * It would use MyVector<MyVector<T>> instead of just the T which I would need
+   * it to be a double for this to work...
+   * @Pre A MyVector object is created
+   * @Post Add's a MyVector object onto the MyVector<MyVector<T>> object
+   * 
+   * @param source MyVector object
+   */
   void PushBack(const MyVector<double> &source);
 };
 /**
@@ -130,7 +156,7 @@ public:
  * @return true if they are equal
  * @return false if they are not equal
  */
-template <class T>
+template <typename T>
 bool operator==(const MyVector<T> &lhs, const MyVector<T> &rhs);
 /**
  * @brief operator!=: != operator that checks to see if both the lhs MyVector object
@@ -145,26 +171,28 @@ bool operator==(const MyVector<T> &lhs, const MyVector<T> &rhs);
  * @return true if they are not equal
  * @return false if they are equal
  */
-template <class T>
+template <typename T>
 bool operator!=(const MyVector<T> &lhs, const MyVector<T> &rhs);
 /**
  * @brief Adds the two vector objects together
  * 
  * //Pre: There are two MyVector objects created that have the exact same amount
  * of elements within them
- * //Post: Returns a MyVector object of the two added vectors
+ * //Post: Returns a MyVector object of the two added vectors. Throws an error
+ * if the vectors aren't the same size.
  * @param lhs MyVector object on the left side
  * @param rhs MyVector object on the right side
  * @return MyVector<T> A MyVector object of the 2 added vectors
  */
-template <class T>
+template <typename T>
 MyVector<T> operator+(const MyVector<T> &lhs, const MyVector<T> &rhs);
 /**
  * @brief Subtracts the two vector objects
  * 
  * //Pre: There are two MyVector objects created that have the exact same amount
  * of elements within them
- * //Post: Returns a MyVector object of the two subtracted vectors
+ * //Post: Returns a MyVector object of the two subtracted vectors. Throws an
+ * error if the vectors aren't the same size.
  * @param lhs MyVector object on the left side
  * @param rhs MyVector object on the right side
  * @return MyVector<T> A MyVector object of the 2 subtracted vectors
@@ -176,7 +204,8 @@ MyVector<T> operator-(const MyVector<T> &lhs, const MyVector<T> &rhs);
  * 
  * //Pre: There are two MyVector objects created that have the exact same amount
  * of elements within them
- * //Post: Returns a T value of the 2 vectors that have been dotted together
+ * //Post: Returns a T value of the 2 vectors that have been dotted together.
+ * Throws an error if the vector sizes aren't the same size.
  * @param lhs MyVector object on the left side
  * @param rhs MyVector object on the right side
  * @return T Returns a T value of the 2 vectors that have been dotted together
@@ -187,15 +216,13 @@ T operator*(const MyVector<T> &lhs, const MyVector<T> &rhs);
  * @brief Negates the values within the MyVector object
  * 
  * //Pre: A MyVector object has been created with values
- * //Post: Returns a MyVector object that has all of it's values negated
+ * //Post: Returns a MyVector object that has all of it's values negated. Throws
+ * an error if the vectors aren't the same size
  * @param source A MyVector object
  * @return MyVector<T> A MyVector object with all it's values negated
  */
 template <typename T>
 MyVector<T> operator-(const MyVector<T> &source);
-//operator<<: << operator that directs the output of the MyVector object
-//Pre: The MyVector object is created
-//Post: Returns the elements of the MyVector object
 /**
  * @brief operator<<: << operator that directs the output of the MyVector object
  * 
@@ -206,7 +233,7 @@ MyVector<T> operator-(const MyVector<T> &source);
  * @return std::ostream& Returns the elements of the MyVector object as an
  * ostream object
  */
-template <class T>
+template <typename T>
 std::ostream &operator<<(std::ostream &out, const MyVector<T> &source);
 /**
  * @brief operator>>: >> operator that directs the input of data to the MyVector object data
@@ -217,7 +244,7 @@ std::ostream &operator<<(std::ostream &out, const MyVector<T> &source);
  * @param source MyVector object
  * @return std::istream& Sets the element values of the MyVector object
  */
-template <class T>
+template <typename T>
 std::istream &operator>>(std::istream &in, const MyVector<T> &source);
 
 #include "MyVector.hpp"

@@ -114,6 +114,94 @@ MyVector<T> Matrix<T>::Eliminate(const MyVector<T> &B)
 }
 
 template <class T>
+Matrix<T> Matrix<T>::operator*(const T &val)
+{
+    Matrix<T> temp(GetRows(), GetColumns());
+    for (int i = 0; i < GetRows(); i++)
+    {
+        for (int j = 0; j < GetColumns(); j++)
+        {
+            temp[i][j] = val * myVect[i][j];
+        }
+    }
+    return temp;
+}
+
+template <typename T>
+bool operator==(const Matrix<T> &lhs, const Matrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs[i][j] != rhs[i][j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <typename T>
+bool operator!=(const Matrix<T> &lhs, const Matrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs[i][j] != rhs[i][j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
+    {
+        return true;
+    }
+}
+
+template <typename T>
+Matrix<T> operator-(const Matrix<T> &source)
+{
+    Matrix<T> temp(source.GetRows(), source.GetColumns());
+    for (int i = 0; i < source.GetRows(); i++)
+    {
+        for (int j = 0; j < source.GetColumns(); j++)
+        {
+            temp[i][j] = -1 * source[i][j];
+        }
+    }
+    return temp;
+}
+
+template <class T>
 Matrix<T> operator*(const Matrix<T> &lhs, const Matrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), rhs.GetColumns());
@@ -193,7 +281,7 @@ Matrix<T> operator-(const Matrix<T> &lhs, const Matrix<T> &rhs)
     return temp;
 }
 
-template <class T>
+template <typename T>
 std::ostream &operator<<(std::ostream &out, const Matrix<T> &source)
 {
     for (int i = 0; i < source.GetRows(); i++)
@@ -205,4 +293,16 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T> &source)
         }
     }
     return out;
+}
+
+template <typename T>
+std::istream &operator>>(std::istream &in, const Matrix<T> &source)
+{
+    Matrix<T> temp(1, source.GetColumns());
+    for (int i = 0; i < source.GetColumns(); i++)
+    {
+        in >> temp[0][i];
+    }
+    source.PushBack(temp);
+    return in;
 }

@@ -135,7 +135,7 @@ void MyVector<T>::PushBack(const MyVector<double> &source)
     return;
 }
 
-template <class T>
+template <typename T>
 bool operator==(const MyVector<T> &lhs, const MyVector<T> &rhs)
 {
     bool equal = false;
@@ -160,7 +160,7 @@ bool operator==(const MyVector<T> &lhs, const MyVector<T> &rhs)
     return equal;
 }
 
-template <class T>
+template <typename T>
 bool operator!=(const MyVector<T> &lhs, const MyVector<T> &rhs)
 {
     bool notEqual = false;
@@ -185,7 +185,7 @@ bool operator!=(const MyVector<T> &lhs, const MyVector<T> &rhs)
     return notEqual;
 }
 
-template <class T>
+template <typename T>
 MyVector<T> operator+(const MyVector<T> &lhs, const MyVector<T> &rhs)
 {
     MyVector<T> temp(lhs.GetNumElements());
@@ -203,7 +203,7 @@ MyVector<T> operator+(const MyVector<T> &lhs, const MyVector<T> &rhs)
     return temp;
 }
 
-template <class T>
+template <typename T>
 MyVector<T> operator-(const MyVector<T> &lhs, const MyVector<T> &rhs)
 {
     MyVector<T> temp(lhs.GetNumElements());
@@ -239,7 +239,7 @@ T operator*(const MyVector<T> &lhs, const MyVector<T> &rhs)
     return total;
 }
 
-template <class T>
+template <typename T>
 MyVector<T> operator-(const MyVector<T> &source)
 {
     MyVector<T> temp(source);
@@ -250,7 +250,7 @@ MyVector<T> operator-(const MyVector<T> &source)
     return temp;
 }
 
-template <class T>
+template <typename T>
 std::ostream &operator<<(std::ostream &out, const MyVector<T> &source)
 {
     for (int i = 0; i < source.GetNumElements(); i++)
@@ -260,7 +260,7 @@ std::ostream &operator<<(std::ostream &out, const MyVector<T> &source)
     return out;
 }
 
-template <class T>
+template <typename T>
 std::istream &operator>>(std::istream &in, const MyVector<T> &source)
 {
     for (int i = 0; i < source.GetNumElements(); i++)
