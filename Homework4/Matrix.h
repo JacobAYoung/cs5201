@@ -10,6 +10,7 @@ using namespace std;
 
 /**
  * @file Matrix.h
+ * @class Matrix
  * @author Jake Young
  * @pre Matrix object is created
  * @post Matrix can do calculations and can be used as a regular matrix

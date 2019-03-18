@@ -68,9 +68,6 @@ $(function() {
 <div class="title">Matrix.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Creates a matrix that has multiple methods of doing calculations for that matrix.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
@@ -83,6 +80,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html">Matrix&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix that has multiple methods of doing calculations for that matrix.  <a href="class_matrix.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -115,20 +113,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ada05f5b4902126bba9efef465adebcf4"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ada05f5b4902126bba9efef465adebcf4">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;source)</td></tr>
 <tr class="memdesc:ada05f5b4902126bba9efef465adebcf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs every value within the columns and rows of the matrix object.  <a href="#ada05f5b4902126bba9efef465adebcf4">More...</a><br /></td></tr>
 <tr class="separator:ada05f5b4902126bba9efef465adebcf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae45d2e677c73f9e83153f3d49653a709"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae45d2e677c73f9e83153f3d49653a709"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ae45d2e677c73f9e83153f3d49653a709">operator&gt;&gt;</a> (std::istream &amp;in, const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;source)</td></tr>
-<tr class="memdesc:ae45d2e677c73f9e83153f3d49653a709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Able to input values into the matrix.  <a href="#ae45d2e677c73f9e83153f3d49653a709">More...</a><br /></td></tr>
-<tr class="separator:ae45d2e677c73f9e83153f3d49653a709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f94cc063f05ae5f6e9ede6a8de0759"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af9f94cc063f05ae5f6e9ede6a8de0759"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#af9f94cc063f05ae5f6e9ede6a8de0759">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;source)</td></tr>
+<tr class="memdesc:af9f94cc063f05ae5f6e9ede6a8de0759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Able to input values into the matrix.  <a href="#af9f94cc063f05ae5f6e9ede6a8de0759">More...</a><br /></td></tr>
+<tr class="separator:af9f94cc063f05ae5f6e9ede6a8de0759"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Creates a matrix that has multiple methods of doing calculations for that matrix. </p>
-<dl class="section author"><dt>Author</dt><dd>Jake Young </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_matrix.html">Matrix</a> object is created </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="class_matrix.html">Matrix</a> can do calculations and can be used as a regular matrix </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2019-03-17</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2019 </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="acfa452b56d91c54dc23a550743b2c682"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfa452b56d91c54dc23a550743b2c682">&#9670;&nbsp;</a></span>operator *()</h2>
 
@@ -168,8 +158,8 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object of the left hand side </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object of the right hand side </td></tr>
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object of the right hand side </td></tr>
   </table>
   </dd>
 </dl>
@@ -216,8 +206,8 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object </td></tr>
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object </td></tr>
   </table>
   </dd>
 </dl>
@@ -266,8 +256,8 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object of the left hand side </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object of the right hand side </td></tr>
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object of the right hand side </td></tr>
   </table>
   </dd>
 </dl>
@@ -304,7 +294,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td><a class="el" href="class_matrix.html">Matrix</a> object </td></tr>
+    <tr><td class="paramname">source</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object </td></tr>
   </table>
   </dd>
 </dl>
@@ -351,8 +341,8 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object of the left hand side </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object of the right hand side </td></tr>
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object of the right hand side </td></tr>
   </table>
   </dd>
 </dl>
@@ -447,8 +437,8 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html">Matrix</a> object </td></tr>
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object </td></tr>
   </table>
   </dd>
 </dl>
@@ -458,8 +448,8 @@ false If the two matrix objects aren't the same </dd></dl>
 
 </div>
 </div>
-<a id="ae45d2e677c73f9e83153f3d49653a709"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae45d2e677c73f9e83153f3d49653a709">&#9670;&nbsp;</a></span>operator&gt;&gt;()</h2>
+<a id="af9f94cc063f05ae5f6e9ede6a8de0759"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f94cc063f05ae5f6e9ede6a8de0759">&#9670;&nbsp;</a></span>operator&gt;&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -475,7 +465,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>source</em>&#160;</td>
         </tr>
         <tr>
@@ -487,7 +477,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Able to input values into the matrix. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>A <a class="el" href="class_matrix.html">Matrix</a> object is created </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>A <a class="el" href="class_matrix.html" title="Creates a matrix that has multiple methods of doing calculations for that matrix.">Matrix</a> object is created </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Inputs values into the matrix object </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">

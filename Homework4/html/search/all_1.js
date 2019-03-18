@@ -5,6 +5,5 @@ var searchData=
   ['gausselimination_2eh',['GaussElimination.h',['../_gauss_elimination_8h.html',1,'']]],
   ['getcolumns',['GetColumns',['../class_matrix.html#ada60917bb197292e0645992e108c2c2f',1,'Matrix']]],
   ['getnumelements',['GetNumElements',['../class_my_vector.html#a5806423f48877c084cc436ecdffa756c',1,'MyVector']]],
-  ['getrows',['GetRows',['../class_matrix.html#aa665db4bc173a7bb4ec3f9da2676dfa6',1,'Matrix']]],
-  ['guassianelimination',['GuassianElimination',['../class_guassian_elimination.html',1,'']]]
+  ['getrows',['GetRows',['../class_matrix.html#aa665db4bc173a7bb4ec3f9da2676dfa6',1,'Matrix']]]
 ];

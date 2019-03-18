@@ -1,10 +1,5 @@
 \hypertarget{_matrix_8h}{}\section{Matrix.\+h File Reference}
 \label{_matrix_8h}\index{Matrix.h@{Matrix.h}}
-
-
-Creates a matrix that has multiple methods of doing calculations for that matrix.  
-
-
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$iomanip$>$}\newline
 {\ttfamily \#include $<$utility$>$}\newline
@@ -15,7 +10,7 @@ Creates a matrix that has multiple methods of doing calculations for that matrix
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_matrix}{Matrix$<$ T $>$}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates a matrix that has multiple methods of doing calculations for that matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,31 +28,8 @@ class \mbox{\hyperlink{class_matrix}{Matrix$<$ T $>$}}
 \begin{DoxyCompactList}\small\item\em Calculate matrix subtraction of two matricies. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{_matrix_8h_ada05f5b4902126bba9efef465adebcf4}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Outputs every value within the columns and rows of the matrix object. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\std\+::istream \& \mbox{\hyperlink{_matrix_8h_ae45d2e677c73f9e83153f3d49653a709}{operator$>$$>$}} (std\+::istream \&in, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
+{\footnotesize template$<$typename T $>$ }\\std\+::istream \& \mbox{\hyperlink{_matrix_8h_af9f94cc063f05ae5f6e9ede6a8de0759}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Able to input values into the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\subsection{Detailed Description}
-Creates a matrix that has multiple methods of doing calculations for that matrix. 
-
-\begin{DoxyAuthor}{Author}
-Jake Young 
-\end{DoxyAuthor}
-\begin{DoxyPrecond}{Precondition}
-\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-\mbox{\hyperlink{class_matrix}{Matrix}} can do calculations and can be used as a regular matrix 
-\end{DoxyPostcond}
-\begin{DoxyVersion}{Version}
-0.\+1 
-\end{DoxyVersion}
-\begin{DoxyDate}{Date}
-2019-\/03-\/17
-\end{DoxyDate}
-\begin{DoxyCopyright}{Copyright}
-Copyright (c) 2019 
-\end{DoxyCopyright}
 
 
 \subsection{Function Documentation}
@@ -287,12 +259,12 @@ true If the two matrix objects are the same
 
 false If the two matrix objects aren\textquotesingle{}t the same 
 \end{DoxyReturn}
-\mbox{\Hypertarget{_matrix_8h_ae45d2e677c73f9e83153f3d49653a709}\label{_matrix_8h_ae45d2e677c73f9e83153f3d49653a709}} 
+\mbox{\Hypertarget{_matrix_8h_af9f94cc063f05ae5f6e9ede6a8de0759}\label{_matrix_8h_af9f94cc063f05ae5f6e9ede6a8de0759}} 
 \index{Matrix.h@{Matrix.h}!operator$>$$>$@{operator$>$$>$}}
 \index{operator$>$$>$@{operator$>$$>$}!Matrix.h@{Matrix.h}}
 \subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
 
 

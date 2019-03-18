@@ -1,5 +1,14 @@
 \hypertarget{class_matrix}{}\section{Matrix$<$ T $>$ Class Template Reference}
 \label{class_matrix}\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+
+
+Creates a matrix that has multiple methods of doing calculations for that matrix.  
+
+
+
+
+{\ttfamily \#include $<$Matrix.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,8 +36,34 @@ int \mbox{\hyperlink{class_matrix_ada60917bb197292e0645992e108c2c2f}{Get\+Column
 \begin{DoxyCompactList}\small\item\em Performs the Gauss elimination process on the c.\+o. matrix and a B vector to find the x vector of values. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a7754aef3ca206db6fb054088ba90409f}{operator $\ast$}} (const T \&val)
 \begin{DoxyCompactList}\small\item\em Scalar multiplcation of a matrix and a T value. The T value must be on the right side of the multiplcation equation. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_af8f0ab35b4c32f89c19f12f7e4b7d125}{operator=}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix_a33c00fb6f2e9401d17d9ed615b965634}{operator=}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Assignment operator that sets the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Matrix$<$ T $>$}
+
+Creates a matrix that has multiple methods of doing calculations for that matrix. 
+
+\begin{DoxyAuthor}{Author}
+Jake Young 
+\end{DoxyAuthor}
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} can do calculations and can be used as a regular matrix 
+\end{DoxyPostcond}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -205,12 +240,12 @@ Scalar multiplcation of a matrix and a T value. The T value must be on the right
 \begin{DoxyReturn}{Returns}
 Matrix$<$\+T$>$ A matrix that has been multiplied by the value 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_matrix_af8f0ab35b4c32f89c19f12f7e4b7d125}\label{class_matrix_af8f0ab35b4c32f89c19f12f7e4b7d125}} 
+\mbox{\Hypertarget{class_matrix_a33c00fb6f2e9401d17d9ed615b965634}\label{class_matrix_a33c00fb6f2e9401d17d9ed615b965634}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
 \subsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
 
 

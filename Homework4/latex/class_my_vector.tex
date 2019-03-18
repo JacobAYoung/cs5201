@@ -1,5 +1,14 @@
 \hypertarget{class_my_vector}{}\section{My\+Vector$<$ T $>$ Class Template Reference}
 \label{class_my_vector}\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+
+
+A similar concept to the std\+::vector object that can do specific calculations and operations.  
+
+
+
+
+{\ttfamily \#include $<$My\+Vector.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,6 +34,31 @@ void \mbox{\hyperlink{class_my_vector_a54da580455b3348ddc47a6359e9db444}{Set\+Si
 \begin{DoxyCompactList}\small\item\em Set the Size of the object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}{Push\+Back}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ double $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Adds values onto the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object. I had to declare it as a double because there was no easy way of me using a template value with it. It would use \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$My\+Vector$<$\+T$>$$>$ instead of just the T which I would need it to be a double for this to work... \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class My\+Vector$<$ T $>$}
+
+A similar concept to the std\+::vector object that can do specific calculations and operations. 
+
+\begin{DoxyAuthor}{Author}
+Jake Young 
+\end{DoxyAuthor}
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created 
+
+Creates a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object for which you can call any function within the class and use it to mess with vectors 
+\end{DoxyPrecond}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
 
 
 \subsection{Constructor \& Destructor Documentation}

@@ -9,6 +9,7 @@ using namespace std;
 
 /**
  * @file GaussElimination.h
+ * @class GaussElimination
  * @author Jake Young
  * @pre GaussElimination object is created and matrix object is created along
  * with a b vector

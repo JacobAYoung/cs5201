@@ -8,6 +8,7 @@ using namespace std;
 
 /**
  * @file MyVector.h
+ * @class MyVector
  * @author Jake Young
  * @pre MyVector object is created
  * @pre Creates a MyVector object for which you can call any function within 
