@@ -1,0 +1,67 @@
+Chapter 9 - Commonality of Behavior
+
+So, one of the great advantages to c++ is its object oriented nature. One of the big motivations
+in this course is to show how we can take advantage of OOParadigm to write code that is more
+adaptable and extendable.
+
+Up till now, we have seen how encapsulation allows us to handle data and functionality to execute code
+that more adequately describes the real world.
+
+Class can then dictate how modeling objects behave. We expand our abstractions by introducing inheritance -
+Where we can model the idiom "is usable as". We're going to introduce base classes and virtual functions.
+
+We are going to use a running model provided by the authors Barton & Nackman.
+
+The general purpose interface Base
+
+:UML diagrams on paper:
+
+Consider the similarities between a model and the reality it represents. The real system has behavior and state.
+"Behavior" is what that system has potential to do and "state" is some measure of its being at any instance.
+
+Well, c++ objects/classes also have behavior and state.
+State is given by member variables. Behavior dictates or is dictated by the state of the object.
+
+Notice that GBiB_controller has no state.
+
+It is a class that represents behavior only.
+
+(Sloppy const declarations)
+class GBIB_controller
+{
+  public:
+    void insert(char* device_name, int address);
+    void send(int address, char* command);
+    void send(int address, float value);
+    float receive(int address);
+};
+
+class Acme130
+{
+  public:
+    Acme130(GBIB_controller& controller, int address);
+    void set(float voltage);
+    float min();
+    float max();
+  private:
+    GBiB_controller my_controller;
+    int gbib_address;
+};
+
+Acme130::Acme130(----)
+{
+  my_controller = controller;
+  gbib_address = address;
+  my_controller.insert("Acme130", gbib_address);
+}
+
+The goal of encapsulation is to hide information. What info? How?
+Certainly we hide data in the private section to protect it from being modified or accessed
+in any way we do not wish. But we also hide implementation by not exposing data structures.
+
+ex: Iterators
+
+But we can also hide implementation by using unique "terms" - named objects that are
+really names of categories.
+
+We will now introduce our first base class.
