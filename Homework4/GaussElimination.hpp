@@ -1,16 +1,3 @@
-/**
- * @file GaussElimination.h
- * @author Jake Young
- * @pre GaussElimination object is created and matrix object is created along
- * with a b vector
- * @post Can calcuate the forward elimination of a matrix and b vector
- * @brief File for calculating forward elimination of a matrix and b vector
- * @version 0.1
- * @date 2019-03-17
- * 
- * @copyright Copyright (c) 2019
- * 
- */
 template <class T>
 MyVector<MyVector<T>> GaussElimination<T>::ForwardElimination(const MyVector<MyVector<T>> &A, const MyVector<T> &B)
 {
