@@ -1,3 +1,17 @@
+/**
+ * @file MyVector.h
+ * @author Jake Young
+ * @pre MyVector object is created
+ * @pre Creates a MyVector object for which you can call any function within 
+ * the class and use it to mess with vectors
+ * @brief A similar concept to the std::vector object that can do specific
+ * calculations and operations.
+ * @version 0.1
+ * @date 2019-03-17
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 template <class T>
 MyVector<T>::MyVector()
 {

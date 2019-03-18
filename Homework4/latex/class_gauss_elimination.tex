@@ -3,12 +3,41 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination_af4df02b15566a600f527788332deaefa}{Gauss\+Eliminate}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$$>$ \&source, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&B)
+\begin{DoxyCompactList}\small\item\em Calculates the Gauss Elimination of a matrix and a B vector and returns a x vector for the calculated values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_gauss_elimination_af4df02b15566a600f527788332deaefa}\label{class_gauss_elimination_af4df02b15566a600f527788332deaefa}} 
-\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ {\bfseries Gauss\+Eliminate} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$$>$ \&source, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&B)
-\end{DoxyCompactItemize}
+\index{GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}!GaussEliminate@{GaussEliminate}}
+\index{GaussEliminate@{GaussEliminate}!GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}}
+\subsubsection{\texorpdfstring{GaussEliminate()}{GaussEliminate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}}$<$ T $>$\+::Gauss\+Eliminate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$$>$ \&}]{source,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption})}
+
+
+
+Calculates the Gauss Elimination of a matrix and a B vector and returns a x vector for the calculated values. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: A matrix and B vector are created to calculate the forward elimination and \mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}} object is created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a x vector for the calculated values within the matrix and B vector 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The matrix \\
+\hline
+{\em B} & The b vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ A x vector for the calculated values of the matrix and B vector using Guass elimination (forward elimination) 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Gauss\+Elimination.\+h\item 
+\mbox{\hyperlink{_gauss_elimination_8h}{Gauss\+Elimination.\+h}}\item 
 Gauss\+Elimination.\+hpp\end{DoxyCompactItemize}

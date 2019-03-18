@@ -1,16 +1,3 @@
-/**
- * @file Matrix.h
- * @author Jake Young
- * @Pre Matrix object is created
- * @Post Matrix can do calculations and can be used as a regular matrix
- * @brief Creates a matrix that has multiple methods of doing calculations for
- * that matrix
- * @version 0.1
- * @date 2019-03-17
- * 
- * @copyright Copyright (c) 2019
- * 
- */
 #pragma once
 
 #include <cmath>
@@ -21,6 +8,19 @@
 
 using namespace std;
 
+/**
+ * @file Matrix.h
+ * @author Jake Young
+ * @pre Matrix object is created
+ * @post Matrix can do calculations and can be used as a regular matrix
+ * @brief Creates a matrix that has multiple methods of doing calculations for
+ * that matrix
+ * @version 0.1
+ * @date 2019-03-17
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 template <class T>
 class Matrix
 {
@@ -43,9 +43,9 @@ class Matrix
     /**
      * @brief Copy function that copies all the data from the source to the c.o.
      * matrix
-     * @Pre Matrix object is created and another matrix object is created to be
+     * @pre Matrix object is created and another matrix object is created to be
      * copied from
-     * @Post Copies all the data from the source matrix object and replaces the
+     * @post Copies all the data from the source matrix object and replaces the
      * c.o. data values
      * @param source Matrix object
      */
@@ -54,16 +54,16 @@ class Matrix
   public:
     /**
    * 
-   * @Pre Construct a new Matrix object
-   * @Post A new Matrix object is created
+   * @pre Construct a new Matrix object
+   * @post A new Matrix object is created
    * @brief Construct a new Matrix object
    * 
    */
     Matrix();
     /**
      * 
-     * @Pre Construct a new Matrix object with set sizes
-     * @Post A new Matrix object is created
+     * @pre Construct a new Matrix object with set sizes
+     * @post A new Matrix object is created
      * @brief Construct a new Matrix object
      * 
      * @param rows Number of rows
@@ -72,52 +72,52 @@ class Matrix
     Matrix(int rows, int columns);
     /**
      * @brief Copy constructor
-     * @Pre A c.o. matrix is created and a source matrix object is created to be
+     * @pre A c.o. matrix is created and a source matrix object is created to be
      * copied from
-     * @Post Copies the source matrix object to the c.o.
+     * @post Copies the source matrix object to the c.o.
      * @param source Matrix object
      */
     Matrix(const Matrix<T> &source);
     /**
      * @brief Destroy the Matrix object
-     * @Pre Matrix object is created
-     * @Post c.o. matrix will be destroyed and deleted from memory.
+     * @pre Matrix object is created
+     * @post c.o. matrix will be destroyed and deleted from memory.
      */
     ~Matrix();
     /**
      * @brief Add a vector onto the matrix
-     * @Pre A matrix object is created
-     * @Post The vector has been added to the c.o. matrix
+     * @pre A matrix object is created
+     * @post The vector has been added to the c.o. matrix
      * 
      * @param source The vector that wants to be added to the c.o. matrix
      */
     void PushBack(const MyVector<T> &source);
     /**
      * @brief Get the Rows object
-     * @Pre Matrix object is created
-     * @Post Gets the number of rows from the matrix object
+     * @pre Matrix object is created
+     * @post Gets the number of rows from the matrix object
      * @return int Number of rows within the matrix
      */
     int GetRows() const;
     /**
      * @brief Get the Columns object
-     * @Pre Matrix object is created
-     * @Post Gets the number of columns from the matrix object
+     * @pre Matrix object is created
+     * @post Gets the number of columns from the matrix object
      * @return int Number of columns within the matrix
      */
     int GetColumns() const;
     /**
      * @brief Calculate and returns the transpose of the matrix object
-     * @Pre A matrix object is created
-     * @Post Creates a temporary Matrix object and returns the transpose of the
+     * @pre A matrix object is created
+     * @post Creates a temporary Matrix object and returns the transpose of the
      * c.o. matrix
      * @return Matrix<T> A copy of the Matrix c.o. transpose
      */
     Matrix<T> Transpose();
     /**
      * @brief [] operator that returns the data of the pointer at the specified position
-     * @Pre: The position of the data is known and matrix object is created
-     * @Post: Returns the data from the pointer of the specified position.
+     * @pre: The position of the data is known and matrix object is created
+     * @post: Returns the data from the pointer of the specified position.
      * Throws an error if the position is out of the matrix's size.
      * @param i Position number
      * @return MyVector<T>& Returns the data from the pointer at the specific position
@@ -126,8 +126,8 @@ class Matrix
     /**
      * @brief [] operator that returns the data of the pointer at the specified
      * position but its returned as a constant value
-     * @Pre: The position of the data is known and matrix object is created
-     * @Post: Returns the data from the pointer of the specified position as a
+     * @pre: The position of the data is known and matrix object is created
+     * @post: Returns the data from the pointer of the specified position as a
      * constant value. Throws an error if the position is out of the matrix's size.
      * @param i Position number
      * @return MyVector<T>& Returns the data from the pointer at the specific
@@ -137,8 +137,8 @@ class Matrix
     /**
      * @brief Performs the Gauss elimination process on the c.o. matrix and a B
      * vector to find the x vector of values
-     * @Pre A matrix object and MyVector object is created
-     * @Post Creates a MyVector object filled with the x values created from the
+     * @pre A matrix object and MyVector object is created
+     * @post Creates a MyVector object filled with the x values created from the
      * gauss elimination of the matrix and b vector. Throws an error if the size
      * of the matrix and B vector don't work together.
      * @param B The B vector
@@ -149,16 +149,16 @@ class Matrix
     /**
      * @brief Scalar multiplcation of a matrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
-     * @Pre Matrix object is created
-     * @Post Matrix c.o. is multiplied by the value
+     * @pre Matrix object is created
+     * @post Matrix c.o. is multiplied by the value
      * @param val Value to be multiplied against matrix
      * @return Matrix<T> A matrix that has been multiplied by the value
      */
     Matrix<T> operator*(const T &val);
     /**
      * @brief Assignment operator that sets the rhs Matrix object to the c.o.
-     * @Pre A matrix object is created and another to be copied from
-     * @Post Copies the rhs matrix object to the matrix c.o.
+     * @pre A matrix object is created and another to be copied from
+     * @post Copies the rhs matrix object to the matrix c.o.
      * @param source Matrix object
      * @return Matrix<T> The c.o. is now equal to the rhs matrix object
      */
@@ -166,8 +166,8 @@ class Matrix
 };
 /**
  * @brief Equals operator. Checks to see if the two matrix objects are the same
- * @Pre Two matrix objects are created
- * @Post Returns true or false depending on if the matrix objects are the same
+ * @pre Two matrix objects are created
+ * @post Returns true or false depending on if the matrix objects are the same
  * or not
  * @tparam T template T
  * @param lhs Matrix object
@@ -179,8 +179,8 @@ template <typename T>
 bool operator==(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two matrix objects are not the same
- * @Pre Two matrix objects are created
- * @Post Returns true or false depending on if the matrix objects are the same
+ * @pre Two matrix objects are created
+ * @post Returns true or false depending on if the matrix objects are the same
  * or not
  * @tparam T template T
  * @param lhs Matrix object
@@ -192,8 +192,8 @@ template <typename T>
 bool operator!=(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Negates every value within the matrix
- * @Pre A matrix object is created
- * @Post Negates every value within the matrix
+ * @pre A matrix object is created
+ * @post Negates every value within the matrix
  * 
  * @tparam T template T
  * @param source Matrix object
@@ -203,9 +203,9 @@ template <typename T>
 Matrix<T> operator-(const Matrix<T> &source);
 /**
  * @brief Calculate matrix multiplication of two matricies
- * @Pre Two matrix object's are created and the lhs column size is the same as
+ * @pre Two matrix object's are created and the lhs column size is the same as
  * the rhs row size.
- * @Post Calculates the lhs matrix and rhs matrix to return the multiplication
+ * @post Calculates the lhs matrix and rhs matrix to return the multiplication
  * matrix of the 2 matricies and returns it as a matrix object. Throws an error
  * the sizes of the matricies don't line up
  * @tparam T template T
@@ -218,9 +218,9 @@ template <typename T>
 Matrix<T> operator*(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Calculate matrix addition of two matricies
- * @Pre Two matrix object's are created and the lhs column size is the same as
+ * @pre Two matrix object's are created and the lhs column size is the same as
  * the rhs row size.
- * @Post Calculates the lhs matrix and rhs matrix to return the addition
+ * @post Calculates the lhs matrix and rhs matrix to return the addition
  * matrix of the 2 matricies and returns it as a matrix object. Throws an error
  * the sizes of the matricies don't line up
  * @tparam T template T
@@ -233,9 +233,9 @@ template <typename T>
 Matrix<T> operator+(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Calculate matrix subtraction of two matricies
- * @Pre Two matrix object's are created and the lhs column size is the same as
+ * @pre Two matrix object's are created and the lhs column size is the same as
  * the rhs row size.
- * @Post Calculates the lhs matrix and rhs matrix to return the subtraction
+ * @post Calculates the lhs matrix and rhs matrix to return the subtraction
  * matrix of the 2 matricies and returns it as a matrix object. Throws an error
  * the sizes of the matricies don't line up
  * @tparam T template T
@@ -248,8 +248,8 @@ template <typename T>
 Matrix<T> operator-(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the matrix object
- * @Pre A matrix object is created
- * @Post Outputs every value that is within the matrix object
+ * @pre A matrix object is created
+ * @post Outputs every value that is within the matrix object
  * @tparam T template T
  * @param out std::ostream object
  * @param source The matrix object
@@ -259,8 +259,8 @@ template <typename T>
 std::ostream &operator<<(std::ostream &out, const Matrix<T> &source);
 /**
  * @brief Able to input values into the matrix
- * @Pre A Matrix object is created
- * @Post Inputs values into the matrix object
+ * @pre A Matrix object is created
+ * @post Inputs values into the matrix object
  * @tparam T template T
  * @param in std::istream object
  * @param source The matrix object

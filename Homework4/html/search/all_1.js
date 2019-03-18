@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['matrix',['Matrix',['../class_matrix.html',1,'']]],
-  ['myvector',['MyVector',['../class_my_vector.html',1,'MyVector&lt; T &gt;'],['../class_my_vector.html#ac356762c5ced52c0d934476cef32e472',1,'MyVector::MyVector()'],['../class_my_vector.html#a9f780e2c6c6f35610a656b64395c6d1b',1,'MyVector::MyVector(int size)'],['../class_my_vector.html#aaf93995f4a267cc279867c10cfbef623',1,'MyVector::MyVector(const MyVector&lt; T &gt; &amp;source)']]],
-  ['myvector_3c_20myvector_3c_20t_20_3e_20_3e',['MyVector&lt; MyVector&lt; T &gt; &gt;',['../class_my_vector.html',1,'']]]
+  ['gausseliminate',['GaussEliminate',['../class_gauss_elimination.html#af4df02b15566a600f527788332deaefa',1,'GaussElimination']]],
+  ['gausselimination',['GaussElimination',['../class_gauss_elimination.html',1,'']]],
+  ['gausselimination_2eh',['GaussElimination.h',['../_gauss_elimination_8h.html',1,'']]],
+  ['getcolumns',['GetColumns',['../class_matrix.html#ada60917bb197292e0645992e108c2c2f',1,'Matrix']]],
+  ['getnumelements',['GetNumElements',['../class_my_vector.html#a5806423f48877c084cc436ecdffa756c',1,'MyVector']]],
+  ['getrows',['GetRows',['../class_matrix.html#aa665db4bc173a7bb4ec3f9da2676dfa6',1,'Matrix']]]
 ];

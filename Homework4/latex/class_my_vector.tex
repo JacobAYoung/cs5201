@@ -9,9 +9,8 @@
 \begin{DoxyCompactList}\small\item\em Construct a new My Vector object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_my_vector_aaf93995f4a267cc279867c10cfbef623}{My\+Vector}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_my_vector_a7b2d4483f19b1ea3525e49336c857111}\label{class_my_vector_a7b2d4483f19b1ea3525e49336c857111}} 
-{\bfseries My\+Vector} (\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&\&source)
-\item 
+\mbox{\hyperlink{class_my_vector_a7b2d4483f19b1ea3525e49336c857111}{My\+Vector}} (\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&\&source)
+\begin{DoxyCompactList}\small\item\em Construct a new My Vector object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_my_vector_abe59f181259ff63fa583f4bd87a9737e}{$\sim$\+My\+Vector}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the My Vector object. \end{DoxyCompactList}\item 
 T \& \mbox{\hyperlink{class_my_vector_a52eca35ed558d978bf5a8541f9d0115c}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i)
@@ -24,16 +23,15 @@ int \mbox{\hyperlink{class_my_vector_a5806423f48877c084cc436ecdffa756c}{Get\+Num
 \begin{DoxyCompactList}\small\item\em Get the Num Elements object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_my_vector_a54da580455b3348ddc47a6359e9db444}{Set\+Size}} (const int n)
 \begin{DoxyCompactList}\small\item\em Set the Size of the object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}\label{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}} 
-void {\bfseries Push\+Back} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ double $>$ \&source)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}{Push\+Back}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ double $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Adds values onto the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object. I had to declare it as a double because there was no easy way of me using a template value with it. It would use \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$My\+Vector$<$\+T$>$$>$ instead of just the T which I would need it to be a double for this to work... \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_my_vector_ac356762c5ced52c0d934476cef32e472}\label{class_my_vector_ac356762c5ced52c0d934476cef32e472}} 
 \index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!MyVector@{MyVector}}
 \index{MyVector@{MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
-\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
@@ -41,10 +39,16 @@ void {\bfseries Push\+Back} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}
 
 Construct a new My Vector object. 
 
-//\+Pre\+: Construct a new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object //\+Post\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created \mbox{\Hypertarget{class_my_vector_a9f780e2c6c6f35610a656b64395c6d1b}\label{class_my_vector_a9f780e2c6c6f35610a656b64395c6d1b}} 
+\begin{DoxyPrecond}{Precondition}
+\+: Construct a new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_my_vector_a9f780e2c6c6f35610a656b64395c6d1b}\label{class_my_vector_a9f780e2c6c6f35610a656b64395c6d1b}} 
 \index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!MyVector@{MyVector}}
 \index{MyVector@{MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
-\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
 
@@ -52,7 +56,13 @@ Construct a new My Vector object.
 
 Construct a new My Vector object. 
 
-//\+Pre\+: Construct a new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object with the known size of a vector. Size cannot be $<$ 0 //\+Post\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created with a certain vector size 
+\begin{DoxyPrecond}{Precondition}
+\+: Construct a new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object with the known size of a vector. Size cannot be $<$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created with a certain vector size 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
 {\em size} & Size of the vector \\
 \hline
@@ -60,7 +70,7 @@ Construct a new My Vector object.
 \mbox{\Hypertarget{class_my_vector_aaf93995f4a267cc279867c10cfbef623}\label{class_my_vector_aaf93995f4a267cc279867c10cfbef623}} 
 \index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!MyVector@{MyVector}}
 \index{MyVector@{MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
-\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily template$<$class T$>$ \\
 \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
@@ -68,9 +78,37 @@ Construct a new My Vector object.
 
 Copy constructor. 
 
-//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is being copied //\+Post\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created with a certain vector size 
+\begin{DoxyPrecond}{Precondition}
+\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is being copied 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: A new \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created with a certain vector size. Throws an error if the size is below 0 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
 {\em source} & The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object that will be copied from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_vector_a7b2d4483f19b1ea3525e49336c857111}\label{class_my_vector_a7b2d4483f19b1ea3525e49336c857111}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!MyVector@{MyVector}}
+\index{MyVector@{MyVector}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{MyVector()}{MyVector()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_my_vector}{My\+Vector}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&\&}]{source }\end{DoxyParamCaption})}
+
+
+
+Construct a new My Vector object. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and a temporary object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Allocates memory for a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_my_vector_abe59f181259ff63fa583f4bd87a9737e}\label{class_my_vector_abe59f181259ff63fa583f4bd87a9737e}} 
@@ -84,7 +122,13 @@ Copy constructor.
 
 Destroy the My Vector object. 
 
-//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object will be destroied //\+Post\+: The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is deallocated from memory 
+\begin{DoxyPrecond}{Precondition}
+\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object will be destroied 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is deallocated from memory 
+\end{DoxyPostcond}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_my_vector_a5806423f48877c084cc436ecdffa756c}\label{class_my_vector_a5806423f48877c084cc436ecdffa756c}} 
@@ -98,7 +142,13 @@ int \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::Get\+Num\+Element
 
 Get the Num Elements object. 
 
-//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created //\+Post\+: Returns the number of elements within the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \begin{DoxyReturn}{Returns}
+\begin{DoxyPrecond}{Precondition}
+\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the number of elements within the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
 int The value of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object\textquotesingle{}s number of elements within the vector 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_my_vector_a459ecae4c3fc3836415467db79bd0af2}\label{class_my_vector_a459ecae4c3fc3836415467db79bd0af2}} 
@@ -112,7 +162,13 @@ int The value of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object\textq
 
 Assignment operator for assigning a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object to another. 
 
-//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and want\textquotesingle{}s to be assigned to calling object //\+Post\+: Sets the calling object \mbox{\hyperlink{class_my_vector}{My\+Vector}} object to the source \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\begin{DoxyPrecond}{Precondition}
+\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and want\textquotesingle{}s to be assigned to calling object 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Sets the calling object \mbox{\hyperlink{class_my_vector}{My\+Vector}} object to the source \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
 {\em source} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \\
 \hline
@@ -131,7 +187,13 @@ T \& \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::operator\mbox{[}
 
 operator\mbox{[}\mbox{]}\+: \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position 
 
-//\+Pre\+: The position of the data is known //\+Post\+: Returns the data from the pointer of the specified position 
+\begin{DoxyPrecond}{Precondition}
+\+: The position of the data is known 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the data from the pointer of the specified position. Throws an error if the position is out of the size. 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
 {\em i} & Position number \\
 \hline
@@ -150,7 +212,13 @@ T \& \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::operator\mbox{[}
 
 operator\mbox{[}\mbox{]}\+: \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position but it\textquotesingle{}s a constant value 
 
-//\+Pre\+: The position of the data is known //\+Post\+: Returns the data from the pointer of the specified position as a constant value 
+\begin{DoxyPrecond}{Precondition}
+\+: The position of the data is known 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the data from the pointer of the specified position as a constant value. Throws an error if the position is out of the size. 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
 {\em i} & Position number \\
 \hline
@@ -158,6 +226,28 @@ operator\mbox{[}\mbox{]}\+: \mbox{[}\mbox{]} operator that returns the data of t
 \begin{DoxyReturn}{Returns}
 T\& Returns the data from the pointer at the specific position as a constant value 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}\label{class_my_vector_a1070a35184f1a8223a7df7f4fdd78492}} 
+\index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!PushBack@{PushBack}}
+\index{PushBack@{PushBack}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{PushBack()}{PushBack()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::Push\+Back (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ double $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Adds values onto the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object. I had to declare it as a double because there was no easy way of me using a template value with it. It would use \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$My\+Vector$<$\+T$>$$>$ instead of just the T which I would need it to be a double for this to work... 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Add\textquotesingle{}s a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object onto the \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$My\+Vector$<$\+T$>$$>$ object
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_my_vector_a54da580455b3348ddc47a6359e9db444}\label{class_my_vector_a54da580455b3348ddc47a6359e9db444}} 
 \index{MyVector$<$ T $>$@{MyVector$<$ T $>$}!SetSize@{SetSize}}
 \index{SetSize@{SetSize}!MyVector$<$ T $>$@{MyVector$<$ T $>$}}
@@ -169,7 +259,13 @@ void \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$\+::Set\+Size (\begi
 
 Set the Size of the object. 
 
-//\+Pre\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and want\textquotesingle{}s to set the size //\+Post\+: Sets the calling object\textquotesingle{}s size to the value of n 
+\begin{DoxyPrecond}{Precondition}
+\+: \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and want\textquotesingle{}s to set the size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Sets the calling object\textquotesingle{}s size to the value of n. Throws an error if the size is below 0 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
 {\em n} & size \\
 \hline
@@ -178,5 +274,5 @@ Set the Size of the object.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-My\+Vector.\+h\item 
+\mbox{\hyperlink{_my_vector_8h}{My\+Vector.\+h}}\item 
 My\+Vector.\+hpp\end{DoxyCompactItemize}

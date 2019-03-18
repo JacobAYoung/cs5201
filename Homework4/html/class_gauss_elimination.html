@@ -71,10 +71,53 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4df02b15566a600f527788332deaefa"><td class="memItemLeft" align="right" valign="top"><a id="af4df02b15566a600f527788332deaefa"></a>
-<a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GaussEliminate</b> (const <a class="el" href="class_my_vector.html">MyVector</a>&lt; <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt;&gt; &amp;source, const <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;B)</td></tr>
+<tr class="memitem:af4df02b15566a600f527788332deaefa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gauss_elimination.html#af4df02b15566a600f527788332deaefa">GaussEliminate</a> (const <a class="el" href="class_my_vector.html">MyVector</a>&lt; <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt;&gt; &amp;source, const <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;B)</td></tr>
+<tr class="memdesc:af4df02b15566a600f527788332deaefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the Gauss Elimination of a matrix and a B vector and returns a x vector for the calculated values.  <a href="#af4df02b15566a600f527788332deaefa">More...</a><br /></td></tr>
 <tr class="separator:af4df02b15566a600f527788332deaefa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af4df02b15566a600f527788332deaefa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4df02b15566a600f527788332deaefa">&#9670;&nbsp;</a></span>GaussEliminate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; <a class="el" href="class_gauss_elimination.html">GaussElimination</a>&lt; T &gt;::GaussEliminate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_my_vector.html">MyVector</a>&lt; <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>B</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the Gauss Elimination of a matrix and a B vector and returns a x vector for the calculated values. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>: A matrix and B vector are created to calculate the forward elimination and <a class="el" href="class_gauss_elimination.html">GaussElimination</a> object is created. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: Returns a x vector for the calculated values within the matrix and B vector </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The matrix </td></tr>
+    <tr><td class="paramname">B</td><td>The b vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>MyVector&lt;T&gt; A x vector for the calculated values of the matrix and B vector using Guass elimination (forward elimination) </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_gauss_elimination_8h_source.html">GaussElimination.h</a></li>
 <li><a class="el" href="_gauss_elimination_8hpp_source.html">GaussElimination.hpp</a></li>

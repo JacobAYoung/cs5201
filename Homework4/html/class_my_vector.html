@@ -80,8 +80,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaf93995f4a267cc279867c10cfbef623"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_vector.html#aaf93995f4a267cc279867c10cfbef623">MyVector</a> (const <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;source)</td></tr>
 <tr class="memdesc:aaf93995f4a267cc279867c10cfbef623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#aaf93995f4a267cc279867c10cfbef623">More...</a><br /></td></tr>
 <tr class="separator:aaf93995f4a267cc279867c10cfbef623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2d4483f19b1ea3525e49336c857111"><td class="memItemLeft" align="right" valign="top"><a id="a7b2d4483f19b1ea3525e49336c857111"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MyVector</b> (<a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;&amp;source)</td></tr>
+<tr class="memitem:a7b2d4483f19b1ea3525e49336c857111"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_vector.html#a7b2d4483f19b1ea3525e49336c857111">MyVector</a> (<a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;&amp;source)</td></tr>
+<tr class="memdesc:a7b2d4483f19b1ea3525e49336c857111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new My Vector object.  <a href="#a7b2d4483f19b1ea3525e49336c857111">More...</a><br /></td></tr>
 <tr class="separator:a7b2d4483f19b1ea3525e49336c857111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe59f181259ff63fa583f4bd87a9737e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_vector.html#abe59f181259ff63fa583f4bd87a9737e">~MyVector</a> ()</td></tr>
 <tr class="memdesc:abe59f181259ff63fa583f4bd87a9737e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the My Vector object.  <a href="#abe59f181259ff63fa583f4bd87a9737e">More...</a><br /></td></tr>
@@ -101,13 +101,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a54da580455b3348ddc47a6359e9db444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_vector.html#a54da580455b3348ddc47a6359e9db444">SetSize</a> (const int n)</td></tr>
 <tr class="memdesc:a54da580455b3348ddc47a6359e9db444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Size of the object.  <a href="#a54da580455b3348ddc47a6359e9db444">More...</a><br /></td></tr>
 <tr class="separator:a54da580455b3348ddc47a6359e9db444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1070a35184f1a8223a7df7f4fdd78492"><td class="memItemLeft" align="right" valign="top"><a id="a1070a35184f1a8223a7df7f4fdd78492"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PushBack</b> (const <a class="el" href="class_my_vector.html">MyVector</a>&lt; double &gt; &amp;source)</td></tr>
+<tr class="memitem:a1070a35184f1a8223a7df7f4fdd78492"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_vector.html#a1070a35184f1a8223a7df7f4fdd78492">PushBack</a> (const <a class="el" href="class_my_vector.html">MyVector</a>&lt; double &gt; &amp;source)</td></tr>
+<tr class="memdesc:a1070a35184f1a8223a7df7f4fdd78492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds values onto the <a class="el" href="class_my_vector.html">MyVector</a> object. I had to declare it as a double because there was no easy way of me using a template value with it. It would use <a class="el" href="class_my_vector.html">MyVector</a>&lt;MyVector&lt;T&gt;&gt; instead of just the T which I would need it to be a double for this to work...  <a href="#a1070a35184f1a8223a7df7f4fdd78492">More...</a><br /></td></tr>
 <tr class="separator:a1070a35184f1a8223a7df7f4fdd78492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac356762c5ced52c0d934476cef32e472"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac356762c5ced52c0d934476cef32e472">&#9670;&nbsp;</a></span>MyVector() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac356762c5ced52c0d934476cef32e472">&#9670;&nbsp;</a></span>MyVector() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,12 +124,13 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new My Vector object. </p>
-<p>//Pre: Construct a new <a class="el" href="class_my_vector.html">MyVector</a> object //Post: A new <a class="el" href="class_my_vector.html">MyVector</a> object is created </p>
+<dl class="section pre"><dt>Precondition</dt><dd>: Construct a new <a class="el" href="class_my_vector.html">MyVector</a> object </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: A new <a class="el" href="class_my_vector.html">MyVector</a> object is created </dd></dl>
 
 </div>
 </div>
 <a id="a9f780e2c6c6f35610a656b64395c6d1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f780e2c6c6f35610a656b64395c6d1b">&#9670;&nbsp;</a></span>MyVector() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f780e2c6c6f35610a656b64395c6d1b">&#9670;&nbsp;</a></span>MyVector() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +148,9 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new My Vector object. </p>
-<p>//Pre: Construct a new <a class="el" href="class_my_vector.html">MyVector</a> object with the known size of a vector. Size cannot be &lt; 0 //Post: A new <a class="el" href="class_my_vector.html">MyVector</a> object is created with a certain vector size </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section pre"><dt>Precondition</dt><dd>: Construct a new <a class="el" href="class_my_vector.html">MyVector</a> object with the known size of a vector. Size cannot be &lt; 0 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: A new <a class="el" href="class_my_vector.html">MyVector</a> object is created with a certain vector size </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>Size of the vector </td></tr>
   </table>
@@ -157,7 +160,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="aaf93995f4a267cc279867c10cfbef623"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf93995f4a267cc279867c10cfbef623">&#9670;&nbsp;</a></span>MyVector() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf93995f4a267cc279867c10cfbef623">&#9670;&nbsp;</a></span>MyVector() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,9 +178,41 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Copy constructor. </p>
-<p>//Pre: <a class="el" href="class_my_vector.html">MyVector</a> object is being copied //Post: A new <a class="el" href="class_my_vector.html">MyVector</a> object is created with a certain vector size </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section pre"><dt>Precondition</dt><dd>: <a class="el" href="class_my_vector.html">MyVector</a> object is being copied </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: A new <a class="el" href="class_my_vector.html">MyVector</a> object is created with a certain vector size. Throws an error if the size is below 0 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>The <a class="el" href="class_my_vector.html">MyVector</a> object that will be copied from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7b2d4483f19b1ea3525e49336c857111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b2d4483f19b1ea3525e49336c857111">&#9670;&nbsp;</a></span>MyVector() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt;::<a class="el" href="class_my_vector.html">MyVector</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new My Vector object. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>A <a class="el" href="class_my_vector.html">MyVector</a> object is created and a temporary object is created </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Allocates memory for a <a class="el" href="class_my_vector.html">MyVector</a> object </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -202,7 +237,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Destroy the My Vector object. </p>
-<p>//Pre: <a class="el" href="class_my_vector.html">MyVector</a> object will be destroied //Post: The <a class="el" href="class_my_vector.html">MyVector</a> object is deallocated from memory </p>
+<dl class="section pre"><dt>Precondition</dt><dd>: <a class="el" href="class_my_vector.html">MyVector</a> object will be destroied </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: The <a class="el" href="class_my_vector.html">MyVector</a> object is deallocated from memory </dd></dl>
 
 </div>
 </div>
@@ -225,7 +261,9 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Get the Num Elements object. </p>
-<p>//Pre: <a class="el" href="class_my_vector.html">MyVector</a> object is created //Post: Returns the number of elements within the <a class="el" href="class_my_vector.html">MyVector</a> object </p><dl class="section return"><dt>Returns</dt><dd>int The value of the <a class="el" href="class_my_vector.html">MyVector</a> object's number of elements within the vector </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: <a class="el" href="class_my_vector.html">MyVector</a> object is created </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: Returns the number of elements within the <a class="el" href="class_my_vector.html">MyVector</a> object </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int The value of the <a class="el" href="class_my_vector.html">MyVector</a> object's number of elements within the vector </dd></dl>
 
 </div>
 </div>
@@ -248,7 +286,9 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Assignment operator for assigning a <a class="el" href="class_my_vector.html">MyVector</a> object to another. </p>
-<p>//Pre: <a class="el" href="class_my_vector.html">MyVector</a> object is created and want's to be assigned to calling object //Post: Sets the calling object <a class="el" href="class_my_vector.html">MyVector</a> object to the source <a class="el" href="class_my_vector.html">MyVector</a> object </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section pre"><dt>Precondition</dt><dd>: <a class="el" href="class_my_vector.html">MyVector</a> object is created and want's to be assigned to calling object </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: Sets the calling object <a class="el" href="class_my_vector.html">MyVector</a> object to the source <a class="el" href="class_my_vector.html">MyVector</a> object </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td><a class="el" href="class_my_vector.html">MyVector</a> object </td></tr>
   </table>
@@ -277,7 +317,9 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>operator[]: [] operator that returns the data of the pointer at the specified position </p>
-<p>//Pre: The position of the data is known //Post: Returns the data from the pointer of the specified position </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section pre"><dt>Precondition</dt><dd>: The position of the data is known </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: Returns the data from the pointer of the specified position. Throws an error if the position is out of the size. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Position number </td></tr>
   </table>
@@ -306,13 +348,45 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>operator[]: [] operator that returns the data of the pointer at the specified position but it's a constant value </p>
-<p>//Pre: The position of the data is known //Post: Returns the data from the pointer of the specified position as a constant value </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section pre"><dt>Precondition</dt><dd>: The position of the data is known </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: Returns the data from the pointer of the specified position as a constant value. Throws an error if the position is out of the size. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Position number </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T&amp; Returns the data from the pointer at the specific position as a constant value </dd></dl>
+
+</div>
+</div>
+<a id="a1070a35184f1a8223a7df7f4fdd78492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1070a35184f1a8223a7df7f4fdd78492">&#9670;&nbsp;</a></span>PushBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt;::PushBack </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_my_vector.html">MyVector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds values onto the <a class="el" href="class_my_vector.html">MyVector</a> object. I had to declare it as a double because there was no easy way of me using a template value with it. It would use <a class="el" href="class_my_vector.html">MyVector</a>&lt;MyVector&lt;T&gt;&gt; instead of just the T which I would need it to be a double for this to work... </p>
+<dl class="section pre"><dt>Precondition</dt><dd>A <a class="el" href="class_my_vector.html">MyVector</a> object is created </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Add's a <a class="el" href="class_my_vector.html">MyVector</a> object onto the <a class="el" href="class_my_vector.html">MyVector</a>&lt;MyVector&lt;T&gt;&gt; object</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td><a class="el" href="class_my_vector.html">MyVector</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -335,7 +409,9 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Set the Size of the object. </p>
-<p>//Pre: <a class="el" href="class_my_vector.html">MyVector</a> object is created and want's to set the size //Post: Sets the calling object's size to the value of n </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section pre"><dt>Precondition</dt><dd>: <a class="el" href="class_my_vector.html">MyVector</a> object is created and want's to set the size </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: Sets the calling object's size to the value of n. Throws an error if the size is below 0 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>size </td></tr>
   </table>

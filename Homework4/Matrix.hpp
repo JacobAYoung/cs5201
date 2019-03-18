@@ -1,3 +1,16 @@
+/**
+ * @file Matrix.h
+ * @author Jake Young
+ * @pre Matrix object is created
+ * @post Matrix can do calculations and can be used as a regular matrix
+ * @brief Creates a matrix that has multiple methods of doing calculations for
+ * that matrix
+ * @version 0.1
+ * @date 2019-03-17
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 template <class T>
 Matrix<T>::Matrix()
 {
