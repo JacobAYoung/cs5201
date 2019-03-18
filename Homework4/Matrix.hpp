@@ -337,12 +337,12 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T> &source)
 }
 
 template <typename T>
-std::istream &operator>>(std::istream &in, const Matrix<T> &source)
+std::istream &operator>>(std::istream &in, Matrix<T> &source)
 {
-    Matrix<T> temp(1, source.GetColumns());
+    MyVector<double> temp(source.GetColumns());
     for (int i = 0; i < source.GetColumns(); i++)
     {
-        in >> temp[0][i];
+        in >> temp[i];
     }
     source.PushBack(temp);
     return in;

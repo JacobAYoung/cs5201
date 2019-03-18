@@ -267,6 +267,6 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T> &source);
  * @return std::istream& Sets the values of the matrix object
  */
 template <typename T>
-std::istream &operator>>(std::istream &in, const Matrix<T> &source);
+std::istream &operator>>(std::istream &in, Matrix<T> &source);
 
 #include "Matrix.hpp"

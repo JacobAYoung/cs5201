@@ -66,8 +66,7 @@ int main(int argc, char *argv[])
             if (line != "")
             {
                 istringstream ss(line);
-                ss >> myVector;
-                matrix1.PushBack(myVector);
+                ss >> matrix1;
             }
             else
             {
