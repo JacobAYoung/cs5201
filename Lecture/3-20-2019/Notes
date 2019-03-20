@@ -1,0 +1,86 @@
+We also have another voltage supply called the VoltOn59
+
+class VoltOn59
+{
+  looks like Acme130 class...
+};
+
+Knowing that we have multiple voltage supplies, we can generalize (the acme130 and VoltOn59)
+to "VoltageSupply".
+This because we really don't care about the details... of state representation.
+The functionality is key, but how it works... who cares, as long as it works.
+
+Interface:
+  We now add two components to the picture.
+
+One is the voltyMetrics voltage meter.
+
+class voltyMetrics
+{
+  public:
+    voltyMetrics(GBIBController& controller, int what_address);
+    float read() { return my_controller, recieve(address);}
+
+  private:
+    GBIBController my_controller;
+    int address;
+};
+
+And now a function called calibrate() used to calibrate the voltage supply using the meter.
+
+float calibrate(Acme130& supply, voltyMetrics& meter, float testVolt)
+{
+  supply.set(testVolt);
+  return stuff;
+}
+
+So, we put the system all together and it works great!
+But then... updates... no, really, the voltage supply burns up - "shoots craps"
+
+
+class VoltageSupply
+{
+  public:
+    virtual void set(float volts) = 0;
+    virtual float min() const = 0;
+    virtual float max() const = 0;
+    virtual ~VoltageSupply() {};
+};
+
+The functions ending in = 0 are pure virtual functions. No instance of my class having pure
+virtual functions can be created. This class is what is called on (interface) base class.
+Usually, interface bases have pure virtual functions and no state (vars). The term
+"interface base" is not a c++ term. It is a design term.
+We put commonality of behavior in interface bases.
+
+float calibrate(VoltageSupply& supply, ...);
+... and then the Acme130 (and the VoltOn59)
+
+class Acme130 : public VoltageSupply
+{
+  public:
+    Acme130(..);
+    virtual void set(-);
+    virtual float min() const;
+    virtual float max() const;
+  private:
+    GBIBController my_controller;
+    int my_address;
+};
+
+So, now the the Acme130 "is usable as" VoltageSupply. We do the same for VoltOn59
+
+The "Acme130 : public VoltageSupply" says that Acme is a VoltageSupply and can be
+used as a voltage supply through reference and pointers to VoltageSupply
+
+* The virtual designation in the derived classes is not necessary - do it for clarity.
+* All aspects of the functions must be identical from base to derived class.
+* The definitions of the functions don't need to  change just because they are not virtual.
+* Interface bases have no state - no member variables
+* Interface bases have no constructors
+* In an interface base class, any function that is defined there needs to be defined
+in terms of common functionality across all derived classes.
+* The term "abstract base" has at least one pure virtual function.
+* Use interface bases... and use an abstract base class as the interface.
+In this way, the compiler can help you by flagging an error if you have forgotten
+to implement a function in some derived class.
