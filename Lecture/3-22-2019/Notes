@@ -1,0 +1,111 @@
+So...
+Any class can be derived from two interfaces. Let's write a GPIBInstrument interface base
+to represent any kind of GPIB instrument.
+
+class GPIBInstrument
+{
+  public:
+    virtual void send(const char*) = 0;
+    virtual void send(float f) = 0;
+    virtual float receive() = 0;
+    virtual ~GPIBInstrument() {}
+};
+
+This is an interface for a generalized GPIB Instrument. So, the Acme130 and the VoltOn59
+are two such devices. They can be made "usable as" GPIBInstruments.
+
+class Acme130 : public VoltageSupply, public GPIBInstrument
+{
+  public:
+    Acme130(---);
+    // VS interface
+    virtual void set(--);
+
+  private:
+    ....
+};
+
+It's important to note that the addition of the derivation from the second base doesn't change
+how the Acme130 behaves as a VS in any client code - such as the calibrate() function.
+The device can be a VS independent of being a GPIBInstrument. It doesn't need any recoding.
+The interfaces are independent.
+
+Section 9.8:
+
+So far, we have seen that a client function such as the calibrate() function can be passed an object
+through a reference or pointer to an interface base. But we can also have an interface base as
+member types in classes. But if so it has to be a reference or a pointer (to the type).
+
+Let's generalize the GPIBController to an interface - to represent any such kind of
+GPIB-type thingy.
+
+class GPIBController
+{
+  public:
+    virtual void insert(--) = 0;
+    virtual void send(--) = 0;
+    virtual void send(-,-) = 0;
+    virtual float receive() = 0;
+    virtual ~GPIBController() {};
+};
+
+Now, we change the original GPIBController class and give it a new name.
+
+
+class GPIB : public GPIBController
+{
+  public:
+    virtual void insert(--);
+    virtual void send(--);
+    virtual void send(-,-);
+    ....
+};
+
+It's the same as before except now derive from the master class of such controllers.
+Now we generalize the voltage supplies.
+
+class Acme130 : public VS, public GPIBInstrument
+{
+  public:
+    Acme130(GPIBController& controller, ...);
+    ....etc..
+
+  private:
+    GPIBController& my_controller;
+    int my_address;
+};
+
+The constructor initializes the reference data member. That GPIBController
+can be of any kind of such device.
+
+As another example, let's create a Voltage / current tester class.
+
+class IVTester
+{
+  public:
+    IVTester(VoltageSupply& vs, VoltMeter& vm) : supply(vs), meter(vm) {}
+    double current(--);
+  private:
+    VoltageSupply& supply;
+    VoltMeter& meter;
+};
+
+So, we can create an object of type IVTester with any pairing of VoltageSupply and meter.
+The member function, current(), operates dependent of the functionality of the specific values
+of VS and meter.
+
+Section 9.9:
+
+Is it possible to have an array of interfaces?
+The answer is yes... and it's appropriate in the case of this model. The example (rather complex)
+in 9.9 states that.
+
+They create an array of pointers to the interface base type.
+
+class GPIBController_GIS : public GPIBController
+{
+  ...
+  private:
+    Array<GPIBInstrument Simulation*> simulators;
+    ...
+};
