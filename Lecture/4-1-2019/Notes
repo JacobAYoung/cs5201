@@ -1,0 +1,50 @@
+Lambda Functions:
+
+- Anonymous functions
+- Easy way to make a functor class/object.
+- Lambda calculus
+
+Syntax:
+
+auto func = [] () -> int {};
+
+//Syntax def:
+func = name
+[] = capture clause
+() = Parameter list
+-> int = optional return type
+{} = body
+
+auto print_it = [] (int x) { cout << x << endl; };
+
+print_it(5);
+
+Capture Clauses:
+
+int x = 3;
+
+auto times_x = [ = ] (int n) {
+  return n * x;
+};
+
+[ = ] = capturing by value
+
+
+//This class is the same as the lambda function above.
+class TimesX {
+  public:
+    TimesX(int x) : X(x) {}
+    int operator()(int n)
+    {
+      return n*x;
+    }
+  private:
+    int X;
+};
+
+
+By value/copy: =
+By reference: &
+Calling object byref: this
+               byval: *this
+[a, b, &r, m=move(m) ]
