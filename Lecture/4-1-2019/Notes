@@ -9,6 +9,7 @@ Syntax:
 auto func = [] () -> int {};
 
 //Syntax def:
+auto = Required
 func = name
 [] = capture clause
 () = Parameter list
@@ -27,7 +28,7 @@ auto times_x = [ = ] (int n) {
   return n * x;
 };
 
-[ = ] = capturing by value
+[ = ] : Capturing by value
 
 
 //This class is the same as the lambda function above.
@@ -47,4 +48,56 @@ By value/copy: =
 By reference: &
 Calling object byref: this
                byval: *this
-[a, b, &r, m=move(m) ]
+[a, b, &r, m=move(m)]
+
+
+Why are lambdas cool?:
+
+- Shorthand makes code more legible
+- "Glue" functions that don't quite fit together
+- Make library code more flexible
+
+stdlib features:
+
+std::transform
+
+vector<int> in = {1, 2, 3, 4, ..., 7};
+vector<int> out;
+
+std::transform(in.begin(), //start
+               in.end(), //stop
+               out.begin(), //store values
+               [](int x) { return x*2; } //Could write as &double as function below
+              );
+
+int double(int x)
+{
+  return x*2;
+}
+
+in <numeric>
+
+std::accumulate
+
+- Structure (vector)
+- Start value
+- Combine element & start
+
+[] (int l, int r) {
+  return l + r;
+}
+//Accumulate just adds everything from the vector like this.
+{1, 2, 3} = (((0 + 1) + 2) + 3) = 6
+
+
+Storing things you can call:
+
+//A class that can wrap up anything that can be called and gives you a nice interface to be used
+std::function
+
+std::function<string(int, int)> func = [](int, int) {....};
+
+
+using alias = type;
+
+using input_callback = std::function<void(EventDispatcher&, string)>;
