@@ -1,0 +1,10 @@
+{
+"files.associations": {
+    "iostream": "cpp",
+    "istream": "cpp",
+    "iosfwd": "cpp",
+    "ostream": "cpp"
+},
+"prettier.tabWidth": 4,
+"editor.formatOnPaste": true
+}

@@ -2,8 +2,8 @@
 ///Date: 2-29-2019
 ///PRE: None
 /// POST: This main function will declare a MyVector class object and
-/// Matrix object that we weill use to run calculations with Ax =b and other
-/// matrix computations.
+/// LMatrix object that we weill use to run calculations with Ax =b and other
+/// LMatrix computations.
 
 #include <iostream>
 #include <fstream>
@@ -11,6 +11,7 @@
 #include <vector>
 #include <sstream>
 #include "Matrix.h"
+#include "LMatrix.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
 
     try
     {
-        if (argc > 2 || argc < 2)
+        if (argc != 2)
         {
             throw std::runtime_error("Parameter error");
         }
@@ -39,8 +40,8 @@ int main(int argc, char *argv[])
         istringstream inputStream(line);
         inputStream >> lines;
         //Define matricies
-        Matrix<double> matrix1(lines, lines);
-        Matrix<double> matrix2(lines, 1);
+        Matrix<double> Matrix1(lines, lines);
+        Matrix<double> Matrix2(lines, 1);
         if (lines <= 0)
         {
             throw std::runtime_error("Check how many objects you would like "
@@ -66,15 +67,13 @@ int main(int argc, char *argv[])
             if (line != "")
             {
                 istringstream ss(line);
-                ss >> matrix1;
+                ss >> Matrix1;
             }
             else
             {
                 i--;
             }
         }
-        //Copy a blank line for file format
-        getline(file, line);
         //Copy the vector
         getline(file, line);
         istringstream ss(line);
@@ -85,19 +84,29 @@ int main(int argc, char *argv[])
         //Output
         cout.precision(8);
         cout.setf(ios::fixed);
-        cout << "A * A^T:" << endl;
-        cout << matrix1 * matrix1.Transpose() << endl;
+        cout << Matrix1 << endl;
         cout << endl;
-        cout << "x:" << endl;
-        MyVector<double> x = matrix1.Eliminate(myVector);
-        for (int i = 0; i < lines; i++)
-        {
-            cout << x[i] << endl;
-        }
-        cout << endl;
-        matrix2.PushBack(x);
-        cout << "A * x:" << endl;
-        cout << matrix1 * matrix2 << endl;
+        //MyVector<double> x = Matrix1.Eliminate(myVector);
+        LMatrix<double> lM(Matrix1);
+        cout << "-------------------------------------------" << endl;
+        cout << "Test Main data" << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << lM << endl;
+        //cout << lM[1] << endl;
+
+        // cout << "A * A^T:" << endl;
+        // cout << LMatrix1 * LMatrix1.Transpose() << endl;
+        // cout << endl;
+        // cout << "x:" << endl;
+        // MyVector<double> x = LMatrix1.Eliminate(myVector);
+        // for (int i = 0; i < lines; i++)
+        // {
+        //     cout << x[i] << endl;
+        // }
+        // cout << endl;
+        // LMatrix2.PushBack(x);
+        // cout << "A * x:" << endl;
+        // cout << LMatrix1 * LMatrix2 << endl;
     }
     catch (const std::exception &e)
     {

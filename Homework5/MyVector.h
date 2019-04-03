@@ -1,10 +1,9 @@
 #pragma once
 
+#include <iostream>
 #include <cmath>
 #include <iomanip>
 #include <utility>
-
-using namespace std;
 
 /**
  * @file MyVector.h
@@ -21,6 +20,7 @@ using namespace std;
  * @copyright Copyright (c) 2019
  * 
  */
+using namespace std;
 template <class T>
 class MyVector
 {
