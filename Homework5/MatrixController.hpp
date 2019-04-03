@@ -4,6 +4,7 @@ MatrixController<M, T>::MatrixController()
     numRows = 1;
     numColumns = 1;
     MyVector<T> tempVect(1);
+    tempVect[0] = 0;
     myVect.PushBack(tempVect);
 }
 
@@ -15,16 +16,18 @@ MatrixController<M, T>::MatrixController(int rows, int columns)
     int type = 0;
     if (type == 0)
     {
-        int counter = 1;
         for (int i = 0; i < rows; i++)
         {
-            MyVector<T> tempVect(counter);
-            for (int j = 0; j << tempVect.GetNumElements(); j++)
+            MyVector<T> tempVect(i + 1);
+            for (int j = 0; j < tempVect.GetNumElements(); j++)
             {
                 tempVect[j] = 0;
+                if (j + 1 == tempVect.GetNumElements())
+                {
+                    tempVect[j] = 1;
+                }
             }
             myVect.PushBack(tempVect);
-            counter++;
         }
     }
     else
@@ -33,8 +36,19 @@ MatrixController<M, T>::MatrixController(int rows, int columns)
         for (int i = 0; i < rows; i++)
         {
             MyVector<T> tempVect(counter);
-            myVect.PushBack(tempVect);
+            for (int j = 0; j < tempVect.GetNumElements(); j++)
+            {
+                if (i < j)
+                {
+                    tempVect[j] = 0;
+                }
+                if (j + 1 == tempVect.GetNumElements())
+                {
+                    tempVect[j] = 1;
+                }
+            }
             counter--;
+            myVect.PushBack(tempVect);
         }
     }
 }
@@ -99,25 +113,51 @@ M MatrixController<M, T>::Transpose()
 template <class M, class T>
 MyVector<T> &MatrixController<M, T>::operator[](const int &i)
 {
-    if (i >= 0 && i <= GetRows())
+    try
     {
-        return this->myVect[i];
+        cout << "gong here" << endl;
+        if (i >= 0 && i <= GetRows())
+        {
+            try
+            {
+                return this->myVect[i];
+            }
+            catch (const std::exception &e)
+            {
+                cout << "hit this catch" << endl;
+                MyVector<T> *temp = new MyVector<T>();
+                temp[0] = 0;
+                return *temp;
+            }
+        }
+        else
+        {
+            cout << "Hit here" << endl;
+            cout << GetRows() << endl;
+            throw std::range_error("Out of bounds");
+        }
     }
-    else
+    catch (...)
     {
-        throw std::range_error("Out of bounds");
+        cout << "hit this catch" << endl;
+        MyVector<T> *temp = new MyVector<T>();
+        temp[0] = 0;
+        return *temp;
     }
 }
 
 template <class M, class T>
 MyVector<T> &MatrixController<M, T>::operator[](const int &i) const
 {
+    cout << "Not here" << endl;
     if (i >= 0 && i <= GetRows())
     {
         return this->myVect[i];
     }
     else
     {
+        cout << "Hit here1" << endl;
+        cout << GetRows() << endl;
         throw std::range_error("Out of bounds");
     }
 }
@@ -126,11 +166,34 @@ template <class M, class T>
 M MatrixController<M, T>::operator*(const T &val)
 {
     M temp(GetRows(), GetColumns());
-    for (int i = 0; i < GetRows(); i++)
+    cout << "Got here" << endl;
+    m_type = 0;
+    if (m_type == 0)
     {
-        for (int j = 0; j < GetColumns(); j++)
+        cout << "Should go here" << endl;
+        for (int i = 0; i < GetRows(); i++)
         {
-            temp[i][j] = val * myVect[i][j];
+            for (int j = 0; j < GetColumns(); j++)
+            {
+                if (j < i)
+                {
+                    temp[i][j] = val * myVect[i][j];
+                }
+            }
+        }
+    }
+    else
+    {
+        cout << "but went here" << endl;
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < GetColumns(); j++)
+            {
+                if (i <= j)
+                {
+                    temp[i][j] = val * myVect[i][j];
+                }
+            }
         }
     }
     return temp;
@@ -151,11 +214,30 @@ MatrixController<M, T> &MatrixController<M, T>::operator=(const M &source)
 template <class M, class T>
 void MatrixController<M, T>::copy(const M &source)
 {
-    for (int i = 0; i < GetRows(); i++)
+    if (m_type == 0)
     {
-        for (int j = 0; j < GetColumns(); j++)
+        for (int i = 0; i < GetRows(); i++)
         {
-            myVect[i][j] = source[i][j];
+            for (int j = 0; j < GetColumns(); j++)
+            {
+                if (j < i)
+                {
+                    myVect[i][j] = source[i][j];
+                }
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < GetColumns(); j++)
+            {
+                if (i <= j)
+                {
+                    myVect[i][j] = source[i][j];
+                }
+            }
         }
     }
     return;

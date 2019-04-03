@@ -45,20 +45,8 @@ private:
      */
   MyVector<MyVector<T>> myVect;
 
-  /**
-     * @brief Copy function that copies all the data from the source to the c.o.
-     * LMatrix
-     * @pre LMatrix object is created and another LMatrix object is created to be
-     * copied from
-     * @post Copies all the data from the source LMatrix object and replaces the
-     * c.o. data values
-     * @param source LMatrix object
-     */
-  // void copy(const LMatrix<T> &source);
-
-  // void copy(const Matrix<T> &source);
-
 public:
+  LMatrix();
   /**
    * 
    * @pre Construct a new LMatrix object
@@ -84,7 +72,7 @@ public:
      * @post Copies the source LMatrix object to the c.o.
      * @param source LMatrix object
      */
-  //LMatrix(const LMatrix<T> &source);
+  LMatrix(const LMatrix<T> &source);
   /**
      * @brief Destroy the LMatrix object
      * @pre LMatrix object is created

@@ -92,6 +92,11 @@ int main(int argc, char *argv[])
         cout << "Test Main data" << endl;
         cout << "-------------------------------------------" << endl;
         cout << lM << endl;
+        cout << endl;
+        cout << "Multiply" << endl;
+        cout << lM * 2 << endl;
+        //cout << lM[0][0] << endl;
+        //cout << lM[0][2] << endl;
         //cout << lM[1] << endl;
 
         // cout << "A * A^T:" << endl;

@@ -1,29 +1,14 @@
-// template <class T>
-// LMatrix<T>::LMatrix()
-// {
-//     MatrixController<LMatrix<T>, T> mc;
-//     my_controller = mc;
-//     // numRows = 1;
-//     // numColumns = 1;
-//     // MyVector<T> tempVect(1);
-//     // myVect.PushBack(tempVect);
-// }
+template <class T>
+LMatrix<T>::LMatrix()
+{
+    MatrixController<LMatrix<T>, T> mc;
+    my_controller = mc;
+}
 
 template <class T>
 LMatrix<T>::LMatrix(int rows, int columns)
 {
     MatrixController<LMatrix<T>, T> mc(rows, columns);
-    int counter = 1;
-    for (int i = 0; i < rows; i++)
-    {
-        MyVector<T> temp(counter);
-        for (int j = 0; j < counter; j++)
-        {
-            temp[j] = 0;
-        }
-        counter++;
-        mc.PushBack(temp);
-    }
     my_controller = mc;
 }
 
@@ -35,22 +20,13 @@ LMatrix<T>::LMatrix(const Matrix<T> &source)
     CalculateLower(source);
 }
 
-// template <class T>
-// LMatrix<T>::LMatrix(const LMatrix<T> &source)
-// {
-//     MatrixController<LMatrix<T>, T> mc(source.numRows, source.numColumns);
-//     //mc do a copy here to copy all the contents from the source to the mc
-//     //mc.copy then we shouldn't need a copy in the matrix class
-//     mc.copy(source);
-//     my_controller = mc;
-//     // numRows = source.numRows;
-//     // numColumns = source.numColumns;
-//     // for (int i = 0; i < numRows; i++)
-//     // {
-//     //     MyVector<T> tempVect(numColumns);
-//     //     myVect.PushBack(tempVect);
-//     // }
-// }
+template <class T>
+LMatrix<T>::LMatrix(const LMatrix<T> &source)
+{
+    MatrixController<LMatrix<T>, T> mc(source.numRows, source.numColumns);
+    mc.copy(source);
+    my_controller = mc;
+}
 
 template <class T>
 LMatrix<T>::~LMatrix() {}
@@ -89,6 +65,8 @@ template <class T>
 void LMatrix<T>::CalculateLower(const Matrix<T> &source)
 {
     Matrix<T> m = source;
+    //Set all the values to 0 or 1 depending on the location.
+    //This is just reassurance before calculating the values
     for (int i = 0; i < my_controller.GetRows(); i++)
     {
         for (int j = 0; j < my_controller.GetColumns(); j++)
@@ -103,6 +81,7 @@ void LMatrix<T>::CalculateLower(const Matrix<T> &source)
             }
         }
     }
+    //Calculate the upper values to get the lower values and set them to our data.
     for (int i = 0; i < source.GetRows() - 1; i++)
     {
         for (int k = i + 1; k < source.GetColumns(); k++)

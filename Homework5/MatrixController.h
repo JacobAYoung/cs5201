@@ -12,7 +12,7 @@ class MatrixController
 {
 private:
   int numRows;
-  //int m_type;
+  int m_type;
   /**
      * @brief Number of columns
      * 

@@ -3,7 +3,8 @@
     "iostream": "cpp",
     "istream": "cpp",
     "iosfwd": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "stdexcept": "cpp"
 },
 "prettier.tabWidth": 4,
 "editor.formatOnPaste": true
