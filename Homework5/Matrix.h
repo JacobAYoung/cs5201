@@ -5,8 +5,7 @@
 #include <utility>
 #include "MyVector.h"
 #include "GaussElimination.h"
-// #include "LMatrix.h"
-// #include "UMatrix.h"
+#include "IMatrix.h"
 
 using namespace std;
 
@@ -25,7 +24,7 @@ using namespace std;
  * 
  */
 template <class T>
-class Matrix
+class Matrix : public IMatrix<Matrix<T>, T>
 {
 private:
   /**
@@ -166,8 +165,7 @@ public:
      * @param val Value to be multiplied against Matrix
      * @return Matrix<T> A Matrix that has been multiplied by the value
      */
-  Matrix<T>
-  operator*(const T &val);
+  Matrix<T> operator*(const T &val) const;
   /**
      * @brief Assignment operator that sets the rhs Matrix object to the c.o.
      * @pre A Matrix object is created and another to be copied from

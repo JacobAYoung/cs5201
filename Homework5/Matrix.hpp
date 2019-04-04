@@ -175,7 +175,7 @@ bool Matrix<T>::isUpperTriangularMatrix()
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator*(const T &val)
+Matrix<T> Matrix<T>::operator*(const T &val) const
 {
     Matrix<T> temp(GetRows(), GetColumns());
     for (int i = 0; i < GetRows(); i++)

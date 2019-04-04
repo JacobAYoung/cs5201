@@ -7,6 +7,7 @@
 #include "GaussElimination.h"
 #include "MatrixController.h"
 #include "Matrix.h"
+#include "IMatrix.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ class UMatrix;
  * 
  */
 template <class T>
-class LMatrix
+class LMatrix : public IMatrix<LMatrix<T>, T>
 {
 private:
   MatrixController<LMatrix<T>, T> my_controller;
@@ -128,7 +129,7 @@ public:
      * @return MyVector<T> A MyVector object filled with x values calculated
      * from the c.o. object and B vector
      */
-  //MyVector<T> Eliminate(const MyVector<T> &B);
+  MyVector<T> Eliminate(const MyVector<T> &B);
   /**
      * @brief Scalar multiplcation of a LMatrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
@@ -137,7 +138,7 @@ public:
      * @param val Value to be multiplied against LMatrix
      * @return LMatrix<T> A LMatrix that has been multiplied by the value
      */
-  LMatrix<T> operator*(const T &val);
+  LMatrix<T> operator*(const T &val) const;
   /**
      * @brief Assignment operator that sets the rhs LMatrix object to the c.o.
      * @pre A LMatrix object is created and another to be copied from

@@ -103,7 +103,7 @@ public:
      * @param val Value to be multiplied against LMatrix
      * @return LMatrix<T> A LMatrix that has been multiplied by the value
      */
-  M operator*(const T &val);
+  M operator*(const T &val) const;
   /**
      * @brief Assignment operator that sets the rhs LMatrix object to the c.o.
      * @pre A LMatrix object is created and another to be copied from

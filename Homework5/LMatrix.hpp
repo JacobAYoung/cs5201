@@ -56,6 +56,12 @@ UMatrix<T> LMatrix<T>::Transpose()
     }
     return temp;
 }
+template <class T>
+MyVector<T> LMatrix<T>::Eliminate(const MyVector<T> &B)
+{
+    MyVector<T> temp = B;
+    return temp;
+}
 
 template <class T>
 MyVector<T> &LMatrix<T>::operator[](const int &i)
@@ -113,7 +119,7 @@ void LMatrix<T>::PushBack(const MyVector<T> &source)
 }
 
 template <class T>
-LMatrix<T> LMatrix<T>::operator*(const T &val)
+LMatrix<T> LMatrix<T>::operator*(const T &val) const
 {
     return my_controller * val;
 }

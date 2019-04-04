@@ -160,7 +160,7 @@ MyVector<T> &MatrixController<M, T>::operator[](const int &i) const
 }
 
 template <class M, class T>
-M MatrixController<M, T>::operator*(const T &val)
+M MatrixController<M, T>::operator*(const T &val) const
 {
     M temp(GetRows(), GetColumns());
     if (m_type == 0)
