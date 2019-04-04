@@ -12,6 +12,7 @@
 #include <sstream>
 #include "Matrix.h"
 #include "LMatrix.h"
+#include "UMatrix.h"
 
 using namespace std;
 
@@ -74,6 +75,8 @@ int main(int argc, char *argv[])
                 i--;
             }
         }
+        //Get blank line
+        getline(file, line);
         //Copy the vector
         getline(file, line);
         istringstream ss(line);
@@ -84,10 +87,30 @@ int main(int argc, char *argv[])
         //Output
         cout.precision(8);
         cout.setf(ios::fixed);
+        if (Matrix1.isLowerTriangularMatrix())
+        {
+            //Create lower matrix and then do whatever stuff
+        }
+        else if (Matrix1.isUpperTriangularMatrix())
+        {
+            //Create upper matrix and then do whatever stuff
+        }
+        else
+        {
+            //Create dense matrix and then do whatever stuff
+        }
+        cout << "-------------------------------------------" << endl;
+        cout << "Main matrix" << endl;
+        cout << "-------------------------------------------" << endl;
         cout << Matrix1 << endl;
         cout << endl;
-        //MyVector<double> x = Matrix1.Eliminate(myVector);
+        MyVector<double> x = Matrix1.Eliminate(myVector);
+        cout << "-------------------------------------------" << endl;
+        cout << "x data" << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << x << endl;
         LMatrix<double> lM(Matrix1);
+        LMatrix<double> lM2(Matrix1);
         cout << "-------------------------------------------" << endl;
         cout << "Test Main data" << endl;
         cout << "-------------------------------------------" << endl;
@@ -95,23 +118,31 @@ int main(int argc, char *argv[])
         cout << endl;
         cout << "Multiply" << endl;
         cout << lM * 2 << endl;
-        //cout << lM[0][0] << endl;
-        //cout << lM[0][2] << endl;
-        //cout << lM[1] << endl;
 
-        // cout << "A * A^T:" << endl;
-        // cout << LMatrix1 * LMatrix1.Transpose() << endl;
-        // cout << endl;
-        // cout << "x:" << endl;
-        // MyVector<double> x = LMatrix1.Eliminate(myVector);
-        // for (int i = 0; i < lines; i++)
-        // {
-        //     cout << x[i] << endl;
-        // }
-        // cout << endl;
-        // LMatrix2.PushBack(x);
-        // cout << "A * x:" << endl;
-        // cout << LMatrix1 * LMatrix2 << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << "Addition:" << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << lM + lM2 << endl;
+
+        cout << "-------------------------------------------" << endl;
+        cout << "mult:" << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << lM * lM2 << endl;
+
+        cout << "-------------------------------------------" << endl;
+        cout << "UMatrix:" << endl;
+        cout << "-------------------------------------------" << endl;
+        UMatrix<double> uM2(Matrix1);
+        cout << uM2 << endl;
+        cout << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << "non-negative:" << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << lM << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << "comparison:" << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << lM.Transpose() << endl;
     }
     catch (const std::exception &e)
     {

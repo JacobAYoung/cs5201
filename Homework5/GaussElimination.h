@@ -34,7 +34,7 @@ private:
      * @return MyVector<MyVector<T>> A matrix that has been calculated with
      * forward elimination
    */
-  MyVector<MyVector<T>> ForwardElimination(const MyVector<MyVector<T>> &source, const MyVector<T> &B);
+  MyVector<MyVector<T>> ForwardElimination(const MyVector<MyVector<T>> &source, const MyVector<T> &B) const;
 
 public:
   /**
@@ -49,7 +49,11 @@ public:
      * @return MyVector<T> A x vector for the calculated values of the matrix
      * and B vector using Guass elimination (forward elimination)
     */
-  MyVector<T> GaussEliminate(const MyVector<MyVector<T>> &source, const MyVector<T> &B);
+  MyVector<T> GaussEliminate(const MyVector<MyVector<T>> &source, const MyVector<T> &B) const;
+
+  MyVector<T> BackSub(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const;
+
+  MyVector<T> ForwardSub(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const;
 };
 
 #include "GaussElimination.hpp"

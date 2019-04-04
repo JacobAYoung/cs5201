@@ -5,8 +5,13 @@
 #include <utility>
 #include "MyVector.h"
 #include "GaussElimination.h"
+#include "MatrixController.h"
+#include "Matrix.h"
 
 using namespace std;
+
+template <class T>
+class LMatrix;
 
 /**
  * @file UMatrix.h
@@ -26,6 +31,7 @@ template <class T>
 class UMatrix
 {
 private:
+  MatrixController<UMatrix<T>, T> my_controller;
   /**
      * @brief Number of rows
      * 
@@ -41,18 +47,9 @@ private:
      * 
      */
   MyVector<MyVector<T>> myVect;
-  /**
-     * @brief Copy function that copies all the data from the source to the c.o.
-     * UMatrix
-     * @pre UMatrix object is created and another UMatrix object is created to be
-     * copied from
-     * @post Copies all the data from the source UMatrix object and replaces the
-     * c.o. data values
-     * @param source UMatrix object
-     */
-  void copy(const UMatrix<T> &source);
 
 public:
+  UMatrix();
   /**
    * 
    * @pre Construct a new UMatrix object
@@ -60,7 +57,7 @@ public:
    * @brief Construct a new UMatrix object
    * 
    */
-  UMatrix();
+  UMatrix(int rows, int columns);
   /**
      * 
      * @pre Construct a new UMatrix object with set sizes
@@ -70,7 +67,7 @@ public:
      * @param rows Number of rows
      * @param columns Number of columns
      */
-  UMatrix(int rows, int columns);
+  UMatrix(const Matrix<T> &source);
   /**
      * @brief Copy constructor
      * @pre A c.o. UMatrix is created and a source UMatrix object is created to be
@@ -146,7 +143,7 @@ public:
      * @return MyVector<T> A MyVector object filled with x values calculated
      * from the c.o. object and B vector
      */
-  MyVector<T> Eliminate(const MyVector<T> &B);
+  //MyVector<T> Eliminate(const MyVector<T> &B);
   /**
      * @brief Scalar multiplcation of a UMatrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
@@ -164,6 +161,10 @@ public:
      * @return UMatrix<T> The c.o. is now equal to the rhs UMatrix object
      */
   UMatrix<T> &operator=(const UMatrix<T> &source);
+
+  void CalculateUpper(const Matrix<T> &source);
+  T &operator()(const int &i, const int &j);
+  T &operator()(const int &i, const int &j) const;
 };
 /**
  * @brief Equals operator. Checks to see if the two UMatrix objects are the same
@@ -176,8 +177,8 @@ public:
  * @return true If the two UMatrix objects are the same
  * @return false If the two UMatrix objects aren't the same
  */
-template <typename T>
-bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+// template <typename T>
+// bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two UMatrix objects are not the same
  * @pre Two UMatrix objects are created
@@ -189,8 +190,8 @@ bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
  * @return true If the two UMatrix objects aren't the same
  * @return false If the two UMatrix objects are the same
  */
-template <typename T>
-bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+// template <typename T>
+// bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Negates every value within the UMatrix
  * @pre A UMatrix object is created
@@ -200,8 +201,8 @@ bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
  * @param source UMatrix object
  * @return UMatrix<T> A UMatrix that has every value negated
  */
-template <typename T>
-UMatrix<T> operator-(const UMatrix<T> &source);
+// template <typename T>
+// UMatrix<T> operator-(const UMatrix<T> &source);
 /**
  * @brief Calculate UMatrix multiplication of two matricies
  * @pre Two UMatrix object's are created and the lhs column size is the same as
@@ -230,8 +231,8 @@ UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
  * @return UMatrix<T> A UMatrix that has been calculate by doing addition of
  * the lhs and rhs matricies
  */
-template <typename T>
-UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+// template <typename T>
+// UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Calculate UMatrix subtraction of two matricies
  * @pre Two UMatrix object's are created and the lhs column size is the same as
@@ -245,8 +246,8 @@ UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
  * @return UMatrix<T> A UMatrix that has been calculate by doing subtraction of
  * the lhs and rhs matricies
  */
-template <typename T>
-UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+// template <typename T>
+// UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the UMatrix object
  * @pre A UMatrix object is created

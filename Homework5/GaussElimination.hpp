@@ -1,5 +1,5 @@
 template <class T>
-MyVector<MyVector<T>> GaussElimination<T>::ForwardElimination(const MyVector<MyVector<T>> &A, const MyVector<T> &B)
+MyVector<MyVector<T>> GaussElimination<T>::ForwardElimination(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
 {
     int numElements = A.GetNumElements();
     //Create a copy of the matrix A
@@ -63,11 +63,11 @@ MyVector<MyVector<T>> GaussElimination<T>::ForwardElimination(const MyVector<MyV
 }
 
 template <class T>
-MyVector<T> GaussElimination<T>::GaussEliminate(const MyVector<MyVector<T>> &A, const MyVector<T> &B)
+MyVector<T> GaussElimination<T>::GaussEliminate(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
 {
     int numElements = A.GetNumElements();
     //Create a vector x to be returned
-    MyVector<T> x(A.GetNumElements());
+    MyVector<T> x(numElements);
     MyVector<MyVector<T>> temp = ForwardElimination(A, B);
     for (int i = numElements - 1; i >= 0; i--)
     {
@@ -77,6 +77,40 @@ MyVector<T> GaussElimination<T>::GaussEliminate(const MyVector<MyVector<T>> &A, 
         {
             //Calculate new B vector values
             B[j] -= temp[j][i] * x[i];
+        }
+    }
+    return x;
+}
+
+template <class T>
+MyVector<T> GaussElimination<T>::BackSub(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
+{
+    int numElements = A.GetNumElements();
+    MyVector<T> x(numElements);
+    MyVector<MyVector<T>> temp = A;
+    for (int i = numElements - 1; i >= 0; i--)
+    {
+        x[i] = B[i] / temp[i][i];
+        for (int j = i - 1; j >= 0; j--)
+        {
+            temp[j][i] -= temp[j][i] * x[i];
+        }
+    }
+    return x;
+}
+
+template <class T>
+MyVector<T> GaussElimination<T>::ForwardSub(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
+{
+    int numElements = A.GetNumElements();
+    MyVector<T> x(numElements);
+    MyVector<MyVector<T>> temp = A;
+    for (int i = 0; i < numElements; i++)
+    {
+        x[i] = B[i] / temp[i][i];
+        for (int j = 0; j < i; j++)
+        {
+            temp[j][i] -= temp[j][i] * x[i];
         }
     }
     return x;

@@ -144,6 +144,7 @@ public:
    * @param source MyVector object
    */
   void PushBack(const MyVector<double> &source);
+  void deletePointer(const int &n);
 };
 /**
  * @brief operator==: == operator that checks to see if both the lhs MyVector

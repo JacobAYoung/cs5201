@@ -154,6 +154,10 @@ public:
      * from the c.o. object and B vector
      */
   MyVector<T> Eliminate(const MyVector<T> &B);
+
+  bool isLowerTriangularMatrix();
+  bool isUpperTriangularMatrix();
+
   /**
      * @brief Scalar multiplcation of a Matrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
@@ -162,7 +166,8 @@ public:
      * @param val Value to be multiplied against Matrix
      * @return Matrix<T> A Matrix that has been multiplied by the value
      */
-  Matrix<T> operator*(const T &val);
+  Matrix<T>
+  operator*(const T &val);
   /**
      * @brief Assignment operator that sets the rhs Matrix object to the c.o.
      * @pre A Matrix object is created and another to be copied from

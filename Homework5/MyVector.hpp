@@ -59,6 +59,16 @@ MyVector<T>::~MyVector()
 }
 
 template <class T>
+void MyVector<T>::deletePointer(const int &n)
+{
+    this->ptr_to_data = new T[numElements];
+    for (int i = n; i < numElements; i++)
+    {
+        this->ptr_to_data[i] = 0;
+    }
+}
+
+template <class T>
 T &MyVector<T>::operator[](const int &i)
 {
     if (i >= 0 && i <= GetNumElements())

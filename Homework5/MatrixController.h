@@ -38,7 +38,7 @@ public:
      * @param rows Number of rows
      * @param columns Number of columns
      */
-  MatrixController(int rows, int columns);
+  MatrixController(int rows, int columns, int type);
   /**
      * @brief Copy constructor
      * @pre A c.o. LMatrix is created and a source LMatrix object is created to be
@@ -75,14 +75,6 @@ public:
      * @return int Number of columns within the LMatrix
      */
   int GetColumns() const;
-  /**
-     * @brief Calculate and returns the transpose of the LMatrix object
-     * @pre A LMatrix object is created
-     * @post Creates a temporary LMatrix object and returns the transpose of the
-     * c.o. LMatrix
-     * @return LMatrix<T> A copy of the LMatrix c.o. transpose
-     */
-  M Transpose();
   /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and LMatrix object is created

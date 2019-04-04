@@ -1,157 +1,172 @@
 template <class T>
 UMatrix<T>::UMatrix()
 {
-    numRows = 1;
-    numColumns = 1;
-    MyVector<double> tempVect(1);
-    myVect.PushBack(tempVect);
+    MatrixController<UMatrix<T>, T> mc;
+    my_controller = mc;
 }
 
 template <class T>
 UMatrix<T>::UMatrix(int rows, int columns)
 {
-    numRows = rows;
-    numColumns = columns;
-    for (int i = 0; i < rows; i++)
-    {
-        MyVector<double> tempVect(columns);
-        myVect.PushBack(tempVect);
-    }
+    MatrixController<UMatrix<T>, T> mc(rows, columns, 1);
+    my_controller = mc;
+}
+
+template <class T>
+UMatrix<T>::UMatrix(const Matrix<T> &source)
+{
+    MatrixController<UMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), 1);
+    my_controller = mc;
+    CalculateUpper(source);
 }
 
 template <class T>
 UMatrix<T>::UMatrix(const UMatrix<T> &source)
 {
-    numRows = source.numRows;
-    numColumns = source.numColumns;
-    for (int i = 0; i < numRows; i++)
-    {
-        MyVector<double> tempVect(numColumns);
-        myVect.PushBack(tempVect);
-    }
-    copy(source);
+    MatrixController<UMatrix<T>, T> mc(source.numRows, source.numColumns, 1);
+    mc.copy(source);
+    my_controller = mc;
 }
 
 template <class T>
 UMatrix<T>::~UMatrix() {}
 
 template <class T>
-void UMatrix<T>::copy(const UMatrix<T> &source)
-{
-    for (int i = 0; i < GetRows(); i++)
-    {
-        for (int j = 0; j < GetColumns(); j++)
-        {
-            myVect[i][j] = source[i][j];
-        }
-    }
-    return;
-}
-
-template <class T>
-void UMatrix<T>::PushBack(const MyVector<T> &source)
-{
-    int counter = 0;
-    for (int i = 0; i < this->GetColumns(); i++)
-    {
-        for (int j = 0; j < this->GetRows(); j++)
-        {
-            if (myVect[j][i] == 0)
-            {
-                counter++;
-            }
-        }
-        if (counter == this->GetRows())
-        {
-            for (int j = 0; j < this->GetRows(); j++)
-            {
-                myVect[j][i] = source[j];
-            }
-            return;
-        }
-        counter = 0;
-    }
-
-    myVect.PushBack(source);
-    return;
-}
-
-template <class T>
 int UMatrix<T>::GetRows() const
 {
-    return numRows;
+    return my_controller.GetRows();
 }
 
 template <class T>
 int UMatrix<T>::GetColumns() const
 {
-    return numColumns;
+    return my_controller.GetColumns();
 }
 
 template <class T>
 UMatrix<T> UMatrix<T>::Transpose()
 {
-    UMatrix<T> temp(this->GetColumns(), this->GetRows());
-    for (int i = 0; i < this->GetRows(); i++)
-    {
-        for (int j = 0; j < this->GetColumns(); j++)
-        {
-            temp[j][i] = myVect[i][j];
-        }
-    }
-    return temp;
+    return my_controller.Transpose();
 }
 
 template <class T>
 MyVector<T> &UMatrix<T>::operator[](const int &i)
 {
-    if (i >= 0 && i <= GetRows())
-    {
-        return this->myVect[i];
-    }
-    else
-    {
-        throw std::range_error("Out of bounds");
-    }
+    return my_controller[i];
 }
 
 template <class T>
 MyVector<T> &UMatrix<T>::operator[](const int &i) const
 {
-    if (i >= 0 && i <= GetRows())
+    return my_controller[i];
+}
+
+template <class T>
+void UMatrix<T>::CalculateUpper(const Matrix<T> &source)
+{
+    Matrix<T> m = source;
+    //Set all the values to 0 or 1 depending on the location.
+    //This is just reassurance before calculating the values
+    for (int i = 0; i < my_controller.GetRows(); i++)
     {
-        return this->myVect[i];
+        for (int j = 0; j < my_controller.GetColumns(); j++)
+        {
+            if (i < j)
+            {
+                my_controller[i][j] = 0;
+            }
+            else if (i == j)
+            {
+                my_controller[i][j] = 1;
+            }
+        }
+    }
+    //Calculate the upper values to get the lower values and set them to our data.
+    for (int i = 0; i < source.GetRows() - 1; i++)
+    {
+        for (int k = i + 1; k < source.GetColumns(); k++)
+        {
+            T t = m[k][i] / m[i][i];
+            for (int j = 0; j < source.GetRows(); j++)
+            {
+                m[k][j] = m[k][j] - t * m[i][j];
+            }
+        }
+    }
+    for (int i = 0; i < my_controller.GetRows(); i++)
+    {
+        for (int j = 0; j < my_controller.GetColumns(); j++)
+        {
+            if (i <= j)
+            {
+                my_controller[i][j] = m[i][j];
+            }
+        }
+    }
+    return;
+}
+
+template <class T>
+T &UMatrix<T>::operator()(const int &i, const int &j)
+{
+    if (i <= j)
+    {
+        return my_controller[i][j];
     }
     else
     {
-        throw std::range_error("Out of bounds");
+        T *temp = new double();
+        return *temp;
     }
 }
 
 template <class T>
-MyVector<T> UMatrix<T>::Eliminate(const MyVector<T> &B)
+T &UMatrix<T>::operator()(const int &i, const int &j) const
 {
-    if (GetColumns() == B.GetNumElements())
+    if (i <= j)
     {
-        GaussElimination<T> source;
-        return source.GaussEliminate(myVect, B);
+        return my_controller[i][j];
     }
     else
     {
-        throw std::range_error("Sizes don't match");
+        T *temp = new double();
+        return *temp;
     }
+}
+
+template <class T>
+void UMatrix<T>::PushBack(const MyVector<T> &source)
+{
+    my_controller.PushBack(source);
+    return;
 }
 
 template <class T>
 UMatrix<T> UMatrix<T>::operator*(const T &val)
 {
-    UMatrix<T> temp(GetRows(), GetColumns());
-    for (int i = 0; i < GetRows(); i++)
+    return my_controller * val;
+}
+
+template <typename T>
+UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
     {
-        for (int j = 0; j < GetColumns(); j++)
+        for (int i = 0; i < lhs.GetRows(); i++)
         {
-            temp[i][j] = val * myVect[i][j];
+            for (int j = 0; j < rhs.GetColumns(); j++)
+            {
+                for (int k = 0; k < lhs.GetColumns(); k++)
+                {
+                    temp(i, j) += lhs(i, k) * rhs(k, j);
+                }
+            }
         }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
     }
     return temp;
 }
@@ -161,165 +176,9 @@ UMatrix<T> &UMatrix<T>::operator=(const UMatrix<T> &source)
 {
     if (*this != source)
     {
-        numColumns = source.numColumns;
-        numRows = source.numRows;
-        myVect = source.myVect;
+        my_controller = source.my_controller;
     }
     return (*this);
-}
-
-template <typename T>
-bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
-{
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs[i][j] != rhs[i][j])
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    else
-    {
-        return false;
-    }
-}
-
-template <typename T>
-bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
-{
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs[i][j] != rhs[i][j])
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
-}
-
-template <typename T>
-UMatrix<T> operator-(const UMatrix<T> &source)
-{
-    UMatrix<T> temp(source.GetRows(), source.GetColumns());
-    for (int i = 0; i < source.GetRows(); i++)
-    {
-        for (int j = 0; j < source.GetColumns(); j++)
-        {
-            temp[i][j] = -1 * source[i][j];
-        }
-    }
-    return temp;
-}
-
-template <class T>
-UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
-{
-    UMatrix<T> temp(lhs.GetRows(), rhs.GetColumns());
-    if (lhs.GetColumns() == rhs.GetRows())
-    {
-        for (int i = 0; i < lhs.GetRows(); i++)
-        {
-            for (int j = 0; j < rhs.GetColumns(); j++)
-            {
-                for (int k = 0; k < lhs.GetColumns(); k++)
-                {
-                    temp[i][j] += lhs[i][k] * rhs[k][j];
-                }
-            }
-        }
-    }
-    else
-    {
-        throw std::length_error("UMatrix sizes don't match.");
-    }
-    return temp;
-}
-
-template <class T>
-UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
-{
-    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    temp[i][j] = lhs[i][j] + rhs[i][j];
-                }
-            }
-        }
-        else
-        {
-            throw std::length_error("UMatrix sizes don't match.");
-        }
-    }
-    else
-    {
-        throw std::length_error("UMatrix sizes don't match.");
-    }
-    return temp;
-}
-
-template <class T>
-UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
-{
-    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    temp[i][j] = lhs[i][j] - rhs[i][j];
-                }
-            }
-        }
-        else
-        {
-            throw std::length_error("UMatrix sizes don't match.");
-        }
-    }
-    else
-    {
-        throw std::length_error("UMatrix sizes don't match.");
-    }
-    return temp;
 }
 
 template <typename T>
@@ -327,10 +186,17 @@ std::ostream &operator<<(std::ostream &out, const UMatrix<T> &source)
 {
     for (int i = 0; i < source.GetRows(); i++)
     {
-        out << source[i];
-        if (i + 1 < source.GetRows())
+        for (int j = 0; j < source.GetColumns(); j++)
         {
-            cout << endl;
+            if (i <= j)
+            {
+                cout << source(i, j) << " ";
+            }
+        }
+        cout << endl;
+        for (int j = 1; j <= i + 1; j++)
+        {
+            cout << "\t";
         }
     }
     return out;

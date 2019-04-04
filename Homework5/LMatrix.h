@@ -10,6 +10,9 @@
 
 using namespace std;
 
+template <class T>
+class UMatrix;
+
 /**
  * @file LMatrix.h
  * @class LMatrix
@@ -108,7 +111,7 @@ public:
      * c.o. LMatrix
      * @return LMatrix<T> A copy of the LMatrix c.o. transpose
      */
-  LMatrix<T> Transpose();
+  UMatrix<T> Transpose();
   /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and LMatrix object is created
@@ -160,6 +163,8 @@ public:
   LMatrix<T> &operator=(const LMatrix<T> &source);
 
   void CalculateLower(const Matrix<T> &source);
+  T &operator()(const int &i, const int &j);
+  T &operator()(const int &i, const int &j) const;
 };
 /**
  * @brief Equals operator. Checks to see if the two LMatrix objects are the same
@@ -172,8 +177,8 @@ public:
  * @return true If the two LMatrix objects are the same
  * @return false If the two LMatrix objects aren't the same
  */
-// template <typename T>
-// bool operator==(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+template <typename T>
+bool operator==(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two LMatrix objects are not the same
  * @pre Two LMatrix objects are created
@@ -185,8 +190,8 @@ public:
  * @return true If the two LMatrix objects aren't the same
  * @return false If the two LMatrix objects are the same
  */
-// template <typename T>
-// bool operator!=(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+template <typename T>
+bool operator!=(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Negates every value within the LMatrix
  * @pre A LMatrix object is created
@@ -196,8 +201,8 @@ public:
  * @param source LMatrix object
  * @return LMatrix<T> A LMatrix that has every value negated
  */
-// template <typename T>
-// LMatrix<T> operator-(const LMatrix<T> &source);
+template <typename T>
+LMatrix<T> operator-(const LMatrix<T> &source);
 /**
  * @brief Calculate LMatrix multiplication of two matricies
  * @pre Two LMatrix object's are created and the lhs column size is the same as
@@ -211,8 +216,20 @@ public:
  * @return LMatrix<T> A LMatrix that has been calculate by doing multiplication of
  * the lhs and rhs matricies
  */
-// template <typename T>
-// LMatrix<T> operator*(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+template <typename T>
+LMatrix<T> operator*(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const Matrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const LMatrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Calculate LMatrix addition of two matricies
  * @pre Two LMatrix object's are created and the lhs column size is the same as
@@ -226,8 +243,20 @@ public:
  * @return LMatrix<T> A LMatrix that has been calculate by doing addition of
  * the lhs and rhs matricies
  */
-// template <typename T>
-// LMatrix<T> operator+(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+template <typename T>
+LMatrix<T> operator+(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const Matrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const LMatrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Calculate LMatrix subtraction of two matricies
  * @pre Two LMatrix object's are created and the lhs column size is the same as
@@ -241,8 +270,20 @@ public:
  * @return LMatrix<T> A LMatrix that has been calculate by doing subtraction of
  * the lhs and rhs matricies
  */
-// template <typename T>
-// LMatrix<T> operator-(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+template <typename T>
+LMatrix<T> operator-(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const Matrix<T> &lhs, const LMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const LMatrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the LMatrix object
  * @pre A LMatrix object is created

@@ -52,11 +52,11 @@ template <class T>
 void Matrix<T>::PushBack(const MyVector<T> &source)
 {
     int counter = 0;
-    for (int i = 0; i < this->GetColumns(); i++)
+    for (int i = 0; i < this->GetRows(); i++)
     {
-        for (int j = 0; j < this->GetRows(); j++)
+        for (int j = 0; j < this->GetColumns(); j++)
         {
-            if (myVect[j][i] == 0)
+            if (myVect[i][j] == 0)
             {
                 counter++;
             }
@@ -65,7 +65,7 @@ void Matrix<T>::PushBack(const MyVector<T> &source)
         {
             for (int j = 0; j < this->GetRows(); j++)
             {
-                myVect[j][i] = source[j];
+                myVect[i][j] = source[j];
             }
             return;
         }
@@ -134,12 +134,44 @@ MyVector<T> Matrix<T>::Eliminate(const MyVector<T> &B)
     if (GetColumns() == B.GetNumElements())
     {
         GaussElimination<T> source;
-        return source.CalculateLower(myVect, B);
+        return source.GaussEliminate(myVect, B);
     }
     else
     {
         throw std::range_error("Sizes don't match");
     }
+}
+
+template <class T>
+bool Matrix<T>::isLowerTriangularMatrix()
+{
+    for (int i = 0; i < GetRows(); i++)
+    {
+        for (int j = i + 1; j < GetColumns(); j++)
+        {
+            if (myVect[i][j] != 0)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+template <class T>
+bool Matrix<T>::isUpperTriangularMatrix()
+{
+    for (int i = 1; i < GetRows(); i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (myVect[i][j] != 0)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 template <class T>
