@@ -32,21 +32,6 @@ class LMatrix
 {
 private:
   MatrixController<LMatrix<T>, T> my_controller;
-  /**
-     * @brief Number of rows
-     * 
-     */
-  int numRows;
-  /**
-     * @brief Number of columns
-     * 
-     */
-  int numColumns;
-  /**
-     * @brief vector of a vector where the data will be stored
-     * 
-     */
-  MyVector<MyVector<T>> myVect;
 
 public:
   LMatrix();

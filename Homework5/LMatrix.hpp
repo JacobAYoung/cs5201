@@ -23,7 +23,7 @@ LMatrix<T>::LMatrix(const Matrix<T> &source)
 template <class T>
 LMatrix<T>::LMatrix(const LMatrix<T> &source)
 {
-    MatrixController<LMatrix<T>, T> mc(source.numRows, source.numColumns, 0);
+    MatrixController<LMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), 0);
     mc.copy(source);
     my_controller = mc;
 }
