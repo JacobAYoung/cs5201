@@ -61,10 +61,17 @@ MyVector<T>::~MyVector()
 template <class T>
 void MyVector<T>::deletePointer(const int &n)
 {
-    this->ptr_to_data = new T[numElements];
-    for (int i = n; i < numElements; i++)
+    if (n >= 0)
     {
-        this->ptr_to_data[i] = 0;
+        this->ptr_to_data = new T[numElements];
+        for (int i = n; i < numElements; i++)
+        {
+            this->ptr_to_data[i] = 0;
+        }
+    }
+    else
+    {
+        throw std::range_error("Value needs to be greater then 0");
     }
 }
 

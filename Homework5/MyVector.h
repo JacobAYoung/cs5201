@@ -144,6 +144,17 @@ public:
    * @param source MyVector object
    */
   void PushBack(const MyVector<double> &source);
+  /**
+   * @brief Creates a new array of pointers based off how many pointers it needs
+   * to delete.
+   * @pre Mainly used for Upper triangular matricies when creating the space
+   * needed to store the elements within the matrix.
+   * @post Will create a new array of pointers and set the values correctly
+   * depending if there needs to be data set. Error will be thrown if the n
+   * value is less then 0
+   * 
+   * @param n A integer value that needs to be positive to delete the number of pointers.
+   */
   void deletePointer(const int &n);
 };
 /**

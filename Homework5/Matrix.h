@@ -6,6 +6,8 @@
 #include "MyVector.h"
 #include "GaussElimination.h"
 #include "IMatrix.h"
+#include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -16,7 +18,8 @@ using namespace std;
  * @pre Matrix object is created
  * @post Matrix can do calculations and can be used as a regular Matrix
  * @brief Creates a Matrix that has multiple methods of doing calculations for
- * that Matrix
+ * that Matrix. We assume that template T must be some kind of type like int,
+ * double, float, etc...
  * @version 0.1
  * @date 2019-03-17
  * 
@@ -28,31 +31,31 @@ class Matrix : public IMatrix<Matrix<T>, T>
 {
 private:
   /**
-     * @brief Number of rows
-     * 
-     */
+    * @brief Number of rows
+    * 
+  */
   int numRows;
   /**
-     * @brief Number of columns
-     * 
-     */
+    * @brief Number of columns
+    * 
+  */
   int numColumns;
   /**
-     * @brief vector of a vector where the data will be stored
-     * 
-     */
+    * @brief vector of a vector where the data will be stored
+    * 
+  */
   MyVector<MyVector<T>> myVect;
 
   //MatrixController<Matrix<T>, T> my_controller;
   /**
-     * @brief Copy function that copies all the data from the source to the c.o.
-     * Matrix
-     * @pre Matrix object is created and another Matrix object is created to be
-     * copied from
-     * @post Copies all the data from the source Matrix object and replaces the
-     * c.o. data values
-     * @param source Matrix object
-     */
+    * @brief Copy function that copies all the data from the source to the c.o.
+    * Matrix
+    * @pre Matrix object is created and another Matrix object is created to be
+    * copied from
+    * @post Copies all the data from the source Matrix object and replaces the
+    * c.o. data values
+    * @param source Matrix object
+  */
   void copy(const Matrix<T> &source);
 
 public:
@@ -89,8 +92,7 @@ public:
      */
   ~Matrix();
 
-  // LMatrix<T> GetLower() const;
-  // UMatrix<T> GetUpper() const;
+  Matrix(Matrix<T> &&source);
   /**
      * @brief Add a vector onto the Matrix
      * @pre A Matrix object is created
@@ -122,6 +124,38 @@ public:
      */
   Matrix<T> Transpose();
   /**
+     * @brief Performs the Gauss elimination process on the c.o. Matrix and a B
+     * vector to find the x vector of values
+     * @pre A Matrix object and MyVector object is created
+     * @post Creates a MyVector object filled with the x values created from the
+     * gauss elimination of the Matrix and b vector. Throws an error if the size
+     * of the Matrix and B vector don't work together.
+     * @param B The B vector
+     * @return MyVector<T> A MyVector object filled with x values calculated
+     * from the c.o. object and B vector
+     */
+  MyVector<T> Eliminate(const MyVector<T> &B);
+  /**
+   * @brief Determines if the dense matrix is a lower Triangular Matrix
+   * @pre A Matrix object is created and has data stored within it
+   * @Post Determines if the data stored in the dense Matrix is a lower
+   * triangular matrix
+   * 
+   * @return true if the matrix is a lower triangular matrix
+   * @return false if the matrix is a upper triangular matrix
+   */
+  bool isLowerTriangularMatrix() const;
+  /**
+   * @brief Determines if the dense matrix is a upper Triangular Matrix
+   * @pre A Matrix object is created and has data stored within it
+   * @Post Determines if the data stored in the dense Matrix is a upper
+   * triangular matrix
+   * 
+   * @return true if the matrix is a upper triangular matrix
+   * @return false if the matrix is a lower triangular matrix
+   */
+  bool isUpperTriangularMatrix() const;
+  /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and Matrix object is created
      * @post: Returns the data from the pointer of the specified position.
@@ -141,22 +175,6 @@ public:
      * position as a constant value
      */
   MyVector<T> &operator[](const int &i) const;
-  /**
-     * @brief Performs the Gauss elimination process on the c.o. Matrix and a B
-     * vector to find the x vector of values
-     * @pre A Matrix object and MyVector object is created
-     * @post Creates a MyVector object filled with the x values created from the
-     * gauss elimination of the Matrix and b vector. Throws an error if the size
-     * of the Matrix and B vector don't work together.
-     * @param B The B vector
-     * @return MyVector<T> A MyVector object filled with x values calculated
-     * from the c.o. object and B vector
-     */
-  MyVector<T> Eliminate(const MyVector<T> &B);
-
-  bool isLowerTriangularMatrix();
-  bool isUpperTriangularMatrix();
-
   /**
      * @brief Scalar multiplcation of a Matrix and a T value. The T value must
      * be on the right side of the multiplcation equation.

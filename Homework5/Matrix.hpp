@@ -36,6 +36,16 @@ template <class T>
 Matrix<T>::~Matrix() {}
 
 template <class T>
+Matrix<T>::Matrix(Matrix<T> &&source)
+{
+    numRows = source.numRows;
+    numColumns = source.numColumns;
+    std::swap(myVect, source.myVect);
+    source.numColumns = 0;
+    source.numRows = 0;
+}
+
+template <class T>
 void Matrix<T>::copy(const Matrix<T> &source)
 {
     for (int i = 0; i < GetRows(); i++)
@@ -103,6 +113,52 @@ Matrix<T> Matrix<T>::Transpose()
 }
 
 template <class T>
+MyVector<T> Matrix<T>::Eliminate(const MyVector<T> &B)
+{
+    if (GetColumns() == B.GetNumElements())
+    {
+        GaussElimination<T> source;
+        return source.GaussEliminate(myVect, B);
+    }
+    else
+    {
+        throw std::range_error("Sizes don't match");
+    }
+}
+
+template <class T>
+bool Matrix<T>::isLowerTriangularMatrix() const
+{
+    for (int i = 0; i < GetRows(); i++)
+    {
+        for (int j = i + 1; j < GetColumns(); j++)
+        {
+            if (myVect[i][j] != 0)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+template <class T>
+bool Matrix<T>::isUpperTriangularMatrix() const
+{
+    for (int i = 1; i < GetRows(); i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (myVect[i][j] != 0)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+template <class T>
 MyVector<T> &Matrix<T>::operator[](const int &i)
 {
     if (i >= 0 && i <= GetRows())
@@ -126,52 +182,6 @@ MyVector<T> &Matrix<T>::operator[](const int &i) const
     {
         throw std::range_error("Out of bounds");
     }
-}
-
-template <class T>
-MyVector<T> Matrix<T>::Eliminate(const MyVector<T> &B)
-{
-    if (GetColumns() == B.GetNumElements())
-    {
-        GaussElimination<T> source;
-        return source.GaussEliminate(myVect, B);
-    }
-    else
-    {
-        throw std::range_error("Sizes don't match");
-    }
-}
-
-template <class T>
-bool Matrix<T>::isLowerTriangularMatrix()
-{
-    for (int i = 0; i < GetRows(); i++)
-    {
-        for (int j = i + 1; j < GetColumns(); j++)
-        {
-            if (myVect[i][j] != 0)
-            {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-template <class T>
-bool Matrix<T>::isUpperTriangularMatrix()
-{
-    for (int i = 1; i < GetRows(); i++)
-    {
-        for (int j = 0; j < i; j++)
-        {
-            if (myVect[i][j] != 0)
-            {
-                return false;
-            }
-        }
-    }
-    return true;
 }
 
 template <class T>
