@@ -23,7 +23,7 @@ UMatrix<T>::UMatrix(const Matrix<T> &source)
 template <class T>
 UMatrix<T>::UMatrix(const UMatrix<T> &source)
 {
-    MatrixController<UMatrix<T>, T> mc(GetRows(), GetColumns(), 1);
+    MatrixController<UMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), 1);
     mc.copy(source);
     my_controller = mc;
 }
@@ -209,6 +209,8 @@ UMatrix<T> &UMatrix<T>::operator=(const UMatrix<T> &source)
 {
     if (*this != source)
     {
+        my_controller.SetRows(source.GetRows());
+        my_controller.SetColumns(source.GetColumns());
         my_controller = source.my_controller;
     }
     return (*this);

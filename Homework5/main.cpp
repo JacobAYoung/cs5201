@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 
             cout << "x:" << endl;
             GaussElimination<double> gauss;
-            MyVector<double> x = gauss.ForwardSub(Matrix1, myVector);
+            MyVector<double> x = gauss.ForwardSub(lM, myVector);
             for (int i = 0; i < lines; i++)
             {
                 cout << x[i] << endl;
@@ -113,7 +113,6 @@ int main(int argc, char *argv[])
         else if (Matrix1.isUpperTriangularMatrix())
         {
             UMatrix<double> uM = Matrix1;
-
             cout << "A * A^T:" << endl;
             Matrix1 = uM * uM.Transpose();
             cout << Matrix1 * Matrix1.Transpose() << endl;
@@ -121,7 +120,7 @@ int main(int argc, char *argv[])
 
             cout << "x:" << endl;
             GaussElimination<double> gauss;
-            MyVector<double> x = gauss.BackSub(Matrix1, myVector);
+            MyVector<double> x = gauss.BackSub(uM, myVector);
             for (int i = 0; i < lines; i++)
             {
                 cout << x[i] << endl;

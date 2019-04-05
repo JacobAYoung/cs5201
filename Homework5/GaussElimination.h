@@ -5,6 +5,8 @@
 #include <utility>
 #include "MyVector.h"
 #include "Matrix.h"
+#include "LMatrix.h"
+#include "UMatrix.h"
 
 using namespace std;
 
@@ -65,7 +67,7 @@ public:
    * @param B The MyVector<T> object that has the B values stored.
    * @return MyVector<T> 
    */
-  MyVector<T> BackSub(const Matrix<T> &A, const MyVector<T> &B) const;
+  MyVector<T> BackSub(const UMatrix<T> &A, const MyVector<T> &B) const;
   /**
    * @brief A function that completes the forwardsub for a lower triangular matrix.
    * @pre A vector of vectors is created with data stored and a single vector. T
@@ -77,7 +79,7 @@ public:
    * @param B The MyVector<T> object that has the B values stored.
    * @return MyVector<T> 
    */
-  MyVector<T> ForwardSub(const Matrix<T> &A, const MyVector<T> &B) const;
+  MyVector<T> ForwardSub(const LMatrix<T> &A, const MyVector<T> &B) const;
 };
 
 #include "GaussElimination.hpp"

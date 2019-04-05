@@ -133,6 +133,8 @@ LMatrix<T> &LMatrix<T>::operator=(const LMatrix<T> &source)
 {
     if (*this != source)
     {
+        my_controller.SetRows(source.GetRows());
+        my_controller.SetColumns(source.GetColumns());
         my_controller = source.my_controller;
     }
     return (*this);

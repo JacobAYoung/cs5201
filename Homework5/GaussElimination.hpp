@@ -83,34 +83,38 @@ MyVector<T> GaussElimination<T>::GaussEliminate(const Matrix<T> &source, const M
 }
 
 template <class T>
-MyVector<T> GaussElimination<T>::BackSub(const Matrix<T> &A, const MyVector<T> &B) const
+MyVector<T> GaussElimination<T>::BackSub(const UMatrix<T> &A, const MyVector<T> &B) const
 {
     int numElements = A.GetRows();
     MyVector<T> x(numElements);
-    Matrix<T> temp = A;
+    UMatrix<T> temp(A);
     for (int i = numElements - 1; i >= 0; i--)
     {
-        x[i] = B[i] / temp[i][i];
+        x[i] = B[i] / temp(i, i);
         for (int j = i - 1; j >= 0; j--)
         {
-            temp[j][i] -= temp[j][i] * x[i];
+            B[j] -= temp(j, i) * x[i];
         }
     }
     return x;
 }
 
 template <class T>
-MyVector<T> GaussElimination<T>::ForwardSub(const Matrix<T> &A, const MyVector<T> &B) const
+MyVector<T> GaussElimination<T>::ForwardSub(const LMatrix<T> &A, const MyVector<T> &B) const
 {
     int numElements = A.GetRows();
     MyVector<T> x(numElements);
-    Matrix<T> temp = A;
+    LMatrix<T> temp = A;
     for (int i = 0; i < numElements; i++)
     {
-        x[i] = B[i] / temp[i][i];
+        if (temp(i, i) == 0)
+        {
+            throw std::logic_error("Zero in main diagonal");
+        }
+        x[i] = B[i] / temp(i, i);
         for (int j = 0; j < i; j++)
         {
-            temp[j][i] -= temp[j][i] * x[i];
+            x[i] -= temp(i, j) * x[i];
         }
     }
     return x;
