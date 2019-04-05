@@ -143,8 +143,8 @@ T &LMatrix<T>::operator()(const int &i, const int &j)
     }
     else
     {
-        T *temp = new double();
-        return *temp;
+        static T temp;
+        return temp;
     }
 }
 
@@ -157,8 +157,8 @@ T &LMatrix<T>::operator()(const int &i, const int &j) const
     }
     else
     {
-        T *temp = new double();
-        return *temp;
+        static T temp;
+        return temp;
     }
 }
 
