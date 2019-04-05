@@ -12,27 +12,22 @@ This abstract class is used to define a matrix that \mbox{\hyperlink{class_matri
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_i_matrix_aa5de147c7aa5b74b0f2177ed1a8158de}\label{class_i_matrix_aa5de147c7aa5b74b0f2177ed1a8158de}} 
-virtual void {\bfseries Push\+Back} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)=0
-\item 
-\mbox{\Hypertarget{class_i_matrix_a58632b018f4023768db7963e22f468da}\label{class_i_matrix_a58632b018f4023768db7963e22f468da}} 
-virtual int {\bfseries Get\+Rows} () const =0
-\item 
-\mbox{\Hypertarget{class_i_matrix_a3b84da3898ef38bdf281c13f218fc278}\label{class_i_matrix_a3b84da3898ef38bdf281c13f218fc278}} 
-virtual int {\bfseries Get\+Columns} () const =0
-\item 
-\mbox{\Hypertarget{class_i_matrix_a3cfb2490e2849c6c19c1979066a64818}\label{class_i_matrix_a3cfb2490e2849c6c19c1979066a64818}} 
-virtual \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (const int \&i)=0
-\item 
-\mbox{\Hypertarget{class_i_matrix_a1ed62ee6700728045083c7f0df3e3e62}\label{class_i_matrix_a1ed62ee6700728045083c7f0df3e3e62}} 
-virtual \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (const int \&i) const =0
-\item 
-\mbox{\Hypertarget{class_i_matrix_a9eeb68de7e1d37d1aab439c78fea9be3}\label{class_i_matrix_a9eeb68de7e1d37d1aab439c78fea9be3}} 
-virtual M \& {\bfseries operator=} (const M \&source)=0
-\item 
-\mbox{\Hypertarget{class_i_matrix_a10121e038635bdf33552c6a1fb288398}\label{class_i_matrix_a10121e038635bdf33552c6a1fb288398}} 
-virtual M {\bfseries operator $\ast$} (const T \&val) const =0
-\end{DoxyCompactItemize}
+virtual void \mbox{\hyperlink{class_i_matrix_aa5de147c7aa5b74b0f2177ed1a8158de}{Push\+Back}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)=0
+\begin{DoxyCompactList}\small\item\em Add a vector onto the \mbox{\hyperlink{class_matrix}{Matrix}}. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_i_matrix_a58632b018f4023768db7963e22f468da}{Get\+Rows}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the Rows object. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_i_matrix_a3b84da3898ef38bdf281c13f218fc278}{Get\+Columns}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the Columns object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_i_matrix_a3cfb2490e2849c6c19c1979066a64818}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i)=0
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_i_matrix_a1ed62ee6700728045083c7f0df3e3e62}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i) const =0
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position but its returned as a constant value \end{DoxyCompactList}\item 
+virtual M \& \mbox{\hyperlink{class_i_matrix_a9eeb68de7e1d37d1aab439c78fea9be3}{operator=}} (const M \&source)=0
+\begin{DoxyCompactList}\small\item\em Assignment operator that sets the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. \end{DoxyCompactList}\item 
+virtual M \mbox{\hyperlink{class_i_matrix_a10121e038635bdf33552c6a1fb288398}{operator $\ast$}} (const T \&val) const =0
+\begin{DoxyCompactList}\small\item\em Scalar multiplcation of a \mbox{\hyperlink{class_matrix}{Matrix}} and a T value. The T value must be on the right side of the multiplcation equation. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_i_matrix_a72b86d932b115897d81b768343aa5dd3}{$\sim$\+I\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -59,6 +54,219 @@ This class contains the definitions of functions to be used within the inherited
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2019 
 \end{DoxyCopyright}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_matrix_a72b86d932b115897d81b768343aa5dd3}\label{class_i_matrix_a72b86d932b115897d81b768343aa5dd3}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!````~IMatrix@{$\sim$IMatrix}}
+\index{````~IMatrix@{$\sim$IMatrix}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{$\sim$IMatrix()}{~IMatrix()}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::$\sim$\mbox{\hyperlink{class_i_matrix}{I\+Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object is created to be destroyed from 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Imatrix object is destroyed 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_matrix_a3b84da3898ef38bdf281c13f218fc278}\label{class_i_matrix_a3b84da3898ef38bdf281c13f218fc278}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!GetColumns@{GetColumns}}
+\index{GetColumns@{GetColumns}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{GetColumns()}{GetColumns()}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual int \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::Get\+Columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the Columns object. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Gets the number of columns from the \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+int Number of columns within the \mbox{\hyperlink{class_matrix}{Matrix}} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_matrix_ada60917bb197292e0645992e108c2c2f}{Matrix$<$ T $>$}}, \mbox{\hyperlink{class_u_matrix_a4065961abb79fd43d7abaf10c47e73d8}{U\+Matrix$<$ T $>$}}, and \mbox{\hyperlink{class_l_matrix_ae7adc0f92e3648751fe49852ad158ea2}{L\+Matrix$<$ T $>$}}.
+
+\mbox{\Hypertarget{class_i_matrix_a58632b018f4023768db7963e22f468da}\label{class_i_matrix_a58632b018f4023768db7963e22f468da}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!GetRows@{GetRows}}
+\index{GetRows@{GetRows}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{GetRows()}{GetRows()}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual int \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::Get\+Rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the Rows object. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Gets the number of rows from the \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+int Number of rows within the \mbox{\hyperlink{class_matrix}{Matrix}} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_matrix_aa665db4bc173a7bb4ec3f9da2676dfa6}{Matrix$<$ T $>$}}, \mbox{\hyperlink{class_u_matrix_ae261286236cb23a0dfa1296591f4c3ad}{U\+Matrix$<$ T $>$}}, and \mbox{\hyperlink{class_l_matrix_ad4ed9d329dbd01d010504a97b3879442}{L\+Matrix$<$ T $>$}}.
+
+\mbox{\Hypertarget{class_i_matrix_a10121e038635bdf33552c6a1fb288398}\label{class_i_matrix_a10121e038635bdf33552c6a1fb288398}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual M \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::operator $\ast$ (\begin{DoxyParamCaption}\item[{const T \&}]{val }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Scalar multiplcation of a \mbox{\hyperlink{class_matrix}{Matrix}} and a T value. The T value must be on the right side of the multiplcation equation. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} c.\+o. is multiplied by the value 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value to be multiplied against \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been multiplied by the value 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_matrix_a9b987f07fb3d4fcf2b038cbfd6615650}{Matrix$<$ T $>$}}, \mbox{\hyperlink{class_u_matrix_a7b1875cfc49b374875dac2a58948f3ac}{U\+Matrix$<$ T $>$}}, and \mbox{\hyperlink{class_l_matrix_ac8df9082c434b41a98d26defb95ea388}{L\+Matrix$<$ T $>$}}.
+
+\mbox{\Hypertarget{class_i_matrix_a9eeb68de7e1d37d1aab439c78fea9be3}\label{class_i_matrix_a9eeb68de7e1d37d1aab439c78fea9be3}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual M\& \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const M \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Assignment operator that sets the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created and another to be copied from 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Copies the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the \mbox{\hyperlink{class_matrix}{Matrix}} c.\+o. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ The c.\+o. is now equal to the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_matrix_a33c00fb6f2e9401d17d9ed615b965634}{Matrix$<$ T $>$}}, \mbox{\hyperlink{class_u_matrix_a3f12f4544a460dd93dac8a883654310f}{U\+Matrix$<$ T $>$}}, and \mbox{\hyperlink{class_l_matrix_ad4feb8e3706e9ce8fdb07e63d985f52f}{L\+Matrix$<$ T $>$}}.
+
+\mbox{\Hypertarget{class_i_matrix_a3cfb2490e2849c6c19c1979066a64818}\label{class_i_matrix_a3cfb2490e2849c6c19c1979066a64818}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$T$>$\& \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The position of the data is known and \mbox{\hyperlink{class_matrix}{Matrix}} object is created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the data from the pointer of the specified position. Throws an error if the position is out of the \mbox{\hyperlink{class_matrix}{Matrix}}\textquotesingle{}s size. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Position number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$\& Returns the data from the pointer at the specific position 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_matrix_aa9532c87a69bef256954e2309ca3fdd6}{Matrix$<$ T $>$}}, \mbox{\hyperlink{class_u_matrix_a0dea1e82fbf5ae67bec479c070b185dc}{U\+Matrix$<$ T $>$}}, and \mbox{\hyperlink{class_l_matrix_a7eab2a6c57437448d21a04484844e359}{L\+Matrix$<$ T $>$}}.
+
+\mbox{\Hypertarget{class_i_matrix_a1ed62ee6700728045083c7f0df3e3e62}\label{class_i_matrix_a1ed62ee6700728045083c7f0df3e3e62}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$T$>$\& \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position but its returned as a constant value 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The position of the data is known and \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the data from the pointer of the specified position as a constant value. Throws an error if the position is out of the \mbox{\hyperlink{class_matrix}{Matrix}}\textquotesingle{}s size. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Position number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$\& Returns the data from the pointer at the specific position as a constant value 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_matrix_a56c7f18f272e74bee2b616eba702fc87}{Matrix$<$ T $>$}}, \mbox{\hyperlink{class_u_matrix_ab0ad5eda96c9a8bb9ca8c69d4bb8d5f8}{U\+Matrix$<$ T $>$}}, and \mbox{\hyperlink{class_l_matrix_a56ec5ba9be0bb900ddc0ee7c5283bccd}{L\+Matrix$<$ T $>$}}.
+
+\mbox{\Hypertarget{class_i_matrix_aa5de147c7aa5b74b0f2177ed1a8158de}\label{class_i_matrix_aa5de147c7aa5b74b0f2177ed1a8158de}} 
+\index{IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}!PushBack@{PushBack}}
+\index{PushBack@{PushBack}!IMatrix$<$ M, T $>$@{IMatrix$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{PushBack()}{PushBack()}}
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
+virtual void \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ M, T $>$\+::Push\+Back (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Add a vector onto the \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The vector has been added to the c.\+o. \mbox{\hyperlink{class_matrix}{Matrix}}
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The vector that wants to be added to the c.\+o. \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_matrix_af61aaa671b6bd354b27fb3aabbb65a9d}{Matrix$<$ T $>$}}, \mbox{\hyperlink{class_u_matrix_a57003b0a0f3fe394ab04f9588732a928}{U\+Matrix$<$ T $>$}}, and \mbox{\hyperlink{class_l_matrix_a3f82539f6b2251d49a2e39c7c359b92d}{L\+Matrix$<$ T $>$}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

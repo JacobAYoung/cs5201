@@ -62,24 +62,49 @@ template <class T>
 void Matrix<T>::PushBack(const MyVector<T> &source)
 {
     int counter = 0;
-    for (int i = 0; i < this->GetRows(); i++)
+    if (GetRows() > GetColumns())
     {
-        for (int j = 0; j < this->GetColumns(); j++)
-        {
-            if (myVect[i][j] == 0)
-            {
-                counter++;
-            }
-        }
-        if (counter == this->GetRows())
+        for (int i = 0; i < this->GetColumns(); i++)
         {
             for (int j = 0; j < this->GetRows(); j++)
             {
-                myVect[i][j] = source[j];
+                if (myVect[j][i] == 0)
+                {
+                    counter++;
+                }
             }
-            return;
+            if (counter == this->GetRows())
+            {
+                for (int j = 0; j < this->GetRows(); j++)
+                {
+                    myVect[j][i] = source[j];
+                }
+                return;
+            }
+            counter = 0;
         }
-        counter = 0;
+    }
+    else
+    {
+        for (int i = 0; i < this->GetRows(); i++)
+        {
+            for (int j = 0; j < this->GetColumns(); j++)
+            {
+                if (myVect[i][j] == 0)
+                {
+                    counter++;
+                }
+            }
+            if (counter == this->GetRows())
+            {
+                for (int j = 0; j < this->GetRows(); j++)
+                {
+                    myVect[i][j] = source[j];
+                }
+                return;
+            }
+            counter = 0;
+        }
     }
 
     myVect.PushBack(source);

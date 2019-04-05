@@ -1,5 +1,14 @@
 \hypertarget{class_matrix_controller}{}\section{Matrix\+Controller$<$ M, T $>$ Class Template Reference}
 \label{class_matrix_controller}\index{MatrixController$<$ M, T $>$@{MatrixController$<$ M, T $>$}}
+
+
+This class acts as a base class for many matrix classes.  
+
+
+
+
+{\ttfamily \#include $<$Matrix\+Controller.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,6 +36,32 @@ M \mbox{\hyperlink{class_matrix_controller_abe35dc2b5a0ce975799995097486893e}{op
 \begin{DoxyCompactList}\small\item\em Assignment operator that sets the rhs \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object to the c.\+o. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_matrix_controller_aced34d0065a5df3d3fadb140a782a22b}{copy}} (const M \&source)
 \begin{DoxyCompactList}\small\item\em Copy function that copies all the data from the source to the c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class M, class T$>$\newline
+class Matrix\+Controller$<$ M, T $>$}
+
+This class acts as a base class for many matrix classes. 
+
+\begin{DoxyAuthor}{Author}
+Jake Young 
+\end{DoxyAuthor}
+\begin{DoxyPrecond}{Precondition}
+Some \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} can do calculations and can be used as any kind of matrix 
+\end{DoxyPostcond}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -69,6 +104,8 @@ A new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object is created
 {\em rows} & Number of rows \\
 \hline
 {\em columns} & Number of columns \\
+\hline
+{\em type} & type of matrix \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_matrix_controller_a2a97e643dacd9162bb88c680c7169f5c}\label{class_matrix_controller_a2a97e643dacd9162bb88c680c7169f5c}} 
@@ -301,5 +338,5 @@ The vector has been added to the c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matr
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Matrix\+Controller.\+h\item 
+\mbox{\hyperlink{_matrix_controller_8h}{Matrix\+Controller.\+h}}\item 
 Matrix\+Controller.\+hpp\end{DoxyCompactItemize}

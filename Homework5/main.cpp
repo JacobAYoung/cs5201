@@ -43,7 +43,6 @@ int main(int argc, char *argv[])
         inputStream >> lines;
         //Define matricies
         Matrix<double> Matrix1(lines, lines);
-        Matrix<double> Matrix2(lines, 1);
         if (lines <= 0)
         {
             throw std::runtime_error("Check how many objects you would like "
@@ -90,60 +89,70 @@ int main(int argc, char *argv[])
         cout.setf(ios::fixed);
         if (Matrix1.isLowerTriangularMatrix())
         {
-            //Create lower matrix and then do whatever stuff
+            LMatrix<double> lM = Matrix1;
+
+            cout << "A * A^T:" << endl;
+            Matrix1 = lM * lM.Transpose();
+            cout << Matrix1 * Matrix1.Transpose() << endl;
+            cout << endl;
+
+            cout << "x:" << endl;
+            GaussElimination<double> gauss;
+            MyVector<double> x = gauss.ForwardSub(Matrix1, myVector);
+            for (int i = 0; i < lines; i++)
+            {
+                cout << x[i] << endl;
+            }
+            cout << endl;
+
+            cout << "A * x:" << endl;
+            Matrix<double> Matrix2(lines, 1);
+            Matrix2.PushBack(x);
+            cout << Matrix1 * Matrix2 << endl;
         }
         else if (Matrix1.isUpperTriangularMatrix())
         {
-            //Create upper matrix and then do whatever stuff
+            UMatrix<double> uM = Matrix1;
+
+            cout << "A * A^T:" << endl;
+            Matrix1 = uM * uM.Transpose();
+            cout << Matrix1 * Matrix1.Transpose() << endl;
+            cout << endl;
+
+            cout << "x:" << endl;
+            GaussElimination<double> gauss;
+            MyVector<double> x = gauss.BackSub(Matrix1, myVector);
+            for (int i = 0; i < lines; i++)
+            {
+                cout << x[i] << endl;
+            }
+            cout << endl;
+
+            cout << "A * x:" << endl;
+            Matrix<double> Matrix2(lines, 1);
+            Matrix2.PushBack(x);
+            cout << Matrix1 * Matrix2 << endl;
         }
         else
         {
-            //Create dense matrix and then do whatever stuff
+            cout << "A * A^T:" << endl;
+            cout << Matrix1 * Matrix1.Transpose() << endl;
+            cout << endl;
+
+            cout << "x:" << endl;
+            GaussElimination<double> gauss;
+            MyVector<double> x = gauss.GaussEliminate(Matrix1, myVector);
+            for (int i = 0; i < lines; i++)
+            {
+                cout << x[i] << endl;
+            }
+            cout << endl;
+
+            cout << "A * x:" << endl;
+            Matrix<double> Matrix2(lines, 1);
+            Matrix2.PushBack(x);
+            cout << Matrix1 * Matrix2 << endl;
         }
-        cout << "-------------------------------------------" << endl;
-        cout << "Main matrix" << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << Matrix1 << endl;
-        cout << endl;
-        //MyVector<double> x = Matrix1.Eliminate(myVector);
-        cout << "-------------------------------------------" << endl;
-        cout << "x data" << endl;
-        cout << "-------------------------------------------" << endl;
-        //cout << x << endl;
-        LMatrix<double> lM(Matrix1);
-        LMatrix<double> lM2(Matrix1);
-        cout << "-------------------------------------------" << endl;
-        cout << "Test Main data" << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << lM << endl;
-        cout << endl;
-        cout << "Multiply" << endl;
-        cout << lM * 2 << endl;
-
-        cout << "-------------------------------------------" << endl;
-        cout << "Addition:" << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << lM + lM2 << endl;
-
-        cout << "-------------------------------------------" << endl;
-        cout << "mult:" << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << lM * lM2 << endl;
-
-        cout << "-------------------------------------------" << endl;
-        cout << "UMatrix:" << endl;
-        cout << "-------------------------------------------" << endl;
-        UMatrix<double> uM2(Matrix1);
-        cout << uM2 << endl;
-        cout << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << "non-negative:" << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << lM << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << "comparison:" << endl;
-        cout << "-------------------------------------------" << endl;
-        cout << lM.Transpose() << endl;
     }
     catch (const std::exception &e)
     {

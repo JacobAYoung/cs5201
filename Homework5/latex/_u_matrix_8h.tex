@@ -7,6 +7,7 @@
 {\ttfamily \#include \char`\"{}Gauss\+Elimination.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Matrix\+Controller.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I\+Matrix.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}U\+Matrix.\+hpp\char`\"{}}\newline
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -18,10 +19,50 @@ class \mbox{\hyperlink{class_u_matrix}{U\+Matrix$<$ T $>$}}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a4c2e48639fe2cb65f0d082ca2179dd2d}{operator $\ast$}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_af4cfc7376e978da91cf4ed18cd1df77c}{operator==}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
 \begin{DoxyCompactList}\small\item\em Equals operator. Checks to see if the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{_u_matrix_8h_a18c1c95dbb2e3ffa9b316d862df410dd}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&source)
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_a9f339bf94f5860fd2a63c53acc529008}{operator==}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_af4a1aff2f0962e306486afe665ab0488}{operator==}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_ae9d5dd1a487f31ce7828ecd5c5d40747}{operator==}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_aa597304c813bfeb06f8fc3294c6ed0ab}{operator!=}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Not Equals operator. Checks to see if the two \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are not the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_a3af4788d8bcebd2354f7ae057b27ef17}{operator!=}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Not Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are not the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_a745938ef1a56e8f1cab7ab5d44543945}{operator!=}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Not Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are not the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_u_matrix_8h_a86f633b5ed0dc6147347652206c73b60}{operator!=}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Not Equals operator. Checks to see if the \mbox{\hyperlink{class_matrix}{Matrix}} and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are not the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a9729eb02e0f49d8b371b8fd625cf08c7}{operator-\/}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Negates every value within the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a4c2e48639fe2cb65f0d082ca2179dd2d}{operator $\ast$}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} multiplication of two matricies. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a0b0a462d4606a9d860ca054c1c4e8be8}{operator $\ast$}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_matrix}{Matrix}} multiplication of two matricies (umatrix and lmatrix) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_aedd0ed65791956a10b0c8b437329e037}{operator $\ast$}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_matrix}{Matrix}} multiplication of two matricies (matrix and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a065302296aec1693a97f8141f87227b5}{operator $\ast$}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_matrix}{Matrix}} multiplication of two matricies (\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and matrix) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a453dfbd58a126e1e47ba3d4258874c6f}{operator+}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
 \begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} addition of two matricies. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a38111a4910f92c2a1a586786520bb1d4}{operator+}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate addition of the two matricies (umatrix and lmatrix) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a7627e8d72e33e2c2b7b17970f90a22c3}{operator+}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate addition of the two matricies (matrix and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_ab0e3d0616811ec604668951280c2e42c}{operator+}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate addition of the two matricies (\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and matrix) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_aa395aaf934a5a1d21fef3ed70e0f9fa3}{operator-\/}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} subtraction of two matricies. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_aa70205508a853eefef692d64fc81472b}{operator-\/}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate subtraction of two matricies (umatrix and Lmatrix) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_a26bd4f3a2bb67e89dbd0834ab9b2f57b}{operator-\/}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate subtraction of two matricies (matrix and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_u_matrix_8h_aaaa61e426450e6a5bcb4016cc5fd0f6a}{operator-\/}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate subtraction of two matricies (\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and matrix) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{_u_matrix_8h_a18c1c95dbb2e3ffa9b316d862df410dd}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Outputs every value within the columns and rows of the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::istream \& \mbox{\hyperlink{_u_matrix_8h_a96d46f2b916edf9ee4cd25371a445fc5}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Able to input values into the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -30,79 +71,14 @@ class \mbox{\hyperlink{class_u_matrix}{U\+Matrix$<$ T $>$}}
 \mbox{\Hypertarget{_u_matrix_8h_a4c2e48639fe2cb65f0d082ca2179dd2d}\label{_u_matrix_8h_a4c2e48639fe2cb65f0d082ca2179dd2d}} 
 \index{UMatrix.h@{UMatrix.h}!operator $\ast$@{operator $\ast$}}
 \index{operator $\ast$@{operator $\ast$}!UMatrix.h@{UMatrix.h}}
-\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$T$>$ operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
 
 
 
-Equals operator. Checks to see if the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same. 
+Calculate \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} multiplication of two matricies. 
 
-\begin{DoxyPrecond}{Precondition}
-Two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-Returns true or false depending on if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same or not 
-\end{DoxyPostcond}
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & template T \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
-\hline
-{\em rhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true If the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same 
-
-false If the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects aren\textquotesingle{}t the same\+Not Equals operator. Checks to see if the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are not the same 
-\end{DoxyReturn}
-\begin{DoxyPrecond}{Precondition}
-Two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-Returns true or false depending on if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same or not 
-\end{DoxyPostcond}
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & template T \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
-\hline
-{\em rhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true If the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects aren\textquotesingle{}t the same 
-
-false If the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same\+Negates every value within the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} 
-\end{DoxyReturn}
-\begin{DoxyPrecond}{Precondition}
-A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object is created 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-Negates every value within the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}
-\end{DoxyPostcond}
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & template T \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em source} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-U\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} that has every value negated\+Calculate \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} multiplication of two matricies 
-\end{DoxyReturn}
 \begin{DoxyPrecond}{Precondition}
 Two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object\textquotesingle{}s are created and the lhs column size is the same as the rhs row size. 
 \end{DoxyPrecond}
@@ -124,12 +100,244 @@ Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\h
 \begin{DoxyReturn}{Returns}
 U\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} that has been calculate by doing multiplication of the lhs and rhs matricies 
 \end{DoxyReturn}
-\mbox{\Hypertarget{_u_matrix_8h_a18c1c95dbb2e3ffa9b316d862df410dd}\label{_u_matrix_8h_a18c1c95dbb2e3ffa9b316d862df410dd}} 
-\index{UMatrix.h@{UMatrix.h}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!UMatrix.h@{UMatrix.h}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+\mbox{\Hypertarget{_u_matrix_8h_a0b0a462d4606a9d860ca054c1c4e8be8}\label{_u_matrix_8h_a0b0a462d4606a9d860ca054c1c4e8be8}} 
+\index{UMatrix.h@{UMatrix.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate \mbox{\hyperlink{class_matrix}{Matrix}} multiplication of two matricies (umatrix and lmatrix) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} are created and the lhs column size is the same as the rhs row size. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} to return the multiplication \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing multiplication of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_aedd0ed65791956a10b0c8b437329e037}\label{_u_matrix_8h_aedd0ed65791956a10b0c8b437329e037}} 
+\index{UMatrix.h@{UMatrix.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate \mbox{\hyperlink{class_matrix}{Matrix}} multiplication of two matricies (matrix and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} are created and the lhs column size is the same as the rhs row size. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_matrix}{Matrix}} and rhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} to return the multiplication \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing multiplication of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a065302296aec1693a97f8141f87227b5}\label{_u_matrix_8h_a065302296aec1693a97f8141f87227b5}} 
+\index{UMatrix.h@{UMatrix.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate \mbox{\hyperlink{class_matrix}{Matrix}} multiplication of two matricies (\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and matrix) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object and \mbox{\hyperlink{class_matrix}{Matrix}} are created and the lhs column size is the same as the rhs row size. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\hyperlink{class_matrix}{Matrix}} to return the multiplication \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing multiplication of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_aa597304c813bfeb06f8fc3294c6ed0ab}\label{_u_matrix_8h_aa597304c813bfeb06f8fc3294c6ed0ab}} 
+\index{UMatrix.h@{UMatrix.h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Not Equals operator. Checks to see if the two \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are not the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the two \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects aren\textquotesingle{}t the same 
+
+false If the two \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a3af4788d8bcebd2354f7ae057b27ef17}\label{_u_matrix_8h_a3af4788d8bcebd2354f7ae057b27ef17}} 
+\index{UMatrix.h@{UMatrix.h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Not Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are not the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are created to be tested to see if they are the same. or different 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are not the same 
+
+false If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a745938ef1a56e8f1cab7ab5d44543945}\label{_u_matrix_8h_a745938ef1a56e8f1cab7ab5d44543945}} 
+\index{UMatrix.h@{UMatrix.h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Not Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are not the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are created to be tested to see if they are the same. or different 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are not the same 
+
+false If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a86f633b5ed0dc6147347652206c73b60}\label{_u_matrix_8h_a86f633b5ed0dc6147347652206c73b60}} 
+\index{UMatrix.h@{UMatrix.h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Not Equals operator. Checks to see if the \mbox{\hyperlink{class_matrix}{Matrix}} and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are not the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created to be tested to see if they are the same. or different 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are not the same 
+
+false If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a453dfbd58a126e1e47ba3d4258874c6f}\label{_u_matrix_8h_a453dfbd58a126e1e47ba3d4258874c6f}} 
+\index{UMatrix.h@{UMatrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
 
 
 
@@ -154,8 +362,145 @@ Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\h
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-U\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} that has been calculate by doing addition of the lhs and rhs matricies\+Calculate \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} subtraction of two matricies 
+U\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} that has been calculate by doing addition of the lhs and rhs matricies 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a38111a4910f92c2a1a586786520bb1d4}\label{_u_matrix_8h_a38111a4910f92c2a1a586786520bb1d4}} 
+\index{UMatrix.h@{UMatrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate addition of the two matricies (umatrix and lmatrix) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are created and the lhs column size is the same as the rhs row size otherwise error is thrown. T types must be the same 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} to return the addition \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing addition of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a7627e8d72e33e2c2b7b17970f90a22c3}\label{_u_matrix_8h_a7627e8d72e33e2c2b7b17970f90a22c3}} 
+\index{UMatrix.h@{UMatrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate addition of the two matricies (matrix and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created and the lhs column size is the same as the rhs row size otherwise error is thrown. T types must be the same 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_matrix}{Matrix}} and rhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} to return the addition \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing addition of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_ab0e3d0616811ec604668951280c2e42c}\label{_u_matrix_8h_ab0e3d0616811ec604668951280c2e42c}} 
+\index{UMatrix.h@{UMatrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate addition of the two matricies (\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and matrix) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are created and the lhs column size is the same as the rhs row size otherwise error is thrown. T types must be the same 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\hyperlink{class_matrix}{Matrix}} to return the addition \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing addition of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a9729eb02e0f49d8b371b8fd625cf08c7}\label{_u_matrix_8h_a9729eb02e0f49d8b371b8fd625cf08c7}} 
+\index{UMatrix.h@{UMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Negates every value within the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Negates every value within the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+U\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} that has every value negated 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_aa395aaf934a5a1d21fef3ed70e0f9fa3}\label{_u_matrix_8h_aa395aaf934a5a1d21fef3ed70e0f9fa3}} 
+\index{UMatrix.h@{UMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} subtraction of two matricies. 
+
 \begin{DoxyPrecond}{Precondition}
 Two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object\textquotesingle{}s are created and the lhs column size is the same as the rhs row size. 
 \end{DoxyPrecond}
@@ -175,8 +520,115 @@ Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\h
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-U\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} that has been calculate by doing subtraction of the lhs and rhs matricies\+Outputs every value within the columns and rows of the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object 
+U\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} that has been calculate by doing subtraction of the lhs and rhs matricies 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_aa70205508a853eefef692d64fc81472b}\label{_u_matrix_8h_aa70205508a853eefef692d64fc81472b}} 
+\index{UMatrix.h@{UMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate subtraction of two matricies (umatrix and Lmatrix) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created and the lhs column size is the same as the rhs row size otherwise error will be thrown. T types must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} to return the subtraction \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing subtraction of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a26bd4f3a2bb67e89dbd0834ab9b2f57b}\label{_u_matrix_8h_a26bd4f3a2bb67e89dbd0834ab9b2f57b}} 
+\index{UMatrix.h@{UMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate subtraction of two matricies (matrix and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created and the lhs column size is the same as the rhs row size otherwise error will be thrown. T types must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_matrix}{Matrix}} and rhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} to return the subtraction \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing subtraction of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_aaaa61e426450e6a5bcb4016cc5fd0f6a}\label{_u_matrix_8h_aaaa61e426450e6a5bcb4016cc5fd0f6a}} 
+\index{UMatrix.h@{UMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate subtraction of two matricies (\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and matrix) 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are created and the lhs column size is the same as the rhs row size otherwise error will be thrown. T types must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and rhs \mbox{\hyperlink{class_matrix}{Matrix}} to return the subtraction \mbox{\hyperlink{class_matrix}{Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_matrix}{Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been calculate by doing subtraction of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a18c1c95dbb2e3ffa9b316d862df410dd}\label{_u_matrix_8h_a18c1c95dbb2e3ffa9b316d862df410dd}} 
+\index{UMatrix.h@{UMatrix.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Outputs every value within the columns and rows of the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object. 
+
 \begin{DoxyPrecond}{Precondition}
 A \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object is created 
 \end{DoxyPrecond}
@@ -197,6 +649,142 @@ Outputs every value that is within the \mbox{\hyperlink{class_u_matrix}{U\+Matri
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 std\+::ostream\& The contents within the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_af4cfc7376e978da91cf4ed18cd1df77c}\label{_u_matrix_8h_af4cfc7376e978da91cf4ed18cd1df77c}} 
+\index{UMatrix.h@{UMatrix.h}!operator==@{operator==}}
+\index{operator==@{operator==}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Equals operator. Checks to see if the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created to be tested to see if they are the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are the same 
+
+false If the two \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects aren\textquotesingle{}t the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_a9f339bf94f5860fd2a63c53acc529008}\label{_u_matrix_8h_a9f339bf94f5860fd2a63c53acc529008}} 
+\index{UMatrix.h@{UMatrix.h}!operator==@{operator==}}
+\index{operator==@{operator==}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are created to be tested to see if they are the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same 
+
+false If the \mbox{\hyperlink{class_matrix}{Matrix}} objects aren\textquotesingle{}t the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_af4a1aff2f0962e306486afe665ab0488}\label{_u_matrix_8h_af4a1aff2f0962e306486afe665ab0488}} 
+\index{UMatrix.h@{UMatrix.h}!operator==@{operator==}}
+\index{operator==@{operator==}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_matrix}{Matrix}} objects are created to be tested to see if they are the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same 
+
+false If the \mbox{\hyperlink{class_matrix}{Matrix}} objects aren\textquotesingle{}t the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_matrix_8h_ae9d5dd1a487f31ce7828ecd5c5d40747}\label{_u_matrix_8h_ae9d5dd1a487f31ce7828ecd5c5d40747}} 
+\index{UMatrix.h@{UMatrix.h}!operator==@{operator==}}
+\index{operator==@{operator==}!UMatrix.h@{UMatrix.h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Equals operator. Checks to see if the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} and \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} objects are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} and \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} objects are created to be tested to see if they are the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the \mbox{\hyperlink{class_matrix}{Matrix}} objects are the same 
+
+false If the \mbox{\hyperlink{class_matrix}{Matrix}} objects aren\textquotesingle{}t the same 
 \end{DoxyReturn}
 \mbox{\Hypertarget{_u_matrix_8h_a96d46f2b916edf9ee4cd25371a445fc5}\label{_u_matrix_8h_a96d46f2b916edf9ee4cd25371a445fc5}} 
 \index{UMatrix.h@{UMatrix.h}!operator$>$$>$@{operator$>$$>$}}

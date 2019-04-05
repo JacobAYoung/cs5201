@@ -73,8 +73,9 @@ $(function() {
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;<a class="el" href="_my_vector_8h_source.html">MyVector.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_gauss_elimination_8h_source.html">GaussElimination.h</a>&quot;</code><br />
-<code>#include &quot;MatrixController.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_matrix_controller_8h_source.html">MatrixController.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_matrix_8h_source.html">Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_i_matrix_8h_source.html">IMatrix.h</a>&quot;</code><br />
 <code>#include &quot;UMatrix.hpp&quot;</code><br />
 </div>
 <p><a href="_u_matrix_8h_source.html">Go to the source code of this file.</a></p>
@@ -90,13 +91,93 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:af4cfc7376e978da91cf4ed18cd1df77c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af4cfc7376e978da91cf4ed18cd1df77c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#af4cfc7376e978da91cf4ed18cd1df77c">operator==</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:af4cfc7376e978da91cf4ed18cd1df77c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equals operator. Checks to see if the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same.  <a href="#af4cfc7376e978da91cf4ed18cd1df77c">More...</a><br /></td></tr>
+<tr class="separator:af4cfc7376e978da91cf4ed18cd1df77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f339bf94f5860fd2a63c53acc529008"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9f339bf94f5860fd2a63c53acc529008"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a9f339bf94f5860fd2a63c53acc529008">operator==</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a9f339bf94f5860fd2a63c53acc529008"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are the same.  <a href="#a9f339bf94f5860fd2a63c53acc529008">More...</a><br /></td></tr>
+<tr class="separator:a9f339bf94f5860fd2a63c53acc529008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a1aff2f0962e306486afe665ab0488"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af4a1aff2f0962e306486afe665ab0488"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#af4a1aff2f0962e306486afe665ab0488">operator==</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:af4a1aff2f0962e306486afe665ab0488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same.  <a href="#af4a1aff2f0962e306486afe665ab0488">More...</a><br /></td></tr>
+<tr class="separator:af4a1aff2f0962e306486afe665ab0488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d5dd1a487f31ce7828ecd5c5d40747"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae9d5dd1a487f31ce7828ecd5c5d40747"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#ae9d5dd1a487f31ce7828ecd5c5d40747">operator==</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:ae9d5dd1a487f31ce7828ecd5c5d40747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are the same.  <a href="#ae9d5dd1a487f31ce7828ecd5c5d40747">More...</a><br /></td></tr>
+<tr class="separator:ae9d5dd1a487f31ce7828ecd5c5d40747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa597304c813bfeb06f8fc3294c6ed0ab"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa597304c813bfeb06f8fc3294c6ed0ab"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#aa597304c813bfeb06f8fc3294c6ed0ab">operator!=</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:aa597304c813bfeb06f8fc3294c6ed0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Equals operator. Checks to see if the two <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are not the same.  <a href="#aa597304c813bfeb06f8fc3294c6ed0ab">More...</a><br /></td></tr>
+<tr class="separator:aa597304c813bfeb06f8fc3294c6ed0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3af4788d8bcebd2354f7ae057b27ef17"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3af4788d8bcebd2354f7ae057b27ef17"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a3af4788d8bcebd2354f7ae057b27ef17">operator!=</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a3af4788d8bcebd2354f7ae057b27ef17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are not the same.  <a href="#a3af4788d8bcebd2354f7ae057b27ef17">More...</a><br /></td></tr>
+<tr class="separator:a3af4788d8bcebd2354f7ae057b27ef17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745938ef1a56e8f1cab7ab5d44543945"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a745938ef1a56e8f1cab7ab5d44543945"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a745938ef1a56e8f1cab7ab5d44543945">operator!=</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a745938ef1a56e8f1cab7ab5d44543945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are not the same.  <a href="#a745938ef1a56e8f1cab7ab5d44543945">More...</a><br /></td></tr>
+<tr class="separator:a745938ef1a56e8f1cab7ab5d44543945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f633b5ed0dc6147347652206c73b60"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a86f633b5ed0dc6147347652206c73b60"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a86f633b5ed0dc6147347652206c73b60">operator!=</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a86f633b5ed0dc6147347652206c73b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Equals operator. Checks to see if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are not the same.  <a href="#a86f633b5ed0dc6147347652206c73b60">More...</a><br /></td></tr>
+<tr class="separator:a86f633b5ed0dc6147347652206c73b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9729eb02e0f49d8b371b8fd625cf08c7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9729eb02e0f49d8b371b8fd625cf08c7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a9729eb02e0f49d8b371b8fd625cf08c7">operator-</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;source)</td></tr>
+<tr class="memdesc:a9729eb02e0f49d8b371b8fd625cf08c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negates every value within the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>.  <a href="#a9729eb02e0f49d8b371b8fd625cf08c7">More...</a><br /></td></tr>
+<tr class="separator:a9729eb02e0f49d8b371b8fd625cf08c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c2e48639fe2cb65f0d082ca2179dd2d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4c2e48639fe2cb65f0d082ca2179dd2d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a4c2e48639fe2cb65f0d082ca2179dd2d">operator *</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="memdesc:a4c2e48639fe2cb65f0d082ca2179dd2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equals operator. Checks to see if the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same.  <a href="#a4c2e48639fe2cb65f0d082ca2179dd2d">More...</a><br /></td></tr>
+<tr class="memdesc:a4c2e48639fe2cb65f0d082ca2179dd2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> multiplication of two matricies.  <a href="#a4c2e48639fe2cb65f0d082ca2179dd2d">More...</a><br /></td></tr>
 <tr class="separator:a4c2e48639fe2cb65f0d082ca2179dd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b0a462d4606a9d860ca054c1c4e8be8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0b0a462d4606a9d860ca054c1c4e8be8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a0b0a462d4606a9d860ca054c1c4e8be8">operator *</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a0b0a462d4606a9d860ca054c1c4e8be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> multiplication of two matricies (umatrix and lmatrix)  <a href="#a0b0a462d4606a9d860ca054c1c4e8be8">More...</a><br /></td></tr>
+<tr class="separator:a0b0a462d4606a9d860ca054c1c4e8be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedd0ed65791956a10b0c8b437329e037"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aedd0ed65791956a10b0c8b437329e037"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#aedd0ed65791956a10b0c8b437329e037">operator *</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:aedd0ed65791956a10b0c8b437329e037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> multiplication of two matricies (matrix and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>)  <a href="#aedd0ed65791956a10b0c8b437329e037">More...</a><br /></td></tr>
+<tr class="separator:aedd0ed65791956a10b0c8b437329e037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a065302296aec1693a97f8141f87227b5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a065302296aec1693a97f8141f87227b5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a065302296aec1693a97f8141f87227b5">operator *</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a065302296aec1693a97f8141f87227b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> multiplication of two matricies (<a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and matrix)  <a href="#a065302296aec1693a97f8141f87227b5">More...</a><br /></td></tr>
+<tr class="separator:a065302296aec1693a97f8141f87227b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453dfbd58a126e1e47ba3d4258874c6f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a453dfbd58a126e1e47ba3d4258874c6f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a453dfbd58a126e1e47ba3d4258874c6f">operator+</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a453dfbd58a126e1e47ba3d4258874c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> addition of two matricies.  <a href="#a453dfbd58a126e1e47ba3d4258874c6f">More...</a><br /></td></tr>
+<tr class="separator:a453dfbd58a126e1e47ba3d4258874c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38111a4910f92c2a1a586786520bb1d4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a38111a4910f92c2a1a586786520bb1d4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a38111a4910f92c2a1a586786520bb1d4">operator+</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a38111a4910f92c2a1a586786520bb1d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate addition of the two matricies (umatrix and lmatrix)  <a href="#a38111a4910f92c2a1a586786520bb1d4">More...</a><br /></td></tr>
+<tr class="separator:a38111a4910f92c2a1a586786520bb1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7627e8d72e33e2c2b7b17970f90a22c3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7627e8d72e33e2c2b7b17970f90a22c3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a7627e8d72e33e2c2b7b17970f90a22c3">operator+</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a7627e8d72e33e2c2b7b17970f90a22c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate addition of the two matricies (matrix and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>)  <a href="#a7627e8d72e33e2c2b7b17970f90a22c3">More...</a><br /></td></tr>
+<tr class="separator:a7627e8d72e33e2c2b7b17970f90a22c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e3d0616811ec604668951280c2e42c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab0e3d0616811ec604668951280c2e42c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#ab0e3d0616811ec604668951280c2e42c">operator+</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:ab0e3d0616811ec604668951280c2e42c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate addition of the two matricies (<a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and matrix)  <a href="#ab0e3d0616811ec604668951280c2e42c">More...</a><br /></td></tr>
+<tr class="separator:ab0e3d0616811ec604668951280c2e42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa395aaf934a5a1d21fef3ed70e0f9fa3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa395aaf934a5a1d21fef3ed70e0f9fa3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#aa395aaf934a5a1d21fef3ed70e0f9fa3">operator-</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:aa395aaf934a5a1d21fef3ed70e0f9fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> subtraction of two matricies.  <a href="#aa395aaf934a5a1d21fef3ed70e0f9fa3">More...</a><br /></td></tr>
+<tr class="separator:aa395aaf934a5a1d21fef3ed70e0f9fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa70205508a853eefef692d64fc81472b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa70205508a853eefef692d64fc81472b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#aa70205508a853eefef692d64fc81472b">operator-</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:aa70205508a853eefef692d64fc81472b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate subtraction of two matricies (umatrix and Lmatrix)  <a href="#aa70205508a853eefef692d64fc81472b">More...</a><br /></td></tr>
+<tr class="separator:aa70205508a853eefef692d64fc81472b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26bd4f3a2bb67e89dbd0834ab9b2f57b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a26bd4f3a2bb67e89dbd0834ab9b2f57b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a26bd4f3a2bb67e89dbd0834ab9b2f57b">operator-</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a26bd4f3a2bb67e89dbd0834ab9b2f57b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate subtraction of two matricies (matrix and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>)  <a href="#a26bd4f3a2bb67e89dbd0834ab9b2f57b">More...</a><br /></td></tr>
+<tr class="separator:a26bd4f3a2bb67e89dbd0834ab9b2f57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaa61e426450e6a5bcb4016cc5fd0f6a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aaaa61e426450e6a5bcb4016cc5fd0f6a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#aaaa61e426450e6a5bcb4016cc5fd0f6a">operator-</a> (const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;lhs, const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:aaaa61e426450e6a5bcb4016cc5fd0f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate subtraction of two matricies (<a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and matrix)  <a href="#aaaa61e426450e6a5bcb4016cc5fd0f6a">More...</a><br /></td></tr>
+<tr class="separator:aaaa61e426450e6a5bcb4016cc5fd0f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18c1c95dbb2e3ffa9b316d862df410dd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a18c1c95dbb2e3ffa9b316d862df410dd"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a18c1c95dbb2e3ffa9b316d862df410dd">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;source)</td></tr>
-<tr class="memdesc:a18c1c95dbb2e3ffa9b316d862df410dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> addition of two matricies.  <a href="#a18c1c95dbb2e3ffa9b316d862df410dd">More...</a><br /></td></tr>
+<tr class="memdesc:a18c1c95dbb2e3ffa9b316d862df410dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs every value within the columns and rows of the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object.  <a href="#a18c1c95dbb2e3ffa9b316d862df410dd">More...</a><br /></td></tr>
 <tr class="separator:a18c1c95dbb2e3ffa9b316d862df410dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96d46f2b916edf9ee4cd25371a445fc5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a96d46f2b916edf9ee4cd25371a445fc5"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_u_matrix_8h.html#a96d46f2b916edf9ee4cd25371a445fc5">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;source)</td></tr>
@@ -105,7 +186,7 @@ Functions</h2></td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a4c2e48639fe2cb65f0d082ca2179dd2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c2e48639fe2cb65f0d082ca2179dd2d">&#9670;&nbsp;</a></span>operator *()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c2e48639fe2cb65f0d082ca2179dd2d">&#9670;&nbsp;</a></span>operator *() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,58 +213,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Equals operator. Checks to see if the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same or not </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>template T </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true If the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same </dd>
-<dd>
-false If the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects aren't the sameNot Equals operator. Checks to see if the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are not the same </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same or not </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>template T </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true If the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects aren't the same </dd>
-<dd>
-false If the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the sameNegates every value within the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object is created </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Negates every value within the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a></dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>template T </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>UMatrix&lt;T&gt; A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> that has every value negatedCalculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> multiplication of two matricies </dd></dl>
+<p>Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> multiplication of two matricies. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object's are created and the lhs column size is the same as the rhs row size. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the multiplication <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> of the 2 matricies and returns it as a <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -200,6 +230,771 @@ false If the two <a class="el" href="class_u_matrix.html" title="Creates a UMatr
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>UMatrix&lt;T&gt; A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> that has been calculate by doing multiplication of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="a0b0a462d4606a9d860ca054c1c4e8be8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b0a462d4606a9d860ca054c1c4e8be8">&#9670;&nbsp;</a></span>operator *() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator * </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> multiplication of two matricies (umatrix and lmatrix) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> are created and the lhs column size is the same as the rhs row size. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> to return the multiplication <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing multiplication of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="aedd0ed65791956a10b0c8b437329e037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedd0ed65791956a10b0c8b437329e037">&#9670;&nbsp;</a></span>operator *() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator * </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> multiplication of two matricies (matrix and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> are created and the lhs column size is the same as the rhs row size. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the multiplication <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing multiplication of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="a065302296aec1693a97f8141f87227b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a065302296aec1693a97f8141f87227b5">&#9670;&nbsp;</a></span>operator *() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator * </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> multiplication of two matricies (<a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and matrix) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> are created and the lhs column size is the same as the rhs row size. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> to return the multiplication <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing multiplication of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="aa597304c813bfeb06f8fc3294c6ed0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa597304c813bfeb06f8fc3294c6ed0ab">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Not Equals operator. Checks to see if the two <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are not the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are created </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the two <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects aren't the same </dd>
+<dd>
+false If the two <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are the same </dd></dl>
+
+</div>
+</div>
+<a id="a3af4788d8bcebd2354f7ae057b27ef17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3af4788d8bcebd2354f7ae057b27ef17">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Not Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are not the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are created to be tested to see if they are the same. or different </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are not the same </dd>
+<dd>
+false If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same </dd></dl>
+
+</div>
+</div>
+<a id="a745938ef1a56e8f1cab7ab5d44543945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a745938ef1a56e8f1cab7ab5d44543945">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Not Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are not the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are created to be tested to see if they are the same. or different </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are not the same </dd>
+<dd>
+false If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same </dd></dl>
+
+</div>
+</div>
+<a id="a86f633b5ed0dc6147347652206c73b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f633b5ed0dc6147347652206c73b60">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Not Equals operator. Checks to see if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are not the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created to be tested to see if they are the same. or different </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are not the same </dd>
+<dd>
+false If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same </dd></dl>
+
+</div>
+</div>
+<a id="a453dfbd58a126e1e47ba3d4258874c6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a453dfbd58a126e1e47ba3d4258874c6f">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_u_matrix.html">UMatrix</a>&lt;T&gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> addition of two matricies. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object's are created and the lhs column size is the same as the rhs row size. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the addition <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> of the 2 matricies and returns it as a <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>UMatrix&lt;T&gt; A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> that has been calculate by doing addition of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="a38111a4910f92c2a1a586786520bb1d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38111a4910f92c2a1a586786520bb1d4">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate addition of the two matricies (umatrix and lmatrix) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are created and the lhs column size is the same as the rhs row size otherwise error is thrown. T types must be the same </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> to return the addition <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing addition of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="a7627e8d72e33e2c2b7b17970f90a22c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7627e8d72e33e2c2b7b17970f90a22c3">&#9670;&nbsp;</a></span>operator+() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate addition of the two matricies (matrix and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created and the lhs column size is the same as the rhs row size otherwise error is thrown. T types must be the same </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the addition <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing addition of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="ab0e3d0616811ec604668951280c2e42c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e3d0616811ec604668951280c2e42c">&#9670;&nbsp;</a></span>operator+() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate addition of the two matricies (<a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and matrix) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are created and the lhs column size is the same as the rhs row size otherwise error is thrown. T types must be the same </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> to return the addition <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing addition of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="a9729eb02e0f49d8b371b8fd625cf08c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9729eb02e0f49d8b371b8fd625cf08c7">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_u_matrix.html">UMatrix</a>&lt;T&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Negates every value within the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object is created </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Negates every value within the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a></dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>UMatrix&lt;T&gt; A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> that has every value negated </dd></dl>
+
+</div>
+</div>
+<a id="aa395aaf934a5a1d21fef3ed70e0f9fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa395aaf934a5a1d21fef3ed70e0f9fa3">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_u_matrix.html">UMatrix</a>&lt;T&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> subtraction of two matricies. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object's are created and the lhs column size is the same as the rhs row size. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the subtraction <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> of the 2 matricies and returns it as a <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>UMatrix&lt;T&gt; A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> that has been calculate by doing subtraction of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="aa70205508a853eefef692d64fc81472b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70205508a853eefef692d64fc81472b">&#9670;&nbsp;</a></span>operator-() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate subtraction of two matricies (umatrix and Lmatrix) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created and the lhs column size is the same as the rhs row size otherwise error will be thrown. T types must be the same. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> to return the subtraction <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing subtraction of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="a26bd4f3a2bb67e89dbd0834ab9b2f57b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26bd4f3a2bb67e89dbd0834ab9b2f57b">&#9670;&nbsp;</a></span>operator-() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate subtraction of two matricies (matrix and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a>) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created and the lhs column size is the same as the rhs row size otherwise error will be thrown. T types must be the same. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the subtraction <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing subtraction of the lhs and rhs matricies </dd></dl>
+
+</div>
+</div>
+<a id="aaaa61e426450e6a5bcb4016cc5fd0f6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa61e426450e6a5bcb4016cc5fd0f6a">&#9670;&nbsp;</a></span>operator-() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;T&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate subtraction of two matricies (<a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and matrix) </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are created and the lhs column size is the same as the rhs row size otherwise error will be thrown. T types must be the same. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> to return the subtraction <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> of the 2 matricies and returns it as a <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object of the right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix&lt;T&gt; A <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> that has been calculate by doing subtraction of the lhs and rhs matricies </dd></dl>
 
 </div>
 </div>
@@ -231,39 +1026,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Calculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> addition of two matricies. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object's are created and the lhs column size is the same as the rhs row size. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the addition <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> of the 2 matricies and returns it as a <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>template T </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the right hand side </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>UMatrix&lt;T&gt; A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> that has been calculate by doing addition of the lhs and rhs matriciesCalculate <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> subtraction of two matricies </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object's are created and the lhs column size is the same as the rhs row size. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Calculates the lhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and rhs <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> to return the subtraction <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> of the 2 matricies and returns it as a <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object. Throws an error the sizes of the matricies don't line up </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>template T </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the left hand side </td></tr>
-    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object of the right hand side </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>UMatrix&lt;T&gt; A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> that has been calculate by doing subtraction of the lhs and rhs matriciesOutputs every value within the columns and rows of the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </dd></dl>
+<p>Outputs every value within the columns and rows of the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>A <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object is created </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Outputs every value that is within the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -280,6 +1043,206 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::ostream&amp; The contents within the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </dd></dl>
+
+</div>
+</div>
+<a id="af4cfc7376e978da91cf4ed18cd1df77c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4cfc7376e978da91cf4ed18cd1df77c">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equals operator. Checks to see if the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created to be tested to see if they are the same. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are the same </dd>
+<dd>
+false If the two <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects aren't the same </dd></dl>
+
+</div>
+</div>
+<a id="a9f339bf94f5860fd2a63c53acc529008"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f339bf94f5860fd2a63c53acc529008">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_l_matrix.html">LMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are created to be tested to see if they are the same. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same </dd>
+<dd>
+false If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects aren't the same </dd></dl>
+
+</div>
+</div>
+<a id="af4a1aff2f0962e306486afe665ab0488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a1aff2f0962e306486afe665ab0488">&#9670;&nbsp;</a></span>operator==() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are created to be tested to see if they are the same. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same </dd>
+<dd>
+false If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects aren't the same </dd></dl>
+
+</div>
+</div>
+<a id="ae9d5dd1a487f31ce7828ecd5c5d40747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9d5dd1a487f31ce7828ecd5c5d40747">&#9670;&nbsp;</a></span>operator==() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_u_matrix.html">UMatrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equals operator. Checks to see if the <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> and <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> objects are the same. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> and <a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> objects are created to be tested to see if they are the same. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Returns true or false depending on if the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same or not </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>template T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td><a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> object </td></tr>
+    <tr><td class="paramname">rhs</td><td><a class="el" href="class_u_matrix.html" title="Creates a UMatrix that has multiple methods of doing calculations for that UMatrix.">UMatrix</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects are the same </dd>
+<dd>
+false If the <a class="el" href="class_matrix.html" title="Creates a Matrix that has multiple methods of doing calculations for that Matrix.">Matrix</a> objects aren't the same </dd></dl>
 
 </div>
 </div>

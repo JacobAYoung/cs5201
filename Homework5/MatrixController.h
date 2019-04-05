@@ -62,6 +62,7 @@ public:
      * 
      * @param rows Number of rows
      * @param columns Number of columns
+     * @param type type of matrix
      */
   MatrixController(int rows, int columns, int type);
   /**

@@ -1,7 +1,7 @@
 template <class T>
 Matrix<T> GaussElimination<T>::ForwardElimination(const Matrix<T> &source, const MyVector<T> &B) const
 {
-    int numElements = source.GetNumElements();
+    int numElements = source.GetRows();
     //Create a copy of the matrix A
     Matrix<T> temp = source;
 
@@ -65,7 +65,7 @@ Matrix<T> GaussElimination<T>::ForwardElimination(const Matrix<T> &source, const
 template <class T>
 MyVector<T> GaussElimination<T>::GaussEliminate(const Matrix<T> &source, const MyVector<T> &B) const
 {
-    int numElements = source.GetNumElements();
+    int numElements = source.GetRows();
     //Create a vector x to be returned
     MyVector<T> x(numElements);
     Matrix<T> temp = ForwardElimination(source, B);
@@ -85,7 +85,7 @@ MyVector<T> GaussElimination<T>::GaussEliminate(const Matrix<T> &source, const M
 template <class T>
 MyVector<T> GaussElimination<T>::BackSub(const Matrix<T> &A, const MyVector<T> &B) const
 {
-    int numElements = A.GetNumElements();
+    int numElements = A.GetRows();
     MyVector<T> x(numElements);
     Matrix<T> temp = A;
     for (int i = numElements - 1; i >= 0; i--)
@@ -102,7 +102,7 @@ MyVector<T> GaussElimination<T>::BackSub(const Matrix<T> &A, const MyVector<T> &
 template <class T>
 MyVector<T> GaussElimination<T>::ForwardSub(const Matrix<T> &A, const MyVector<T> &B) const
 {
-    int numElements = A.GetNumElements();
+    int numElements = A.GetRows();
     MyVector<T> x(numElements);
     Matrix<T> temp = A;
     for (int i = 0; i < numElements; i++)

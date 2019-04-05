@@ -18,12 +18,14 @@ Inheritance diagram for L\+Matrix$<$ T $>$\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_l_matrix_ae3c54a6ef307ad2e570db483b9fd9c03}{L\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_l_matrix_a5e031d95fcb4ce79894c52488d224f98}{L\+Matrix}} (int rows, int columns)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_l_matrix_aa4bc8aa349207a09c467d958d7361b4b}{L\+Matrix}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
-\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}{L\+Matrix}} (const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}{L\+Matrix}} (const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_l_matrix_ab4289f015b6b154b0f396550c1975250}{$\sim$\+L\+Matrix}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_l_matrix_a3f82539f6b2251d49a2e39c7c359b92d}{Push\+Back}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
@@ -44,6 +46,8 @@ void \mbox{\hyperlink{class_l_matrix_a9a70080e771867dd76c983fe1f8c2c15}{Calculat
 \begin{DoxyCompactList}\small\item\em Scalar multiplcation of a \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} and a T value. The T value must be on the right side of the multiplcation equation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_l_matrix_ad4feb8e3706e9ce8fdb07e63d985f52f}{operator=}} (const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Assignment operator that sets the rhs \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object to the c.\+o. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_l_matrix_a4417a98f81bcd9797241cf658b8ba400}{operator=}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Assignment operator that sets the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. \end{DoxyCompactList}\item 
 T \& \mbox{\hyperlink{class_l_matrix_aa0b1bc37d56538dbdd4fcb3b88dcc3ec}{operator()}} (const int \&i, const int \&j)
 \begin{DoxyCompactList}\small\item\em Works as the \mbox{[}\mbox{]} operator. To get data from the matrix. \end{DoxyCompactList}\item 
 T \& \mbox{\hyperlink{class_l_matrix_ae9d404d99117892edd2fbfddfaf929f5}{operator()}} (const int \&i, const int \&j) const
@@ -77,10 +81,21 @@ Copyright (c) 2019
 
 
 \subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_matrix_ae3c54a6ef307ad2e570db483b9fd9c03}\label{class_l_matrix_ae3c54a6ef307ad2e570db483b9fd9c03}} 
+\index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
+\index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. 
+
 \mbox{\Hypertarget{class_l_matrix_a5e031d95fcb4ce79894c52488d224f98}\label{class_l_matrix_a5e031d95fcb4ce79894c52488d224f98}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
 \index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})}
 
@@ -98,47 +113,45 @@ Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object.
 \mbox{\Hypertarget{class_l_matrix_aa4bc8aa349207a09c467d958d7361b4b}\label{class_l_matrix_aa4bc8aa349207a09c467d958d7361b4b}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
 \index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
-
-
-
-Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. 
-
-\begin{DoxyPrecond}{Precondition}
-Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object with set sizes 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-A new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object is created 
-\end{DoxyPostcond}
-
-\begin{DoxyParams}{Parameters}
-{\em rows} & Number of rows \\
-\hline
-{\em columns} & Number of columns \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}\label{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}} 
-\index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
-\index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
 
 
 Copy constructor. 
 
 \begin{DoxyPrecond}{Precondition}
-A c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} is created and a source \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object is created to be copied from 
+A c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} is created and a source \mbox{\hyperlink{class_matrix}{Matrix}} object is created to be copied from 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-Copies the source \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object to the c.\+o. 
+Copies the source \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. and then sets the values as a lower matrix 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
-{\em source} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object \\
+{\em source} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}\label{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}} 
+\index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
+\index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+A lmatrix object is created to be copied from 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The lmatrix is copied from
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & lmatrix object to be copied from \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_l_matrix_ab4289f015b6b154b0f396550c1975250}\label{class_l_matrix_ab4289f015b6b154b0f396550c1975250}} 
@@ -205,7 +218,7 @@ int Number of columns within the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_i_matrix}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
+Implements \mbox{\hyperlink{class_i_matrix_a3b84da3898ef38bdf281c13f218fc278}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
 
 \mbox{\Hypertarget{class_l_matrix_ad4ed9d329dbd01d010504a97b3879442}\label{class_l_matrix_ad4ed9d329dbd01d010504a97b3879442}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!GetRows@{GetRows}}
@@ -229,7 +242,7 @@ int Number of rows within the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_i_matrix}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
+Implements \mbox{\hyperlink{class_i_matrix_a58632b018f4023768db7963e22f468da}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
 
 \mbox{\Hypertarget{class_l_matrix_ac8df9082c434b41a98d26defb95ea388}\label{class_l_matrix_ac8df9082c434b41a98d26defb95ea388}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!operator $\ast$@{operator $\ast$}}
@@ -258,7 +271,7 @@ L\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} that has been 
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_i_matrix}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
+Implements \mbox{\hyperlink{class_i_matrix_a10121e038635bdf33552c6a1fb288398}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
 
 \mbox{\Hypertarget{class_l_matrix_aa0b1bc37d56538dbdd4fcb3b88dcc3ec}\label{class_l_matrix_aa0b1bc37d56538dbdd4fcb3b88dcc3ec}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!operator()@{operator()}}
@@ -317,7 +330,7 @@ T\& A element at the data position as a constant value
 \mbox{\Hypertarget{class_l_matrix_ad4feb8e3706e9ce8fdb07e63d985f52f}\label{class_l_matrix_ad4feb8e3706e9ce8fdb07e63d985f52f}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
@@ -341,8 +354,33 @@ L\+Matrix$<$\+T$>$ The c.\+o. is now equal to the rhs \mbox{\hyperlink{class_l_m
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_i_matrix}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
+Implements \mbox{\hyperlink{class_i_matrix_a9eeb68de7e1d37d1aab439c78fea9be3}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
 
+\mbox{\Hypertarget{class_l_matrix_a4417a98f81bcd9797241cf658b8ba400}\label{class_l_matrix_a4417a98f81bcd9797241cf658b8ba400}} 
+\index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Assignment operator that sets the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object is created and a \mbox{\hyperlink{class_matrix}{Matrix}} object to be copied from 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Copies the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} c.\+o. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+Matrix$<$\+T$>$ The c.\+o. is now equal to the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_l_matrix_a7eab2a6c57437448d21a04484844e359}\label{class_l_matrix_a7eab2a6c57437448d21a04484844e359}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
@@ -370,7 +408,7 @@ My\+Vector$<$\+T$>$\& Returns the data from the pointer at the specific position
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_i_matrix}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
+Implements \mbox{\hyperlink{class_i_matrix_a3cfb2490e2849c6c19c1979066a64818}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
 
 \mbox{\Hypertarget{class_l_matrix_a56ec5ba9be0bb900ddc0ee7c5283bccd}\label{class_l_matrix_a56ec5ba9be0bb900ddc0ee7c5283bccd}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
@@ -399,7 +437,7 @@ My\+Vector$<$\+T$>$\& Returns the data from the pointer at the specific position
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_i_matrix}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
+Implements \mbox{\hyperlink{class_i_matrix_a1ed62ee6700728045083c7f0df3e3e62}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
 
 \mbox{\Hypertarget{class_l_matrix_a3f82539f6b2251d49a2e39c7c359b92d}\label{class_l_matrix_a3f82539f6b2251d49a2e39c7c359b92d}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!PushBack@{PushBack}}
@@ -425,7 +463,7 @@ The vector has been added to the c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matr
 \end{DoxyParams}
 
 
-Implements \mbox{\hyperlink{class_i_matrix}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
+Implements \mbox{\hyperlink{class_i_matrix_aa5de147c7aa5b74b0f2177ed1a8158de}{I\+Matrix$<$ L\+Matrix$<$ T $>$, T $>$}}.
 
 \mbox{\Hypertarget{class_l_matrix_afe89d1c0c91d284ff0277da586dc667a}\label{class_l_matrix_afe89d1c0c91d284ff0277da586dc667a}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!Transpose@{Transpose}}

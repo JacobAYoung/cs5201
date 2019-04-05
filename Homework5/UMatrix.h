@@ -7,6 +7,7 @@
 #include "GaussElimination.h"
 #include "MatrixController.h"
 #include "Matrix.h"
+#include "IMatrix.h"
 
 using namespace std;
 
@@ -28,44 +29,38 @@ class LMatrix;
  * 
  */
 template <class T>
-class UMatrix
+class UMatrix : public IMatrix<UMatrix<T>, T>
 {
 private:
+  /**
+   * @brief A matrixcontroller base class to be used for common functionallity
+   * over multiple kinds of matricies.
+   * 
+   */
   MatrixController<UMatrix<T>, T> my_controller;
-  /**
-     * @brief Number of rows
-     * 
-     */
-  int numRows;
-  /**
-     * @brief Number of columns
-     * 
-     */
-  int numColumns;
-  /**
-     * @brief vector of a vector where the data will be stored
-     * 
-     */
-  MyVector<MyVector<T>> myVect;
 
 public:
+  /**
+ * @brief Construct a new UMatrix object
+ * 
+ */
   UMatrix();
   /**
-   * 
-   * @pre Construct a new UMatrix object
-   * @post A new UMatrix object is created
    * @brief Construct a new UMatrix object
+   * @pre A UMatrix object is being created with specified sizes
+   * @post a UMatrix object is created with specified sizes.
    * 
+   * @param rows number of rows
+   * @param columns number of columns
    */
   UMatrix(int rows, int columns);
   /**
      * 
      * @pre Construct a new UMatrix object with set sizes
      * @post A new UMatrix object is created
-     * @brief Construct a new UMatrix object
+     * @brief Construct a new UMatrix object from a dense matrix
      * 
-     * @param rows Number of rows
-     * @param columns Number of columns
+     * @param source A dense matrix object
      */
   UMatrix(const Matrix<T> &source);
   /**
@@ -105,13 +100,22 @@ public:
      */
   int GetColumns() const;
   /**
-     * @brief Calculate and returns the transpose of the UMatrix object
-     * @pre A UMatrix object is created
-     * @post Creates a temporary UMatrix object and returns the transpose of the
-     * c.o. UMatrix
-     * @return UMatrix<T> A copy of the UMatrix c.o. transpose
-     */
-  UMatrix<T> Transpose();
+   * @brief Creates a LMatrix from the transpose of the umatrix
+   * @pre A Umatrix object is created and filled with data
+   * @post A Lmatrix is returned from the umatrix being transposed.
+   * 
+   * @return LMatrix<T> A Lmatrix object
+   */
+  LMatrix<T> Transpose();
+  /**
+   * @brief Calculates the upper triangular matrix from a dense matrix.
+   * @pre The dense matrix must have values to make it a dense matrix to solve
+   * for the upper triangular matrix.
+   * @post Computes and saves the data for a upper triangular matrix
+   * 
+   * @param source A dense matrix
+   */
+  void CalculateUpper(const Matrix<T> &source);
   /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and UMatrix object is created
@@ -133,18 +137,6 @@ public:
      */
   MyVector<T> &operator[](const int &i) const;
   /**
-     * @brief Performs the Gauss elimination process on the c.o. UMatrix and a B
-     * vector to find the x vector of values
-     * @pre A UMatrix object and MyVector object is created
-     * @post Creates a MyVector object filled with the x values created from the
-     * gauss elimination of the UMatrix and b vector. Throws an error if the size
-     * of the UMatrix and B vector don't work together.
-     * @param B The B vector
-     * @return MyVector<T> A MyVector object filled with x values calculated
-     * from the c.o. object and B vector
-     */
-  //MyVector<T> Eliminate(const MyVector<T> &B);
-  /**
      * @brief Scalar multiplcation of a UMatrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
      * @pre UMatrix object is created
@@ -152,7 +144,7 @@ public:
      * @param val Value to be multiplied against UMatrix
      * @return UMatrix<T> A UMatrix that has been multiplied by the value
      */
-  UMatrix<T> operator*(const T &val);
+  UMatrix<T> operator*(const T &val) const;
   /**
      * @brief Assignment operator that sets the rhs UMatrix object to the c.o.
      * @pre A UMatrix object is created and another to be copied from
@@ -161,15 +153,41 @@ public:
      * @return UMatrix<T> The c.o. is now equal to the rhs UMatrix object
      */
   UMatrix<T> &operator=(const UMatrix<T> &source);
-
-  void CalculateUpper(const Matrix<T> &source);
+  /**
+     * @brief Assignment operator that sets the rhs Matrix object to the c.o.
+     * @pre A UMatrix object is created and a Matrix object to be copied from
+     * @post Copies the rhs Matrix object to the UMatrix c.o.
+     * @param source Matrix object
+     * @return UMatrix<T> The c.o. is now equal to the rhs Matrix object
+     */
+  UMatrix<T> &operator=(const Matrix<T> &source);
+  /**
+   * @brief Works as the [] operator. To get data from the matrix.
+   * @pre A umatrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position
+   */
   T &operator()(const int &i, const int &j);
+  /**
+   * @brief Works as the [] operator. To get data from the matrix as a constant value.
+   * @pre A umatrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned as a constant value. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position as a constant value
+   */
   T &operator()(const int &i, const int &j) const;
 };
 /**
  * @brief Equals operator. Checks to see if the two UMatrix objects are the same
- * @pre Two UMatrix objects are created
- * @post Returns true or false depending on if the UMatrix objects are the same
+ * @pre Two UMatrix objects are created to be tested to see if they are the same.
+ * @post Returns true or false depending on if the Matrix objects are the same
  * or not
  * @tparam T template T
  * @param lhs UMatrix object
@@ -177,21 +195,105 @@ public:
  * @return true If the two UMatrix objects are the same
  * @return false If the two UMatrix objects aren't the same
  */
-// template <typename T>
-// bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+template <typename T>
+bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
- * @brief Not Equals operator. Checks to see if the two UMatrix objects are not the same
- * @pre Two UMatrix objects are created
- * @post Returns true or false depending on if the UMatrix objects are the same
+ * @brief Equals operator. Checks to see if the UMatrix and LMatrix objects are the same
+ * @pre UMatrix and LMatrix objects are created to be tested to see if they are the same.
+ * @post Returns true or false depending on if the Matrix objects are the same
  * or not
  * @tparam T template T
  * @param lhs UMatrix object
- * @param rhs UMatrix object
- * @return true If the two UMatrix objects aren't the same
- * @return false If the two UMatrix objects are the same
+ * @param rhs LMatrix object
+ * @return true If the Matrix objects are the same
+ * @return false If the Matrix objects aren't the same
  */
-// template <typename T>
-// bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+template <typename T>
+bool operator==(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+/**
+ * @brief Equals operator. Checks to see if the UMatrix and Matrix objects are the same
+ * @pre UMatrix and Matrix objects are created to be tested to see if they are the same.
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs UMatrix object
+ * @param rhs Matrix object
+ * @return true If the Matrix objects are the same
+ * @return false If the Matrix objects aren't the same
+ */
+template <typename T>
+bool operator==(const UMatrix<T> &lhs, const Matrix<T> &rhs);
+/**
+ * @brief Equals operator. Checks to see if the UMatrix and LMatrix objects are the same
+ * @pre Matrix and UMatrix objects are created to be tested to see if they are the same.
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs Matrix object
+ * @param rhs UMatrix object
+ * @return true If the Matrix objects are the same
+ * @return false If the Matrix objects aren't the same
+ */
+template <typename T>
+bool operator==(const Matrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Not Equals operator. Checks to see if the two LMatrix objects are not the same
+ * @pre Two LMatrix objects are created
+ * @post Returns true or false depending on if the LMatrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs LMatrix object
+ * @param rhs LMatrix object
+ * @return true If the two LMatrix objects aren't the same
+ * @return false If the two LMatrix objects are the same
+ */
+template <typename T>
+bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Not Equals operator. Checks to see if the UMatrix and LMatrix objects
+ * are not the same
+ * @pre UMatrix and LMatrix objects are created to be tested to see if they are
+ * the same. or different
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs UMatrix object
+ * @param rhs LMatrix object
+ * @return true If the Matrix objects are not the same
+ * @return false If the Matrix objects are the same
+ */
+template <typename T>
+bool operator!=(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+/**
+ * @brief Not Equals operator. Checks to see if the UMatrix and Matrix objects
+ * are not the same
+ * @pre UMatrix and Matrix objects are created to be tested to see if they are
+ * the same. or different
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs UMatrix object
+ * @param rhs Matrix object
+ * @return true If the Matrix objects are not the same
+ * @return false If the Matrix objects are the same
+ */
+template <typename T>
+bool operator!=(const UMatrix<T> &lhs, const Matrix<T> &rhs);
+/**
+ * @brief Not Equals operator. Checks to see if the Matrix and UMatrix objects
+ * are not the same
+ * @pre Matrix and UMatrix objects are created to be tested to see if they are
+ * the same. or different
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs Matrix object
+ * @param rhs UMatrix object
+ * @return true If the Matrix objects are not the same
+ * @return false If the Matrix objects are the same
+ */
+template <typename T>
+bool operator!=(const Matrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Negates every value within the UMatrix
  * @pre A UMatrix object is created
@@ -201,8 +303,8 @@ public:
  * @param source UMatrix object
  * @return UMatrix<T> A UMatrix that has every value negated
  */
-// template <typename T>
-// UMatrix<T> operator-(const UMatrix<T> &source);
+template <typename T>
+UMatrix<T> operator-(const UMatrix<T> &source);
 /**
  * @brief Calculate UMatrix multiplication of two matricies
  * @pre Two UMatrix object's are created and the lhs column size is the same as
@@ -219,6 +321,51 @@ public:
 template <typename T>
 UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
+ * @brief Calculate Matrix multiplication of two matricies (umatrix and lmatrix)
+ * @pre LMatrix object and UMatrix are created and the lhs column size is the same as
+ * the rhs row size.
+ * @post Calculates the lhs UMatrix and rhs LMatrix to return the multiplication
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator*(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+/**
+ * @brief Calculate Matrix multiplication of two matricies (matrix and UMatrix)
+ * @pre Matrix object and UMatrix are created and the lhs column size is the same as
+ * the rhs row size.
+ * @post Calculates the lhs Matrix and rhs UMatrix to return the multiplication
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs Matrix object of the left hand side
+ * @param rhs UMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator*(const Matrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Calculate Matrix multiplication of two matricies (UMatrix and matrix)
+ * @pre UMatrix object and Matrix are created and the lhs column size is the same as
+ * the rhs row size.
+ * @post Calculates the lhs UMatrix and rhs Matrix to return the multiplication
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator*(const UMatrix<T> &lhs, const Matrix<T> &rhs);
+/**
  * @brief Calculate UMatrix addition of two matricies
  * @pre Two UMatrix object's are created and the lhs column size is the same as
  * the rhs row size.
@@ -231,8 +378,53 @@ UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
  * @return UMatrix<T> A UMatrix that has been calculate by doing addition of
  * the lhs and rhs matricies
  */
-// template <typename T>
-// UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+template <typename T>
+UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Calculate addition of the two matricies (umatrix and lmatrix)
+ * @pre UMatrix and LMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error is thrown. T types must be the same
+ * @post Calculates the lhs UMatrix and rhs LMatrix to return the addition
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing addition of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator+(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+/**
+ * @brief Calculate addition of the two matricies (matrix and UMatrix)
+ * @pre Matrix and UMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error is thrown. T types must be the same
+ * @post Calculates the lhs Matrix and rhs UMatrix to return the addition
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing addition of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator+(const Matrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Calculate addition of the two matricies (UMatrix and matrix)
+ * @pre UMatrix and Matrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error is thrown. T types must be the same
+ * @post Calculates the lhs UMatrix and rhs Matrix to return the addition
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing addition of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator+(const UMatrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Calculate UMatrix subtraction of two matricies
  * @pre Two UMatrix object's are created and the lhs column size is the same as
@@ -246,8 +438,53 @@ UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
  * @return UMatrix<T> A UMatrix that has been calculate by doing subtraction of
  * the lhs and rhs matricies
  */
-// template <typename T>
-// UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+template <typename T>
+UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Calculate subtraction of two matricies (umatrix and Lmatrix)
+ * @pre LMatrix and UMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error will be thrown. T types must be the same. 
+ * @post Calculates the lhs UMatrix and rhs LMatrix to return the subtraction
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator-(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
+/**
+ * @brief Calculate subtraction of two matricies (matrix and UMatrix)
+ * @pre Matrix and UMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error will be thrown. T types must be the same. 
+ * @post Calculates the lhs Matrix and rhs UMatrix to return the subtraction
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs Matrix object of the left hand side
+ * @param rhs UMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator-(const Matrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Calculate subtraction of two matricies (UMatrix and matrix)
+ * @pre UMatrix and Matrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error will be thrown. T types must be the same. 
+ * @post Calculates the lhs UMatrix and rhs Matrix to return the subtraction
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
+ * the lhs and rhs matricies
+ */
+template <typename T>
+Matrix<T> operator-(const UMatrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the UMatrix object
  * @pre A UMatrix object is created

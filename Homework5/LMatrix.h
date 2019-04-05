@@ -39,6 +39,10 @@ private:
   MatrixController<LMatrix<T>, T> my_controller;
 
 public:
+  /**
+ * @brief Construct a new LMatrix object
+ * 
+ */
   LMatrix();
   /**
    * @brief Construct a new LMatrix object
@@ -48,22 +52,21 @@ public:
    */
   LMatrix(int rows, int columns);
   /**
-     * 
-     * @pre Construct a new LMatrix object with set sizes
-     * @post A new LMatrix object is created
-     * @brief Construct a new LMatrix object
-     * 
-     * @param rows Number of rows
-     * @param columns Number of columns
-     */
+   * @brief Copy constructor
+   * @pre A c.o. LMatrix is created and a source Matrix object is created to be
+   * copied from
+   * @post Copies the source Matrix object to the c.o. and then sets the values
+   * as a lower matrix
+    * @param source Matrix object
+    */
   LMatrix(const Matrix<T> &source);
   /**
-   * @brief Copy constructor
-   * @pre A c.o. LMatrix is created and a source LMatrix object is created to be
-   * copied from
-   * @post Copies the source LMatrix object to the c.o.
-   * @param source LMatrix object
-   */
+ * @brief Construct a new LMatrix object
+ * @pre A lmatrix object is created to be copied from
+ * @post The lmatrix is copied from
+ * 
+ * @param source lmatrix object to be copied from
+ */
   LMatrix(const LMatrix<T> &source);
   /**
      * @brief Destroy the LMatrix object
@@ -148,6 +151,14 @@ public:
      */
   LMatrix<T> &operator=(const LMatrix<T> &source);
   /**
+     * @brief Assignment operator that sets the rhs Matrix object to the c.o.
+     * @pre A LMatrix object is created and a Matrix object to be copied from
+     * @post Copies the rhs Matrix object to the LMatrix c.o.
+     * @param source Matrix object
+     * @return LMatrix<T> The c.o. is now equal to the rhs Matrix object
+     */
+  LMatrix<T> &operator=(const Matrix<T> &source);
+  /**
    * @brief Works as the [] operator. To get data from the matrix.
    * @pre A lmatrix must be created and have data stored within it. i and j must
    * be positive and within the bounds of the matrix otherwise it will throw an error.
@@ -184,6 +195,45 @@ public:
 template <typename T>
 bool operator==(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
+ * @brief Equals operator. Checks to see if the LMatrix and UMatrix objects are the same
+ * @pre LMatrix and UMatrix objects are created to be tested to see if they are the same.
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs LMatrix object
+ * @param rhs UMatrix object
+ * @return true If the Matrix objects are the same
+ * @return false If the Matrix objects aren't the same
+ */
+template <typename T>
+bool operator==(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Equals operator. Checks to see if the LMatrix and Matrix objects are the same
+ * @pre LMatrix and Matrix objects are created to be tested to see if they are the same.
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs LMatrix object
+ * @param rhs Matrix object
+ * @return true If the Matrix objects are the same
+ * @return false If the Matrix objects aren't the same
+ */
+template <typename T>
+bool operator==(const LMatrix<T> &lhs, const Matrix<T> &rhs);
+/**
+ * @brief Equals operator. Checks to see if the Matrix and LMatrix objects are the same
+ * @pre Matrix and LMatrix objects are created to be tested to see if they are the same.
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs Matrix object
+ * @param rhs LMatrix object
+ * @return true If the Matrix objects are the same
+ * @return false If the Matrix objects aren't the same
+ */
+template <typename T>
+bool operator==(const Matrix<T> &lhs, const LMatrix<T> &rhs);
+/**
  * @brief Not Equals operator. Checks to see if the two LMatrix objects are not the same
  * @pre Two LMatrix objects are created
  * @post Returns true or false depending on if the LMatrix objects are the same
@@ -196,6 +246,51 @@ bool operator==(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
  */
 template <typename T>
 bool operator!=(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
+/**
+ * @brief Not Equals operator. Checks to see if the LMatrix and UMatrix objects
+ * are not the same
+ * @pre LMatrix and UMatrix objects are created to be tested to see if they are
+ * the same. or different
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs LMatrix object
+ * @param rhs UMatrix object
+ * @return true If the Matrix objects are not the same
+ * @return false If the Matrix objects are the same
+ */
+template <typename T>
+bool operator!=(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
+/**
+ * @brief Not Equals operator. Checks to see if the LMatrix and Matrix objects
+ * are not the same
+ * @pre LMatrix and Matrix objects are created to be tested to see if they are
+ * the same. or different
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs LMatrix object
+ * @param rhs Matrix object
+ * @return true If the Matrix objects are not the same
+ * @return false If the Matrix objects are the same
+ */
+template <typename T>
+bool operator!=(const LMatrix<T> &lhs, const Matrix<T> &rhs);
+/**
+ * @brief Not Equals operator. Checks to see if the Matrix and LMatrix objects
+ * are not the same
+ * @pre Matrix and LMatrix objects are created to be tested to see if they are
+ * the same. or different
+ * @post Returns true or false depending on if the Matrix objects are the same
+ * or not
+ * @tparam T template T
+ * @param lhs Matrix object
+ * @param rhs LMatrix object
+ * @return true If the Matrix objects are not the same
+ * @return false If the Matrix objects are the same
+ */
+template <typename T>
+bool operator!=(const Matrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Negates every value within the LMatrix
  * @pre A LMatrix object is created
@@ -237,21 +332,6 @@ LMatrix<T> operator*(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
  */
 template <typename T>
 Matrix<T> operator*(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
-/**
- * @brief Calculate Matrix multiplication of two matricies (umatrix and lmatrix)
- * @pre LMatrix object and UMatrix are created and the lhs column size is the same as
- * the rhs row size.
- * @post Calculates the lhs UMatrix and rhs LMatrix to return the multiplication
- * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
- * the sizes of the matricies don't line up
- * @tparam T template T
- * @param lhs UMatrix object of the left hand side
- * @param rhs LMatrix object of the right hand side
- * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
- * the lhs and rhs matricies
- */
-template <typename T>
-Matrix<T> operator*(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Calculate Matrix multiplication of two matricies (matrix and LMatrix)
  * @pre Matrix object and LMatrix are created and the lhs column size is the same as
@@ -313,21 +393,6 @@ LMatrix<T> operator+(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
 template <typename T>
 Matrix<T> operator+(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
- * @brief Calculate addition of the two matricies (umatrix and lmatrix)
- * @pre UMatrix and LMatrix objects are created and the lhs column size is the same as
- * the rhs row size otherwise error is thrown. T types must be the same
- * @post Calculates the lhs UMatrix and rhs LMatrix to return the addition
- * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
- * the sizes of the matricies don't line up
- * @tparam T template T
- * @param lhs UMatrix object of the left hand side
- * @param rhs LMatrix object of the right hand side
- * @return Matrix<T> A Matrix that has been calculate by doing addition of
- * the lhs and rhs matricies
- */
-template <typename T>
-Matrix<T> operator+(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
-/**
  * @brief Calculate addition of the two matricies (matrix and lmatrix)
  * @pre Matrix and LMatrix objects are created and the lhs column size is the same as
  * the rhs row size otherwise error is thrown. T types must be the same
@@ -387,21 +452,6 @@ LMatrix<T> operator-(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
  */
 template <typename T>
 Matrix<T> operator-(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
-/**
- * @brief Calculate subtraction of two matricies (umatrix and Lmatrix)
- * @pre LMatrix and UMatrix objects are created and the lhs column size is the same as
- * the rhs row size otherwise error will be thrown. T types must be the same. 
- * @post Calculates the lhs UMatrix and rhs LMatrix to return the subtraction
- * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
- * the sizes of the matricies don't line up
- * @tparam T template T
- * @param lhs UMatrix object of the left hand side
- * @param rhs LMatrix object of the right hand side
- * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
- * the lhs and rhs matricies
- */
-template <typename T>
-Matrix<T> operator-(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Calculate subtraction of two matricies (matrix and Lmatrix)
  * @pre Matrix and lMatrix objects are created and the lhs column size is the same as
