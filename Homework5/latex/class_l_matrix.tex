@@ -28,6 +28,8 @@ Inheritance diagram for L\+Matrix$<$ T $>$\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_l_matrix_ab4289f015b6b154b0f396550c1975250}{$\sim$\+L\+Matrix}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_l_matrix_a30c31d51a4ee693b725d0acec95c430f}{L\+Matrix}} (\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&\&source)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_l_matrix_a3f82539f6b2251d49a2e39c7c359b92d}{Push\+Back}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Add a vector onto the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_l_matrix_ad4ed9d329dbd01d010504a97b3879442}{Get\+Rows}} () const
@@ -84,7 +86,7 @@ Copyright (c) 2019
 \mbox{\Hypertarget{class_l_matrix_ae3c54a6ef307ad2e570db483b9fd9c03}\label{class_l_matrix_ae3c54a6ef307ad2e570db483b9fd9c03}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
 \index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
@@ -95,7 +97,7 @@ Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object.
 \mbox{\Hypertarget{class_l_matrix_a5e031d95fcb4ce79894c52488d224f98}\label{class_l_matrix_a5e031d95fcb4ce79894c52488d224f98}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
 \index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})}
 
@@ -113,7 +115,7 @@ Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object.
 \mbox{\Hypertarget{class_l_matrix_aa4bc8aa349207a09c467d958d7361b4b}\label{class_l_matrix_aa4bc8aa349207a09c467d958d7361b4b}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
 \index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
@@ -135,7 +137,7 @@ Copies the source \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. a
 \mbox{\Hypertarget{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}\label{class_l_matrix_a0a4d56623c6c83d9fd2c3040e41429ae}} 
 \index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
 \index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
@@ -171,6 +173,28 @@ Destroy the \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object.
 \begin{DoxyPostcond}{Postcondition}
 c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} will be destroyed and deleted from memory. 
 \end{DoxyPostcond}
+\mbox{\Hypertarget{class_l_matrix_a30c31d51a4ee693b725d0acec95c430f}\label{class_l_matrix_a30c31d51a4ee693b725d0acec95c430f}} 
+\index{LMatrix$<$ T $>$@{LMatrix$<$ T $>$}!LMatrix@{LMatrix}}
+\index{LMatrix@{LMatrix}!LMatrix$<$ T $>$@{LMatrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{LMatrix()}{LMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_l_matrix}{L\+Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&\&}]{source }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+Moves the lmatrix object from the source 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+moved the lmatrix source object to the c.\+o.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} source object \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}

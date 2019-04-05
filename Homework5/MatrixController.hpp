@@ -54,6 +54,52 @@ template <class M, class T>
 MatrixController<M, T>::~MatrixController() {}
 
 template <class M, class T>
+MatrixController<M, T>::MatrixController(const MatrixController<M, T> &source)
+{
+    numRows = source.numRows;
+    m_type = source.m_type;
+    numColumns = source.numColumns;
+    for (int i = 0; i < numRows; i++)
+    {
+        MyVector<T> tempVect(numColumns);
+        myVect.PushBack(tempVect);
+    }
+    copy(source);
+}
+
+template <class M, class T>
+void MatrixController<M, T>::copy(const MatrixController<M, T> &source)
+{
+    if (m_type == 0)
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < GetColumns(); j++)
+            {
+                if (j < i)
+                {
+                    myVect[i][j] = source[i][j];
+                }
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < GetColumns(); j++)
+            {
+                if (i <= j)
+                {
+                    myVect[i][j] = source[i][j];
+                }
+            }
+        }
+    }
+    return;
+}
+
+template <class M, class T>
 void MatrixController<M, T>::PushBack(const MyVector<T> &source)
 {
     int counter = 0;
@@ -131,6 +177,34 @@ template <class M, class T>
 int MatrixController<M, T>::GetColumns() const
 {
     return numColumns;
+}
+
+template <class M, class T>
+void MatrixController<M, T>::SetRows(const int &rows)
+{
+    if (rows >= 0)
+    {
+        numRows = rows;
+    }
+    else
+    {
+        throw std::range_error("Out of range.");
+    }
+    return;
+}
+
+template <class M, class T>
+void MatrixController<M, T>::SetColumns(const int &columns)
+{
+    if (columns >= 0)
+    {
+        numColumns = columns;
+    }
+    else
+    {
+        throw std::range_error("Out of range.");
+    }
+    return;
 }
 
 template <class M, class T>

@@ -28,6 +28,8 @@ Inheritance diagram for U\+Matrix$<$ T $>$\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_u_matrix_ada29056d4baec18fcb9bc47dc49e8d53}{$\sim$\+U\+Matrix}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_u_matrix_ab70aed159f4542aa4bbf9a222bd328ef}{U\+Matrix}} (\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&\&source)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_u_matrix_a57003b0a0f3fe394ab04f9588732a928}{Push\+Back}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
 \begin{DoxyCompactList}\small\item\em Add a vector onto the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_u_matrix_ae261286236cb23a0dfa1296591f4c3ad}{Get\+Rows}} () const
@@ -84,7 +86,7 @@ Copyright (c) 2019
 \mbox{\Hypertarget{class_u_matrix_a7c6cfdd2d26c56bca1f5b1d79e7f2ee2}\label{class_u_matrix_a7c6cfdd2d26c56bca1f5b1d79e7f2ee2}} 
 \index{UMatrix$<$ T $>$@{UMatrix$<$ T $>$}!UMatrix@{UMatrix}}
 \index{UMatrix@{UMatrix}!UMatrix$<$ T $>$@{UMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
@@ -95,7 +97,7 @@ Construct a new \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object.
 \mbox{\Hypertarget{class_u_matrix_ad0d2d3e05ad904daed36504eddd25a2c}\label{class_u_matrix_ad0d2d3e05ad904daed36504eddd25a2c}} 
 \index{UMatrix$<$ T $>$@{UMatrix$<$ T $>$}!UMatrix@{UMatrix}}
 \index{UMatrix@{UMatrix}!UMatrix$<$ T $>$@{UMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})}
 
@@ -119,7 +121,7 @@ a \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object is created with specified 
 \mbox{\Hypertarget{class_u_matrix_a784cebb7d674ada97720bcb34f49ca6b}\label{class_u_matrix_a784cebb7d674ada97720bcb34f49ca6b}} 
 \index{UMatrix$<$ T $>$@{UMatrix$<$ T $>$}!UMatrix@{UMatrix}}
 \index{UMatrix@{UMatrix}!UMatrix$<$ T $>$@{UMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
@@ -141,7 +143,7 @@ A new \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object is created
 \mbox{\Hypertarget{class_u_matrix_ab95abe504ff32df243d625b6b749077d}\label{class_u_matrix_ab95abe504ff32df243d625b6b749077d}} 
 \index{UMatrix$<$ T $>$@{UMatrix$<$ T $>$}!UMatrix@{UMatrix}}
 \index{UMatrix@{UMatrix}!UMatrix$<$ T $>$@{UMatrix$<$ T $>$}}
-\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
 
@@ -177,6 +179,28 @@ Destroy the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object.
 \begin{DoxyPostcond}{Postcondition}
 c.\+o. \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} will be destroyed and deleted from memory. 
 \end{DoxyPostcond}
+\mbox{\Hypertarget{class_u_matrix_ab70aed159f4542aa4bbf9a222bd328ef}\label{class_u_matrix_ab70aed159f4542aa4bbf9a222bd328ef}} 
+\index{UMatrix$<$ T $>$@{UMatrix$<$ T $>$}!UMatrix@{UMatrix}}
+\index{UMatrix@{UMatrix}!UMatrix$<$ T $>$@{UMatrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{UMatrix()}{UMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_u_matrix}{U\+Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&\&}]{source }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+Moves the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} object from the source 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+moved the \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} source object to the c.\+o.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_u_matrix}{U\+Matrix}} source object \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}

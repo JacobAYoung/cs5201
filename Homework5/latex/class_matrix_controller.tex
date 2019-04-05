@@ -26,6 +26,10 @@ int \mbox{\hyperlink{class_matrix_controller_a3cf741ea77589aae6557b691f4e4c3bb}{
 \begin{DoxyCompactList}\small\item\em Get the Rows object. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_matrix_controller_a2d895a5b210bfc295308f97084e78002}{Get\+Columns}} () const
 \begin{DoxyCompactList}\small\item\em Get the Columns object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_matrix_controller_ad659b02670dce5a4d1e6a1b73ca63513}{Set\+Rows}} (const int \&rows)
+\begin{DoxyCompactList}\small\item\em Set the Rows object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_matrix_controller_a6e68e5f2260f1d80afc5891c60301927}{Set\+Columns}} (const int \&columns)
+\begin{DoxyCompactList}\small\item\em Set the Columns object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix_controller_a944709b73c0cf4d0b962eb26840a896a}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i)
 \begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix_controller_a59cfd6e10abd1a90fa0a1090bb4de240}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i) const
@@ -154,7 +158,7 @@ c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} will be destroyed and delete
 \index{MatrixController$<$ M, T $>$@{MatrixController$<$ M, T $>$}!copy@{copy}}
 \index{copy@{copy}!MatrixController$<$ M, T $>$@{MatrixController$<$ M, T $>$}}
 \subsubsection{\texorpdfstring{copy()}{copy()}}
-{\footnotesize\ttfamily template$<$class M, class T $>$ \\
+{\footnotesize\ttfamily template$<$class M, class T$>$ \\
 void \mbox{\hyperlink{class_matrix_controller}{Matrix\+Controller}}$<$ M, T $>$\+::copy (\begin{DoxyParamCaption}\item[{const M \&}]{source }\end{DoxyParamCaption})}
 
 
@@ -332,6 +336,50 @@ The vector has been added to the c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matr
 
 \begin{DoxyParams}{Parameters}
 {\em source} & The vector that wants to be added to the c.\+o. \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_matrix_controller_a6e68e5f2260f1d80afc5891c60301927}\label{class_matrix_controller_a6e68e5f2260f1d80afc5891c60301927}} 
+\index{MatrixController$<$ M, T $>$@{MatrixController$<$ M, T $>$}!SetColumns@{SetColumns}}
+\index{SetColumns@{SetColumns}!MatrixController$<$ M, T $>$@{MatrixController$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{SetColumns()}{SetColumns()}}
+{\footnotesize\ttfamily template$<$class M , class T $>$ \\
+void \mbox{\hyperlink{class_matrix_controller}{Matrix\+Controller}}$<$ M, T $>$\+::Set\+Columns (\begin{DoxyParamCaption}\item[{const int \&}]{columns }\end{DoxyParamCaption})}
+
+
+
+Set the Columns object. 
+
+\begin{DoxyPrecond}{Precondition}
+The value of columns needs to be changed. Size needs to be $>$=0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The value of columns is changed
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em columns} & number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_matrix_controller_ad659b02670dce5a4d1e6a1b73ca63513}\label{class_matrix_controller_ad659b02670dce5a4d1e6a1b73ca63513}} 
+\index{MatrixController$<$ M, T $>$@{MatrixController$<$ M, T $>$}!SetRows@{SetRows}}
+\index{SetRows@{SetRows}!MatrixController$<$ M, T $>$@{MatrixController$<$ M, T $>$}}
+\subsubsection{\texorpdfstring{SetRows()}{SetRows()}}
+{\footnotesize\ttfamily template$<$class M , class T $>$ \\
+void \mbox{\hyperlink{class_matrix_controller}{Matrix\+Controller}}$<$ M, T $>$\+::Set\+Rows (\begin{DoxyParamCaption}\item[{const int \&}]{rows }\end{DoxyParamCaption})}
+
+
+
+Set the Rows object. 
+
+\begin{DoxyPrecond}{Precondition}
+The value of rows needs to be changed. Size needs to be $>$=0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The value of rows is changed 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & number of rows \\
 \hline
 \end{DoxyParams}
 

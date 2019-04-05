@@ -75,6 +75,14 @@ public:
      */
   ~LMatrix();
   /**
+ * @brief Construct a new LMatrix object
+ * @pre Moves the lmatrix object from the source
+ * @post moved the lmatrix source object to the c.o.
+ * 
+ * @param source LMatrix source object
+ */
+  LMatrix(LMatrix<T> &&source);
+  /**
      * @brief Add a vector onto the LMatrix
      * @pre A LMatrix object is created
      * @post The vector has been added to the c.o. LMatrix

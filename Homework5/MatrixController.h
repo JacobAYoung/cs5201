@@ -44,6 +44,15 @@ private:
    * 
    */
   MyVector<MyVector<T>> myVect;
+  /**
+   * @brief a private member function meant to copy all the values from the
+   * matrix controller.
+   * @pre A matrixcontroller object is created and is being copied from another
+   * matrixcontroller with similar types.
+   * @post the data from the matrix controller is copied from the rhs
+ * @param source a matrixcontroller object
+ */
+  void copy(const MatrixController<M, T> &source);
 
 public:
   /**
@@ -101,6 +110,22 @@ public:
      * @return int Number of columns within the LMatrix
      */
   int GetColumns() const;
+  /**
+   * @brief Set the Rows object
+   * @pre The value of rows needs to be changed. Size needs to be >=0
+   * @post The value of rows is changed
+   * @param rows number of rows
+   */
+  void SetRows(const int &rows);
+  /**
+   * @brief Set the Columns object
+   * @pre The value of columns needs to be changed. Size needs to be >=0
+   * @post The value of columns is changed
+   * 
+   * @param columns number of columns
+   */
+  void SetColumns(const int &columns);
+
   /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and LMatrix object is created

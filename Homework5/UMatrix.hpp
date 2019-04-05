@@ -32,6 +32,16 @@ template <class T>
 UMatrix<T>::~UMatrix() {}
 
 template <class T>
+UMatrix<T>::UMatrix(UMatrix<T> &&source)
+{
+    my_controller.SetRows(source.GetRows());
+    my_controller.SetColumns(source.GetColumns());
+    std::swap(my_controller, source.my_controller);
+    source.my_controller.SetRows(0);
+    source.my_controller.SetColumns(0);
+}
+
+template <class T>
 int UMatrix<T>::GetRows() const
 {
     return my_controller.GetRows();

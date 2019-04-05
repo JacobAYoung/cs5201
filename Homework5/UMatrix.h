@@ -78,6 +78,14 @@ public:
      */
   ~UMatrix();
   /**
+ * @brief Construct a new UMatrix object
+ * @pre Moves the UMatrix object from the source
+ * @post moved the UMatrix source object to the c.o.
+ * 
+ * @param source UMatrix source object
+ */
+  UMatrix(UMatrix<T> &&source);
+  /**
      * @brief Add a vector onto the UMatrix
      * @pre A UMatrix object is created
      * @post The vector has been added to the c.o. UMatrix

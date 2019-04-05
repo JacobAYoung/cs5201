@@ -97,6 +97,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d895a5b210bfc295308f97084e78002"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_controller.html#a2d895a5b210bfc295308f97084e78002">GetColumns</a> () const</td></tr>
 <tr class="memdesc:a2d895a5b210bfc295308f97084e78002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Columns object.  <a href="#a2d895a5b210bfc295308f97084e78002">More...</a><br /></td></tr>
 <tr class="separator:a2d895a5b210bfc295308f97084e78002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad659b02670dce5a4d1e6a1b73ca63513"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_controller.html#ad659b02670dce5a4d1e6a1b73ca63513">SetRows</a> (const int &amp;rows)</td></tr>
+<tr class="memdesc:ad659b02670dce5a4d1e6a1b73ca63513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Rows object.  <a href="#ad659b02670dce5a4d1e6a1b73ca63513">More...</a><br /></td></tr>
+<tr class="separator:ad659b02670dce5a4d1e6a1b73ca63513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e68e5f2260f1d80afc5891c60301927"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_controller.html#a6e68e5f2260f1d80afc5891c60301927">SetColumns</a> (const int &amp;columns)</td></tr>
+<tr class="memdesc:a6e68e5f2260f1d80afc5891c60301927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Columns object.  <a href="#a6e68e5f2260f1d80afc5891c60301927">More...</a><br /></td></tr>
+<tr class="separator:a6e68e5f2260f1d80afc5891c60301927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a944709b73c0cf4d0b962eb26840a896a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_my_vector.html">MyVector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_controller.html#a944709b73c0cf4d0b962eb26840a896a">operator[]</a> (const int &amp;i)</td></tr>
 <tr class="memdesc:a944709b73c0cf4d0b962eb26840a896a"><td class="mdescLeft">&#160;</td><td class="mdescRight">[] operator that returns the data of the pointer at the specified position  <a href="#a944709b73c0cf4d0b962eb26840a896a">More...</a><br /></td></tr>
 <tr class="separator:a944709b73c0cf4d0b962eb26840a896a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,7 +262,7 @@ template&lt;class M , class T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class M, class T &gt; </div>
+template&lt;class M, class T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_matrix_controller.html">MatrixController</a>&lt; M, T &gt;::copy </td>
@@ -476,6 +482,66 @@ template&lt;class M , class T&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>The vector that wants to be added to the c.o. <a class="el" href="class_l_matrix.html" title="Creates a LMatrix that has multiple methods of doing calculations for that LMatrix.">LMatrix</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6e68e5f2260f1d80afc5891c60301927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e68e5f2260f1d80afc5891c60301927">&#9670;&nbsp;</a></span>SetColumns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class M , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_matrix_controller.html">MatrixController</a>&lt; M, T &gt;::SetColumns </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>columns</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Columns object. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The value of columns needs to be changed. Size needs to be &gt;=0 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>The value of columns is changed</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">columns</td><td>number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad659b02670dce5a4d1e6a1b73ca63513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad659b02670dce5a4d1e6a1b73ca63513">&#9670;&nbsp;</a></span>SetRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class M , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_matrix_controller.html">MatrixController</a>&lt; M, T &gt;::SetRows </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>rows</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Rows object. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The value of rows needs to be changed. Size needs to be &gt;=0 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>The value of rows is changed </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rows</td><td>number of rows </td></tr>
   </table>
   </dd>
 </dl>
