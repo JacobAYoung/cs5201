@@ -287,7 +287,8 @@ void MatrixController<M, T>::copy(const M &source)
         {
             for (int j = 0; j < GetColumns(); j++)
             {
-                if (j < i)
+
+                if (j <= i)
                 {
                     myVect[i][j] = source[i][j];
                 }

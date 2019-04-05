@@ -148,8 +148,8 @@ T &UMatrix<T>::operator()(const int &i, const int &j)
             }
             else
             {
-                T *temp = new double();
-                return *temp;
+                static T temp;
+                return temp;
             }
         }
         else
@@ -176,8 +176,8 @@ T &UMatrix<T>::operator()(const int &i, const int &j) const
             }
             else
             {
-                T *temp = new double();
-                return *temp;
+                static T temp;
+                return temp;
             }
         }
         else
@@ -219,15 +219,17 @@ UMatrix<T> &UMatrix<T>::operator=(const UMatrix<T> &source)
 template <class T>
 UMatrix<T> &UMatrix<T>::operator=(const Matrix<T> &source)
 {
-    UMatrix<T> temp(source.GetRows(), source.GetColumns());
     for (int i = 0; i < source.GetRows(); i++)
     {
         for (int j = 0; j < source.GetColumns(); j++)
         {
-            temp(i, j) = source[i][j];
+            if (i >= j)
+            {
+                my_controller[i][j] = source[i][j];
+            }
         }
     }
-    return temp;
+    return *this;
 }
 
 template <typename T>

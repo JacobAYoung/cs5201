@@ -143,15 +143,17 @@ LMatrix<T> &LMatrix<T>::operator=(const LMatrix<T> &source)
 template <class T>
 LMatrix<T> &LMatrix<T>::operator=(const Matrix<T> &source)
 {
-    LMatrix<T> temp(source.GetRows(), source.GetColumns());
     for (int i = 0; i < source.GetRows(); i++)
     {
         for (int j = 0; j < source.GetColumns(); j++)
         {
-            temp(i, j) = source[i][j];
+            if (j <= i)
+            {
+                my_controller[i][j] = source[i][j];
+            }
         }
     }
-    return temp;
+    return *this;
 }
 
 template <class T>

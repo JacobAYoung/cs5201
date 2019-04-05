@@ -89,7 +89,8 @@ int main(int argc, char *argv[])
         cout.setf(ios::fixed);
         if (Matrix1.isLowerTriangularMatrix())
         {
-            LMatrix<double> lM = Matrix1;
+            LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
+            lM = Matrix1;
 
             cout << "A * A^T:" << endl;
             Matrix1 = lM * lM.Transpose();
@@ -112,7 +113,8 @@ int main(int argc, char *argv[])
         }
         else if (Matrix1.isUpperTriangularMatrix())
         {
-            UMatrix<double> uM = Matrix1;
+            UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            uM = Matrix1;
             cout << "A * A^T:" << endl;
             Matrix1 = uM * uM.Transpose();
             cout << Matrix1 * Matrix1.Transpose() << endl;
