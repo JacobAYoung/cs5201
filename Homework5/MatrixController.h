@@ -7,17 +7,42 @@
 
 using namespace std;
 
+/**
+ * @file MatrixController.h
+ * @class MatrixController
+ * @author Jake Young
+ * @pre Some Matrix object is created
+ * @post Matrix can do calculations and can be used as any kind of matrix
+ * @brief This class acts as a base class for many matrix classes
+ * @version 0.1
+ * @date 2019-03-17
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 template <class M, class T>
 class MatrixController
 {
 private:
+  /**
+ * @brief number of rows
+ * 
+ */
   int numRows;
+  /**
+   * @brief Type of matrix to be used for this class
+   * 
+   */
   int m_type;
   /**
      * @brief Number of columns
      * 
      */
   int numColumns;
+  /**
+   * @brief A MyVector of MyVectors to store the data.
+   * 
+   */
   MyVector<MyVector<T>> myVect;
 
 public:

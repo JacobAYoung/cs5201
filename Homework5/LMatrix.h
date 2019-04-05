@@ -31,16 +31,20 @@ template <class T>
 class LMatrix : public IMatrix<LMatrix<T>, T>
 {
 private:
+  /**
+   * @brief A matrixcontroller base class to be used for common functionallity
+   * over multiple kinds of matricies.
+   * 
+   */
   MatrixController<LMatrix<T>, T> my_controller;
 
 public:
   LMatrix();
   /**
-   * 
-   * @pre Construct a new LMatrix object
-   * @post A new LMatrix object is created
    * @brief Construct a new LMatrix object
    * 
+   * @param rows number of rows 
+   * @param columns number of columns
    */
   LMatrix(int rows, int columns);
   /**
@@ -54,12 +58,12 @@ public:
      */
   LMatrix(const Matrix<T> &source);
   /**
-     * @brief Copy constructor
-     * @pre A c.o. LMatrix is created and a source LMatrix object is created to be
-     * copied from
-     * @post Copies the source LMatrix object to the c.o.
-     * @param source LMatrix object
-     */
+   * @brief Copy constructor
+   * @pre A c.o. LMatrix is created and a source LMatrix object is created to be
+   * copied from
+   * @post Copies the source LMatrix object to the c.o.
+   * @param source LMatrix object
+   */
   LMatrix(const LMatrix<T> &source);
   /**
      * @brief Destroy the LMatrix object
@@ -218,16 +222,64 @@ LMatrix<T> operator-(const LMatrix<T> &source);
  */
 template <typename T>
 LMatrix<T> operator*(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate Matrix multiplication of two matricies (lmatrix and umatrix)
+ * @pre LMatrix object and UMatrix are created and the lhs column size is the same as
+ * the rhs row size.
+ * @post Calculates the lhs LMatrix and rhs UMatrix to return the multiplication
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs LMatrix object of the left hand side
+ * @param rhs UMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator*(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
-
+/**
+ * @brief Calculate Matrix multiplication of two matricies (umatrix and lmatrix)
+ * @pre LMatrix object and UMatrix are created and the lhs column size is the same as
+ * the rhs row size.
+ * @post Calculates the lhs UMatrix and rhs LMatrix to return the multiplication
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator*(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate Matrix multiplication of two matricies (matrix and LMatrix)
+ * @pre Matrix object and LMatrix are created and the lhs column size is the same as
+ * the rhs row size.
+ * @post Calculates the lhs Matrix and rhs LMatrix to return the multiplication
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs Matrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator*(const Matrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate Matrix multiplication of two matricies (lmatrix and matrix)
+ * @pre LMatrix object and Matrix are created and the lhs column size is the same as
+ * the rhs row size.
+ * @post Calculates the lhs LMatrix and rhs Matrix to return the multiplication
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs LMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing multiplication of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator*(const LMatrix<T> &lhs, const Matrix<T> &rhs);
 /**
@@ -245,16 +297,64 @@ Matrix<T> operator*(const LMatrix<T> &lhs, const Matrix<T> &rhs);
  */
 template <typename T>
 LMatrix<T> operator+(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate LMatrix addition of two matricies (lmatrix and Umatrix)
+ * @pre LMatrix and UMatrix objects are created and the lhs column size is the same as
+ * the rhs row size. T types must be the same
+ * @post Calculates the lhs LMatrix and rhs UMatrix to return the addition
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs LMatrix object of the left hand side
+ * @param rhs UMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing addition of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator+(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
-
+/**
+ * @brief Calculate addition of the two matricies (umatrix and lmatrix)
+ * @pre UMatrix and LMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error is thrown. T types must be the same
+ * @post Calculates the lhs UMatrix and rhs LMatrix to return the addition
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing addition of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator+(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate addition of the two matricies (matrix and lmatrix)
+ * @pre Matrix and LMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error is thrown. T types must be the same
+ * @post Calculates the lhs Matrix and rhs LMatrix to return the addition
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs LMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing addition of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator+(const Matrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate addition of the two matricies (lmatrix and matrix)
+ * @pre lMatrix and Matrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error is thrown. T types must be the same
+ * @post Calculates the lhs lMatrix and rhs Matrix to return the addition
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs LMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing addition of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator+(const LMatrix<T> &lhs, const Matrix<T> &rhs);
 /**
@@ -272,16 +372,64 @@ Matrix<T> operator+(const LMatrix<T> &lhs, const Matrix<T> &rhs);
  */
 template <typename T>
 LMatrix<T> operator-(const LMatrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate subtraction of two matricies (lmatrix and Umatrix)
+ * @pre LMatrix and UMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error will be thrown. T types must be the same. 
+ * @post Calculates the lhs LMatrix and rhs UMatrix to return the subtraction
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs LMatrix object of the left hand side
+ * @param rhs UMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator-(const LMatrix<T> &lhs, const UMatrix<T> &rhs);
-
+/**
+ * @brief Calculate subtraction of two matricies (umatrix and Lmatrix)
+ * @pre LMatrix and UMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error will be thrown. T types must be the same. 
+ * @post Calculates the lhs UMatrix and rhs LMatrix to return the subtraction
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs UMatrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator-(const UMatrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate subtraction of two matricies (matrix and Lmatrix)
+ * @pre Matrix and lMatrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error will be thrown. T types must be the same. 
+ * @post Calculates the lhs Matrix and rhs LMatrix to return the subtraction
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs Matrix object of the left hand side
+ * @param rhs LMatrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator-(const Matrix<T> &lhs, const LMatrix<T> &rhs);
-
+/**
+ * @brief Calculate subtraction of two matricies (lmatrix and matrix)
+ * @pre LMatrix and Matrix objects are created and the lhs column size is the same as
+ * the rhs row size otherwise error will be thrown. T types must be the same. 
+ * @post Calculates the lhs lMatrix and rhs Matrix to return the subtraction
+ * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
+ * the sizes of the matricies don't line up
+ * @tparam T template T
+ * @param lhs lMatrix object of the left hand side
+ * @param rhs Matrix object of the right hand side
+ * @return Matrix<T> A Matrix that has been calculate by doing subtraction of
+ * the lhs and rhs matricies
+ */
 template <typename T>
 Matrix<T> operator-(const LMatrix<T> &lhs, const Matrix<T> &rhs);
 /**

@@ -131,28 +131,56 @@ LMatrix<T> &LMatrix<T>::operator=(const LMatrix<T> &source)
 template <class T>
 T &LMatrix<T>::operator()(const int &i, const int &j)
 {
-    if (j <= i)
+    if (j >= 0)
     {
-        return my_controller[i][j];
+        if (i >= 0)
+        {
+            if (j <= i)
+            {
+                return my_controller[i][j];
+            }
+            else
+            {
+                static T temp;
+                return temp;
+            }
+        }
+        else
+        {
+            throw std::range_error("Out of bounds");
+        }
     }
     else
     {
-        static T temp;
-        return temp;
+        throw std::range_error("Out of bounds");
     }
 }
 
 template <class T>
 T &LMatrix<T>::operator()(const int &i, const int &j) const
 {
-    if (j <= i)
+    if (j >= 0)
     {
-        return my_controller[i][j];
+        if (i >= 0)
+        {
+            if (j <= i)
+            {
+                return my_controller[i][j];
+            }
+            else
+            {
+                static T temp;
+                return temp;
+            }
+        }
+        else
+        {
+            throw std::range_error("Out of bounds");
+        }
     }
     else
     {
-        static T temp;
-        return temp;
+        throw std::range_error("Out of bounds");
     }
 }
 

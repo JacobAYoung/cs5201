@@ -3,6 +3,21 @@
 
 #include "MyVector.h"
 
+/**
+ * @file IMatrix.h
+ * @class IMatrix
+ * @author Jake Young
+ * @pre A class that will inherit from this class is created
+ * @post This class contains the definitions of functions to be used within the
+ * inherited classes.
+ * @brief This abstract class is used to define a matrix
+ * that Matrix. 
+ * @version 0.1
+ * @date 2019-03-17
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 template <class M, class T>
 class IMatrix
 {

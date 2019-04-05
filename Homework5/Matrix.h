@@ -89,7 +89,12 @@ public:
      * @post c.o. Matrix will be destroyed and deleted from memory.
      */
   ~Matrix();
-
+  /**
+ * @brief Construct a new Matrix object for move semantics
+ * @pre Performs move semantics over the new matrix object
+ * @post correctly swaps all the values to the current matrix
+ * @param source matrix object
+ */
   Matrix(Matrix<T> &&source);
   /**
      * @brief Add a vector onto the Matrix
@@ -124,7 +129,7 @@ public:
   /**
    * @brief Determines if the dense matrix is a lower Triangular Matrix
    * @pre A Matrix object is created and has data stored within it
-   * @Post Determines if the data stored in the dense Matrix is a lower
+   * @post Determines if the data stored in the dense Matrix is a lower
    * triangular matrix
    * 
    * @return true if the matrix is a lower triangular matrix
@@ -134,7 +139,7 @@ public:
   /**
    * @brief Determines if the dense matrix is a upper Triangular Matrix
    * @pre A Matrix object is created and has data stored within it
-   * @Post Determines if the data stored in the dense Matrix is a upper
+   * @post Determines if the data stored in the dense Matrix is a upper
    * triangular matrix
    * 
    * @return true if the matrix is a upper triangular matrix
