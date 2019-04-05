@@ -13,6 +13,7 @@
 #include "Matrix.h"
 #include "LMatrix.h"
 #include "UMatrix.h"
+#include "GaussElimination.h"
 
 using namespace std;
 
@@ -104,11 +105,11 @@ int main(int argc, char *argv[])
         cout << "-------------------------------------------" << endl;
         cout << Matrix1 << endl;
         cout << endl;
-        MyVector<double> x = Matrix1.Eliminate(myVector);
+        //MyVector<double> x = Matrix1.Eliminate(myVector);
         cout << "-------------------------------------------" << endl;
         cout << "x data" << endl;
         cout << "-------------------------------------------" << endl;
-        cout << x << endl;
+        //cout << x << endl;
         LMatrix<double> lM(Matrix1);
         LMatrix<double> lM2(Matrix1);
         cout << "-------------------------------------------" << endl;

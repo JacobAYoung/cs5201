@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <utility>
 #include "MyVector.h"
-#include "GaussElimination.h"
 #include "IMatrix.h"
 #include <algorithm>
 #include <iostream>
@@ -18,8 +17,7 @@ using namespace std;
  * @pre Matrix object is created
  * @post Matrix can do calculations and can be used as a regular Matrix
  * @brief Creates a Matrix that has multiple methods of doing calculations for
- * that Matrix. We assume that template T must be some kind of type like int,
- * double, float, etc...
+ * that Matrix. 
  * @version 0.1
  * @date 2019-03-17
  * 
@@ -124,18 +122,6 @@ public:
      */
   Matrix<T> Transpose();
   /**
-     * @brief Performs the Gauss elimination process on the c.o. Matrix and a B
-     * vector to find the x vector of values
-     * @pre A Matrix object and MyVector object is created
-     * @post Creates a MyVector object filled with the x values created from the
-     * gauss elimination of the Matrix and b vector. Throws an error if the size
-     * of the Matrix and B vector don't work together.
-     * @param B The B vector
-     * @return MyVector<T> A MyVector object filled with x values calculated
-     * from the c.o. object and B vector
-     */
-  MyVector<T> Eliminate(const MyVector<T> &B);
-  /**
    * @brief Determines if the dense matrix is a lower Triangular Matrix
    * @pre A Matrix object is created and has data stored within it
    * @Post Determines if the data stored in the dense Matrix is a lower
@@ -157,7 +143,7 @@ public:
   bool isUpperTriangularMatrix() const;
   /**
      * @brief [] operator that returns the data of the pointer at the specified position
-     * @pre: The position of the data is known and Matrix object is created
+     * @pre: The position of the data is known and Matrix object is created.
      * @post: Returns the data from the pointer of the specified position.
      * Throws an error if the position is out of the Matrix's size.
      * @param i Position number
@@ -195,7 +181,7 @@ public:
 };
 /**
  * @brief Equals operator. Checks to see if the two Matrix objects are the same
- * @pre Two Matrix objects are created
+ * @pre Two Matrix objects are created. The value T must be the same.
  * @post Returns true or false depending on if the Matrix objects are the same
  * or not
  * @tparam T template T
@@ -208,7 +194,7 @@ template <typename T>
 bool operator==(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two Matrix objects are not the same
- * @pre Two Matrix objects are created
+ * @pre Two Matrix objects are created. The value T must be the same.
  * @post Returns true or false depending on if the Matrix objects are the same
  * or not
  * @tparam T template T
@@ -221,7 +207,7 @@ template <typename T>
 bool operator!=(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Negates every value within the Matrix
- * @pre A Matrix object is created
+ * @pre A Matrix object is created.
  * @post Negates every value within the Matrix
  * 
  * @tparam T template T
@@ -233,7 +219,7 @@ Matrix<T> operator-(const Matrix<T> &source);
 /**
  * @brief Calculate Matrix multiplication of two matricies
  * @pre Two Matrix object's are created and the lhs column size is the same as
- * the rhs row size.
+ * the rhs row size. The value T must be the same.
  * @post Calculates the lhs Matrix and rhs Matrix to return the multiplication
  * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
  * the sizes of the matricies don't line up
@@ -248,7 +234,7 @@ Matrix<T> operator*(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Calculate Matrix addition of two matricies
  * @pre Two Matrix object's are created and the lhs column size is the same as
- * the rhs row size.
+ * the rhs row size. The value T must be the same.
  * @post Calculates the lhs Matrix and rhs Matrix to return the addition
  * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
  * the sizes of the matricies don't line up
@@ -263,7 +249,7 @@ Matrix<T> operator+(const Matrix<T> &lhs, const Matrix<T> &rhs);
 /**
  * @brief Calculate Matrix subtraction of two matricies
  * @pre Two Matrix object's are created and the lhs column size is the same as
- * the rhs row size.
+ * the rhs row size. The value T must be the same.
  * @post Calculates the lhs Matrix and rhs Matrix to return the subtraction
  * Matrix of the 2 matricies and returns it as a Matrix object. Throws an error
  * the sizes of the matricies don't line up

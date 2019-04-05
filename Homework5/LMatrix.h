@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <utility>
 #include "MyVector.h"
-#include "GaussElimination.h"
 #include "MatrixController.h"
 #include "Matrix.h"
 #include "IMatrix.h"
@@ -99,6 +98,15 @@ public:
      */
   UMatrix<T> Transpose();
   /**
+   * @brief Calculates the lower triangular matrix from a dense matrix.
+   * @pre The dense matrix must have values to make it a dense matrix to solve
+   * for the lower triangular matrix.
+   * @post Computes and saves the data for a lower triangular matrix
+   * 
+   * @param source A dense matrix
+   */
+  void CalculateLower(const Matrix<T> &source);
+  /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and LMatrix object is created
      * @post: Returns the data from the pointer of the specified position.
@@ -119,18 +127,6 @@ public:
      */
   MyVector<T> &operator[](const int &i) const;
   /**
-     * @brief Performs the Gauss elimination process on the c.o. LMatrix and a B
-     * vector to find the x vector of values
-     * @pre A LMatrix object and MyVector object is created
-     * @post Creates a MyVector object filled with the x values created from the
-     * gauss elimination of the LMatrix and b vector. Throws an error if the size
-     * of the LMatrix and B vector don't work together.
-     * @param B The B vector
-     * @return MyVector<T> A MyVector object filled with x values calculated
-     * from the c.o. object and B vector
-     */
-  MyVector<T> Eliminate(const MyVector<T> &B);
-  /**
      * @brief Scalar multiplcation of a LMatrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
      * @pre LMatrix object is created
@@ -147,9 +143,27 @@ public:
      * @return LMatrix<T> The c.o. is now equal to the rhs LMatrix object
      */
   LMatrix<T> &operator=(const LMatrix<T> &source);
-
-  void CalculateLower(const Matrix<T> &source);
+  /**
+   * @brief Works as the [] operator. To get data from the matrix.
+   * @pre A lmatrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position
+   */
   T &operator()(const int &i, const int &j);
+  /**
+   * @brief Works as the [] operator. To get data from the matrix as a constant value.
+   * @pre A lmatrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned as a constant value. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position as a constant value
+   */
   T &operator()(const int &i, const int &j) const;
 };
 /**

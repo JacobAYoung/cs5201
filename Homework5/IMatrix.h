@@ -7,7 +7,6 @@ template <class M, class T>
 class IMatrix
 {
 public:
-  virtual MyVector<T> Eliminate(const MyVector<T> &B) = 0;
   virtual void PushBack(const MyVector<T> &source) = 0;
   virtual int GetRows() const = 0;
   virtual int GetColumns() const = 0;

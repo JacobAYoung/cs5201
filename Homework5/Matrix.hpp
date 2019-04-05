@@ -113,20 +113,6 @@ Matrix<T> Matrix<T>::Transpose()
 }
 
 template <class T>
-MyVector<T> Matrix<T>::Eliminate(const MyVector<T> &B)
-{
-    if (GetColumns() == B.GetNumElements())
-    {
-        GaussElimination<T> source;
-        return source.GaussEliminate(myVect, B);
-    }
-    else
-    {
-        throw std::range_error("Sizes don't match");
-    }
-}
-
-template <class T>
 bool Matrix<T>::isLowerTriangularMatrix() const
 {
     for (int i = 0; i < GetRows(); i++)

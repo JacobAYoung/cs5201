@@ -56,12 +56,6 @@ UMatrix<T> LMatrix<T>::Transpose()
     }
     return temp;
 }
-template <class T>
-MyVector<T> LMatrix<T>::Eliminate(const MyVector<T> &B)
-{
-    MyVector<T> temp = B;
-    return temp;
-}
 
 template <class T>
 MyVector<T> &LMatrix<T>::operator[](const int &i)
@@ -644,11 +638,11 @@ std::ostream &operator<<(std::ostream &out, const LMatrix<T> &source)
 {
     for (int i = 0; i < source.GetRows(); i++)
     {
-        out << source[i];
-        if (i + 1 < source.GetRows())
+        for (int j = 0; j < source.GetColumns(); j++)
         {
-            cout << endl;
+            cout << source(i, j) << " ";
         }
+        cout << endl;
     }
     return out;
 }

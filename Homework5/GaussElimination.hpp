@@ -1,9 +1,9 @@
 template <class T>
-MyVector<MyVector<T>> GaussElimination<T>::ForwardElimination(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
+Matrix<T> GaussElimination<T>::ForwardElimination(const Matrix<T> &source, const MyVector<T> &B) const
 {
-    int numElements = A.GetNumElements();
+    int numElements = source.GetNumElements();
     //Create a copy of the matrix A
-    MyVector<MyVector<T>> temp = A;
+    Matrix<T> temp = source;
 
     for (int i = 0; i < numElements; i++)
     {
@@ -63,12 +63,12 @@ MyVector<MyVector<T>> GaussElimination<T>::ForwardElimination(const MyVector<MyV
 }
 
 template <class T>
-MyVector<T> GaussElimination<T>::GaussEliminate(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
+MyVector<T> GaussElimination<T>::GaussEliminate(const Matrix<T> &source, const MyVector<T> &B) const
 {
-    int numElements = A.GetNumElements();
+    int numElements = source.GetNumElements();
     //Create a vector x to be returned
     MyVector<T> x(numElements);
-    MyVector<MyVector<T>> temp = ForwardElimination(A, B);
+    Matrix<T> temp = ForwardElimination(source, B);
     for (int i = numElements - 1; i >= 0; i--)
     {
         //Solve for x values
@@ -83,11 +83,11 @@ MyVector<T> GaussElimination<T>::GaussEliminate(const MyVector<MyVector<T>> &A, 
 }
 
 template <class T>
-MyVector<T> GaussElimination<T>::BackSub(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
+MyVector<T> GaussElimination<T>::BackSub(const Matrix<T> &A, const MyVector<T> &B) const
 {
     int numElements = A.GetNumElements();
     MyVector<T> x(numElements);
-    MyVector<MyVector<T>> temp = A;
+    Matrix<T> temp = A;
     for (int i = numElements - 1; i >= 0; i--)
     {
         x[i] = B[i] / temp[i][i];
@@ -100,11 +100,11 @@ MyVector<T> GaussElimination<T>::BackSub(const MyVector<MyVector<T>> &A, const M
 }
 
 template <class T>
-MyVector<T> GaussElimination<T>::ForwardSub(const MyVector<MyVector<T>> &A, const MyVector<T> &B) const
+MyVector<T> GaussElimination<T>::ForwardSub(const Matrix<T> &A, const MyVector<T> &B) const
 {
     int numElements = A.GetNumElements();
     MyVector<T> x(numElements);
-    MyVector<MyVector<T>> temp = A;
+    Matrix<T> temp = A;
     for (int i = 0; i < numElements; i++)
     {
         x[i] = B[i] / temp[i][i];
