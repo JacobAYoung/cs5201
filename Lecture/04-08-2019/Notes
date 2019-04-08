@@ -1,0 +1,113 @@
+10.3:
+Section 3:
+
+There are problems stemming from public inheritance.
+
+1. We expose design decisions when using extension by public inheritance.
+You've exposed that you are implementing via a implementation base.
+It's always a trade off between the ease of this design and the likely hood
+of any change in implementation. But in general, we want to hide any implementation
+decision if possible.
+
+2. We are forced to use virtual functions. If we want true OO behavior, then virtual
+functions are a must. If the virtual max() was not virtual, then using an object via a
+pointer for reference to a base type would not give you the expected behavior. Calling
+max() for a 140 object "as a" 130, would give you the max voltage of the 130 type,
+not the 140. Virtual function overhead is expensive, but public inheritance for
+extension forces us to use it.... If we don't want schizophrenic behavior function behavior.
+Thus, avoid new definition of functions in derived classes if they're non virtual.
+
+Should we necessarily use virtual functions?
+
+1.) When making a "concrete" class - one that is not likely to change.
+2.) Sometimes you simply want consistency from base to derived class.
+
+Consider:
+
+void printmax(Acme130 a)
+{
+  cout << "Max voltage is: " << a.max();
+}
+
+And suppose we have 2 supplies, supply1 and supply2, Both of type Acme140 with
+supply1 having max of 10 and supply2 max of 50.
+
+void printmax(supply1) outputs: 10
+void printmax(supply2) outputs: 10
+
+This is because the parameter for the function is an Acme130.
+So, it's the base sub object that is copied, so the max is that of an Acme130.
+The 130 is both interface and implementation base. The compiler can't catch the "mistake".
+
+If, on the otherhand, we had used a reference to the VoltageSupply interface base (because they are voltage supplies)
+then the compiler would have caught it.
+So, Use interfaces!
+
+
+10.4 Member Function Forwarding
+
+class Acme130 : public VoltageSupply, public GPIBInstrument
+{
+  public:
+    Acme130(-, -);
+    //VS interface
+    ...
+    //GPIBInstrument interface
+    virtual void send(const char*);
+    virtual void send(float v);
+    virtual float receive();
+  private:
+    GPIBController& my_controller;
+    int my_address;
+};
+
+Furthermore, the voltymetrics inherits from a GPIBInstrument base also.
+All 3 of these have a GPIBInstrument base and have the same functionality and data
+and use it in the same way. We can avoid the replication of code by extracting that commonality
+using member function forwarding. We make a new class:
+class GPIBInstrumentData
+{
+  public:
+    GPIBInstrumentData(GPIBController& controller, int address, const char* name);
+    //Instrument interface
+    void send(-);
+    void send(-);
+    float receive();
+  private:
+    GPIBController& my_controller;
+    int my_address;
+};
+
+Structurally like the 130, 59, voltymetrics..., but not like the interface.
+The function implementations are the same. But now we require only one copy.
+ex:
+void GPIBInstrumentData:: send(float v)
+{
+  my_controller.send(my_address, v);
+}
+
+And this is going to work for all such GPIB instruments. The constructor initializes
+the data and inserts the device into the controller.
+Since it isn't part of a specific device, it needs the additional param - the device named.
+
+GPIBInstrumentData::GPIBInstrumentData(GPIBController& controller, int address, const char* name)
+:
+  my_controller(c),
+  my_address(address)
+  {
+    my_controller.insert(name, my_address);
+  }
+
+class Acme130 : public VS, public GPIBInstrument
+{
+  public:
+    Acme130(GPIBController& controller, int address) : gpib_rep(c, address, "Acme130") {}
+    //vs interface
+    ...
+    //Instrument interface
+    virtual void send(-) { gpib_rep.send(cmd); }
+    virtual void send(-) { gpib_rep.send(f); }
+    virtual float receive() {return gpib_rep.receive(); }
+  private:
+    GPIBInstrumentData gpib_rep;
+};
