@@ -1,0 +1,88 @@
+Client code:
+
+Derived class objects can be passed into functions through pointers or references to base class
+parameters. If so, the base class operations will apply.
+
+float maxelt(Array &a)
+{
+  float max = a[0];
+  for (int i = 0; i < a.numElts(); i++)
+  {
+    if (a[i] > max)
+    {
+      max = a[i];
+    }
+  }
+  return max;
+}
+
+Question: Which []operator applies here? Is the index checked? Ans: No
+Because this is a reference to an Array obj., not a checked Array.
+
+
+Section 2: Chapter 10:
+
+What about interface base classes and extension by public derivation?
+The Acme corp. decides to build another more advanced voltage supply - the
+Acme140
+
+class Acme140 : public Acme130
+{
+  public:
+    enum Jumper {J1, J2};
+    Acme140(GPIBController& controller, int address, Jumper j);
+    virtual float max() const;
+  private:
+    float max_volts;
+};
+
+So, the Acme140 inherits everything from the 130 but it also allows for a max voltage
+that is determined by the j-value. So, the Acme140 "is a" Acme130, "is a" VoltageSupply,
+and "is a" GPIBInstrument.
+
+
+But note that the Acme130 is an implementation base, not an interface base.
+So, we have to have a constructor for the 140.
+
+Acme140::Acme140(GPIBController& controller, int address, Jumper j) : Acme(controller, address), max_volts(j==J1 ? 10 : 50) {}
+
+Hence, the 140 constructor calls the base subobj's constructor and then initializes it's own member.
+
+And we also need to provide the new max() function for Acme140... Because we want it to behave
+like a Acme140.
+
+float Acme140::max() const
+{
+  return max_volts;
+}
+
+*Derived class defined virtual functions override the base class functions or definitions.
+
+Acme140 supply(gpib, 16, Acme140::J2);
+cout << supply.max() << endl;  = 50
+
+Acme130& as_130 = supply;
+cout << as_130.max() << endl;  = 50
+
+VoltageSupply& as_VS = supply;
+cout << as_VS.max() << endl;   = 50
+
+Why 50 in each case? The max() function is virtual. This gives us true OO behavior.
+
+Consider...
+void Acme130::set(float v)
+{
+  if (v > max() || v < min())
+  {
+    throw an exception
+  }
+  send(v);
+}
+
+Since the Acme140 derives from the Acme130, and the max() function is virtual, the correct max()
+is called here.... That of the object
+
+ex: supply.set(20); //works
+    as_130.set(20); //works
+    Acme140 s(gpib, 5, Acme140::J1);
+    s.set(20); //throws an error
