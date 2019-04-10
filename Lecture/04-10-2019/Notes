@@ -1,0 +1,79 @@
+10.5
+So, now we're going to use inheritance to do what we set out to do with function forwarding.
+
+We'll use inheritance to express "implemented in terms of". Start by modifying GPIBInstrumentData.
+
+class GPIBInstrumentData : public virtual GPIBInstrument
+{
+  public:
+    GPIBInstrumentData(GPIBController& controller, int address, const char* name);
+    //GPIBInterface
+    virtual void send(-);
+    virtual void send(-);
+    virtual float receive();
+  private:
+    GPIBController& my_controller;
+    int my_address;
+};
+
+So, the GPIBInstrumentData "is usable as" a GPIBInstrument. The implementations
+of the functions don't change. Now, we modify the Acme130 ..one more time...
+
+class Acme130 : public virtual VoltageSupply, public virtual GPIBInstrument, private GPIBInstrumentData
+{
+  public:
+    Acme130(-,-);
+    //VoltageSupply interface
+    virtual void set(-);
+    virtual float min() const;
+    virtual float max() const;
+};
+
+Things to note:
+  * These are virtual derivations from virtual bases.
+  * An instance of an Acme130 is derived privately from its implementation base,
+the GPIBInstrumentData, and it contains a base sub object.
+  * Because it's a private derivation, it is not "usable as" a GPIBInstrumentData.
+  * An Acme130 is "implemented in terms of" the GPIBInstrumentData.
+  * The private derivation "hides" that implementation.
+
+How it works:
+  You'll notice that the Acme130 doesn't declare the functions in the implementation base.
+They are privately inherited through the instrument data class. So, public access is blocked.
+Clients have to route function calls through the virtual base that the GPIBInstrumentData class also inherits.
+
+That is, the Acme130 and the GPIBInstrumentData have the same interface base. This is what the "virtual"
+derivation does for us.
+
+   ----------------------          ------------------
+   | VoltageSupply      |          |   GPIBInstrument |
+   ----------------------           -------------------
+      ^                                   ^           ^
+      |                                   |           |
+      |                                   |            ---------------------
+      |                                   |            | GPIBInstrumentData |
+      |                                   |             --------------------
+      \                                  /                   ^
+        \                              /     private         |
+          \                          / -----------------------
+            \                       /
+              \                  /
+                ---------------
+                |   Acme130    |
+                ---------------
+
+ex: Acme130 s(gpib, 3);
+s.send(30);
+This doesn't compile. send(-) is privately inherited, so we can't call it directly.
+
+GPIBInstrument * G = new Acme130(gpib, 3);
+G -> send(30); //okay, works!
+     or
+GPIBInstrument& T = *G;
+T.send(30);    //okay, works!
+
+class Acme130 : - - -
+{
+  public:
+    GPIBInstrumentData::send;
+};
