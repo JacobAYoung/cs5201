@@ -1,0 +1,84 @@
+Inheritance works through the identification of names.
+Names are identifiers with a meaning.
+A name has 3 attributes: scope, dominance, and accessibility. Resolving these attributes determines
+how the name works.
+
+A name is declared. It's scope is determined by how it is nested in classes, functions and blocks of code.
+Whether  it dominates or is dominated by other names w/ the same identifiers is determined by the
+relationship of its class and other classes in a directed acyclic diagram (DAG).
+
+Identifiers have to be resolved to the present scope.
+
+//Dual range Voltage Supply
+class Acme230 : public virtual VoltageSupply, public virtual GPIBInstrument, private Acme130
+{
+  public:
+    Acme230(...);
+    virtual float max() const;
+    virtual void set(float volts);
+    enum Range { high, low };
+    virtual void set(Range r);
+  private:
+    Range setting;
+};
+
+-----------------               ------------------
+| VoltageSupply |               | GPIBInstrument |
+----------------- <---\         ------------------
+^                      \       ^  ^           ^
+|                        \   /    |           |
+|                         /       |           ---------------------
+|                       /   \     |          | GPIBInstrumentData |
+|                     /      \    |          ----------------------
+|                   /         \   |          ^
+|                 /            \  |         / private
+|               /               \ -----------
+|              /                 | Acme130 |
+|            /                   -----------
+|          /                     ^
+------------ --------------------| private
+| Acme230  |
+------------
+
+* We're introduced the words 'high' and 'low' in the scope of Acme230
+* We have a new set function for range
+* But, we still wish to have set function for voltage. Hence, we must redeclare the float set function.
+.... and the max() function.
+
+Here, high is the scope of 230, so it has to be scoped
+
+float Acme230::max() const
+{
+  if (setting == high) return 100;
+  return 10;
+}
+
+Acme230 s(gpib, 1);
+s.set(Acme230::high);
+
+Derived classes' scope will include the scope of all base classes.
+So, all names in VoltageSupply, Acme130, and GPIBInstrument will be in the scope of the Acme230.
+Names are inherited. It operates like block scope. A name declared in an inner block hides the same
+name in a center block.
+Consider "max". Acme230 inherits max from Acme130. But redeclaring it in the Acme230 hides
+the Acme130 meaning. Min is inherited but not hidden. Now, if the name of a virtual function is
+redeclared in the derived class and has the same number and type of parameters, then the base class name is
+hidden and overridden. If the number and types of parameters is not the same, then only hiding takes place.
+Some compilers will issue a warning - because it is not good. So, since we both types of set capability, we
+must insure that we do by redeclaring set. Note: name hiding occurs before and independently of function overloading.
+So, we declare the new set function in the Acme230 class.
+
+void Acme230::set(float v)
+{
+  Acme130::set(v);
+  return;
+}
+
+Dominance: A problem: 2 base classes, both containing the same name.
+So, a derived class has two sources for that name. Which one is dominant?
+A name declared in a derived class will dominate the same name in any base class.
+[multiple bases => dominance; single base => hiding]
+As example: min() is declared in the Acme130, so it dominates min() in VS.
+Now, look at the Acme230. This is derived from both VS and Acme130. Which min() applies??
+The name that is dominant in a 2-class DAG will dominate in any DAG that contains it as a sub-DAG.
+So, Acme230 gets Acme130's min.
