@@ -1,5 +1,5 @@
 template <class T>
-Matrix<T>::Matrix()
+SMatrix<T>::SMatrix()
 {
     numRows = 1;
     numColumns = 1;
@@ -8,7 +8,7 @@ Matrix<T>::Matrix()
 }
 
 template <class T>
-Matrix<T>::Matrix(int rows, int columns)
+SMatrix<T>::SMatrix(int rows, int columns)
 {
     numRows = rows;
     numColumns = columns;
@@ -20,7 +20,7 @@ Matrix<T>::Matrix(int rows, int columns)
 }
 
 template <class T>
-Matrix<T>::Matrix(const Matrix<T> &source)
+SMatrix<T>::SMatrix(const SMatrix<T> &source)
 {
     numRows = source.numRows;
     numColumns = source.numColumns;
@@ -33,10 +33,10 @@ Matrix<T>::Matrix(const Matrix<T> &source)
 }
 
 template <class T>
-Matrix<T>::~Matrix() {}
+SMatrix<T>::~SMatrix() {}
 
 template <class T>
-Matrix<T>::Matrix(Matrix<T> &&source)
+SMatrix<T>::SMatrix(SMatrix<T> &&source)
 {
     numRows = source.numRows;
     numColumns = source.numColumns;
@@ -46,7 +46,7 @@ Matrix<T>::Matrix(Matrix<T> &&source)
 }
 
 template <class T>
-void Matrix<T>::copy(const Matrix<T> &source)
+void SMatrix<T>::copy(const SMatrix<T> &source)
 {
     for (int i = 0; i < GetRows(); i++)
     {
@@ -59,7 +59,7 @@ void Matrix<T>::copy(const Matrix<T> &source)
 }
 
 template <class T>
-void Matrix<T>::PushBack(const MyVector<T> &source)
+void SMatrix<T>::PushBack(const MyVector<T> &source)
 {
     int counter = 0;
     if (GetRows() > GetColumns())
@@ -112,21 +112,21 @@ void Matrix<T>::PushBack(const MyVector<T> &source)
 }
 
 template <class T>
-int Matrix<T>::GetRows() const
+int SMatrix<T>::GetRows() const
 {
     return numRows;
 }
 
 template <class T>
-int Matrix<T>::GetColumns() const
+int SMatrix<T>::GetColumns() const
 {
     return numColumns;
 }
 
 template <class T>
-Matrix<T> Matrix<T>::Transpose()
+SMatrix<T> SMatrix<T>::Transpose()
 {
-    Matrix<T> temp(this->GetColumns(), this->GetRows());
+    SMatrix<T> temp(this->GetColumns(), this->GetRows());
     for (int i = 0; i < this->GetRows(); i++)
     {
         for (int j = 0; j < this->GetColumns(); j++)
@@ -138,73 +138,7 @@ Matrix<T> Matrix<T>::Transpose()
 }
 
 template <class T>
-bool Matrix<T>::isLowerTriangularMatrix() const
-{
-    for (int i = 0; i < GetRows(); i++)
-    {
-        for (int j = i + 1; j < GetColumns(); j++)
-        {
-            if (myVect[i][j] != 0)
-            {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-template <class T>
-bool Matrix<T>::isUpperTriangularMatrix() const
-{
-    for (int i = 1; i < GetRows(); i++)
-    {
-        for (int j = 0; j < i; j++)
-        {
-            if (myVect[i][j] != 0)
-            {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-template <class T>
-bool Matrix<T>::isDiagonalMatrix() const
-{
-    for (int i = 0; i < GetRows(); i++)
-    {
-        for (int j = 0; j < GetColumns(); j++)
-        {
-            if ((i != j) && (myVect[i][j] != 0))
-            {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-template <class T>
-bool Matrix<T>::isSymmetricMatrix() const
-{
-    Matrix temp(*this);
-    temp = temp.Transpose();
-    for (int i = 0; i < GetRows(); i++)
-    {
-        for (int j = 0; j < GetColumns(); j++)
-        {
-            if (myVect[i][j] != temp[i][j])
-            {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-template <class T>
-MyVector<T> &Matrix<T>::operator[](const int &i)
+MyVector<T> &SMatrix<T>::operator[](const int &i)
 {
     if (i >= 0 && i <= GetRows())
     {
@@ -217,7 +151,7 @@ MyVector<T> &Matrix<T>::operator[](const int &i)
 }
 
 template <class T>
-MyVector<T> &Matrix<T>::operator[](const int &i) const
+MyVector<T> &SMatrix<T>::operator[](const int &i) const
 {
     if (i >= 0 && i <= GetRows())
     {
@@ -230,9 +164,9 @@ MyVector<T> &Matrix<T>::operator[](const int &i) const
 }
 
 template <class T>
-Matrix<T> Matrix<T>::operator*(const T &val) const
+SMatrix<T> SMatrix<T>::operator*(const T &val) const
 {
-    Matrix<T> temp(GetRows(), GetColumns());
+    SMatrix<T> temp(GetRows(), GetColumns());
     for (int i = 0; i < GetRows(); i++)
     {
         for (int j = 0; j < GetColumns(); j++)
@@ -244,7 +178,7 @@ Matrix<T> Matrix<T>::operator*(const T &val) const
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator=(const Matrix<T> &source)
+SMatrix<T> &SMatrix<T>::operator=(const SMatrix<T> &source)
 {
     if (*this != source)
     {
@@ -255,8 +189,24 @@ Matrix<T> &Matrix<T>::operator=(const Matrix<T> &source)
     return (*this);
 }
 
+template <class T>
+SMatrix<T> &SMatrix<T>::operator=(const Matrix<T> &source)
+{
+    for (int i = 0; i < source.GetRows(); i++)
+    {
+        for (int j = 0; j < source.GetColumns(); j++)
+        {
+            if (i == j)
+            {
+                myVect[i][j] = source[i][j];
+            }
+        }
+    }
+    return *this;
+}
+
 template <typename T>
-bool operator==(const Matrix<T> &lhs, const Matrix<T> &rhs)
+bool operator==(const SMatrix<T> &lhs, const SMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -286,7 +236,7 @@ bool operator==(const Matrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <typename T>
-bool operator!=(const Matrix<T> &lhs, const Matrix<T> &rhs)
+bool operator!=(const SMatrix<T> &lhs, const SMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -316,9 +266,9 @@ bool operator!=(const Matrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator-(const Matrix<T> &source)
+SMatrix<T> operator-(const SMatrix<T> &source)
 {
-    Matrix<T> temp(source.GetRows(), source.GetColumns());
+    SMatrix<T> temp(source.GetRows(), source.GetColumns());
     for (int i = 0; i < source.GetRows(); i++)
     {
         for (int j = 0; j < source.GetColumns(); j++)
@@ -330,9 +280,9 @@ Matrix<T> operator-(const Matrix<T> &source)
 }
 
 template <class T>
-Matrix<T> operator*(const Matrix<T> &lhs, const Matrix<T> &rhs)
+SMatrix<T> operator*(const SMatrix<T> &lhs, const SMatrix<T> &rhs)
 {
-    Matrix<T> temp(lhs.GetRows(), rhs.GetColumns());
+    SMatrix<T> temp(lhs.GetRows(), rhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
     {
         for (int i = 0; i < lhs.GetRows(); i++)
@@ -348,15 +298,15 @@ Matrix<T> operator*(const Matrix<T> &lhs, const Matrix<T> &rhs)
     }
     else
     {
-        throw std::length_error("Matrix sizes don't match.");
+        throw std::length_error("SMatrix sizes don't match.");
     }
     return temp;
 }
 
 template <class T>
-Matrix<T> operator+(const Matrix<T> &lhs, const Matrix<T> &rhs)
+SMatrix<T> operator+(const SMatrix<T> &lhs, const SMatrix<T> &rhs)
 {
-    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
     {
         if (lhs.GetRows() == rhs.GetRows())
@@ -371,20 +321,20 @@ Matrix<T> operator+(const Matrix<T> &lhs, const Matrix<T> &rhs)
         }
         else
         {
-            throw std::length_error("Matrix sizes don't match.");
+            throw std::length_error("SMatrix sizes don't match.");
         }
     }
     else
     {
-        throw std::length_error("Matrix sizes don't match.");
+        throw std::length_error("SMatrix sizes don't match.");
     }
     return temp;
 }
 
 template <class T>
-Matrix<T> operator-(const Matrix<T> &lhs, const Matrix<T> &rhs)
+SMatrix<T> operator-(const SMatrix<T> &lhs, const SMatrix<T> &rhs)
 {
-    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
     {
         if (lhs.GetRows() == rhs.GetRows())
@@ -399,18 +349,18 @@ Matrix<T> operator-(const Matrix<T> &lhs, const Matrix<T> &rhs)
         }
         else
         {
-            throw std::length_error("Matrix sizes don't match.");
+            throw std::length_error("SMatrix sizes don't match.");
         }
     }
     else
     {
-        throw std::length_error("Matrix sizes don't match.");
+        throw std::length_error("SMatrix sizes don't match.");
     }
     return temp;
 }
 
 template <typename T>
-std::ostream &operator<<(std::ostream &out, const Matrix<T> &source)
+std::ostream &operator<<(std::ostream &out, const SMatrix<T> &source)
 {
     for (int i = 0; i < source.GetRows(); i++)
     {
@@ -424,7 +374,7 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T> &source)
 }
 
 template <typename T>
-std::istream &operator>>(std::istream &in, Matrix<T> &source)
+std::istream &operator>>(std::istream &in, SMatrix<T> &source)
 {
     MyVector<T> temp(source.GetColumns());
     for (int i = 0; i < source.GetColumns(); i++)

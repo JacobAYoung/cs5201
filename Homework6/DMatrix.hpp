@@ -1,38 +1,38 @@
 template <class T>
-UMatrix<T>::UMatrix()
+DMatrix<T>::DMatrix()
 {
-    MatrixController<UMatrix<T>, T> mc;
+    MatrixController<DMatrix<T>, T> mc;
     my_controller = mc;
 }
 
 template <class T>
-UMatrix<T>::UMatrix(int rows, int columns)
+DMatrix<T>::DMatrix(int rows, int columns)
 {
-    MatrixController<UMatrix<T>, T> mc(rows, columns, MatrixController<UMatrix<T>, T>::UMatrix);
+    MatrixController<DMatrix<T>, T> mc(rows, columns, MatrixController<DMatrix<T>, T>::DMatrix);
     my_controller = mc;
 }
 
 template <class T>
-UMatrix<T>::UMatrix(const Matrix<T> &source)
+DMatrix<T>::DMatrix(const Matrix<T> &source)
 {
-    MatrixController<UMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), MatrixController<UMatrix<T>, T>::UMatrix);
-    my_controller = mc;
-    CalculateUpper(source);
-}
-
-template <class T>
-UMatrix<T>::UMatrix(const UMatrix<T> &source)
-{
-    MatrixController<UMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), MatrixController<UMatrix<T>, T>::UMatrix);
+    MatrixController<DMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), MatrixController<DMatrix<T>, T>::DMatrix);
     mc.copy(source);
     my_controller = mc;
 }
 
 template <class T>
-UMatrix<T>::~UMatrix() {}
+DMatrix<T>::DMatrix(const DMatrix<T> &source)
+{
+    MatrixController<DMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), MatrixController<DMatrix<T>, T>::DMatrix);
+    mc.copy(source);
+    my_controller = mc;
+}
 
 template <class T>
-UMatrix<T>::UMatrix(UMatrix<T> &&source)
+DMatrix<T>::~DMatrix() {}
+
+template <class T>
+DMatrix<T>::DMatrix(DMatrix<T> &&source)
 {
     my_controller.SetRows(source.GetRows());
     my_controller.SetColumns(source.GetColumns());
@@ -42,19 +42,19 @@ UMatrix<T>::UMatrix(UMatrix<T> &&source)
 }
 
 template <class T>
-int UMatrix<T>::GetRows() const
+int DMatrix<T>::GetRows() const
 {
     return my_controller.GetRows();
 }
 
 template <class T>
-int UMatrix<T>::GetColumns() const
+int DMatrix<T>::GetColumns() const
 {
     return my_controller.GetColumns();
 }
 
 template <class T>
-LMatrix<T> UMatrix<T>::Transpose()
+LMatrix<T> DMatrix<T>::Transpose()
 {
     LMatrix<T> temp(this->GetColumns(), this->GetRows());
     for (int i = 0; i < this->GetRows(); i++)
@@ -68,64 +68,19 @@ LMatrix<T> UMatrix<T>::Transpose()
 }
 
 template <class T>
-MyVector<T> &UMatrix<T>::operator[](const int &i)
+MyVector<T> &DMatrix<T>::operator[](const int &i)
 {
     return my_controller[i];
 }
 
 template <class T>
-MyVector<T> &UMatrix<T>::operator[](const int &i) const
+MyVector<T> &DMatrix<T>::operator[](const int &i) const
 {
     return my_controller[i];
 }
 
 template <class T>
-void UMatrix<T>::CalculateUpper(const Matrix<T> &source)
-{
-    Matrix<T> m = source;
-    //Set all the values to 0 or 1 depending on the location.
-    //This is just reassurance before calculating the values
-    for (int i = 0; i < my_controller.GetRows(); i++)
-    {
-        for (int j = 0; j < my_controller.GetColumns(); j++)
-        {
-            if (i < j)
-            {
-                my_controller[i][j] = 0;
-            }
-            else if (i == j)
-            {
-                my_controller[i][j] = 1;
-            }
-        }
-    }
-    //Calculate the upper values to get the lower values and set them to our data.
-    for (int i = 0; i < source.GetRows() - 1; i++)
-    {
-        for (int k = i + 1; k < source.GetColumns(); k++)
-        {
-            T t = m[k][i] / m[i][i];
-            for (int j = 0; j < source.GetRows(); j++)
-            {
-                m[k][j] = m[k][j] - t * m[i][j];
-            }
-        }
-    }
-    for (int i = 0; i < my_controller.GetRows(); i++)
-    {
-        for (int j = 0; j < my_controller.GetColumns(); j++)
-        {
-            if (i <= j)
-            {
-                my_controller[i][j] = m[i][j];
-            }
-        }
-    }
-    return;
-}
-
-template <class T>
-T &UMatrix<T>::operator()(const int &i, const int &j)
+T &DMatrix<T>::operator()(const int &i, const int &j)
 {
     if (i <= GetRows())
     {
@@ -142,9 +97,9 @@ T &UMatrix<T>::operator()(const int &i, const int &j)
     {
         if (j >= 0)
         {
-            if (i <= j)
+            if (i == j)
             {
-                return my_controller[i][j];
+                return my_controller[i][0];
             }
             else
             {
@@ -164,15 +119,26 @@ T &UMatrix<T>::operator()(const int &i, const int &j)
 }
 
 template <class T>
-T &UMatrix<T>::operator()(const int &i, const int &j) const
+T &DMatrix<T>::operator()(const int &i, const int &j) const
 {
+    if (i <= GetRows())
+    {
+        if (j > GetColumns())
+        {
+            throw std::range_error("Out of bounds");
+        }
+    }
+    else
+    {
+        throw std::range_error("Out of bounds");
+    }
     if (i >= 0)
     {
         if (j >= 0)
         {
-            if (i <= j)
+            if (i == j)
             {
-                return my_controller[i][j];
+                return my_controller[i][0];
             }
             else
             {
@@ -192,20 +158,20 @@ T &UMatrix<T>::operator()(const int &i, const int &j) const
 }
 
 template <class T>
-void UMatrix<T>::PushBack(const MyVector<T> &source)
+void DMatrix<T>::PushBack(const MyVector<T> &source)
 {
     my_controller.PushBack(source);
     return;
 }
 
 template <class T>
-UMatrix<T> UMatrix<T>::operator*(const T &val) const
+DMatrix<T> DMatrix<T>::operator*(const T &val) const
 {
     return my_controller * val;
 }
 
 template <class T>
-UMatrix<T> &UMatrix<T>::operator=(const UMatrix<T> &source)
+DMatrix<T> &DMatrix<T>::operator=(const DMatrix<T> &source)
 {
     if (*this != source)
     {
@@ -217,15 +183,15 @@ UMatrix<T> &UMatrix<T>::operator=(const UMatrix<T> &source)
 }
 
 template <class T>
-UMatrix<T> &UMatrix<T>::operator=(const Matrix<T> &source)
+DMatrix<T> &DMatrix<T>::operator=(const Matrix<T> &source)
 {
     for (int i = 0; i < source.GetRows(); i++)
     {
         for (int j = 0; j < source.GetColumns(); j++)
         {
-            if (i >= j)
+            if (i == j)
             {
-                my_controller[i][j] = source[i][j];
+                my_controller[i][0] = source[i][j];
             }
         }
     }
@@ -233,7 +199,7 @@ UMatrix<T> &UMatrix<T>::operator=(const Matrix<T> &source)
 }
 
 template <typename T>
-bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
+bool operator==(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -263,7 +229,7 @@ bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-bool operator==(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
+bool operator==(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -293,7 +259,7 @@ bool operator==(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
 }
 
 template <typename T>
-bool operator==(const UMatrix<T> &lhs, const Matrix<T> &rhs)
+bool operator==(const DMatrix<T> &lhs, const Matrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -323,7 +289,7 @@ bool operator==(const UMatrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <typename T>
-bool operator==(const Matrix<T> &lhs, const UMatrix<T> &rhs)
+bool operator==(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -353,7 +319,7 @@ bool operator==(const Matrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
+bool operator!=(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -383,7 +349,7 @@ bool operator!=(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-bool operator!=(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
+bool operator!=(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -413,7 +379,7 @@ bool operator!=(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
 }
 
 template <typename T>
-bool operator!=(const UMatrix<T> &lhs, const Matrix<T> &rhs)
+bool operator!=(const DMatrix<T> &lhs, const Matrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -443,7 +409,7 @@ bool operator!=(const UMatrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <typename T>
-bool operator!=(const Matrix<T> &lhs, const UMatrix<T> &rhs)
+bool operator!=(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
     {
@@ -473,9 +439,9 @@ bool operator!=(const Matrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
+DMatrix<T> operator*(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
-    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    DMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
     {
         for (int i = 0; i < lhs.GetRows(); i++)
@@ -497,7 +463,7 @@ UMatrix<T> operator*(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator*(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
+Matrix<T> operator*(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
@@ -521,7 +487,7 @@ Matrix<T> operator*(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator*(const Matrix<T> &lhs, const UMatrix<T> &rhs)
+Matrix<T> operator*(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
@@ -545,7 +511,7 @@ Matrix<T> operator*(const Matrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator*(const UMatrix<T> &lhs, const Matrix<T> &rhs)
+Matrix<T> operator*(const DMatrix<T> &lhs, const Matrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
@@ -569,9 +535,9 @@ Matrix<T> operator*(const UMatrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <typename T>
-UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
+DMatrix<T> operator+(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
-    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    DMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
     {
         if (lhs.GetRows() == rhs.GetRows())
@@ -597,7 +563,7 @@ UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator+(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
+Matrix<T> operator+(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
@@ -625,7 +591,7 @@ Matrix<T> operator+(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator+(const Matrix<T> &lhs, const UMatrix<T> &rhs)
+Matrix<T> operator+(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
@@ -653,7 +619,7 @@ Matrix<T> operator+(const Matrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator+(const UMatrix<T> &lhs, const Matrix<T> &rhs)
+Matrix<T> operator+(const DMatrix<T> &lhs, const Matrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
@@ -681,9 +647,9 @@ Matrix<T> operator+(const UMatrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <class T>
-UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
+DMatrix<T> operator-(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
-    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    DMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
     {
         if (lhs.GetRows() == rhs.GetRows())
@@ -709,7 +675,7 @@ UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator-(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
+Matrix<T> operator-(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
@@ -737,7 +703,7 @@ Matrix<T> operator-(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator-(const Matrix<T> &lhs, const UMatrix<T> &rhs)
+Matrix<T> operator-(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
@@ -765,7 +731,7 @@ Matrix<T> operator-(const Matrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator-(const UMatrix<T> &lhs, const Matrix<T> &rhs)
+Matrix<T> operator-(const DMatrix<T> &lhs, const Matrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
@@ -793,7 +759,7 @@ Matrix<T> operator-(const UMatrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <typename T>
-std::ostream &operator<<(std::ostream &out, const UMatrix<T> &source)
+std::ostream &operator<<(std::ostream &out, const DMatrix<T> &source)
 {
     for (int i = 0; i < source.GetRows(); i++)
     {
@@ -807,7 +773,7 @@ std::ostream &operator<<(std::ostream &out, const UMatrix<T> &source)
 }
 
 template <typename T>
-std::istream &operator>>(std::istream &in, UMatrix<T> &source)
+std::istream &operator>>(std::istream &in, DMatrix<T> &source)
 {
     MyVector<double> temp(source.GetColumns());
     for (int i = 0; i < source.GetColumns(); i++)

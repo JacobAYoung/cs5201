@@ -8,14 +8,14 @@ LMatrix<T>::LMatrix()
 template <class T>
 LMatrix<T>::LMatrix(int rows, int columns)
 {
-    MatrixController<LMatrix<T>, T> mc(rows, columns, 0);
+    MatrixController<LMatrix<T>, T> mc(rows, columns, MatrixController<LMatrix<T>, T>::LMatrix);
     my_controller = mc;
 }
 
 template <class T>
 LMatrix<T>::LMatrix(const Matrix<T> &source)
 {
-    MatrixController<LMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), 0);
+    MatrixController<LMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), MatrixController<LMatrix<T>, T>::LMatrix);
     my_controller = mc;
     CalculateLower(source);
 }
@@ -23,7 +23,7 @@ LMatrix<T>::LMatrix(const Matrix<T> &source)
 template <class T>
 LMatrix<T>::LMatrix(const LMatrix<T> &source)
 {
-    MatrixController<LMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), 0);
+    MatrixController<LMatrix<T>, T> mc(source.GetRows(), source.GetColumns(), MatrixController<LMatrix<T>, T>::LMatrix);
     mc.copy(source);
     my_controller = mc;
 }

@@ -29,11 +29,7 @@ private:
  * 
  */
   int numRows;
-  /**
-   * @brief Type of matrix to be used for this class
-   * 
-   */
-  int m_type;
+  // enum typeEnum m_type;
   /**
      * @brief Number of columns
      * 
@@ -55,6 +51,12 @@ private:
   void copy(const MatrixController<M, T> &source);
 
 public:
+  enum typeEnum
+  {
+    LMatrix,
+    UMatrix,
+    DMatrix
+  } m_type;
   /**
    * 
    * @pre Construct a new LMatrix object
@@ -73,7 +75,7 @@ public:
      * @param columns Number of columns
      * @param type type of matrix
      */
-  MatrixController(int rows, int columns, int type);
+  MatrixController(int rows, int columns, typeEnum type);
   /**
      * @brief Copy constructor
      * @pre A c.o. LMatrix is created and a source LMatrix object is created to be

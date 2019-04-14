@@ -13,6 +13,8 @@
 #include "Matrix.h"
 #include "LMatrix.h"
 #include "UMatrix.h"
+#include "DMatrix.h"
+#include "SMatrix.h"
 #include "GaussElimination.h"
 
 using namespace std;
@@ -87,7 +89,19 @@ int main(int argc, char *argv[])
         //Output
         cout.precision(8);
         cout.setf(ios::fixed);
-        if (Matrix1.isLowerTriangularMatrix())
+        if (Matrix1.isDiagonalMatrix())
+        {
+            DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
+            dM = Matrix1;
+            cout << dM << endl;
+        }
+        else if (Matrix1.isSymmetricMatrix())
+        {
+            SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
+            sM = Matrix1;
+            cout << sM << endl;
+        }
+        else if (Matrix1.isLowerTriangularMatrix())
         {
             LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
             lM = Matrix1;

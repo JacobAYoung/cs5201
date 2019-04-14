@@ -5,19 +5,19 @@ MatrixController<M, T>::MatrixController()
     numColumns = 1;
     MyVector<T> tempVect(1);
     tempVect[0] = 0;
-    m_type = 0;
+    m_type = typeEnum::LMatrix;
     myVect.PushBack(tempVect);
 }
 
 template <class M, class T>
-MatrixController<M, T>::MatrixController(int rows, int columns, int type)
+MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
 {
     numRows = rows;
     numColumns = columns;
-    //make sure to dynamically change this
     m_type = type;
-    if (type == 0)
+    switch (type)
     {
+    case 0:
         for (int i = 0; i < rows; i++)
         {
             MyVector<T> tempVect(i + 1);
@@ -31,9 +31,8 @@ MatrixController<M, T>::MatrixController(int rows, int columns, int type)
             }
             myVect.PushBack(tempVect);
         }
-    }
-    else
-    {
+        break;
+    case 1:
         for (int i = 0; i < rows; i++)
         {
             MyVector<T> tempVect(columns);
@@ -42,11 +41,20 @@ MatrixController<M, T>::MatrixController(int rows, int columns, int type)
                 tempVect[j] = 0;
             }
             myVect.PushBack(tempVect);
-            if (i != 0)
-            {
-                myVect[i].deletePointer(i);
-            }
+            // if (i != 0)
+            // {
+            //     myVect[i].deletePointer(i);
+            // }
         }
+        break;
+    case 2:
+        for (int i = 0; i < rows; i++)
+        {
+            MyVector<T> tempVect(1);
+            tempVect[0] = 0;
+            myVect.PushBack(tempVect);
+        }
+        break;
     }
 }
 
@@ -70,13 +78,13 @@ MatrixController<M, T>::MatrixController(const MatrixController<M, T> &source)
 template <class M, class T>
 void MatrixController<M, T>::copy(const MatrixController<M, T> &source)
 {
-    if (m_type == 0)
+    if (m_type == typeEnum::LMatrix)
     {
         for (int i = 0; i < GetRows(); i++)
         {
             for (int j = 0; j < GetColumns(); j++)
             {
-                if (j < i)
+                if (j <= i)
                 {
                     myVect[i][j] = source[i][j];
                 }
@@ -103,13 +111,13 @@ template <class M, class T>
 void MatrixController<M, T>::PushBack(const MyVector<T> &source)
 {
     int counter = 0;
-    if (m_type == 0)
+    if (m_type == typeEnum::LMatrix)
     {
         for (int i = 0; i < this->GetColumns(); i++)
         {
             for (int j = 0; j < this->GetRows(); j++)
             {
-                if (j <= i)
+                if (j < i)
                 {
                     if (myVect[i][j] == 0)
                     {
@@ -237,7 +245,7 @@ template <class M, class T>
 M MatrixController<M, T>::operator*(const T &val) const
 {
     M temp(GetRows(), GetColumns());
-    if (m_type == 0)
+    if (m_type == typeEnum::LMatrix)
     {
         for (int i = 0; i < GetRows(); i++)
         {
@@ -281,22 +289,21 @@ MatrixController<M, T> &MatrixController<M, T>::operator=(const M &source)
 template <class M, class T>
 void MatrixController<M, T>::copy(const M &source)
 {
-    if (m_type == 0)
+    switch (m_type)
     {
+    case 0:
         for (int i = 0; i < GetRows(); i++)
         {
             for (int j = 0; j < GetColumns(); j++)
             {
-
                 if (j <= i)
                 {
                     myVect[i][j] = source[i][j];
                 }
             }
         }
-    }
-    else
-    {
+        break;
+    case 1:
         for (int i = 0; i < GetRows(); i++)
         {
             for (int j = 0; j < GetColumns(); j++)
@@ -307,6 +314,19 @@ void MatrixController<M, T>::copy(const M &source)
                 }
             }
         }
+        break;
+    case 2:
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < GetColumns(); j++)
+            {
+                if (i == j)
+                {
+                    myVect[i][0] = source[i][j];
+                }
+            }
+        }
+        break;
     }
     return;
 }
