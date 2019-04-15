@@ -14,6 +14,9 @@ using namespace std;
 template <class T>
 class LMatrix;
 
+template <class T>
+class SMatrix;
+
 /**
  * @file DMatrix.h
  * @class DMatrix
@@ -114,7 +117,7 @@ public:
    * 
    * @return LMatrix<T> A Lmatrix object
    */
-  LMatrix<T> Transpose();
+  DMatrix<T> Transpose();
   /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and DMatrix object is created
@@ -235,6 +238,15 @@ bool operator==(const DMatrix<T> &lhs, const Matrix<T> &rhs);
  */
 template <typename T>
 bool operator==(const Matrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator==(const DMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+bool operator==(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator==(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two LMatrix objects are not the same
  * @pre Two LMatrix objects are created
@@ -293,6 +305,15 @@ bool operator!=(const DMatrix<T> &lhs, const Matrix<T> &rhs);
  */
 template <typename T>
 bool operator!=(const Matrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator!=(const DMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+bool operator!=(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator!=(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Negates every value within the DMatrix
  * @pre A DMatrix object is created
@@ -333,7 +354,7 @@ DMatrix<T> operator*(const DMatrix<T> &lhs, const DMatrix<T> &rhs);
  * the lhs and rhs matricies
  */
 template <typename T>
-Matrix<T> operator*(const DMatrix<T> &lhs, const LMatrix<T> &rhs);
+LMatrix<T> operator*(const DMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Calculate Matrix multiplication of two matricies (matrix and DMatrix)
  * @pre Matrix object and DMatrix are created and the lhs column size is the same as
@@ -364,6 +385,15 @@ Matrix<T> operator*(const Matrix<T> &lhs, const DMatrix<T> &rhs);
  */
 template <typename T>
 Matrix<T> operator*(const DMatrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+SMatrix<T> operator*(const DMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+SMatrix<T> operator*(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+UMatrix<T> operator*(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Calculate DMatrix addition of two matricies
  * @pre Two DMatrix object's are created and the lhs column size is the same as
@@ -393,7 +423,7 @@ DMatrix<T> operator+(const DMatrix<T> &lhs, const DMatrix<T> &rhs);
  * the lhs and rhs matricies
  */
 template <typename T>
-Matrix<T> operator+(const DMatrix<T> &lhs, const LMatrix<T> &rhs);
+LMatrix<T> operator+(const DMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Calculate addition of the two matricies (matrix and DMatrix)
  * @pre Matrix and DMatrix objects are created and the lhs column size is the same as
@@ -424,6 +454,15 @@ Matrix<T> operator+(const Matrix<T> &lhs, const DMatrix<T> &rhs);
  */
 template <typename T>
 Matrix<T> operator+(const DMatrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+SMatrix<T> operator+(const DMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+SMatrix<T> operator+(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+UMatrix<T> operator+(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Calculate DMatrix subtraction of two matricies
  * @pre Two DMatrix object's are created and the lhs column size is the same as
@@ -453,7 +492,7 @@ DMatrix<T> operator-(const DMatrix<T> &lhs, const DMatrix<T> &rhs);
  * the lhs and rhs matricies
  */
 template <typename T>
-Matrix<T> operator-(const DMatrix<T> &lhs, const LMatrix<T> &rhs);
+LMatrix<T> operator-(const DMatrix<T> &lhs, const LMatrix<T> &rhs);
 /**
  * @brief Calculate subtraction of two matricies (matrix and DMatrix)
  * @pre Matrix and DMatrix objects are created and the lhs column size is the same as
@@ -484,6 +523,15 @@ Matrix<T> operator-(const Matrix<T> &lhs, const DMatrix<T> &rhs);
  */
 template <typename T>
 Matrix<T> operator-(const DMatrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+SMatrix<T> operator-(const DMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+SMatrix<T> operator-(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+UMatrix<T> operator-(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the DMatrix object
  * @pre A DMatrix object is created

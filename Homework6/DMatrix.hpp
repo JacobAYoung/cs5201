@@ -54,9 +54,9 @@ int DMatrix<T>::GetColumns() const
 }
 
 template <class T>
-LMatrix<T> DMatrix<T>::Transpose()
+DMatrix<T> DMatrix<T>::Transpose()
 {
-    LMatrix<T> temp(this->GetColumns(), this->GetRows());
+    DMatrix<T> temp(this->GetColumns(), this->GetRows());
     for (int i = 0; i < this->GetRows(); i++)
     {
         for (int j = 0; j < this->GetColumns(); j++)
@@ -319,6 +319,113 @@ bool operator==(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 }
 
 template <typename T>
+bool operator==(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs(i, j) != rhs[i][j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <typename T>
+bool operator==(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs[i][j] != rhs(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <typename T>
+bool operator==(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs(i, j) != rhs(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <typename T>
+DMatrix<T> operator-(const DMatrix<T> &source)
+{
+    DMatrix<T> temp(source.GetRows(), source.GetColumns());
+    for (int i = 0; i < source.GetRows(); i++)
+    {
+        for (int j = 0; j < source.GetColumns(); j++)
+        {
+            if (source(i, j) != 0)
+            {
+                temp(i, j) = -1 * source(i, j);
+            }
+        }
+    }
+    return temp;
+}
+
+template <typename T>
 bool operator!=(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
     if (lhs.GetColumns() == rhs.GetColumns())
@@ -439,6 +546,96 @@ bool operator!=(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 }
 
 template <typename T>
+bool operator!=(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs(i, j) != rhs[i][j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
+    {
+        return true;
+    }
+}
+
+template <typename T>
+bool operator!=(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs[i][j] != rhs(i, j))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
+    {
+        return true;
+    }
+}
+
+template <typename T>
+bool operator!=(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs(i, j) != rhs(i, j))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
+    {
+        return true;
+    }
+}
+
+template <typename T>
 DMatrix<T> operator*(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
     DMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
@@ -463,9 +660,9 @@ DMatrix<T> operator*(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator*(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
+LMatrix<T> operator*(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
-    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    LMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
     {
         for (int i = 0; i < lhs.GetRows(); i++)
@@ -474,7 +671,7 @@ Matrix<T> operator*(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
             {
                 for (int k = 0; k < lhs.GetColumns(); k++)
                 {
-                    temp[i][j] += lhs(i, k) * rhs(k, j);
+                    temp(i, j) += lhs(i, k) * rhs(k, j);
                 }
             }
         }
@@ -535,6 +732,78 @@ Matrix<T> operator*(const DMatrix<T> &lhs, const Matrix<T> &rhs)
 }
 
 template <typename T>
+SMatrix<T> operator*(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
+{
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
+    {
+        for (int i = 0; i < lhs.GetRows(); i++)
+        {
+            for (int j = 0; j < rhs.GetColumns(); j++)
+            {
+                for (int k = 0; k < lhs.GetColumns(); k++)
+                {
+                    temp[i][j] += lhs(i, k) * rhs[k][j];
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+SMatrix<T> operator*(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
+{
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
+    {
+        for (int i = 0; i < lhs.GetRows(); i++)
+        {
+            for (int j = 0; j < rhs.GetColumns(); j++)
+            {
+                for (int k = 0; k < lhs.GetColumns(); k++)
+                {
+                    temp[i][j] += lhs[i][k] * rhs(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+UMatrix<T> operator*(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
+    {
+        for (int i = 0; i < lhs.GetRows(); i++)
+        {
+            for (int j = 0; j < rhs.GetColumns(); j++)
+            {
+                for (int k = 0; k < lhs.GetColumns(); k++)
+                {
+                    temp(i, j) += lhs(i, k) * rhs(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
 DMatrix<T> operator+(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
     DMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
@@ -563,9 +832,9 @@ DMatrix<T> operator+(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator+(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
+LMatrix<T> operator+(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
-    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    LMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
     {
         if (lhs.GetRows() == rhs.GetRows())
@@ -574,7 +843,7 @@ Matrix<T> operator+(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
             {
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) + rhs(i, j);
+                    temp(i, j) = lhs(i, j) + rhs(i, j);
                 }
             }
         }
@@ -646,7 +915,91 @@ Matrix<T> operator+(const DMatrix<T> &lhs, const Matrix<T> &rhs)
     return temp;
 }
 
-template <class T>
+template <typename T>
+SMatrix<T> operator+(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
+{
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    temp[i][j] = lhs(i, j) + rhs[i][j];
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+SMatrix<T> operator+(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
+{
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    temp[i][j] = lhs[i][j] + rhs(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+UMatrix<T> operator+(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    temp(i, j) = lhs(i, j) + rhs(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
 DMatrix<T> operator-(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
     DMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
@@ -675,9 +1028,9 @@ DMatrix<T> operator-(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T> operator-(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
+LMatrix<T> operator-(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
-    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    LMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetColumns())
     {
         if (lhs.GetRows() == rhs.GetRows())
@@ -686,7 +1039,7 @@ Matrix<T> operator-(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
             {
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) - rhs(i, j);
+                    temp(i, j) = lhs(i, j) - rhs(i, j);
                 }
             }
         }
@@ -743,6 +1096,90 @@ Matrix<T> operator-(const DMatrix<T> &lhs, const Matrix<T> &rhs)
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
                     temp[i][j] = lhs(i, j) - rhs[i][j];
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+SMatrix<T> operator-(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
+{
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    temp[i][j] = lhs(i, j) - rhs[i][j];
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+SMatrix<T> operator-(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
+{
+    SMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    temp[i][j] = lhs[i][j] - rhs(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+UMatrix<T> operator-(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    temp(i, j) = lhs(i, j) - rhs(i, j);
                 }
             }
         }
