@@ -122,42 +122,42 @@ int main(int argc, char *argv[])
             cout << "-------------Diagonal Matrix-------------" << endl;
             cout << dM << endl;
 
-            // cout << "-------------Symmetric Matrix-------------" << endl;
-            // cout << sM << endl;
-            // cout << endl;
-            // cout << "-------------Diagonal/Symmetric-------------" << endl;
-            // cout << dM + sM << endl;
-            // cout << endl;
-            // cout << "-------------Symmetric/Diagonal-------------" << endl;
-            // cout << sM + dM << endl;
-            // cout << endl;
+            cout << "-------------Symmetric Matrix-------------" << endl;
+            cout << sM << endl;
+            cout << endl;
+            cout << "-------------Diagonal/Symmetric-------------" << endl;
+            cout << dM - sM << endl;
+            cout << endl;
+            cout << "-------------Symmetric/Diagonal-------------" << endl;
+            cout << sM - dM << endl;
+            cout << endl;
 
-            // cout << "-------------Dense Matrix-------------" << endl;
-            // cout << Matrix1 << endl;
-            // cout << endl;
-            // cout << "-------------Diagonal/Dense-------------" << endl;
-            // cout << dM + Matrix1 << endl;
-            // cout << endl;
-            // cout << "-------------Dense/Diagonal-------------" << endl;
-            // cout << Matrix1 + dM << endl;
-            // cout << endl;
+            cout << "-------------Dense Matrix-------------" << endl;
+            cout << Matrix1 << endl;
+            cout << endl;
+            cout << "-------------Diagonal/Dense-------------" << endl;
+            cout << dM - Matrix1 << endl;
+            cout << endl;
+            cout << "-------------Dense/Diagonal-------------" << endl;
+            cout << Matrix1 - dM << endl;
+            cout << endl;
 
-            // cout << "-------------Lower Matrix-------------" << endl;
-            // cout << lM << endl;
-            // cout << endl;
-            // cout << "-------------Lower/diagonal-------------" << endl;
-            // cout << lM + dM << endl;
-            // cout << endl;
-            // cout << "-------------diagonal/lower-------------" << endl;
-            // cout << dM + lM << endl;
-            // cout << endl;
+            cout << "-------------Lower Matrix-------------" << endl;
+            cout << lM << endl;
+            cout << endl;
+            cout << "-------------Lower/diagonal-------------" << endl;
+            cout << lM - dM << endl;
+            cout << endl;
+            cout << "-------------diagonal/lower-------------" << endl;
+            cout << dM - lM << endl;
+            cout << endl;
 
             cout << "-------------Upper Matrix-------------" << endl;
             cout << uM << endl;
             cout << "-------------Diagonal/Upper-------------" << endl;
-            cout << dM + uM << endl;
+            cout << dM - uM << endl;
             cout << "-------------Upper/Diagonal-------------" << endl;
-            cout << uM + dM << endl;
+            cout << uM - dM << endl;
         }
         else if (Matrix1.isSymmetricMatrix())
         {
