@@ -24,10 +24,6 @@ MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
             for (int j = 0; j < tempVect.GetNumElements(); j++)
             {
                 tempVect[j] = 0;
-                if (j + 1 == tempVect.GetNumElements())
-                {
-                    tempVect[j] = 1;
-                }
             }
             myVect.PushBack(tempVect);
         }
