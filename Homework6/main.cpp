@@ -162,76 +162,203 @@ int main(int argc, char *argv[])
         }
         else if (Matrix1.isSymmetricMatrix())
         {
-            SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
-            sM = Matrix1;
-            cout << sM << endl;
+            // SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
+            // sM = Matrix1;
+            // DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
+            // dM(0, 0) = 1;
+            // dM(1, 1) = 2;
+            // dM(2, 2) = 3;
+            // LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
+            // lM(1, 0) = 2;
+            // lM(2, 0) = 2;
+            // lM(2, 1) = 2;
+            // lM(0, 0) = 2;
+            // lM(1, 1) = 2;
+            // lM(2, 2) = 2;
+            // UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            // uM(0, 1) = 2;
+            // uM(0, 2) = 2;
+            // uM(1, 2) = 2;
+            // uM(0, 0) = 2;
+            // uM(1, 1) = 2;
+            // uM(2, 2) = 2;
+            // for (int i = 0; i < Matrix1.GetRows(); i++)
+            // {
+            //     for (int j = 0; j < Matrix1.GetColumns(); j++)
+            //     {
+            //         Matrix1[i][j] = 2;
+            //     }
+            // }
+
+            // cout << "-------------Symmetric Matrix-------------" << endl;
+            // cout << sM << endl;
+
+            // cout << "-------------Diagonal Matrix-------------" << endl;
+            // cout << dM << endl;
+            // cout << endl;
+            // cout << "-------------Symmetric/Diagonal-------------" << endl;
+            // cout << sM - dM << endl;
+            // cout << endl;
+            // cout << "-------------Diagonal/Symmetric-------------" << endl;
+            // cout << dM - sM << endl;
+            // cout << endl;
+
+            // cout << "-------------Dense Matrix-------------" << endl;
+            // cout << Matrix1 << endl;
+            // cout << endl;
+            // cout << "-------------Symmetric/Dense-------------" << endl;
+            // cout << sM - Matrix1 << endl;
+            // cout << endl;
+            // cout << "-------------Dense/Symmetric-------------" << endl;
+            // cout << Matrix1 - sM << endl;
+            // cout << endl;
+
+            // cout << "-------------Lower Matrix-------------" << endl;
+            // cout << lM << endl;
+            // cout << "-------------Symmetric/lower-------------" << endl;
+            // cout << sM - lM << endl;
+            // cout << "-------------Lower/Symmetric-------------" << endl;
+            // cout << lM - sM << endl;
+
+            // cout << "-------------Upper Matrix-------------" << endl;
+            // cout << uM << endl;
+            // cout << "-------------Symmetric/Upper-------------" << endl;
+            // cout << sM - uM << endl;
+            // cout << "-------------Upper/Symmetric-------------" << endl;
+            // cout << uM - sM << endl;
         }
         else if (Matrix1.isLowerTriangularMatrix())
         {
+            SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
+            for (int i = 0; i < Matrix1.GetRows(); i++)
+            {
+                for (int j = 0; j < Matrix1.GetColumns(); j++)
+                {
+                    sM[i][j] = 2;
+                }
+            }
+            DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
+            dM(0, 0) = 1;
+            dM(1, 1) = 2;
+            dM(2, 2) = 3;
             LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
             lM = Matrix1;
-
-            cout << "A * A^T:" << endl;
-            Matrix1 = lM * lM.Transpose();
-            cout << Matrix1 * Matrix1.Transpose() << endl;
-            cout << endl;
-
-            cout << "x:" << endl;
-            GaussElimination<double> gauss;
-            MyVector<double> x = gauss.ForwardSub(lM, myVector);
-            for (int i = 0; i < lines; i++)
+            UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            uM(0, 1) = 2;
+            uM(0, 2) = 2;
+            uM(1, 2) = 2;
+            uM(0, 0) = 2;
+            uM(1, 1) = 2;
+            uM(2, 2) = 2;
+            for (int i = 0; i < Matrix1.GetRows(); i++)
             {
-                cout << x[i] << endl;
+                for (int j = 0; j < Matrix1.GetColumns(); j++)
+                {
+                    Matrix1[i][j] = 2;
+                }
             }
+
+            cout << "-------------Lower Matrix-------------" << endl;
+            cout << sM << endl;
+
+            cout << "-------------Diagonal Matrix-------------" << endl;
+            cout << dM << endl;
+            cout << endl;
+            cout << "-------------Lower/Diagonal-------------" << endl;
+            cout << lM - dM << endl;
+            cout << endl;
+            cout << "-------------Diagonal/Lower-------------" << endl;
+            cout << dM - lM << endl;
             cout << endl;
 
-            cout << "A * x:" << endl;
-            Matrix<double> Matrix2(lines, 1);
-            Matrix2.PushBack(x);
-            cout << Matrix1 * Matrix2 << endl;
+            cout << "-------------Dense Matrix-------------" << endl;
+            cout << Matrix1 << endl;
+            cout << endl;
+            cout << "-------------Lower/Dense-------------" << endl;
+            cout << lM - Matrix1 << endl;
+            cout << endl;
+            cout << "-------------Dense/Lower-------------" << endl;
+            cout << Matrix1 - lM << endl;
+            cout << endl;
+
+            cout << "-------------Symmetric Matrix-------------" << endl;
+            cout << sM << endl;
+            cout << "-------------Symmetric/lower-------------" << endl;
+            cout << sM - lM << endl;
+            cout << "-------------Lower/Symmetric-------------" << endl;
+            cout << lM - sM << endl;
+
+            cout << "-------------Upper Matrix-------------" << endl;
+            cout << uM << endl;
+            cout << "-------------Lower/Upper-------------" << endl;
+            cout << lM - uM << endl;
+            cout << "-------------Upper/Lower-------------" << endl;
+            cout << uM - lM << endl;
+
+            // LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
+            // lM = Matrix1;
+
+            // cout << "A * A^T:" << endl;
+            // Matrix1 = lM * lM.Transpose();
+            // cout << Matrix1 * Matrix1.Transpose() << endl;
+            // cout << endl;
+
+            // cout << "x:" << endl;
+            // GaussElimination<double> gauss;
+            // MyVector<double> x = gauss.ForwardSub(lM, myVector);
+            // for (int i = 0; i < lines; i++)
+            // {
+            //     cout << x[i] << endl;
+            // }
+            // cout << endl;
+
+            // cout << "A * x:" << endl;
+            // Matrix<double> Matrix2(lines, 1);
+            // Matrix2.PushBack(x);
+            // cout << Matrix1 * Matrix2 << endl;
         }
         else if (Matrix1.isUpperTriangularMatrix())
         {
-            UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
-            uM = Matrix1;
-            cout << "A * A^T:" << endl;
-            Matrix1 = uM * uM.Transpose();
-            cout << Matrix1 * Matrix1.Transpose() << endl;
-            cout << endl;
+            // UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            // uM = Matrix1;
+            // cout << "A * A^T:" << endl;
+            // Matrix1 = uM * uM.Transpose();
+            // cout << Matrix1 * Matrix1.Transpose() << endl;
+            // cout << endl;
 
-            cout << "x:" << endl;
-            GaussElimination<double> gauss;
-            MyVector<double> x = gauss.BackSub(uM, myVector);
-            for (int i = 0; i < lines; i++)
-            {
-                cout << x[i] << endl;
-            }
-            cout << endl;
+            // cout << "x:" << endl;
+            // GaussElimination<double> gauss;
+            // MyVector<double> x = gauss.BackSub(uM, myVector);
+            // for (int i = 0; i < lines; i++)
+            // {
+            //     cout << x[i] << endl;
+            // }
+            // cout << endl;
 
-            cout << "A * x:" << endl;
-            Matrix<double> Matrix2(lines, 1);
-            Matrix2.PushBack(x);
-            cout << Matrix1 * Matrix2 << endl;
+            // cout << "A * x:" << endl;
+            // Matrix<double> Matrix2(lines, 1);
+            // Matrix2.PushBack(x);
+            // cout << Matrix1 * Matrix2 << endl;
         }
         else
         {
-            cout << "A * A^T:" << endl;
-            cout << Matrix1 * Matrix1.Transpose() << endl;
-            cout << endl;
+            // cout << "A * A^T:" << endl;
+            // cout << Matrix1 * Matrix1.Transpose() << endl;
+            // cout << endl;
 
-            cout << "x:" << endl;
-            GaussElimination<double> gauss;
-            MyVector<double> x = gauss.GaussEliminate(Matrix1, myVector);
-            for (int i = 0; i < lines; i++)
-            {
-                cout << x[i] << endl;
-            }
-            cout << endl;
+            // cout << "x:" << endl;
+            // GaussElimination<double> gauss;
+            // MyVector<double> x = gauss.GaussEliminate(Matrix1, myVector);
+            // for (int i = 0; i < lines; i++)
+            // {
+            //     cout << x[i] << endl;
+            // }
+            // cout << endl;
 
-            cout << "A * x:" << endl;
-            Matrix<double> Matrix2(lines, 1);
-            Matrix2.PushBack(x);
-            cout << Matrix1 * Matrix2 << endl;
+            // cout << "A * x:" << endl;
+            // Matrix<double> Matrix2(lines, 1);
+            // Matrix2.PushBack(x);
+            // cout << Matrix1 * Matrix2 << endl;
         }
     }
     catch (const std::exception &e)
