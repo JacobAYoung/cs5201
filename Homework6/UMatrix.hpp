@@ -669,7 +669,7 @@ UMatrix<T> operator-(const UMatrix<T> &source)
     UMatrix<T> temp(source.GetRows(), source.GetColumns());
     for (int i = 0; i < source.GetRows(); i++)
     {
-        for (int j = 0; j < source.GetColumns(); j++)
+        for (int j = i; j < source.GetColumns(); j++)
         {
             if (source(i, j) != 0)
             {
@@ -1076,7 +1076,7 @@ UMatrix<T> operator-(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
                 {
                     temp(i, j) = lhs(i, j) - rhs(i, j);
                 }
@@ -1104,9 +1104,17 @@ Matrix<T> operator-(const UMatrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
+                temp[i][i] = lhs(i, i) - rhs(i, i);
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) - rhs(i, j);
+                    if (j < i)
+                    {
+                        temp[i][j] = 0 - rhs(i, j);
+                    }
+                    else if (j > i)
+                    {
+                        temp[i][j] = lhs(i, j);
+                    }
                 }
             }
         }
@@ -1132,7 +1140,11 @@ Matrix<T> operator-(const Matrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                {
+                    temp[j][i] = lhs[j][i];
+                }
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
                 {
                     temp[i][j] = lhs[i][j] - rhs(i, j);
                 }
@@ -1160,7 +1172,11 @@ Matrix<T> operator-(const UMatrix<T> &lhs, const Matrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                {
+                    temp[j][i] = 0 - rhs[j][i];
+                }
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
                 {
                     temp[i][j] = lhs(i, j) - rhs[i][j];
                 }
@@ -1188,7 +1204,11 @@ SMatrix<T> operator-(const UMatrix<T> &lhs, const SMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                {
+                    temp[j][i] = 0 - rhs[j][i];
+                }
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
                 {
                     temp[i][j] = lhs(i, j) - rhs[i][j];
                 }
@@ -1216,7 +1236,11 @@ SMatrix<T> operator-(const SMatrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                {
+                    temp[j][i] = lhs[j][i];
+                }
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
                 {
                     temp[i][j] = lhs[i][j] - rhs(i, j);
                 }
@@ -1244,9 +1268,10 @@ UMatrix<T> operator-(const UMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                temp(i, i) = lhs(i, i) - rhs(i, i);
+                for (int j = rhs.GetColumns(); j > i; j--)
                 {
-                    temp(i, j) = lhs(i, j) - rhs(i, j);
+                    temp(i, j) = lhs(i, j);
                 }
             }
         }

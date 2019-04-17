@@ -28,25 +28,25 @@ using namespace std;
 template <class T>
 class SMatrix : public IMatrix<SMatrix<T>, T>
 {
-  private:
-    /**
+private:
+  /**
     * @brief Number of rows
     * 
   */
-    int numRows;
-    /**
+  int numRows;
+  /**
     * @brief Number of columns
     * 
   */
-    int numColumns;
-    /**
+  int numColumns;
+  /**
     * @brief vector of a vector where the data will be stored
     * 
   */
-    MyVector<MyVector<T>> myVect;
+  MyVector<MyVector<T>> myVect;
 
-    //MatrixController<SMatrix<T>, T> my_controller;
-    /**
+  //MatrixController<SMatrix<T>, T> my_controller;
+  /**
     * @brief Copy function that copies all the data from the source to the c.o.
     * SMatrix
     * @pre SMatrix object is created and another SMatrix object is created to be
@@ -55,18 +55,18 @@ class SMatrix : public IMatrix<SMatrix<T>, T>
     * c.o. data values
     * @param source SMatrix object
   */
-    void copy(const SMatrix<T> &source);
+  void copy(const SMatrix<T> &source);
 
-  public:
-    /**
+public:
+  /**
    * 
    * @pre Construct a new SMatrix object
    * @post A new SMatrix object is created
    * @brief Construct a new SMatrix object
    * 
    */
-    SMatrix();
-    /**
+  SMatrix();
+  /**
      * 
      * @pre Construct a new SMatrix object with set sizes
      * @post A new SMatrix object is created
@@ -75,59 +75,59 @@ class SMatrix : public IMatrix<SMatrix<T>, T>
      * @param rows Number of rows
      * @param columns Number of columns
      */
-    SMatrix(int rows, int columns);
-    /**
+  SMatrix(int rows, int columns);
+  /**
      * @brief Copy constructor
      * @pre A c.o. SMatrix is created and a source SMatrix object is created to be
      * copied from
      * @post Copies the source SMatrix object to the c.o.
      * @param source SMatrix object
      */
-    SMatrix(const SMatrix<T> &source);
-    /**
+  SMatrix(const SMatrix<T> &source);
+  /**
      * @brief Destroy the SMatrix object
      * @pre SMatrix object is created
      * @post c.o. SMatrix will be destroyed and deleted from memory.
      */
-    ~SMatrix();
-    /**
+  ~SMatrix();
+  /**
  * @brief Construct a new SMatrix object for move semantics
  * @pre Performs move semantics over the new matrix object
  * @post correctly swaps all the values to the current matrix
  * @param source matrix object
  */
-    SMatrix(SMatrix<T> &&source);
-    /**
+  SMatrix(SMatrix<T> &&source);
+  /**
      * @brief Add a vector onto the SMatrix
      * @pre A SMatrix object is created
      * @post The vector has been added to the c.o. SMatrix
      * 
      * @param source The vector that wants to be added to the c.o. SMatrix
      */
-    void PushBack(const MyVector<T> &source);
-    /**
+  void PushBack(const MyVector<T> &source);
+  /**
      * @brief Get the Rows object
      * @pre SMatrix object is created
      * @post Gets the number of rows from the SMatrix object
      * @return int Number of rows within the SMatrix
      */
-    int GetRows() const;
-    /**
+  int GetRows() const;
+  /**
      * @brief Get the Columns object
      * @pre SMatrix object is created
      * @post Gets the number of columns from the SMatrix object
      * @return int Number of columns within the SMatrix
      */
-    int GetColumns() const;
-    /**
+  int GetColumns() const;
+  /**
      * @brief Calculate and returns the transpose of the SMatrix object
      * @pre A SMatrix object is created
      * @post Creates a temporary SMatrix object and returns the transpose of the
      * c.o. SMatrix
      * @return SMatrix<T> A copy of the SMatrix c.o. transpose
      */
-    SMatrix<T> Transpose();
-    /**
+  SMatrix<T> Transpose();
+  /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and SMatrix object is created.
      * @post: Returns the data from the pointer of the specified position.
@@ -135,8 +135,8 @@ class SMatrix : public IMatrix<SMatrix<T>, T>
      * @param i Position number
      * @return MyVector<T>& Returns the data from the pointer at the specific position
      */
-    MyVector<T> &operator[](const int &i);
-    /**
+  MyVector<T> &operator[](const int &i);
+  /**
      * @brief [] operator that returns the data of the pointer at the specified
      * position but its returned as a constant value
      * @pre: The position of the data is known and SMatrix object is created
@@ -146,8 +146,8 @@ class SMatrix : public IMatrix<SMatrix<T>, T>
      * @return MyVector<T>& Returns the data from the pointer at the specific
      * position as a constant value
      */
-    MyVector<T> &operator[](const int &i) const;
-    /**
+  MyVector<T> &operator[](const int &i) const;
+  /**
      * @brief Scalar multiplcation of a SMatrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
      * @pre SMatrix object is created
@@ -155,17 +155,17 @@ class SMatrix : public IMatrix<SMatrix<T>, T>
      * @param val Value to be multiplied against SMatrix
      * @return SMatrix<T> A SMatrix that has been multiplied by the value
      */
-    SMatrix<T> operator*(const T &val) const;
-    /**
+  SMatrix<T> operator*(const T &val) const;
+  /**
      * @brief Assignment operator that sets the rhs SMatrix object to the c.o.
      * @pre A SMatrix object is created and another to be copied from
      * @post Copies the rhs SMatrix object to the SMatrix c.o.
      * @param source SMatrix object
      * @return SMatrix<T> The c.o. is now equal to the rhs SMatrix object
      */
-    SMatrix<T> &operator=(const SMatrix<T> &source);
+  SMatrix<T> &operator=(const SMatrix<T> &source);
 
-    SMatrix<T> &operator=(const Matrix<T> &source);
+  SMatrix<T> &operator=(const Matrix<T> &source);
 };
 /**
  * @brief Equals operator. Checks to see if the two SMatrix objects are the same
@@ -219,6 +219,12 @@ SMatrix<T> operator-(const SMatrix<T> &source);
  */
 template <typename T>
 SMatrix<T> operator*(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const SMatrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const Matrix<T> &lhs, const SMatrix<T> &rhs);
 /**
  * @brief Calculate SMatrix addition of two matricies
  * @pre Two SMatrix object's are created and the lhs column size is the same as
@@ -234,6 +240,12 @@ SMatrix<T> operator*(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
  */
 template <typename T>
 SMatrix<T> operator+(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const SMatrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const Matrix<T> &lhs, const SMatrix<T> &rhs);
 /**
  * @brief Calculate SMatrix subtraction of two matricies
  * @pre Two SMatrix object's are created and the lhs column size is the same as
@@ -249,6 +261,12 @@ SMatrix<T> operator+(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
  */
 template <typename T>
 SMatrix<T> operator-(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const SMatrix<T> &lhs, const Matrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const Matrix<T> &lhs, const SMatrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the SMatrix object
  * @pre A SMatrix object is created

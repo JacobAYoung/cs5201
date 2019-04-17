@@ -187,13 +187,7 @@ DMatrix<T> &DMatrix<T>::operator=(const Matrix<T> &source)
 {
     for (int i = 0; i < source.GetRows(); i++)
     {
-        for (int j = 0; j < source.GetColumns(); j++)
-        {
-            if (i == j)
-            {
-                my_controller[i][0] = source[i][j];
-            }
-        }
+        my_controller[i][0] = source[i][i];
     }
     return *this;
 }
