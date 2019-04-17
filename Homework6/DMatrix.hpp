@@ -1035,7 +1035,7 @@ LMatrix<T> operator-(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
                 {
                     if (i > j)
                     {
-                        temp(i, j) = rhs(i, j);
+                        temp(i, j) = 0 - rhs(i, j);
                     }
                 }
             }
@@ -1099,7 +1099,7 @@ Matrix<T> operator-(const DMatrix<T> &lhs, const Matrix<T> &rhs)
                 {
                     if (i != j)
                     {
-                        temp[i][j] = rhs[i][j];
+                        temp[i][j] = 0 - rhs[i][j];
                     }
                 }
             }
@@ -1131,7 +1131,7 @@ SMatrix<T> operator-(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
                 {
                     if (i != j)
                     {
-                        temp[i][j] = rhs[i][j];
+                        temp[i][j] = 0 - rhs[i][j];
                     }
                 }
             }
@@ -1195,7 +1195,7 @@ UMatrix<T> operator-(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
                 {
                     if (i < j)
                     {
-                        temp(i, j) = rhs(i, j);
+                        temp(i, j) = 0 - rhs(i, j);
                     }
                 }
             }

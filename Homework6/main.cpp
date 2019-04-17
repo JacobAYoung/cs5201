@@ -259,44 +259,44 @@ int main(int argc, char *argv[])
             }
 
             cout << "-------------Lower Matrix-------------" << endl;
-            cout << lM << endl;
+            cout << -lM << endl;
             cout << "-------------Lower/Lower-------------" << endl;
-            cout << lM + lM << endl;
+            cout << lM - lM << endl;
 
             cout << "-------------Diagonal Matrix-------------" << endl;
             cout << dM << endl;
             cout << "-------------Lower/Diagonal-------------" << endl;
-            cout << lM + dM << endl;
+            cout << lM - dM << endl;
             cout << "-------------Diagonal/Lower-------------" << endl;
-            cout << dM + lM << endl;
+            cout << dM - lM << endl;
 
             cout << "-------------Dense Matrix-------------" << endl;
             cout << Matrix1 << endl;
             cout << endl;
             cout << "-------------Lower/Dense-------------" << endl;
-            cout << lM + Matrix1 << endl;
+            cout << lM - Matrix1 << endl;
             cout << endl;
             cout << "-------------Dense/Lower-------------" << endl;
-            cout << Matrix1 + lM << endl;
+            cout << Matrix1 - lM << endl;
             cout << endl;
 
             cout << "-------------Symmetric Matrix-------------" << endl;
             cout << sM << endl;
             cout << endl;
             cout << "-------------Symmetric/lower-------------" << endl;
-            cout << sM + lM << endl;
+            cout << sM - lM << endl;
             cout << endl;
             cout << "-------------Lower/Symmetric-------------" << endl;
-            cout << lM + sM << endl;
+            cout << lM - sM << endl;
             cout << endl;
 
             cout << "-------------Upper Matrix-------------" << endl;
             cout << uM << endl;
             cout << "-------------Lower/Upper-------------" << endl;
-            cout << lM + uM << endl;
+            cout << lM - uM << endl;
             cout << endl;
             cout << "-------------Upper/Lower-------------" << endl;
-            cout << uM + lM << endl;
+            cout << uM - lM << endl;
 
             // LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
             // lM = Matrix1;

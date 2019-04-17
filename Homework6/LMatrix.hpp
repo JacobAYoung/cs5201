@@ -229,7 +229,7 @@ LMatrix<T> operator-(const LMatrix<T> &source)
     LMatrix<T> temp(source.GetRows(), source.GetColumns());
     for (int i = 0; i < source.GetRows(); i++)
     {
-        for (int j = 0; j < source.GetColumns(); j++)
+        for (int j = 0; j <= i; j++)
         {
             if (source(i, j) != 0)
             {
@@ -1060,7 +1060,7 @@ LMatrix<T> operator-(const LMatrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = 0; j <= i; j++)
                 {
                     temp(i, j) = lhs(i, j) - rhs(i, j);
                 }
@@ -1088,9 +1088,17 @@ Matrix<T> operator-(const LMatrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
+                temp[i][i] = lhs(i, i) - rhs(i, i);
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) - rhs(i, j);
+                    if (j > i)
+                    {
+                        temp[i][j] = 0 - rhs(i, j);
+                    }
+                    else if (j < i)
+                    {
+                        temp[i][j] = lhs(i, j);
+                    }
                 }
             }
         }
@@ -1116,7 +1124,11 @@ Matrix<T> operator-(const Matrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = i + 1; j < rhs.GetColumns(); j++)
+                {
+                    temp[i][j] = lhs[i][j];
+                }
+                for (int j = 0; j <= i; j++)
                 {
                     temp[i][j] = lhs[i][j] - rhs(i, j);
                 }
@@ -1144,9 +1156,13 @@ Matrix<T> operator-(const LMatrix<T> &lhs, const Matrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = i + 1; j < rhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) - rhs[i][j];
+                    temp[i][j] = 0 - rhs[i][j];
+                }
+                for (int j = 0; j <= i; j++)
+                {
+                    temp[i][j] = rhs[i][j] - lhs(i, j);
                 }
             }
         }
@@ -1172,9 +1188,13 @@ SMatrix<T> operator-(const LMatrix<T> &lhs, const SMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = i + 1; j < rhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) - rhs[i][j];
+                    temp[i][j] = 0 - rhs[i][j];
+                }
+                for (int j = 0; j <= i; j++)
+                {
+                    temp[i][j] = rhs[i][j] - lhs(i, j);
                 }
             }
         }
@@ -1200,7 +1220,11 @@ SMatrix<T> operator-(const SMatrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = i + 1; j < rhs.GetColumns(); j++)
+                {
+                    temp[i][j] = lhs[i][j];
+                }
+                for (int j = 0; j <= i; j++)
                 {
                     temp[i][j] = lhs[i][j] - rhs(i, j);
                 }
@@ -1228,9 +1252,13 @@ LMatrix<T> operator-(const LMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                temp(i, i) = lhs(i, i) - rhs(i, i);
+                for (int j = 0; j < lhs.GetRows(); j++)
                 {
-                    temp(i, j) = lhs(i, j) - rhs(i, j);
+                    if (i > j)
+                    {
+                        temp(i, j) = lhs(i, j);
+                    }
                 }
             }
         }
