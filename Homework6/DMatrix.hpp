@@ -414,12 +414,9 @@ DMatrix<T> operator-(const DMatrix<T> &source)
     DMatrix<T> temp(source.GetRows(), source.GetColumns());
     for (int i = 0; i < source.GetRows(); i++)
     {
-        for (int j = 0; j < source.GetColumns(); j++)
+        if (source(i, i) != 0)
         {
-            if (source(i, j) != 0)
-            {
-                temp(i, j) = -1 * source(i, j);
-            }
+            temp(i, i) = -1 * source(i, i);
         }
     }
     return temp;
