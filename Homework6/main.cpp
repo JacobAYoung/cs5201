@@ -93,66 +93,71 @@ int main(int argc, char *argv[])
         {
             DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
             dM = Matrix1;
-            cout << dM + dM << endl;
-            //cout << "Diagonal * Lower" << endl;
-            // LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
-            // lM = Matrix1;
-            // cout << lM << endl;
-            // lM(1, 0) = 1;
-            // lM(2, 0) = 1;
-            // lM(2, 1) = 1;
-            // cout << lM << endl;
+            LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
+            lM = Matrix1;
+            lM(1, 0) = 1;
+            lM(2, 0) = 1;
+            lM(2, 1) = 1;
+            for (int i = 0; i < Matrix1.GetRows(); i++)
+            {
+                for (int j = 0; j < Matrix1.GetColumns(); j++)
+                {
+                    Matrix1[i][j] = 2;
+                }
+            }
+            SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
+            for (int i = 0; i < Matrix1.GetRows(); i++)
+            {
+                for (int j = 0; j < Matrix1.GetColumns(); j++)
+                {
+                    sM[i][j] = 2;
+                }
+            }
+            UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            uM = Matrix1;
+            uM(0, 1) = 2;
+            uM(0, 2) = 2;
+            uM(1, 2) = 2;
 
-            // //cout << dM << endl;
-            // cout << dM * lM << endl;
-            // Matrix<double> Matrix2(Matrix1.GetRows(), Matrix1.GetColumns());
-            // for (int i = 0; i < Matrix1.GetRows(); i++)
-            // {
-            //     for (int j = 0; j < Matrix1.GetColumns(); j++)
-            //     {
-            //         Matrix2[i][j] = 2;
-            //     }
-            // }
+            cout << "-------------Diagonal Matrix-------------" << endl;
+            cout << dM << endl;
+
+            // cout << "-------------Symmetric Matrix-------------" << endl;
+            // cout << sM << endl;
+            // cout << endl;
+            // cout << "-------------Diagonal/Symmetric-------------" << endl;
+            // cout << dM + sM << endl;
+            // cout << endl;
+            // cout << "-------------Symmetric/Diagonal-------------" << endl;
+            // cout << sM + dM << endl;
+            // cout << endl;
+
             // cout << "-------------Dense Matrix-------------" << endl;
             // cout << Matrix1 << endl;
             // cout << endl;
-
-            // cout << "-------------Diagonal Matrix-------------" << endl;
-            // cout << dM << endl;
-
-            // cout << "-------------Diagonal * Dense-------------" << endl;
-            // cout << dM * Matrix1 << endl;
+            // cout << "-------------Diagonal/Dense-------------" << endl;
+            // cout << dM + Matrix1 << endl;
             // cout << endl;
-            // cout << "-------------Dense * Diagonal-------------" << endl;
-            // cout << Matrix1 * dM << endl;
-            // cout << endl;
-            // SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
-            // for (int i = 0; i < Matrix1.GetRows(); i++)
-            // {
-            //     for (int j = 0; j < Matrix1.GetColumns(); j++)
-            //     {
-            //         sM[i][j] = 2;
-            //     }
-            // }
-            // UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
-            // uM = Matrix1;
-            // uM(0, 1) = 2;
-            // uM(0, 2) = 2;
-            // uM(1, 2) = 2;
-
-            // cout << "-------------Upper Matrix-------------" << endl;
-            // cout << uM << endl;
+            // cout << "-------------Dense/Diagonal-------------" << endl;
+            // cout << Matrix1 + dM << endl;
             // cout << endl;
 
-            // cout << "-------------Diagonal Matrix-------------" << endl;
-            // cout << dM << endl;
+            // cout << "-------------Lower Matrix-------------" << endl;
+            // cout << lM << endl;
+            // cout << endl;
+            // cout << "-------------Lower/diagonal-------------" << endl;
+            // cout << lM + dM << endl;
+            // cout << endl;
+            // cout << "-------------diagonal/lower-------------" << endl;
+            // cout << dM + lM << endl;
+            // cout << endl;
 
-            // cout << "-------------Diagonal * Upper-------------" << endl;
-            // cout << dM * uM << endl;
-            // cout << endl;
-            // cout << "-------------Upper * Diagonal-------------" << endl;
-            // cout << uM * dM << endl;
-            // cout << endl;
+            cout << "-------------Upper Matrix-------------" << endl;
+            cout << uM << endl;
+            cout << "-------------Diagonal/Upper-------------" << endl;
+            cout << dM + uM << endl;
+            cout << "-------------Upper/Diagonal-------------" << endl;
+            cout << uM + dM << endl;
         }
         else if (Matrix1.isSymmetricMatrix())
         {

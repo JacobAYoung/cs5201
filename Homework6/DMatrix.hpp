@@ -816,9 +816,13 @@ LMatrix<T> operator+(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                temp(i, i) = lhs(i, i) + rhs(i, i);
+                for (int j = 0; j < lhs.GetRows(); j++)
                 {
-                    temp(i, j) = lhs(i, j) + rhs(i, j);
+                    if (i > j)
+                    {
+                        temp(i, j) = rhs(i, j);
+                    }
                 }
             }
         }
@@ -844,9 +848,13 @@ Matrix<T> operator+(const Matrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
+                temp[i][i] = lhs[i][i] + rhs(i, i);
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs[i][j] + rhs(i, j);
+                    if (i != j)
+                    {
+                        temp[i][j] = lhs[i][j];
+                    }
                 }
             }
         }
@@ -872,9 +880,13 @@ Matrix<T> operator+(const DMatrix<T> &lhs, const Matrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
+                temp[i][i] = lhs(i, i) + rhs[i][i];
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) + rhs[i][j];
+                    if (i != j)
+                    {
+                        temp[i][j] = rhs[i][j];
+                    }
                 }
             }
         }
@@ -900,9 +912,13 @@ SMatrix<T> operator+(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
+                temp[i][i] = lhs(i, i) + rhs[i][i];
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs(i, j) + rhs[i][j];
+                    if (i != j)
+                    {
+                        temp[i][j] = rhs[i][j];
+                    }
                 }
             }
         }
@@ -928,9 +944,13 @@ SMatrix<T> operator+(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
+                temp[i][i] = lhs[i][i] + rhs(i, i);
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[i][j] = lhs[i][j] + rhs(i, j);
+                    if (i != j)
+                    {
+                        temp[i][j] = lhs[i][j];
+                    }
                 }
             }
         }
@@ -956,9 +976,13 @@ UMatrix<T> operator+(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                temp(i, i) = lhs(i, i) + rhs(i, i);
+                for (int j = 0; j < lhs.GetRows(); j++)
                 {
-                    temp(i, j) = lhs(i, j) + rhs(i, j);
+                    if (i < j)
+                    {
+                        temp(i, j) = rhs(i, j);
+                    }
                 }
             }
         }
