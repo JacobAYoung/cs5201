@@ -322,6 +322,74 @@ int main(int argc, char *argv[])
         }
         else if (Matrix1.isUpperTriangularMatrix())
         {
+            SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
+            for (int i = 0; i < Matrix1.GetRows(); i++)
+            {
+                for (int j = 0; j < Matrix1.GetColumns(); j++)
+                {
+                    sM[i][j] = 2;
+                }
+            }
+            DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
+            dM(0, 0) = 1;
+            dM(1, 1) = 2;
+            dM(2, 2) = 3;
+            LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
+            lM(1, 0) = 2;
+            lM(2, 0) = 2;
+            lM(2, 1) = 2;
+            lM(0, 0) = 2;
+            lM(1, 1) = 2;
+            lM(2, 2) = 2;
+            UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            uM = Matrix1;
+            for (int i = 0; i < Matrix1.GetRows(); i++)
+            {
+                for (int j = 0; j < Matrix1.GetColumns(); j++)
+                {
+                    Matrix1[i][j] = 2;
+                }
+            }
+
+            cout << "-------------upper Matrix-------------" << endl;
+            cout << uM << endl;
+            cout << "-------------upper/upper-------------" << endl;
+            cout << uM + uM << endl;
+
+            cout << "-------------Diagonal Matrix-------------" << endl;
+            cout << dM << endl;
+            cout << "-------------upper/Diagonal-------------" << endl;
+            cout << uM + dM << endl;
+            cout << "-------------Diagonal/upper-------------" << endl;
+            cout << dM + uM << endl;
+
+            cout << "-------------Dense Matrix-------------" << endl;
+            cout << Matrix1 << endl;
+            cout << endl;
+            cout << "-------------upper/Dense-------------" << endl;
+            cout << uM + Matrix1 << endl;
+            cout << endl;
+            cout << "-------------Dense/upper-------------" << endl;
+            cout << Matrix1 + uM << endl;
+            cout << endl;
+
+            cout << "-------------Symmetric Matrix-------------" << endl;
+            cout << sM << endl;
+            cout << endl;
+            cout << "-------------Symmetric/upper-------------" << endl;
+            cout << sM + uM << endl;
+            cout << endl;
+            cout << "-------------upper/Symmetric-------------" << endl;
+            cout << uM + sM << endl;
+            cout << endl;
+
+            cout << "-------------Lower Matrix-------------" << endl;
+            cout << lM << endl;
+            cout << "-------------lower/Upper-------------" << endl;
+            cout << lM + uM << endl;
+            cout << endl;
+            cout << "-------------Upper/lower-------------" << endl;
+            cout << uM + lM << endl;
             // UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
             // uM = Matrix1;
             // cout << "A * A^T:" << endl;
@@ -345,7 +413,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            // cout << "A * A^T:" << endl;
+            cout << "A * A^T:" << endl;
             // cout << Matrix1 * Matrix1.Transpose() << endl;
             // cout << endl;
 

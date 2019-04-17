@@ -765,7 +765,7 @@ UMatrix<T> operator*(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
         for (int i = 0; i < lhs.GetRows(); i++)
         {
             temp(i, i) = lhs(i, i) * rhs(i, i);
-            for (int j = rhs.GetColumns(); j > i; j--)
+            for (int j = i; j < rhs.GetColumns(); j++)
             {
                 temp(i, j) += lhs(i, i) * rhs(i, j);
             }
@@ -974,12 +974,9 @@ UMatrix<T> operator+(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
             for (int i = 0; i < lhs.GetRows(); i++)
             {
                 temp(i, i) = lhs(i, i) + rhs(i, i);
-                for (int j = 0; j < lhs.GetRows(); j++)
+                for (int j = rhs.GetColumns() - 1; j > i; j--)
                 {
-                    if (i < j)
-                    {
-                        temp(i, j) = rhs(i, j);
-                    }
+                    temp(i, j) = rhs(i, j);
                 }
             }
         }
