@@ -82,24 +82,23 @@ MyVector<T> &UMatrix<T>::operator[](const int &i) const
 template <class T>
 void UMatrix<T>::CalculateUpper(const Matrix<T> &source)
 {
-    cout << "Doing stuff here" << endl;
     Matrix<T> m = source;
     //Set all the values to 0 or 1 depending on the location.
     //This is just reassurance before calculating the values
-    // for (int i = 0; i < my_controller.GetRows(); i++)
-    // {
-    //     for (int j = 0; j < my_controller.GetColumns(); j++)
-    //     {
-    //         if (i < j)
-    //         {
-    //             my_controller[i][j] = 0;
-    //         }
-    //         else if (i == j)
-    //         {
-    //             my_controller[i][j] = 1;
-    //         }
-    //     }
-    // }
+    for (int i = 0; i < my_controller.GetRows(); i++)
+    {
+        for (int j = 0; j < my_controller.GetColumns(); j++)
+        {
+            if (i < j)
+            {
+                my_controller[i][j] = 0;
+            }
+            else if (i == j)
+            {
+                my_controller[i][j] = 1;
+            }
+        }
+    }
     //Calculate the upper values to get the lower values and set them to our data.
     for (int i = 0; i < source.GetRows() - 1; i++)
     {
@@ -118,8 +117,6 @@ void UMatrix<T>::CalculateUpper(const Matrix<T> &source)
         {
             if (i <= j)
             {
-                cout << "i: " << i << ", j: " << j << endl;
-                cout << m[i][j] << endl;
                 operator()(i, j) = m[i][j];
             }
         }
@@ -135,12 +132,12 @@ T &UMatrix<T>::operator()(const int &i, const int &j)
     {
         if (j > GetColumns())
         {
-            throw std::range_error("Out of bounds1");
+            throw std::range_error("Out of bounds");
         }
     }
     else
     {
-        throw std::range_error("Out of bounds2");
+        throw std::range_error("Out of bounds");
     }
     if (i >= 0)
     {
@@ -158,12 +155,12 @@ T &UMatrix<T>::operator()(const int &i, const int &j)
         }
         else
         {
-            throw std::range_error("Out of bounds3");
+            throw std::range_error("Out of bounds");
         }
     }
     else
     {
-        throw std::range_error("Out of bounds4");
+        throw std::range_error("Out of bounds");
     }
 }
 
@@ -174,14 +171,12 @@ T &UMatrix<T>::operator()(const int &i, const int &j) const
     {
         if (j > GetColumns())
         {
-            cout << GetRows() << " : " << GetColumns() << endl;
-            cout << i << " : " << j << endl;
-            throw std::range_error("Out of bounds13");
+            throw std::range_error("Out of bounds");
         }
     }
     else
     {
-        throw std::range_error("Out of bounds23");
+        throw std::range_error("Out of bounds");
     }
     if (i >= 0)
     {
@@ -199,12 +194,12 @@ T &UMatrix<T>::operator()(const int &i, const int &j) const
         }
         else
         {
-            throw std::range_error("Out of bounds53");
+            throw std::range_error("Out of bounds");
         }
     }
     else
     {
-        throw std::range_error("Out of bounds63");
+        throw std::range_error("Out of bounds");
     }
 }
 

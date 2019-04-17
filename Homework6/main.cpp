@@ -94,10 +94,19 @@ int main(int argc, char *argv[])
             DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
             dM = Matrix1;
             LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
-            lM = Matrix1;
-            lM(1, 0) = 1;
-            lM(2, 0) = 1;
-            lM(2, 1) = 1;
+            lM(1, 0) = 2;
+            lM(2, 0) = 2;
+            lM(2, 1) = 2;
+            lM(0, 0) = 2;
+            lM(1, 1) = 2;
+            lM(2, 2) = 2;
+            UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            uM(0, 1) = 2;
+            uM(0, 2) = 2;
+            uM(1, 2) = 2;
+            uM(0, 0) = 2;
+            uM(1, 1) = 2;
+            uM(2, 2) = 2;
             for (int i = 0; i < Matrix1.GetRows(); i++)
             {
                 for (int j = 0; j < Matrix1.GetColumns(); j++)
@@ -113,11 +122,6 @@ int main(int argc, char *argv[])
                     sM[i][j] = 2;
                 }
             }
-            UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
-            uM = Matrix1;
-            uM(0, 1) = 2;
-            uM(0, 2) = 2;
-            uM(1, 2) = 2;
 
             cout << "-------------Diagonal Matrix-------------" << endl;
             cout << dM << endl;
@@ -144,13 +148,10 @@ int main(int argc, char *argv[])
 
             cout << "-------------Lower Matrix-------------" << endl;
             cout << lM << endl;
-            cout << endl;
-            cout << "-------------Lower/diagonal-------------" << endl;
-            cout << lM - dM << endl;
-            cout << endl;
             cout << "-------------diagonal/lower-------------" << endl;
             cout << dM - lM << endl;
-            cout << endl;
+            cout << "-------------Lower/diagonal-------------" << endl;
+            cout << lM - dM << endl;
 
             cout << "-------------Upper Matrix-------------" << endl;
             cout << uM << endl;
