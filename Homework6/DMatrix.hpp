@@ -791,10 +791,7 @@ DMatrix<T> operator+(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    temp(i, j) = lhs(i, j) + rhs(i, j);
-                }
+                temp(i, i) = lhs(i, i) + rhs(i, i);
             }
         }
         else
