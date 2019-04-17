@@ -159,7 +159,7 @@ LMatrix<T> &LMatrix<T>::operator=(const Matrix<T> &source)
 template <class T>
 T &LMatrix<T>::operator()(const int &i, const int &j)
 {
-    if (i <= GetRows())
+    if (i < GetRows())
     {
         if (j > GetColumns())
         {

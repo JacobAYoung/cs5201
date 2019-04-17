@@ -35,16 +35,12 @@ MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
     case 1:
         for (int i = 0; i < rows; i++)
         {
-            MyVector<T> tempVect(columns);
+            MyVector<T> tempVect(columns - i);
             for (int j = 0; j < tempVect.GetNumElements(); j++)
             {
                 tempVect[j] = 0;
             }
             myVect.PushBack(tempVect);
-            // if (i != 0)
-            // {
-            //     myVect[i].deletePointer(i);
-            // }
         }
         break;
     case 2:
