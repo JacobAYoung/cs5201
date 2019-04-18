@@ -47,6 +47,29 @@ MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
             myVect.PushBack(tempVect);
         }
         break;
+    case 3:
+        for (int i = 0; i < rows; i++)
+        {
+            if (i == 0 || i == (rows - 1))
+            {
+                MyVector<T> tempVect(2);
+                for (int j = 0; j < tempVect.GetNumElements(); j++)
+                {
+                    tempVect[j] = 0;
+                }
+                myVect.PushBack(tempVect);
+            }
+            else
+            {
+                MyVector<T> tempVect(3);
+                for (int j = 0; j < tempVect.GetNumElements(); j++)
+                {
+                    tempVect[j] = 0;
+                }
+                myVect.PushBack(tempVect);
+            }
+        }
+        break;
     }
 }
 

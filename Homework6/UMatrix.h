@@ -401,10 +401,10 @@ template <typename T>
 Matrix<T> operator*(const UMatrix<T> &lhs, const Matrix<T> &rhs);
 
 template <typename T>
-SMatrix<T> operator*(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
+Matrix<T> operator*(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
 
 template <typename T>
-SMatrix<T> operator*(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
+Matrix<T> operator*(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator*(const UMatrix<T> &lhs, const DMatrix<T> &rhs);
@@ -470,10 +470,10 @@ template <typename T>
 Matrix<T> operator+(const UMatrix<T> &lhs, const Matrix<T> &rhs);
 
 template <typename T>
-SMatrix<T> operator+(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
+Matrix<T> operator+(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
 
 template <typename T>
-SMatrix<T> operator+(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
+Matrix<T> operator+(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator+(const UMatrix<T> &lhs, const DMatrix<T> &rhs);
@@ -539,10 +539,10 @@ template <typename T>
 Matrix<T> operator-(const UMatrix<T> &lhs, const Matrix<T> &rhs);
 
 template <typename T>
-SMatrix<T> operator-(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
+Matrix<T> operator-(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
 
 template <typename T>
-SMatrix<T> operator-(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
+Matrix<T> operator-(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator-(const UMatrix<T> &lhs, const DMatrix<T> &rhs);

@@ -55,7 +55,8 @@ public:
   {
     LMatrix,
     UMatrix,
-    DMatrix
+    DMatrix,
+    TMatrix
   } m_type;
   /**
    * 

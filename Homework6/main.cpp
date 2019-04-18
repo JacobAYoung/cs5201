@@ -14,6 +14,7 @@
 #include "LMatrix.h"
 #include "UMatrix.h"
 #include "DMatrix.h"
+#include "TMatrix.h"
 #include "SMatrix.h"
 #include "GaussElimination.h"
 
@@ -444,7 +445,10 @@ int main(int argc, char *argv[])
         }
         else
         {
-            cout << "A * A^T:" << endl;
+            TMatrix<double> tM(Matrix1.GetRows(), Matrix1.GetColumns());
+            tM = Matrix1;
+            cout << tM << endl;
+            //cout << "A * A^T:" << endl;
             // cout << Matrix1 * Matrix1.Transpose() << endl;
             // cout << endl;
 
