@@ -201,12 +201,9 @@ bool operator==(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs(i, i))
                 {
-                    if (lhs(i, j) != rhs(i, j))
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
             return true;
@@ -231,9 +228,13 @@ bool operator==(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs(i, i))
                 {
-                    if (lhs(i, j) != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < rhs.GetColumns(); j++)
+                {
+                    if (rhs(j, i) != 0)
                     {
                         return false;
                     }
@@ -261,9 +262,17 @@ bool operator==(const DMatrix<T> &lhs, const Matrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs[i][i])
                 {
-                    if (lhs(i, j) != rhs[i][j])
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    if (rhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    if (rhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -291,9 +300,17 @@ bool operator==(const Matrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs[i][i] != rhs(i, i))
                 {
-                    if (lhs[i][j] != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    if (lhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -321,9 +338,17 @@ bool operator==(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs[i][i])
                 {
-                    if (lhs(i, j) != rhs[i][j])
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    if (rhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    if (rhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -351,9 +376,17 @@ bool operator==(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs[i][i] != rhs(i, i))
                 {
-                    if (lhs[i][j] != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    if (lhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -381,9 +414,13 @@ bool operator==(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs(i, i))
                 {
-                    if (lhs(i, j) != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < rhs.GetColumns(); j++)
+                {
+                    if (rhs(i, j) != 0)
                     {
                         return false;
                     }
@@ -425,12 +462,9 @@ bool operator!=(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs(i, i))
                 {
-                    if (lhs(i, j) != rhs(i, j))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;

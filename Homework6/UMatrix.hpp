@@ -252,7 +252,7 @@ bool operator==(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = rhs.GetColumns() - 1; j >= i; j--)
                 {
                     if (lhs(i, j) != rhs(i, j))
                     {

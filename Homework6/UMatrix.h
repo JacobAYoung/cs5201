@@ -99,6 +99,8 @@ public:
      * @param source The vector that wants to be added to the c.o. UMatrix
      */
   void PushBack(const MyVector<T> &source);
+
+  Matrix<T> operator*(const IMatrix<UMatrix<T>, T> &source);
   /**
      * @brief Get the Rows object
      * @pre UMatrix object is created

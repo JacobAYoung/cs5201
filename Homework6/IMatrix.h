@@ -18,6 +18,10 @@
  * @copyright Copyright (c) 2019
  * 
  */
+
+template <class T>
+class Matrix;
+
 template <class M, class T>
 class IMatrix
 {
@@ -30,6 +34,8 @@ public:
      * @param source The vector that wants to be added to the c.o. Matrix
      */
   virtual void PushBack(const MyVector<T> &source) = 0;
+
+  //virtual Matrix<T> operator*(const IMatrix<M, T> &source) = 0;
   /**
      * @brief Get the Rows object
      * @pre Matrix object is created
