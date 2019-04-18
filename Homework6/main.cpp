@@ -447,7 +447,10 @@ int main(int argc, char *argv[])
         {
             TMatrix<double> tM(Matrix1.GetRows(), Matrix1.GetColumns());
             tM = Matrix1;
-            cout << tM << endl;
+
+            TMatrix<double> tM1(Matrix1.GetRows(), Matrix1.GetColumns());
+            tM1 = Matrix1;
+            cout << tM * tM1 << endl;
             //cout << "A * A^T:" << endl;
             // cout << Matrix1 * Matrix1.Transpose() << endl;
             // cout << endl;

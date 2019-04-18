@@ -586,16 +586,168 @@ TMatrix<T> operator-(const TMatrix<T> &source)
 template <typename T>
 Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
 {
-    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    int rows = lhs.GetRows();
+    int columns = lhs.GetColumns();
+    Matrix<T> temp(rows, columns);
     if (lhs.GetColumns() == rhs.GetRows())
     {
-        for (int i = 0; i < lhs.GetRows(); i++)
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = i; j < rhs.GetColumns(); j++)
+            if (i == 0)
             {
-                for (int k = i; k <= j; k++)
+                for (int j = 0; j < 3; j++)
                 {
-                    temp[i][j] += lhs(i, k) * rhs(k, j);
+                    for (int k = 0; k <= i + 1; k++)
+                    {
+                        if (j == 2)
+                        {
+                            if (k == 0)
+                            {
+                                continue;
+                            }
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                        else
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                }
+            }
+            else if (i == (rows - 1))
+            {
+                for (int j = i - 2; j < rows; j++)
+                {
+                    if (j == rows - 3)
+                    {
+                        int k = rows - 2;
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << k << ") + "
+                             << "(" << k << ", " << j << ")" << endl;
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                    else
+                    {
+                        for (int k = rows - 2; k < rows; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                }
+            }
+            else if (i == 1)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (j == 0)
+                    {
+                        for (int k = 0; k < 2; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else if (j == 1)
+                    {
+                        for (int k = 0; k < 3; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else if (j == 2)
+                    {
+                        for (int k = 1; k < 3; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else if (j == 3)
+                    {
+                        for (int k = 2; k < 4; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                }
+            }
+            else
+            { //i = 2, j = 0 for 4 rows
+                int counter = 0;
+                for (int j = i - 2; j < rows; j++)
+                {
+                    if (counter == 0)
+                    {
+                        cout << "Counter0: ";
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j + 1 << ") + "
+                             << "(" << j + 1 << ", " << j << ")" << endl;
+                        temp[i][j] += lhs(i, j + 1) * rhs(j + 1, j);
+                    }
+                    else if (counter == 1)
+                    {
+                        for (int k = j; k <= j + 1; k++)
+                        {
+                            cout << "Counter1: ";
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else if (counter == 2)
+                    {
+                        for (int k = j - 1; k < j + 2; k++)
+                        {
+                            cout << "Counter2: ";
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else if (counter == 3)
+                    {
+                        for (int k = j - 1; k < j + 1; k++)
+                        {
+                            cout << "Counter3: ";
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else
+                    {
+                        for (int k = j - 1; k < j + 1; k++)
+                        {
+                            cout << "Counter3: ";
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    counter++;
                 }
             }
         }

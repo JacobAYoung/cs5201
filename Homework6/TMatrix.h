@@ -94,7 +94,7 @@ class TMatrix : public IMatrix<TMatrix<T>, T>
      */
     void PushBack(const MyVector<T> &source);
 
-    Matrix<T> operator*(const IMatrix<TMatrix<T>, T> &source);
+    //Matrix<T> operator*(const IMatrix<TMatrix<T>, T> &source);
     /**
      * @brief Get the Rows object
      * @pre TMatrix object is created
