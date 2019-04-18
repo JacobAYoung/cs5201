@@ -249,7 +249,7 @@ bool operator==(const LMatrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                for (int j = 0; j <= i; j++)
                 {
                     if (lhs(i, j) != rhs(i, j))
                     {
@@ -279,9 +279,17 @@ bool operator==(const LMatrix<T> &lhs, const UMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs(i, i))
                 {
-                    if (lhs(i, j) != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    if (lhs(j, i) != 0)
+                    {
+                        return false;
+                    }
+                    if (rhs(i, j) != 0)
                     {
                         return false;
                     }
@@ -309,9 +317,24 @@ bool operator==(const LMatrix<T> &lhs, const Matrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs[i][i])
                 {
-                    if (lhs(i, j) != rhs[i][j])
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    //Check if lower bounds for lower is 0
+                    if (lhs(j, i) != 0)
+                    {
+                        return false;
+                    }
+                    //Check if lower bounds for dense is 0
+                    if (rhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    //Check if upper bounds for dense is 0
+                    if (rhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -339,9 +362,24 @@ bool operator==(const Matrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (rhs(i, i) != lhs[i][i])
                 {
-                    if (lhs[i][j] != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    //Check if lower bounds for lower is 0
+                    if (rhs(j, i) != 0)
+                    {
+                        return false;
+                    }
+                    //Check if lower bounds for dense is 0
+                    if (lhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    //Check if upper bounds for dense is 0
+                    if (lhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -369,9 +407,24 @@ bool operator==(const LMatrix<T> &lhs, const SMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs[i][i])
                 {
-                    if (lhs(i, j) != rhs[i][j])
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    //Check if lower bounds for lower is 0
+                    if (lhs(j, i) != 0)
+                    {
+                        return false;
+                    }
+                    //Check if lower bounds for symmetric is 0
+                    if (rhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    //Check if upper bounds for symmetric is 0
+                    if (rhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -399,9 +452,24 @@ bool operator==(const SMatrix<T> &lhs, const LMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (rhs(i, i) != lhs[i][i])
                 {
-                    if (lhs[i][j] != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < lhs.GetColumns(); j++)
+                {
+                    //Check if lower bounds for lower is 0
+                    if (rhs(j, i) != 0)
+                    {
+                        return false;
+                    }
+                    //Check if lower bounds for symmetric is 0
+                    if (lhs[j][i] != 0)
+                    {
+                        return false;
+                    }
+                    //Check if upper bounds for symmetric is 0
+                    if (lhs[i][j] != 0)
                     {
                         return false;
                     }
@@ -429,9 +497,13 @@ bool operator==(const LMatrix<T> &lhs, const DMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = 0; j < lhs.GetColumns(); j++)
+                if (lhs(i, i) != rhs(i, i))
                 {
-                    if (lhs(i, j) != rhs(i, j))
+                    return false;
+                }
+                for (int j = i + 1; j < rhs.GetColumns(); j++)
+                {
+                    if (lhs(j, i) != 0)
                     {
                         return false;
                     }
@@ -453,211 +525,43 @@ bool operator==(const LMatrix<T> &lhs, const DMatrix<T> &rhs)
 template <typename T>
 bool operator!=(const LMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const LMatrix<T> &lhs, const UMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const LMatrix<T> &lhs, const Matrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs[i][j])
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const Matrix<T> &lhs, const LMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs[i][j] != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const LMatrix<T> &lhs, const SMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs[i][j])
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const SMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs[i][j] != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const LMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>

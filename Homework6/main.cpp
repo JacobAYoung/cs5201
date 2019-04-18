@@ -94,19 +94,28 @@ int main(int argc, char *argv[])
             DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
             dM = Matrix1;
             LMatrix<double> lM(Matrix1.GetRows(), Matrix1.GetColumns());
+            LMatrix<double> lM2(Matrix1.GetRows(), Matrix1.GetColumns());
             // lM(1, 0) = 2;
             // lM(2, 0) = 2;
-            lM(2, 1) = 2;
+            //lM(2, 1) = 2;
             lM(0, 0) = 1;
             lM(1, 1) = 1;
             lM(2, 2) = 1;
+            lM2(0, 0) = 1;
+            lM2(1, 1) = 1;
+            lM2(2, 2) = 1;
+
             UMatrix<double> uM(Matrix1.GetRows(), Matrix1.GetColumns());
+            UMatrix<double> uM2(Matrix1.GetRows(), Matrix1.GetColumns());
             // uM(0, 1) = 2;
             // uM(0, 2) = 2;
             uM(1, 2) = 2;
             uM(0, 0) = 1;
             uM(1, 1) = 1;
             uM(2, 2) = 1;
+            uM2(0, 0) = 1;
+            uM2(1, 1) = 1;
+            uM2(2, 2) = 1;
             // for (int i = 0; i < Matrix1.GetRows(); i++)
             // {
             //     for (int j = 0; j < Matrix1.GetColumns(); j++)
@@ -118,7 +127,7 @@ int main(int argc, char *argv[])
             Matrix1[1][1] = 1;
             Matrix1[2][2] = 1;
             //Matrix1[0][1] = 1;
-            Matrix1[1][0] = 1;
+            //Matrix1[1][2] = 1;
             SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
             for (int i = 0; i < Matrix1.GetRows(); i++)
             {
@@ -131,13 +140,13 @@ int main(int argc, char *argv[])
             cout << dM << endl;
 
             cout << "-------------Lower Matrix-------------" << endl;
-            cout << Matrix1 << endl;
+            cout << lM << endl;
 
-            if (dM == uM)
+            if (uM == Matrix1)
             {
                 cout << "Equal" << endl;
             }
-            if (Matrix1 == dM)
+            if (Matrix1 == uM)
             {
                 cout << "Equal" << endl;
             }

@@ -483,181 +483,37 @@ bool operator!=(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 template <typename T>
 bool operator!=(const DMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const DMatrix<T> &lhs, const Matrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs[i][j])
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const Matrix<T> &lhs, const DMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs[i][j] != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const DMatrix<T> &lhs, const SMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs[i][j])
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const SMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs[i][j] != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
 bool operator!=(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
 {
-    if (lhs.GetColumns() == rhs.GetColumns())
-    {
-        if (lhs.GetRows() == rhs.GetRows())
-        {
-            for (int i = 0; i < lhs.GetRows(); i++)
-            {
-                for (int j = 0; j < lhs.GetColumns(); j++)
-                {
-                    if (lhs(i, j) != rhs(i, j))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return true;
-    }
+    return !(lhs == rhs);
 }
 
 template <typename T>
