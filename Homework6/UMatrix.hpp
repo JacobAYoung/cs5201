@@ -757,9 +757,61 @@ Matrix<T> operator*(const UMatrix<T> &lhs, const TMatrix<T> &rhs)
     {
         for (int i = 0; i < lhs.GetRows(); i++)
         {
-            for (int j = i; j < lhs.GetColumns(); j++)
+            for (int j = 0; j < rhs.GetColumns(); j++)
             {
-                temp(i, j) += lhs(i, j) * rhs(j, j);
+                if (i == 0)
+                {
+                    if (j < 2)
+                    {
+                        for (int k = i; k < j + 2; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else
+                    {
+                        for (int k = j - 1; k < 4; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                }
+                else if (i == (lhs.GetColumns() - 1))
+                {
+                    for (int k = i - 1; k < lhs.GetColumns(); k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+                else if (i == 1)
+                {
+                    int max = j + 1;
+                    if (max == 4)
+                    {
+                        max = 3;
+                    }
+                    for (int k = i; k <= max; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+                else
+                {
+                    for (int k = j - 1; k <= j + 1; k++)
+                    {
+                        if (k < 0 || k > (lhs.GetRows() - 1))
+                        {
+                            continue;
+                        }
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
             }
         }
     }

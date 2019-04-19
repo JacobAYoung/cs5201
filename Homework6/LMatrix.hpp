@@ -731,6 +731,67 @@ LMatrix<T> operator*(const LMatrix<T> &lhs, const DMatrix<T> &rhs)
 }
 
 template <typename T>
+Matrix<T> operator*(const LMatrix<T> &lhs, const TMatrix<T> &rhs)
+{
+    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
+    {
+        for (int i = 0; i < lhs.GetRows(); i++)
+        {
+            for (int j = 0; j < rhs.GetColumns(); j++)
+            {
+                if (i == 0)
+                {
+                    if (j < 2)
+                    {
+                        for (int k = i; k < j + 2; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                    else
+                    {
+                        for (int k = j - 1; k < 4; k++)
+                        {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                }
+                else if (i == (lhs.GetColumns() - 1))
+                {
+                    for (int k = i - 1; k < lhs.GetColumns(); k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+                else
+                {
+                    for (int k = j - 1; k <= j + 1; k++)
+                    {
+                        if (k < 0 || k > (lhs.GetRows() - 1))
+                        {
+                            continue;
+                        }
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
 LMatrix<T> operator+(const LMatrix<T> &lhs, const LMatrix<T> &rhs)
 {
     LMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());

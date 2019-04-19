@@ -781,6 +781,9 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const UMatrix<T> &rhs)
                     {
                         for (int k = i; k < 2; k++)
                         {
+                            cout << "(" << i << ", " << j << ") = "
+                                 << "(" << i << ", " << k << ") + "
+                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }

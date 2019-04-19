@@ -663,6 +663,38 @@ UMatrix<T> operator*(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
 }
 
 template <typename T>
+TMatrix<T> operator*(const DMatrix<T> &lhs, const TMatrix<T> &rhs)
+{
+    TMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
+    {
+        for (int i = 0; i < lhs.GetColumns(); i++)
+        {
+            temp(i, i) = lhs(i, i) * rhs(i, i);
+            if (i < lhs.GetColumns() - 1)
+            {
+                cout << "(" << i << ", " << i + 1 << ") = "
+                     << "(" << i << ", " << i << ") * "
+                     << "(" << i << ", " << i << ")" << endl;
+                temp(i, i + 1) += lhs(i, i) * rhs(i, i + 1);
+            }
+            if (i > 0)
+            {
+                cout << "(" << i << ", " << i - 1 << ") = "
+                     << "(" << i << ", " << i << ") * "
+                     << "(" << i << ", " << i << ")" << endl;
+                temp(i, i - 1) += lhs(i, i) * rhs(i, i - 1);
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
 DMatrix<T> operator+(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
     DMatrix<T> temp(lhs.GetRows(), rhs.GetColumns());

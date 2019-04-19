@@ -17,6 +17,12 @@ class LMatrix;
 template <class T>
 class SMatrix;
 
+template <class T>
+class UMatrix;
+
+template <class T>
+class TMatrix;
+
 /**
  * @file DMatrix.h
  * @class DMatrix
@@ -247,6 +253,9 @@ bool operator==(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
 
 template <typename T>
 bool operator==(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+bool operator==(const DMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two LMatrix objects are not the same
  * @pre Two LMatrix objects are created
@@ -314,6 +323,9 @@ bool operator!=(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
 
 template <typename T>
 bool operator!=(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+bool operator!=(const DMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Negates every value within the DMatrix
  * @pre A DMatrix object is created
@@ -394,6 +406,9 @@ SMatrix<T> operator*(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator*(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+TMatrix<T> operator*(const DMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Calculate DMatrix addition of two matricies
  * @pre Two DMatrix object's are created and the lhs column size is the same as
@@ -463,6 +478,9 @@ SMatrix<T> operator+(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator+(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+TMatrix<T> operator+(const DMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Calculate DMatrix subtraction of two matricies
  * @pre Two DMatrix object's are created and the lhs column size is the same as
@@ -532,6 +550,9 @@ SMatrix<T> operator-(const SMatrix<T> &lhs, const DMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator-(const DMatrix<T> &lhs, const UMatrix<T> &rhs);
+
+template <typename T>
+TMatrix<T> operator-(const DMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the DMatrix object
  * @pre A DMatrix object is created

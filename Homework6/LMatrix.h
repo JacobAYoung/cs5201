@@ -19,6 +19,9 @@ class SMatrix;
 template <class T>
 class DMatrix;
 
+template <class T>
+class TMatrix;
+
 /**
  * @file LMatrix.h
  * @class LMatrix
@@ -256,6 +259,9 @@ bool operator==(const SMatrix<T> &lhs, const LMatrix<T> &rhs);
 
 template <typename T>
 bool operator==(const LMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator==(const LMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two LMatrix objects are not the same
  * @pre Two LMatrix objects are created
@@ -323,6 +329,9 @@ bool operator!=(const SMatrix<T> &lhs, const LMatrix<T> &rhs);
 
 template <typename T>
 bool operator!=(const LMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator!=(const LMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Negates every value within the LMatrix
  * @pre A LMatrix object is created
@@ -403,6 +412,9 @@ Matrix<T> operator*(const LMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 LMatrix<T> operator*(const LMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const LMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Calculate LMatrix addition of two matricies
  * @pre Two LMatrix object's are created and the lhs column size is the same as
@@ -472,6 +484,9 @@ Matrix<T> operator+(const LMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 LMatrix<T> operator+(const LMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const LMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Calculate LMatrix subtraction of two matricies
  * @pre Two LMatrix object's are created and the lhs column size is the same as
@@ -541,6 +556,9 @@ Matrix<T> operator-(const LMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 LMatrix<T> operator-(const LMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const LMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the LMatrix object
  * @pre A LMatrix object is created
