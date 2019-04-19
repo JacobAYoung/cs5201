@@ -1,0 +1,73 @@
+- Barton-Nackman Trick
+- Curiously Recursive Template
+
+Static Polymorphism:
+- Low runtime overhead
+- "Instantiate" base class
+
+Cons:
+- Complicated
+- Program bigger
+- Requires compile-time known types.
+
+Interface Class:
+
+template <class Derived>
+class Base {
+  public:
+    Derived& asDerived() {
+      return static_cast<derived&> (*this);
+    }
+    const D& as D() const() {}
+    int foo() {
+      return asDerived().foo_impl();
+    }
+    int foo_impl() {
+      return 7;
+    }
+};
+
+Implementation Class:
+
+class Seven: public Base<Seven>
+{
+  public:
+    int foo_impl() {
+      return 10;
+    }
+};
+
+class Boring : public Derived<Boring>
+{
+//empty
+};
+
+
+//main
+Seven s;
+cout << s.foo(); //10
+
+Base<Seven> b;
+cout << b.foo(); //10
+
+
+template<class Derived>
+void print_foo(const Base<Derived>& b)
+{
+  cout << b.foo();
+}
+
+Seven s;
+print_foo(s);
+
+five f;
+print_foo(f);
+
+Boring b;
+b.foo(); //7
+
+void whatever(Base& b)
+{
+  Base* copy = new Base(b); //Doesn't work Because of "new Base(b)"
+  Base* copy = b.clone();
+}
