@@ -605,16 +605,10 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                             {
                                 continue;
                             }
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                         else
                         {
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -627,18 +621,12 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                     if (j == rows - 3)
                     {
                         int k = rows - 2;
-                        cout << "(" << i << ", " << j << ") = "
-                             << "(" << i << ", " << k << ") + "
-                             << "(" << k << ", " << j << ")" << endl;
                         temp[i][j] += lhs(i, k) * rhs(k, j);
                     }
                     else
                     {
                         for (int k = rows - 2; k < rows; k++)
                         {
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -652,9 +640,6 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                     {
                         for (int k = 0; k < 2; k++)
                         {
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -662,9 +647,6 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                     {
                         for (int k = 0; k < 3; k++)
                         {
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -672,9 +654,6 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                     {
                         for (int k = 1; k < 3; k++)
                         {
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -682,35 +661,24 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                     {
                         for (int k = 2; k < 4; k++)
                         {
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
                 }
             }
             else
-            { //i = 2, j = 0 for 4 rows
+            {
                 int counter = 0;
                 for (int j = i - 2; j < rows; j++)
                 {
                     if (counter == 0)
                     {
-                        cout << "Counter0: ";
-                        cout << "(" << i << ", " << j << ") = "
-                             << "(" << i << ", " << j + 1 << ") + "
-                             << "(" << j + 1 << ", " << j << ")" << endl;
                         temp[i][j] += lhs(i, j + 1) * rhs(j + 1, j);
                     }
                     else if (counter == 1)
                     {
                         for (int k = j; k <= j + 1; k++)
                         {
-                            cout << "Counter1: ";
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -718,21 +686,6 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                     {
                         for (int k = j - 1; k < j + 2; k++)
                         {
-                            cout << "Counter2: ";
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
-                            temp[i][j] += lhs(i, k) * rhs(k, j);
-                        }
-                    }
-                    else if (counter == 3)
-                    {
-                        for (int k = j - 1; k < j + 1; k++)
-                        {
-                            cout << "Counter3: ";
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -740,10 +693,6 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
                     {
                         for (int k = j - 1; k < j + 1; k++)
                         {
-                            cout << "Counter3: ";
-                            cout << "(" << i << ", " << j << ") = "
-                                 << "(" << i << ", " << k << ") + "
-                                 << "(" << k << ", " << j << ")" << endl;
                             temp[i][j] += lhs(i, k) * rhs(k, j);
                         }
                     }
@@ -767,11 +716,40 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const LMatrix<T> &rhs)
     {
         for (int i = 0; i < lhs.GetRows(); i++)
         {
+            int counter = 0;
             for (int j = 0; j < rhs.GetColumns(); j++)
             {
-                for (int k = i; k < rhs.GetColumns(); k++)
+                if (i == 0)
                 {
-                    temp[i][j] += lhs(i, k) * rhs(k, j);
+                    for (int k = counter; k <= i + 1; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                    counter++;
+                }
+                else if (i == (lhs.GetColumns() - 1))
+                {
+                    for (int k = i - 1; k < lhs.GetColumns(); k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+                else if (i == 1)
+                {
+                    if (j <= 2)
+                    {
+                        for (int k = j; k < 3; k++)
+                        {
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                }
+                else
+                {
+                    for (int k = j; k < rhs.GetColumns(); k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
                 }
             }
         }
@@ -789,13 +767,30 @@ Matrix<T> operator*(const Matrix<T> &lhs, const TMatrix<T> &rhs)
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
     {
-        for (int i = 0; i < lhs.GetRows(); i++)
+        for (int i = 0; i < lhs.GetColumns(); i++)
         {
-            for (int j = 0; j < rhs.GetColumns(); j++)
+            for (int j = 0; j < lhs.GetColumns(); j++)
             {
-                for (int k = 0; k <= j; k++)
+                if (j == 0)
                 {
-                    temp[i][j] += lhs[i][k] * rhs(k, j);
+                    for (int k = j; k < 2; k++)
+                    {
+                        temp[i][j] += lhs[i][k] * rhs(k, j);
+                    }
+                }
+                else if (j == lhs.GetColumns() - 1)
+                {
+                    for (int k = lhs.GetColumns() - 2; k <= lhs.GetColumns() - 1; k++)
+                    {
+                        temp[i][j] += lhs[i][k] * rhs(k, j);
+                    }
+                }
+                else
+                {
+                    for (int k = j - 1; k <= j + 1; k++)
+                    {
+                        temp[i][j] += lhs[i][k] * rhs(k, j);
+                    }
                 }
             }
         }
@@ -813,13 +808,30 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const Matrix<T> &rhs)
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
     {
-        for (int i = 0; i < lhs.GetRows(); i++)
+        for (int i = 0; i < lhs.GetColumns(); i++)
         {
-            for (int j = 0; j < rhs.GetColumns(); j++)
+            for (int j = 0; j < lhs.GetColumns(); j++)
             {
-                for (int k = i; k < lhs.GetColumns(); k++)
+                if (i == 0)
                 {
-                    temp[i][j] += lhs(i, k) * rhs[k][j];
+                    for (int k = i; k <= i + 1; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs[k][j];
+                    }
+                }
+                else if (i == lhs.GetColumns() - 1)
+                {
+                    for (int k = i - 1; k <= i; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs[k][j];
+                    }
+                }
+                else
+                {
+                    for (int k = i - 1; k <= i + 1; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs[k][j];
+                    }
                 }
             }
         }
@@ -841,9 +853,26 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const SMatrix<T> &rhs)
         {
             for (int j = 0; j < rhs.GetColumns(); j++)
             {
-                for (int k = i; k < lhs.GetColumns(); k++)
+                if (i == 0)
                 {
-                    temp[i][j] += lhs(i, k) * rhs[k][j];
+                    for (int k = i; k <= i + 1; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs[k][j];
+                    }
+                }
+                else if (i == lhs.GetColumns() - 1)
+                {
+                    for (int k = i - 1; k <= i; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs[k][j];
+                    }
+                }
+                else
+                {
+                    for (int k = i - 1; k <= i + 1; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs[k][j];
+                    }
                 }
             }
         }
@@ -865,9 +894,38 @@ Matrix<T> operator*(const SMatrix<T> &lhs, const TMatrix<T> &rhs)
         {
             for (int j = 0; j < rhs.GetColumns(); j++)
             {
-                for (int k = 0; k <= j; k++)
+                if (j == 0)
                 {
-                    temp[i][j] += lhs[i][k] * rhs(k, j);
+                    for (int k = j; k < 2; k++)
+                    {
+                        cout << "Counter1: ";
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << k << ") + "
+                             << "(" << k << ", " << j << ")" << endl;
+                        temp[i][j] += lhs[i][k] * rhs(k, j);
+                    }
+                }
+                else if (j == lhs.GetColumns() - 1)
+                {
+                    for (int k = lhs.GetColumns() - 2; k <= lhs.GetColumns() - 1; k++)
+                    {
+                        cout << "Counter3: ";
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << k << ") + "
+                             << "(" << k << ", " << j << ")" << endl;
+                        temp[i][j] += lhs[i][k] * rhs(k, j);
+                    }
+                }
+                else
+                {
+                    for (int k = j - 1; k <= j + 1; k++)
+                    {
+                        cout << "Counter2: ";
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << k << ") + "
+                             << "(" << k << ", " << j << ")" << endl;
+                        temp[i][j] += lhs[i][k] * rhs(k, j);
+                    }
                 }
             }
         }
@@ -885,11 +943,17 @@ TMatrix<T> operator*(const TMatrix<T> &lhs, const DMatrix<T> &rhs)
     TMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());
     if (lhs.GetColumns() == rhs.GetRows())
     {
-        for (int i = 0; i < lhs.GetRows(); i++)
+        for (int i = 0; i < lhs.GetColumns(); i++)
         {
-            for (int j = i; j < lhs.GetColumns(); j++)
+            temp(i, i) = lhs(i, i) * rhs(i, i);
+
+            if (i < lhs.GetColumns() - 1)
             {
-                temp(i, j) += lhs(i, j) * rhs(j, j);
+                temp(i, i + 1) = lhs(i, i + 1) * rhs(i, i);
+            }
+            if (i > 0)
+            {
+                temp(i, i - 1) = lhs(i, i - 1) * rhs(i, i);
             }
         }
     }
