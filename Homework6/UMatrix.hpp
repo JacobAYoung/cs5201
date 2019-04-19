@@ -750,6 +750,27 @@ UMatrix<T> operator*(const UMatrix<T> &lhs, const DMatrix<T> &rhs)
 }
 
 template <typename T>
+Matrix<T> operator*(const UMatrix<T> &lhs, const TMatrix<T> &rhs)
+{
+    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
+    {
+        for (int i = 0; i < lhs.GetRows(); i++)
+        {
+            for (int j = i; j < lhs.GetColumns(); j++)
+            {
+                temp(i, j) += lhs(i, j) * rhs(j, j);
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
 UMatrix<T> operator+(const UMatrix<T> &lhs, const UMatrix<T> &rhs)
 {
     UMatrix<T> temp(lhs.GetRows(), lhs.GetColumns());

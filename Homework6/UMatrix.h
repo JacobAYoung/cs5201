@@ -20,6 +20,9 @@ class SMatrix;
 template <class T>
 class DMatrix;
 
+template <class T>
+class TMatrix;
+
 /**
  * @file UMatrix.h
  * @class UMatrix
@@ -261,6 +264,9 @@ bool operator==(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
 
 template <typename T>
 bool operator==(const UMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator==(const UMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Not Equals operator. Checks to see if the two LMatrix objects are not the same
  * @pre Two LMatrix objects are created
@@ -328,6 +334,9 @@ bool operator!=(const SMatrix<T> &lhs, const UMatrix<T> &rhs);
 
 template <typename T>
 bool operator!=(const UMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+bool operator!=(const UMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Negates every value within the UMatrix
  * @pre A UMatrix object is created
@@ -408,6 +417,9 @@ Matrix<T> operator*(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator*(const UMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator*(const UMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Calculate UMatrix addition of two matricies
  * @pre Two UMatrix object's are created and the lhs column size is the same as
@@ -477,6 +489,9 @@ Matrix<T> operator+(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator+(const UMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator+(const UMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Calculate UMatrix subtraction of two matricies
  * @pre Two UMatrix object's are created and the lhs column size is the same as
@@ -546,6 +561,9 @@ Matrix<T> operator-(const UMatrix<T> &lhs, const SMatrix<T> &rhs);
 
 template <typename T>
 UMatrix<T> operator-(const UMatrix<T> &lhs, const DMatrix<T> &rhs);
+
+template <typename T>
+Matrix<T> operator-(const UMatrix<T> &lhs, const TMatrix<T> &rhs);
 /**
  * @brief Outputs every value within the columns and rows of the UMatrix object
  * @pre A UMatrix object is created

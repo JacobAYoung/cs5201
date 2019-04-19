@@ -762,6 +762,66 @@ Matrix<T> operator*(const TMatrix<T> &lhs, const LMatrix<T> &rhs)
 }
 
 template <typename T>
+Matrix<T> operator*(const TMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetRows())
+    {
+        for (int i = 0; i < lhs.GetRows(); i++)
+        {
+            for (int j = 0; j < rhs.GetColumns(); j++)
+            {
+                if (i == 0)
+                {
+                    if (j == 0)
+                    {
+                        temp[i][j] += lhs(i, i) * rhs(i, i);
+                    }
+                    else
+                    {
+                        for (int k = i; k < 2; k++)
+                        {
+                            temp[i][j] += lhs(i, k) * rhs(k, j);
+                        }
+                    }
+                }
+                else if (i == (lhs.GetColumns() - 1))
+                {
+                    for (int k = i - 1; k < lhs.GetColumns(); k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+                else if (i == 1)
+                {
+                    int max = j + 1;
+                    if (max == 4)
+                    {
+                        max = 3;
+                    }
+                    for (int k = 0; k < max; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+                else
+                {
+                    for (int k = i - 1; k <= i + 1; k++)
+                    {
+                        temp[i][j] += lhs(i, k) * rhs(k, j);
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
 Matrix<T> operator*(const Matrix<T> &lhs, const TMatrix<T> &rhs)
 {
     Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
@@ -946,7 +1006,6 @@ TMatrix<T> operator*(const TMatrix<T> &lhs, const DMatrix<T> &rhs)
         for (int i = 0; i < lhs.GetColumns(); i++)
         {
             temp(i, i) = lhs(i, i) * rhs(i, i);
-
             if (i < lhs.GetColumns() - 1)
             {
                 temp(i, i + 1) = lhs(i, i + 1) * rhs(i, i);
