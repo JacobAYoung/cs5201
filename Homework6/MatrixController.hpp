@@ -17,7 +17,7 @@ MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
     m_type = type;
     switch (type)
     {
-    case 0:
+    case MatrixController<M, T>::LMatrix:
         for (int i = 0; i < rows; i++)
         {
             MyVector<T> tempVect(i + 1);
@@ -28,7 +28,7 @@ MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
             myVect.PushBack(tempVect);
         }
         break;
-    case 1:
+    case MatrixController<M, T>::UMatrix:
         for (int i = 0; i < rows; i++)
         {
             MyVector<T> tempVect(columns - i);
@@ -39,7 +39,7 @@ MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
             myVect.PushBack(tempVect);
         }
         break;
-    case 2:
+    case MatrixController<M, T>::DMatrix:
         for (int i = 0; i < rows; i++)
         {
             MyVector<T> tempVect(1);
@@ -47,7 +47,7 @@ MatrixController<M, T>::MatrixController(int rows, int columns, typeEnum type)
             myVect.PushBack(tempVect);
         }
         break;
-    case 3:
+    case MatrixController<M, T>::TMatrix:
         for (int i = 0; i < rows; i++)
         {
             if (i == 0 || i == (rows - 1))
@@ -306,7 +306,7 @@ void MatrixController<M, T>::copy(const M &source)
 {
     switch (m_type)
     {
-    case 0:
+    case MatrixController<M, T>::LMatrix:
         for (int i = 0; i < GetRows(); i++)
         {
             for (int j = 0; j < GetColumns(); j++)
@@ -318,7 +318,7 @@ void MatrixController<M, T>::copy(const M &source)
             }
         }
         break;
-    case 1:
+    case MatrixController<M, T>::UMatrix:
         for (int i = 0; i < GetRows(); i++)
         {
             for (int j = 0; j < GetColumns(); j++)
@@ -330,7 +330,7 @@ void MatrixController<M, T>::copy(const M &source)
             }
         }
         break;
-    case 2:
+    case MatrixController<M, T>::DMatrix:
         for (int i = 0; i < GetRows(); i++)
         {
             for (int j = 0; j < GetColumns(); j++)

@@ -150,6 +150,8 @@ public:
   bool isDiagonalMatrix() const;
 
   bool isSymmetricMatrix() const;
+
+  bool isTriDiagonalMatrix() const;
   /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and Matrix object is created.

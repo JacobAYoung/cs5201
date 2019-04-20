@@ -204,6 +204,34 @@ bool Matrix<T>::isSymmetricMatrix() const
 }
 
 template <class T>
+bool Matrix<T>::isTriDiagonalMatrix() const
+{
+    for (int i = 0; i < GetRows(); i++)
+    {
+        for (int j = 0; j < GetColumns(); j++)
+        {
+            T cell = myVect[i][j];
+
+            if ((i == j) || (i - 1 == j) || (i + 1 == j))
+            {
+                if (cell == 0)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (cell != 0)
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+template <class T>
 MyVector<T> &Matrix<T>::operator[](const int &i)
 {
     if (i >= 0 && i <= GetRows())

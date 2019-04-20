@@ -259,6 +259,11 @@ int main(int argc, char *argv[])
             cout << "-------------Upper/Symmetric-------------" << endl;
             cout << uM * sM << endl;
         }
+        else if (Matrix1.isTriDiagonalMatrix())
+        {
+            TMatrix<double> tM(Matrix1.GetRows(), Matrix1.GetColumns());
+            tM = Matrix1;
+        }
         else if (Matrix1.isLowerTriangularMatrix())
         {
             SMatrix<double> sM(Matrix1.GetRows(), Matrix1.GetColumns());
