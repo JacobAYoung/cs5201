@@ -40,21 +40,21 @@ class DMatrix;
 template <class T>
 class TMatrix : public IMatrix<TMatrix<T>, T>
 {
-  private:
-    /**
+private:
+  /**
    * @brief A matrixcontroller base class to be used for common functionallity
    * over multiple kinds of matricies.
    * 
    */
-    MatrixController<TMatrix<T>, T> my_controller;
+  MatrixController<TMatrix<T>, T> my_controller;
 
-  public:
-    /**
+public:
+  /**
  * @brief Construct a new TMatrix object
  * 
  */
-    TMatrix();
-    /**
+  TMatrix();
+  /**
    * @brief Construct a new TMatrix object
    * @pre A TMatrix object is being created with specified sizes
    * @post a TMatrix object is created with specified sizes.
@@ -62,62 +62,60 @@ class TMatrix : public IMatrix<TMatrix<T>, T>
    * @param rows number of rows
    * @param columns number of columns
    */
-    TMatrix(int rows, int columns);
-    /**
+  TMatrix(int rows, int columns);
+  /**
      * @brief Copy constructor
      * @pre A c.o. TMatrix is created and a source TMatrix object is created to be
      * copied from
      * @post Copies the source TMatrix object to the c.o.
      * @param source TMatrix object
      */
-    TMatrix(const TMatrix<T> &source);
-    /**
+  TMatrix(const TMatrix<T> &source);
+  /**
      * @brief Destroy the TMatrix object
      * @pre TMatrix object is created
      * @post c.o. TMatrix will be destroyed and deleted from memory.
      */
-    ~TMatrix();
-    /**
+  ~TMatrix();
+  /**
  * @brief Construct a new TMatrix object
  * @pre Moves the TMatrix object from the source
  * @post moved the TMatrix source object to the c.o.
  * 
  * @param source TMatrix source object
  */
-    TMatrix(TMatrix<T> &&source);
-    /**
+  TMatrix(TMatrix<T> &&source);
+  /**
      * @brief Add a vector onto the TMatrix
      * @pre A TMatrix object is created
      * @post The vector has been added to the c.o. TMatrix
      * 
      * @param source The vector that wants to be added to the c.o. TMatrix
      */
-    void PushBack(const MyVector<T> &source);
-
-    //Matrix<T> operator*(const IMatrix<TMatrix<T>, T> &source);
-    /**
+  void PushBack(const MyVector<T> &source);
+  /**
      * @brief Get the Rows object
      * @pre TMatrix object is created
      * @post Gets the number of rows from the TMatrix object
      * @return int Number of rows within the TMatrix
      */
-    int GetRows() const;
-    /**
+  int GetRows() const;
+  /**
      * @brief Get the Columns object
      * @pre TMatrix object is created
      * @post Gets the number of columns from the TMatrix object
      * @return int Number of columns within the TMatrix
      */
-    int GetColumns() const;
-    /**
+  int GetColumns() const;
+  /**
    * @brief Creates a LMatrix from the transpose of the umatrix
    * @pre A Umatrix object is created and filled with data
    * @post A Lmatrix is returned from the umatrix being transposed.
    * 
    * @return LMatrix<T> A Lmatrix object
    */
-    TMatrix<T> Transpose();
-    /**
+  TMatrix<T> Transpose();
+  /**
      * @brief [] operator that returns the data of the pointer at the specified position
      * @pre: The position of the data is known and TMatrix object is created
      * @post: Returns the data from the pointer of the specified position.
@@ -125,8 +123,8 @@ class TMatrix : public IMatrix<TMatrix<T>, T>
      * @param i Position number
      * @return MyVector<T>& Returns the data from the pointer at the specific position
      */
-    MyVector<T> &operator[](const int &i);
-    /**
+  MyVector<T> &operator[](const int &i);
+  /**
      * @brief [] operator that returns the data of the pointer at the specified
      * position but its returned as a constant value
      * @pre: The position of the data is known and TMatrix object is created
@@ -136,8 +134,8 @@ class TMatrix : public IMatrix<TMatrix<T>, T>
      * @return MyVector<T>& Returns the data from the pointer at the specific
      * position as a constant value
      */
-    MyVector<T> &operator[](const int &i) const;
-    /**
+  MyVector<T> &operator[](const int &i) const;
+  /**
      * @brief Scalar multiplcation of a TMatrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
      * @pre TMatrix object is created
@@ -145,24 +143,24 @@ class TMatrix : public IMatrix<TMatrix<T>, T>
      * @param val Value to be multiplied against TMatrix
      * @return TMatrix<T> A TMatrix that has been multiplied by the value
      */
-    TMatrix<T> operator*(const T &val) const;
-    /**
+  TMatrix<T> operator*(const T &val) const;
+  /**
      * @brief Assignment operator that sets the rhs TMatrix object to the c.o.
      * @pre A TMatrix object is created and another to be copied from
      * @post Copies the rhs TMatrix object to the TMatrix c.o.
      * @param source TMatrix object
      * @return TMatrix<T> The c.o. is now equal to the rhs TMatrix object
      */
-    TMatrix<T> &operator=(const TMatrix<T> &source);
-    /**
+  TMatrix<T> &operator=(const TMatrix<T> &source);
+  /**
      * @brief Assignment operator that sets the rhs Matrix object to the c.o.
      * @pre A TMatrix object is created and a Matrix object to be copied from
      * @post Copies the rhs Matrix object to the TMatrix c.o.
      * @param source Matrix object
      * @return TMatrix<T> The c.o. is now equal to the rhs Matrix object
      */
-    TMatrix<T> &operator=(const Matrix<T> &source);
-    /**
+  TMatrix<T> &operator=(const Matrix<T> &source);
+  /**
    * @brief Works as the [] operator. To get data from the matrix.
    * @pre A umatrix must be created and have data stored within it. i and j must
    * be positive and within the bounds of the matrix otherwise it will throw an error.
@@ -172,8 +170,8 @@ class TMatrix : public IMatrix<TMatrix<T>, T>
    * @param j int value at position j
    * @return T& A element at the data position
    */
-    T &operator()(const int &i, const int &j);
-    /**
+  T &operator()(const int &i, const int &j);
+  /**
    * @brief Works as the [] operator. To get data from the matrix as a constant value.
    * @pre A umatrix must be created and have data stored within it. i and j must
    * be positive and within the bounds of the matrix otherwise it will throw an error.
@@ -183,7 +181,7 @@ class TMatrix : public IMatrix<TMatrix<T>, T>
    * @param j int value at position j
    * @return T& A element at the data position as a constant value
    */
-    T &operator()(const int &i, const int &j) const;
+  T &operator()(const int &i, const int &j) const;
 };
 /**
  * @brief Equals operator. Checks to see if the two TMatrix objects are the same
@@ -402,6 +400,7 @@ TMatrix<T> operator*(const TMatrix<T> &lhs, const DMatrix<T> &rhs);
 
 template <typename T>
 Matrix<T> operator*(const TMatrix<T> &lhs, const UMatrix<T> &rhs);
+
 /**
  * @brief Calculate TMatrix addition of two matricies
  * @pre Two TMatrix object's are created and the lhs column size is the same as

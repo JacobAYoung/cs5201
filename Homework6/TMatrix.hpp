@@ -1036,9 +1036,22 @@ TMatrix<T> operator+(const TMatrix<T> &lhs, const TMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                temp(i, i) = lhs(i, i) + rhs(i, i);
+                if (i < lhs.GetColumns() - 1)
                 {
-                    temp(i, j) = lhs(i, j) + rhs(i, j);
+                    cout << "Counter1: ";
+                    cout << "(" << i << ", " << i + 1 << ") = "
+                         << "(" << i << ", " << i + 1 << ") + "
+                         << "(" << i << ", " << i << ")" << endl;
+                    temp(i, i + 1) = lhs(i, i + 1) + rhs(i, i + 1);
+                }
+                if (i > 0)
+                {
+                    cout << "Counter2: ";
+                    cout << "(" << i << ", " << i - 1 << ") = "
+                         << "(" << i << ", " << i << ") + "
+                         << "(" << i << ", " << i << ")" << endl;
+                    temp(i, i - 1) = lhs(i, i - 1) + rhs(i, i - 1);
                 }
             }
         }
@@ -1069,7 +1082,7 @@ Matrix<T> operator+(const TMatrix<T> &lhs, const LMatrix<T> &rhs)
                 {
                     if (j < i)
                     {
-                        temp[i][j] = rhs(i, j);
+                        temp[i][j] = lhs(i, j) + rhs(i, j);
                     }
                     else if (j > i)
                     {
@@ -1100,13 +1113,23 @@ Matrix<T> operator+(const Matrix<T> &lhs, const TMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                temp[i][i] = lhs[i][i] + rhs(i, i);
+                for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[j][i] = lhs[j][i];
-                }
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
-                {
-                    temp[i][j] = lhs[i][j] + rhs(i, j);
+                    if (j > i + 1 || i > j + 1)
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") " << endl;
+                        //<< "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = lhs[i][j];
+                    }
+                    else
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") +"
+                             << "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = lhs[i][j] + rhs(i, j);
+                    }
                 }
             }
         }
@@ -1132,13 +1155,23 @@ Matrix<T> operator+(const TMatrix<T> &lhs, const Matrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                temp[i][i] = rhs[i][i] + lhs(i, i);
+                for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[j][i] = rhs[j][i];
-                }
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
-                {
-                    temp[i][j] = lhs(i, j) + rhs[i][j];
+                    if (j > i + 1 || i > j + 1)
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") " << endl;
+                        //<< "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = rhs[i][j];
+                    }
+                    else
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") +"
+                             << "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = rhs[i][j] + lhs(i, j);
+                    }
                 }
             }
         }
@@ -1164,13 +1197,23 @@ Matrix<T> operator+(const TMatrix<T> &lhs, const SMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                temp[i][i] = rhs[i][i] + lhs(i, i);
+                for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[j][i] = rhs[j][i];
-                }
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
-                {
-                    temp[i][j] = lhs(i, j) + rhs[i][j];
+                    if (j > i + 1 || i > j + 1)
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") " << endl;
+                        //<< "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = rhs[i][j];
+                    }
+                    else
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") +"
+                             << "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = rhs[i][j] + lhs(i, j);
+                    }
                 }
             }
         }
@@ -1196,13 +1239,23 @@ Matrix<T> operator+(const SMatrix<T> &lhs, const TMatrix<T> &rhs)
         {
             for (int i = 0; i < lhs.GetRows(); i++)
             {
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
+                temp[i][i] = lhs[i][i] + rhs(i, i);
+                for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp[j][i] = lhs[j][i];
-                }
-                for (int j = rhs.GetColumns() - 1; j >= i; j--)
-                {
-                    temp[i][j] = lhs[i][j] + rhs(i, j);
+                    if (j > i + 1 || i > j + 1)
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") " << endl;
+                        //<< "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = lhs[i][j];
+                    }
+                    else
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") +"
+                             << "(" << i << ", " << j << ")" << endl;
+                        temp[i][j] = lhs[i][j] + rhs(i, j);
+                    }
                 }
             }
         }
@@ -1229,9 +1282,51 @@ TMatrix<T> operator+(const TMatrix<T> &lhs, const DMatrix<T> &rhs)
             for (int i = 0; i < lhs.GetRows(); i++)
             {
                 temp(i, i) = lhs(i, i) + rhs(i, i);
-                for (int j = rhs.GetColumns(); j > i; j--)
+                for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    temp(i, j) = lhs(i, j);
+                    if (!(j > i + 1 || i > j + 1))
+                    {
+                        cout << "(" << i << ", " << j << ") = "
+                             << "(" << i << ", " << j << ") " << endl;
+                        //<< "(" << i << ", " << j << ")" << endl;
+                        temp(i, j) = lhs[i][j];
+                    }
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <typename T>
+Matrix<T> operator+(const TMatrix<T> &lhs, const UMatrix<T> &rhs)
+{
+    Matrix<T> temp(lhs.GetRows(), lhs.GetColumns());
+    if (lhs.GetColumns() == rhs.GetColumns())
+    {
+        if (lhs.GetRows() == rhs.GetRows())
+        {
+            for (int i = 0; i < lhs.GetRows(); i++)
+            {
+                temp(i, i) = lhs(i, i) + rhs(i, i);
+                for (int j = 0; j < lhs.GetColumns(); j++)
+                {
+                    if (j < i)
+                    {
+                        temp[i][j] = lhs(i, j) + rhs(i, j);
+                    }
+                    else if (!(j > i + 1 || i > j + 1))
+                    {
+                        temp[i][j] = lhs(i, j);
+                    }
                 }
             }
         }
