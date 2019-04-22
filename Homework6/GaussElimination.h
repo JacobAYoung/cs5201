@@ -7,6 +7,7 @@
 #include "Matrix.h"
 #include "LMatrix.h"
 #include "UMatrix.h"
+#include "DMatrix.h"
 
 using namespace std;
 
@@ -80,6 +81,8 @@ public:
    * @return MyVector<T> 
    */
   MyVector<T> ForwardSub(const LMatrix<T> &A, const MyVector<T> &B) const;
+
+  MyVector<T> DiagonalSolver(const DMatrix<T> &A, const MyVector<T> &B) const;
 };
 
 #include "GaussElimination.hpp"

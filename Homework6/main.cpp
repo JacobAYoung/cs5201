@@ -96,10 +96,30 @@ int main(int argc, char *argv[])
         {
             DMatrix<double> dM(Matrix1.GetRows(), Matrix1.GetColumns());
             dM = Matrix1;
+            cout << "A * A^T:" << endl;
+
+            cout << Matrix1 * Matrix1.Transpose() << endl;
+            cout << endl;
+
+            cout << "x:" << endl;
+            GaussElimination<double> gauss;
+            MyVector<double> x = gauss.DiagonalSolver(dM, myVector);
+            for (int i = 0; i < lines; i++)
+            {
+                cout << x[i] << endl;
+            }
+
+            cout << endl;
+
+            cout << "A * x:" << endl;
+            Matrix<double> Matrix2(lines, 1);
+            Matrix2.PushBack(x);
+            cout << Matrix1 * Matrix2 << endl;
         }
         else if (Matrix1.isTriDiagonalMatrix())
         {
             cout << "A's Type: 1" << endl;
+            cout << endl;
             TMatrix<double> tM(Matrix1.GetRows(), Matrix1.GetColumns());
             tM = Matrix1;
             cout << "A * A^T:" << endl;

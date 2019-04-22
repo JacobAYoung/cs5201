@@ -123,3 +123,18 @@ MyVector<T> GaussElimination<T>::ForwardSub(const LMatrix<T> &A, const MyVector<
     }
     return x;
 }
+
+template <class T>
+MyVector<T> GaussElimination<T>::DiagonalSolver(const DMatrix<T> &A, const MyVector<T> &B) const
+{
+    MyVector<T> x(B);
+    for (int i = 0; i < A.GetRows(); i++)
+    {
+        if (A(i, i) == 0)
+        {
+            throw std::logic_error("Division by zero.");
+        }
+        x[i] = x[i] / A(i, i);
+    }
+    return x;
+}
