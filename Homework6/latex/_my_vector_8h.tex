@@ -1,0 +1,252 @@
+\hypertarget{_my_vector_8h}{}\section{My\+Vector.\+h File Reference}
+\label{_my_vector_8h}\index{MyVector.h@{MyVector.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include \char`\"{}My\+Vector.\+hpp\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_my_vector}{My\+Vector$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em A similar concept to the std\+::vector object that can do specific calculations and operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_my_vector_8h_a2b1a81cf0fdd134ea739358e70382043}{operator==}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em operator==\+: == operator that checks to see if both the lhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object and rhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object are the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_my_vector_8h_ae9bd2d1bac0838a96b18409b54c9a33d}{operator!=}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em operator!=\+: != operator that checks to see if both the lhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object and rhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object are not the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{_my_vector_8h_a131ed14b414627ae652ca34b4e5466dd}{operator+}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Adds the two vector objects together. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{_my_vector_8h_a0096d1411143733935b3da28c5d1aaf0}{operator-\/}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Subtracts the two vector objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{_my_vector_8h_a093b91c13237073f2e2aec4eafbbdc8d}{operator $\ast$}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Dot product of 2 vectors. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{_my_vector_8h_a21d77a71fe0b3f00e664acd544ee11eb}{operator-\/}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Negates the values within the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{_my_vector_8h_a268ad8812e7a9fc1647c90bc9d31055d}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em operator$<$$<$\+: $<$$<$ operator that directs the output of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::istream \& \mbox{\hyperlink{_my_vector_8h_ab148d7b62577f97bed60a61599b5195c}{operator$>$$>$}} (std\+::istream \&in, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em operator$>$$>$\+: $>$$>$ operator that directs the input of data to the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_my_vector_8h_a093b91c13237073f2e2aec4eafbbdc8d}\label{_my_vector_8h_a093b91c13237073f2e2aec4eafbbdc8d}} 
+\index{MyVector.h@{MyVector.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Dot product of 2 vectors. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: There are two \mbox{\hyperlink{class_my_vector}{My\+Vector}} objects created that have the exact same amount of elements within them 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a T value of the 2 vectors that have been dotted together. Throws an error if the vector sizes aren\textquotesingle{}t the same size. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the left side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the right side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T Returns a T value of the 2 vectors that have been dotted together 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_my_vector_8h_ae9bd2d1bac0838a96b18409b54c9a33d}\label{_my_vector_8h_ae9bd2d1bac0838a96b18409b54c9a33d}} 
+\index{MyVector.h@{MyVector.h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+operator!=\+: != operator that checks to see if both the lhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object and rhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object are not the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a boolean value dependent on whether the two \mbox{\hyperlink{class_my_vector}{My\+Vector}} objects are not the same
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the left side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the right side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if they are not equal 
+
+false if they are equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_my_vector_8h_a131ed14b414627ae652ca34b4e5466dd}\label{_my_vector_8h_a131ed14b414627ae652ca34b4e5466dd}} 
+\index{MyVector.h@{MyVector.h}!operator+@{operator+}}
+\index{operator+@{operator+}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Adds the two vector objects together. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: There are two \mbox{\hyperlink{class_my_vector}{My\+Vector}} objects created that have the exact same amount of elements within them 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object of the two added vectors. Throws an error if the vectors aren\textquotesingle{}t the same size. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the left side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the right side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object of the 2 added vectors 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_my_vector_8h_a0096d1411143733935b3da28c5d1aaf0}\label{_my_vector_8h_a0096d1411143733935b3da28c5d1aaf0}} 
+\index{MyVector.h@{MyVector.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Subtracts the two vector objects. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: There are two \mbox{\hyperlink{class_my_vector}{My\+Vector}} objects created that have the exact same amount of elements within them 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object of the two subtracted vectors. Throws an error if the vectors aren\textquotesingle{}t the same size. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the left side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the right side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object of the 2 subtracted vectors 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_my_vector_8h_a21d77a71fe0b3f00e664acd544ee11eb}\label{_my_vector_8h_a21d77a71fe0b3f00e664acd544ee11eb}} 
+\index{MyVector.h@{MyVector.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Negates the values within the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object has been created with values 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a \mbox{\hyperlink{class_my_vector}{My\+Vector}} object that has all of it\textquotesingle{}s values negated. Throws an error if the vectors aren\textquotesingle{}t the same size 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object with all it\textquotesingle{}s values negated 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_my_vector_8h_a268ad8812e7a9fc1647c90bc9d31055d}\label{_my_vector_8h_a268ad8812e7a9fc1647c90bc9d31055d}} 
+\index{MyVector.h@{MyVector.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+operator$<$$<$\+: $<$$<$ operator that directs the output of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the elements of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em out} & std\+::ostream output \\
+\hline
+{\em source} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& Returns the elements of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object as an ostream object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_my_vector_8h_a2b1a81cf0fdd134ea739358e70382043}\label{_my_vector_8h_a2b1a81cf0fdd134ea739358e70382043}} 
+\index{MyVector.h@{MyVector.h}!operator==@{operator==}}
+\index{operator==@{operator==}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+operator==\+: == operator that checks to see if both the lhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object and rhs \mbox{\hyperlink{class_my_vector}{My\+Vector}} object are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a boolean value dependent on whether the two \mbox{\hyperlink{class_my_vector}{My\+Vector}} objects are the exact same 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the left side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object on the right side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if they are equal 
+
+false if they are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_my_vector_8h_ab148d7b62577f97bed60a61599b5195c}\label{_my_vector_8h_ab148d7b62577f97bed60a61599b5195c}} 
+\index{MyVector.h@{MyVector.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!MyVector.h@{MyVector.h}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+operator$>$$>$\+: $>$$>$ operator that directs the input of data to the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object data 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The \mbox{\hyperlink{class_my_vector}{My\+Vector}} object is created and theres data being streamed into the object 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Sets the element values of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em in} & std\+::istream object \\
+\hline
+{\em source} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::istream\& Sets the element values of the \mbox{\hyperlink{class_my_vector}{My\+Vector}} object 
+\end{DoxyReturn}

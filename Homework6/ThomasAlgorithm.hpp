@@ -49,11 +49,20 @@ MyVector<T> ThomasAlgorithm<T>::ThomasAlg(const TMatrix<T> &source, const MyVect
     d(0, 0) /= bb(0, 0);
     for (int i = 1; i < size; i++)
     {
-        c(i, i) /= bb(i, i) - a(i, i) * c(i - 1, i - 1);
-        d(i, i) = (d(i, i) - a(i, i) * d(i - 1, i - 1)) / (bb(i, i) - a(i, i) * c(i - 1, i - 1));
+        T value = bb(i, i) - a(i, i) * c(i - 1, i - 1);
+        if (value == 0)
+        {
+            throw std::logic_error("Division by zero.");
+        }
+        c(i, i) /= value;
+        d(i, i) = (d(i, i) - a(i, i) * d(i - 1, i - 1)) / (value);
     }
-    d(size, size) = (d(size, size) - a(size, size) * d(size - 1, size - 1)) /
-                    (bb(size, size) - a(size, size) * c(size - 1, size - 1));
+    T value = bb(size, size) - a(size, size) * c(size - 1, size - 1);
+    if (value == 0)
+    {
+        throw std::logic_error("Division by zero.");
+    }
+    d(size, size) = (d(size, size) - a(size, size) * d(size - 1, size - 1)) / (value);
     for (int i = size; i-- > 0;)
     {
         d(i, i) -= c(i, i) * d(i + 1, i + 1);

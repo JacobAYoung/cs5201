@@ -1,0 +1,78 @@
+\hypertarget{class_thomas_algorithm}{}\section{Thomas\+Algorithm$<$ T $>$ Class Template Reference}
+\label{class_thomas_algorithm}\index{ThomasAlgorithm$<$ T $>$@{ThomasAlgorithm$<$ T $>$}}
+
+
+Calculates the x values for a Triangular matrix.  
+
+
+
+
+{\ttfamily \#include $<$Thomas\+Algorithm.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_thomas_algorithm_a95ca444b7b9193ab8dafbfb5b0cea042}{Thomas\+Alg}} (const \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$ \&source, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ b) const
+\begin{DoxyCompactList}\small\item\em Calculates the triangular matricies x values using the Thomas Algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Thomas\+Algorithm$<$ T $>$}
+
+Calculates the x values for a Triangular matrix. 
+
+\begin{DoxyAuthor}{Author}
+Jake Young 
+\end{DoxyAuthor}
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_thomas_algorithm}{Thomas\+Algorithm}} object is created and \mbox{\hyperlink{class_t_matrix}{T\+Matrix}} object is created along with a b vector 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the x values for a triangular matrix. T = T types must be the same and will throw an error if there is division by zero. 
+\end{DoxyPostcond}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_thomas_algorithm_a95ca444b7b9193ab8dafbfb5b0cea042}\label{class_thomas_algorithm_a95ca444b7b9193ab8dafbfb5b0cea042}} 
+\index{ThomasAlgorithm$<$ T $>$@{ThomasAlgorithm$<$ T $>$}!ThomasAlg@{ThomasAlg}}
+\index{ThomasAlg@{ThomasAlg}!ThomasAlgorithm$<$ T $>$@{ThomasAlgorithm$<$ T $>$}}
+\subsubsection{\texorpdfstring{ThomasAlg()}{ThomasAlg()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_thomas_algorithm}{Thomas\+Algorithm}}$<$ T $>$\+::Thomas\+Alg (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$ \&}]{source,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$}]{b }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the triangular matricies x values using the Thomas Algorithm. 
+
+\begin{DoxyPrecond}{Precondition}
+A triangular matrix is created with values within it and a vector of b values are created as well to be used for the calculation. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+T = T types must be the same and any division by zero will error out. Returns a vector of x values from the calculation.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_t_matrix}{T\+Matrix}} object of triangular values \\
+\hline
+{\em b} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object of B values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object of x values 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_thomas_algorithm_8h}{Thomas\+Algorithm.\+h}}\item 
+Thomas\+Algorithm.\+hpp\end{DoxyCompactItemize}

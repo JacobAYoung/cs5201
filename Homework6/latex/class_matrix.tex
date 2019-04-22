@@ -1,0 +1,1259 @@
+\hypertarget{class_matrix}{}\section{Matrix$<$ T $>$ Class Template Reference}
+\label{class_matrix}\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+
+
+Creates a \mbox{\hyperlink{class_matrix}{Matrix}} that has multiple methods of doing calculations for that \mbox{\hyperlink{class_matrix}{Matrix}}.  
+
+
+
+
+{\ttfamily \#include $<$Matrix.\+h$>$}
+
+Inheritance diagram for Matrix$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_matrix}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix_a9d567e3a121b1be0c3f9c461cab524fe}{Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix_a44eb4cf3a243fe027112d1ace474ead9}{Matrix}} (int rows, int columns)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix_abc1e84ee28720ecc8a6807bb3f09f43e}{Matrix}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix_a91aa704de674203e96aece9e1955ccd3}{$\sim$\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_matrix}{Matrix}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix_a0632d6b00522f3ce31684c07cb258440}{Matrix}} (\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&\&source)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object for move semantics. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_matrix_af61aaa671b6bd354b27fb3aabbb65a9d}{Push\+Back}} (const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Add a vector onto the \mbox{\hyperlink{class_matrix}{Matrix}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_matrix_aa665db4bc173a7bb4ec3f9da2676dfa6}{Get\+Rows}} () const
+\begin{DoxyCompactList}\small\item\em Get the Rows object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_matrix_ada60917bb197292e0645992e108c2c2f}{Get\+Columns}} () const
+\begin{DoxyCompactList}\small\item\em Get the Columns object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a86d55a5db43b641f4e8fb2b302ccc599}{Transpose}} ()
+\begin{DoxyCompactList}\small\item\em Calculate and returns the transpose of the \mbox{\hyperlink{class_matrix}{Matrix}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a6e1df160cc8cb63f5b0bb58398b6e7ca}{is\+Lower\+Triangular\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Determines if the dense matrix is a lower Triangular \mbox{\hyperlink{class_matrix}{Matrix}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a3d177e2d4c6d8ccf7a1c4c651f4bc075}{is\+Upper\+Triangular\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Determines if the dense matrix is a upper Triangular \mbox{\hyperlink{class_matrix}{Matrix}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a899d992e9151c92ad301afc6699ba9c4}{is\+Diagonal\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Determines if the dense matrix is a Diagonal \mbox{\hyperlink{class_matrix}{Matrix}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a4ce91f41c6396308570f5ba88f0f6b17}{is\+Symmetric\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Determines if the dense matrix is a symmetric \mbox{\hyperlink{class_matrix}{Matrix}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a085b1801ea9d9b55eb5a3ca78bbda055}{is\+Tri\+Diagonal\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Determines if the dense matrix is a Tri\+Diagonal \mbox{\hyperlink{class_matrix}{Matrix}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix_aa9532c87a69bef256954e2309ca3fdd6}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix_a56c7f18f272e74bee2b616eba702fc87}{operator\mbox{[}$\,$\mbox{]}}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position but its returned as a constant value \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_matrix_a685ee55a86c08533f9593247a6220a18}{operator()}} (const int \&i, const int \&j)
+\begin{DoxyCompactList}\small\item\em Works as the \mbox{[}\mbox{]} operator. To get data from the matrix. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_matrix_aabc9c2977b9bd176e17808e6bf96a69f}{operator()}} (const int \&i, const int \&j) const
+\begin{DoxyCompactList}\small\item\em Works as the \mbox{[}\mbox{]} operator. To get data from the matrix as a constant value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a9b987f07fb3d4fcf2b038cbfd6615650}{operator $\ast$}} (const T \&val) const
+\begin{DoxyCompactList}\small\item\em Scalar multiplcation of a \mbox{\hyperlink{class_matrix}{Matrix}} and a T value. The T value must be on the right side of the multiplcation equation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix_a33c00fb6f2e9401d17d9ed615b965634}{operator=}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Assignment operator that sets the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a19ee57616bae9c683f2c9e6756cba29e}{add}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a468aedc8546d97964f692a30f1e24f94}{subtract}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a48fc463a410f5d2b0381830d78229c2c}{multiply}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a7bdfaca00fd65171656fd45bdaa6b2a0}{equals}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_aab90764c401b55d9a80fc20c50593041}{add}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_ad319fb2dd61bb12ebcdb81c693d37d8c}{subtract}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a26704cc156b59005206365eb6a008b41}{multiply}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a8fb3844da255c2db6c7539559f7957ab}{equals}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_ae9fddaf07917b365eacca00df05d4db5}{add}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a26f30ae5b84d1b7186826d3a7d878c7c}{subtract}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a1e2f2e670f13fb5cf119c1a9ab853f41}{multiply}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_ab5c137907e248616966ab336b2974587}{equals}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_adcc8d1f307ef187dcec103cf3273ae6a}{add}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a2d19a259945e67f5eb61c0981d323da5}{subtract}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a610817669271826873968ccaa3ac92e7}{multiply}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a1764e0965a1ed7589988834086b10444}{equals}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a95b11bcadf40ded8ff18d2a61ab082c6}{add}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_accba0b61ed5f2b23a4b77c613361689c}{subtract}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a5e6ec967ac129d9944ee1c735ea5407e}{multiply}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a10dabe69f447e230871ecc91cbced548}{equals}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a048e194afecce438b18ceab8b0ff64fc}{add}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_a772640d64a7742213fe09c7a9b9c63d3}{subtract}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix_afc5e3f929ee180c1f285999c2338ff0c}{multiply}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_matrix_a7fd4b8c603866c4cb516ddfe615373b0}{equals}} (const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Matrix$<$ T $>$}
+
+Creates a \mbox{\hyperlink{class_matrix}{Matrix}} that has multiple methods of doing calculations for that \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyAuthor}{Author}
+Jake Young 
+\end{DoxyAuthor}
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} can do calculations and can be used as a regular \mbox{\hyperlink{class_matrix}{Matrix}} 
+\end{DoxyPostcond}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_matrix_a9d567e3a121b1be0c3f9c461cab524fe}\label{class_matrix_a9d567e3a121b1be0c3f9c461cab524fe}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_matrix}{Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A new \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_matrix_a44eb4cf3a243fe027112d1ace474ead9}\label{class_matrix_a44eb4cf3a243fe027112d1ace474ead9}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object with set sizes 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A new \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows \\
+\hline
+{\em columns} & Number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_matrix_abc1e84ee28720ecc8a6807bb3f09f43e}\label{class_matrix_abc1e84ee28720ecc8a6807bb3f09f43e}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+\begin{DoxyPrecond}{Precondition}
+A c.\+o. \mbox{\hyperlink{class_matrix}{Matrix}} is created and a source \mbox{\hyperlink{class_matrix}{Matrix}} object is created to be copied from 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Copies the source \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_matrix_a91aa704de674203e96aece9e1955ccd3}\label{class_matrix_a91aa704de674203e96aece9e1955ccd3}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!````~Matrix@{$\sim$Matrix}}
+\index{````~Matrix@{$\sim$Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{$\sim$Matrix()}{~Matrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_matrix}{Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_matrix}{Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+c.\+o. \mbox{\hyperlink{class_matrix}{Matrix}} will be destroyed and deleted from memory. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_matrix_a0632d6b00522f3ce31684c07cb258440}\label{class_matrix_a0632d6b00522f3ce31684c07cb258440}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{class_matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&\&}]{source }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_matrix}{Matrix}} object for move semantics. 
+
+\begin{DoxyPrecond}{Precondition}
+Performs move semantics over the new matrix object 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+correctly swaps all the values to the current matrix 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & matrix object \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_matrix_a19ee57616bae9c683f2c9e6756cba29e}\label{class_matrix_a19ee57616bae9c683f2c9e6756cba29e}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!add@{add}}
+\index{add@{add}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be added. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the addition of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a661dc43bb607b98c28414cdd49bc64f7}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_aab90764c401b55d9a80fc20c50593041}\label{class_matrix_aab90764c401b55d9a80fc20c50593041}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!add@{add}}
+\index{add@{add}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be added. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the addition of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_ae9fddaf07917b365eacca00df05d4db5}\label{class_matrix_ae9fddaf07917b365eacca00df05d4db5}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!add@{add}}
+\index{add@{add}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be added. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the addition of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_adcc8d1f307ef187dcec103cf3273ae6a}\label{class_matrix_adcc8d1f307ef187dcec103cf3273ae6a}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!add@{add}}
+\index{add@{add}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be added. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the addition of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a95b11bcadf40ded8ff18d2a61ab082c6}\label{class_matrix_a95b11bcadf40ded8ff18d2a61ab082c6}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!add@{add}}
+\index{add@{add}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be added. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the addition of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a048e194afecce438b18ceab8b0ff64fc}\label{class_matrix_a048e194afecce438b18ceab8b0ff64fc}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!add@{add}}
+\index{add@{add}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a addition between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be added. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the addition of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a7bdfaca00fd65171656fd45bdaa6b2a0}\label{class_matrix_a7bdfaca00fd65171656fd45bdaa6b2a0}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!equals@{equals}}
+\index{equals@{equals}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{equals()}{equals()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are created and needs to be checked if they are equal 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns true or false depending on if the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If they are equal 
+
+false If they are not equal 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_afa03122ed7ddb531656ce27690f8fb03}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_a8fb3844da255c2db6c7539559f7957ab}\label{class_matrix_a8fb3844da255c2db6c7539559f7957ab}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!equals@{equals}}
+\index{equals@{equals}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{equals()}{equals()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are created and needs to be checked if they are equal 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns true or false depending on if the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If they are equal 
+
+false If they are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_ab5c137907e248616966ab336b2974587}\label{class_matrix_ab5c137907e248616966ab336b2974587}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!equals@{equals}}
+\index{equals@{equals}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{equals()}{equals()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are created and needs to be checked if they are equal 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns true or false depending on if the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If they are equal 
+
+false If they are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a1764e0965a1ed7589988834086b10444}\label{class_matrix_a1764e0965a1ed7589988834086b10444}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!equals@{equals}}
+\index{equals@{equals}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{equals()}{equals()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are created and needs to be checked if they are equal 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns true or false depending on if the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If they are equal 
+
+false If they are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a10dabe69f447e230871ecc91cbced548}\label{class_matrix_a10dabe69f447e230871ecc91cbced548}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!equals@{equals}}
+\index{equals@{equals}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{equals()}{equals()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are created and needs to be checked if they are equal 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns true or false depending on if the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If they are equal 
+
+false If they are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a7fd4b8c603866c4cb516ddfe615373b0}\label{class_matrix_a7fd4b8c603866c4cb516ddfe615373b0}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!equals@{equals}}
+\index{equals@{equals}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{equals()}{equals()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Checks to see if two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same size, and every value withem are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are created and needs to be checked if they are equal 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns true or false depending on if the \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects are the same.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If they are equal 
+
+false If they are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_ada60917bb197292e0645992e108c2c2f}\label{class_matrix_ada60917bb197292e0645992e108c2c2f}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!GetColumns@{GetColumns}}
+\index{GetColumns@{GetColumns}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{GetColumns()}{GetColumns()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::Get\+Columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the Columns object. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Gets the number of columns from the \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+int Number of columns within the \mbox{\hyperlink{class_matrix}{Matrix}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a3b84da3898ef38bdf281c13f218fc278}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_aa665db4bc173a7bb4ec3f9da2676dfa6}\label{class_matrix_aa665db4bc173a7bb4ec3f9da2676dfa6}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!GetRows@{GetRows}}
+\index{GetRows@{GetRows}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{GetRows()}{GetRows()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::Get\+Rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the Rows object. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Gets the number of rows from the \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+int Number of rows within the \mbox{\hyperlink{class_matrix}{Matrix}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a58632b018f4023768db7963e22f468da}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_a899d992e9151c92ad301afc6699ba9c4}\label{class_matrix_a899d992e9151c92ad301afc6699ba9c4}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!isDiagonalMatrix@{isDiagonalMatrix}}
+\index{isDiagonalMatrix@{isDiagonalMatrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{isDiagonalMatrix()}{isDiagonalMatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::is\+Diagonal\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determines if the dense matrix is a Diagonal \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created and has data stored within it 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Determines if the data stored in the dense \mbox{\hyperlink{class_matrix}{Matrix}} is a Diagonal matrix
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if the matrix is a diagonal matrix 
+
+false if the matrix is a diagonal matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a6e1df160cc8cb63f5b0bb58398b6e7ca}\label{class_matrix_a6e1df160cc8cb63f5b0bb58398b6e7ca}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!isLowerTriangularMatrix@{isLowerTriangularMatrix}}
+\index{isLowerTriangularMatrix@{isLowerTriangularMatrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{isLowerTriangularMatrix()}{isLowerTriangularMatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::is\+Lower\+Triangular\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determines if the dense matrix is a lower Triangular \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created and has data stored within it 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Determines if the data stored in the dense \mbox{\hyperlink{class_matrix}{Matrix}} is a lower triangular matrix
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if the matrix is a lower triangular matrix 
+
+false if the matrix is a upper triangular matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a4ce91f41c6396308570f5ba88f0f6b17}\label{class_matrix_a4ce91f41c6396308570f5ba88f0f6b17}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!isSymmetricMatrix@{isSymmetricMatrix}}
+\index{isSymmetricMatrix@{isSymmetricMatrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{isSymmetricMatrix()}{isSymmetricMatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::is\+Symmetric\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determines if the dense matrix is a symmetric \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created and has data stored within it 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Determines if the data stored in the dense \mbox{\hyperlink{class_matrix}{Matrix}} is a symmetric matrix
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if the matrix is a symmetric matrix 
+
+false if the matrix is a symmetric matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a085b1801ea9d9b55eb5a3ca78bbda055}\label{class_matrix_a085b1801ea9d9b55eb5a3ca78bbda055}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!isTriDiagonalMatrix@{isTriDiagonalMatrix}}
+\index{isTriDiagonalMatrix@{isTriDiagonalMatrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{isTriDiagonalMatrix()}{isTriDiagonalMatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::is\+Tri\+Diagonal\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determines if the dense matrix is a Tri\+Diagonal \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created and has data stored within it 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Determines if the data stored in the dense \mbox{\hyperlink{class_matrix}{Matrix}} is a Tri\+Diagonal matrix
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if the matrix is a Tri\+Diagonal matrix 
+
+false if the matrix is a Tri\+Diagonal matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a3d177e2d4c6d8ccf7a1c4c651f4bc075}\label{class_matrix_a3d177e2d4c6d8ccf7a1c4c651f4bc075}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!isUpperTriangularMatrix@{isUpperTriangularMatrix}}
+\index{isUpperTriangularMatrix@{isUpperTriangularMatrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{isUpperTriangularMatrix()}{isUpperTriangularMatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::is\+Upper\+Triangular\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determines if the dense matrix is a upper Triangular \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created and has data stored within it 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Determines if the data stored in the dense \mbox{\hyperlink{class_matrix}{Matrix}} is a upper triangular matrix
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if the matrix is a upper triangular matrix 
+
+false if the matrix is a lower triangular matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a48fc463a410f5d2b0381830d78229c2c}\label{class_matrix_a48fc463a410f5d2b0381830d78229c2c}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!multiply@{multiply}}
+\index{multiply@{multiply}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{multiply()}{multiply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be multipled. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the multiplcation of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_aa4d4f7ce2daec7d68ff8fd590652544d}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_a26704cc156b59005206365eb6a008b41}\label{class_matrix_a26704cc156b59005206365eb6a008b41}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!multiply@{multiply}}
+\index{multiply@{multiply}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{multiply()}{multiply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be multipled. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the multiplcation of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a1e2f2e670f13fb5cf119c1a9ab853f41}\label{class_matrix_a1e2f2e670f13fb5cf119c1a9ab853f41}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!multiply@{multiply}}
+\index{multiply@{multiply}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{multiply()}{multiply()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be multipled. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the multiplcation of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a610817669271826873968ccaa3ac92e7}\label{class_matrix_a610817669271826873968ccaa3ac92e7}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!multiply@{multiply}}
+\index{multiply@{multiply}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{multiply()}{multiply()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be multipled. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the multiplcation of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a5e6ec967ac129d9944ee1c735ea5407e}\label{class_matrix_a5e6ec967ac129d9944ee1c735ea5407e}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!multiply@{multiply}}
+\index{multiply@{multiply}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{multiply()}{multiply()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be multipled. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the multiplcation of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_afc5e3f929ee180c1f285999c2338ff0c}\label{class_matrix_afc5e3f929ee180c1f285999c2338ff0c}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!multiply@{multiply}}
+\index{multiply@{multiply}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{multiply()}{multiply()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a multiplcation between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be multipled. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the multiplcation of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a9b987f07fb3d4fcf2b038cbfd6615650}\label{class_matrix_a9b987f07fb3d4fcf2b038cbfd6615650}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator $\ast$ (\begin{DoxyParamCaption}\item[{const T \&}]{val }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Scalar multiplcation of a \mbox{\hyperlink{class_matrix}{Matrix}} and a T value. The T value must be on the right side of the multiplcation equation. 
+
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\mbox{\hyperlink{class_matrix}{Matrix}} c.\+o. is multiplied by the value 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value to be multiplied against \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} that has been multiplied by the value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a10121e038635bdf33552c6a1fb288398}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_a685ee55a86c08533f9593247a6220a18}\label{class_matrix_a685ee55a86c08533f9593247a6220a18}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{const int \&}]{i,  }\item[{const int \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Works as the \mbox{[}\mbox{]} operator. To get data from the matrix. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_d_matrix}{D\+Matrix}} must be created and have data stored within it. i and j must be positive and within the bounds of the matrix otherwise it will throw an error. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Data at position i and j will be returned.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & int value at position i \\
+\hline
+{\em j} & int value at position j \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& A element at the data position 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a1e4246d163aaca1b224dec8839645ea9}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_aabc9c2977b9bd176e17808e6bf96a69f}\label{class_matrix_aabc9c2977b9bd176e17808e6bf96a69f}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{const int \&}]{i,  }\item[{const int \&}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Works as the \mbox{[}\mbox{]} operator. To get data from the matrix as a constant value. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_d_matrix}{D\+Matrix}} must be created and have data stored within it. i and j must be positive and within the bounds of the matrix otherwise it will throw an error. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Data at position i and j will be returned as a constant value.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & int value at position i \\
+\hline
+{\em j} & int value at position j \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& A element at the data position as a constant value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a2abf1a0d2454051da3ccf9cacf12797e}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_a33c00fb6f2e9401d17d9ed615b965634}\label{class_matrix_a33c00fb6f2e9401d17d9ed615b965634}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Assignment operator that sets the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the c.\+o. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created and another to be copied from 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Copies the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object to the \mbox{\hyperlink{class_matrix}{Matrix}} c.\+o. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_matrix}{Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ The c.\+o. is now equal to the rhs \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a9eeb68de7e1d37d1aab439c78fea9be3}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_aa9532c87a69bef256954e2309ca3fdd6}\label{class_matrix_aa9532c87a69bef256954e2309ca3fdd6}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The position of the data is known and \mbox{\hyperlink{class_matrix}{Matrix}} object is created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the data from the pointer of the specified position. Throws an error if the position is out of the \mbox{\hyperlink{class_matrix}{Matrix}}\textquotesingle{}s size. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Position number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$\& Returns the data from the pointer at the specific position 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a3cfb2490e2849c6c19c1979066a64818}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_a56c7f18f272e74bee2b616eba702fc87}\label{class_matrix_a56c7f18f272e74bee2b616eba702fc87}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \& \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\mbox{[}\mbox{]} operator that returns the data of the pointer at the specified position but its returned as a constant value 
+
+\begin{DoxyPrecond}{Precondition}
+\+: The position of the data is known and \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns the data from the pointer of the specified position as a constant value. Throws an error if the position is out of the \mbox{\hyperlink{class_matrix}{Matrix}}\textquotesingle{}s size. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Position number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$\& Returns the data from the pointer at the specific position as a constant value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a1ed62ee6700728045083c7f0df3e3e62}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_af61aaa671b6bd354b27fb3aabbb65a9d}\label{class_matrix_af61aaa671b6bd354b27fb3aabbb65a9d}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!PushBack@{PushBack}}
+\index{PushBack@{PushBack}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{PushBack()}{PushBack()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::Push\+Back (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Add a vector onto the \mbox{\hyperlink{class_matrix}{Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The vector has been added to the c.\+o. \mbox{\hyperlink{class_matrix}{Matrix}}
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The vector that wants to be added to the c.\+o. \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_aa5de147c7aa5b74b0f2177ed1a8158de}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_a468aedc8546d97964f692a30f1e24f94}\label{class_matrix_a468aedc8546d97964f692a30f1e24f94}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!subtract@{subtract}}
+\index{subtract@{subtract}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{subtract()}{subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::subtract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be subtracted. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the subtraction of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_matrix_a0bf5046efed75799656059ce2980a851}{I\+Matrix$<$ Matrix$<$ T $>$, T $>$}}.
+
+\mbox{\Hypertarget{class_matrix_ad319fb2dd61bb12ebcdb81c693d37d8c}\label{class_matrix_ad319fb2dd61bb12ebcdb81c693d37d8c}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!subtract@{subtract}}
+\index{subtract@{subtract}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{subtract()}{subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::subtract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_t_matrix}{T\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be subtracted. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the subtraction of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a26f30ae5b84d1b7186826d3a7d878c7c}\label{class_matrix_a26f30ae5b84d1b7186826d3a7d878c7c}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!subtract@{subtract}}
+\index{subtract@{subtract}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{subtract()}{subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::subtract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be subtracted. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the subtraction of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a2d19a259945e67f5eb61c0981d323da5}\label{class_matrix_a2d19a259945e67f5eb61c0981d323da5}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!subtract@{subtract}}
+\index{subtract@{subtract}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{subtract()}{subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::subtract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be subtracted. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the subtraction of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_accba0b61ed5f2b23a4b77c613361689c}\label{class_matrix_accba0b61ed5f2b23a4b77c613361689c}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!subtract@{subtract}}
+\index{subtract@{subtract}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{subtract()}{subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::subtract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be subtracted. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the subtraction of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a772640d64a7742213fe09c7a9b9c63d3}\label{class_matrix_a772640d64a7742213fe09c7a9b9c63d3}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!subtract@{subtract}}
+\index{subtract@{subtract}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{subtract()}{subtract()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::subtract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_matrix}{I\+Matrix}}$<$ \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$, T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Works as a subtraction between 2 \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects must be created and data filled within them to be subtracted. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the subtraction of two \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} objects. T = T and will throw an error if the sizes are off.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A \mbox{\hyperlink{class_i_matrix}{I\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A dense matrix object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_matrix_a86d55a5db43b641f4e8fb2b302ccc599}\label{class_matrix_a86d55a5db43b641f4e8fb2b302ccc599}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Transpose@{Transpose}}
+\index{Transpose@{Transpose}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsubsection{\texorpdfstring{Transpose()}{Transpose()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$\+::Transpose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculate and returns the transpose of the \mbox{\hyperlink{class_matrix}{Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_matrix}{Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a temporary \mbox{\hyperlink{class_matrix}{Matrix}} object and returns the transpose of the c.\+o. \mbox{\hyperlink{class_matrix}{Matrix}} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A copy of the \mbox{\hyperlink{class_matrix}{Matrix}} c.\+o. transpose 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_i_matrix_8h}{I\+Matrix.\+h}}\item 
+\mbox{\hyperlink{_matrix_8h}{Matrix.\+h}}\item 
+Matrix.\+hpp\end{DoxyCompactItemize}

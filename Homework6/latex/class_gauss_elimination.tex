@@ -1,0 +1,165 @@
+\hypertarget{class_gauss_elimination}{}\section{Gauss\+Elimination$<$ T $>$ Class Template Reference}
+\label{class_gauss_elimination}\index{GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}}
+
+
+File for calculating forward elimination of a matrix and b vector. double, float, etc...  
+
+
+
+
+{\ttfamily \#include $<$Gauss\+Elimination.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination_a393e790f3c8ab830fad14120c552326c}{Gauss\+Eliminate}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&source, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&B) const
+\begin{DoxyCompactList}\small\item\em Calculates the Gauss Elimination of a matrix and a B vector and returns a x vector for the calculated values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination_a44005dd8c4bcba5aa200a9532f75fb5b}{Back\+Sub}} (const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&A, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&B) const
+\begin{DoxyCompactList}\small\item\em A function that completes the backsub for a upper triangular matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination_a2d069b26585ad8ec887bb496cd0076e7}{Forward\+Sub}} (const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&A, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&B) const
+\begin{DoxyCompactList}\small\item\em A function that completes the forwardsub for a lower triangular matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination_aee32c76883aa4be9efb0480af4a09407}{Diagonal\+Solver}} (const \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$ \&A, const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&B) const
+\begin{DoxyCompactList}\small\item\em Solves a diagonal matrix with elimination of LU decomposition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Gauss\+Elimination$<$ T $>$}
+
+File for calculating forward elimination of a matrix and b vector. double, float, etc... 
+
+\begin{DoxyAuthor}{Author}
+Jake Young 
+\end{DoxyAuthor}
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}} object is created and matrix object is created along with a b vector 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Can calcuate the forward elimination of a matrix and b vector 
+\end{DoxyPostcond}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gauss_elimination_a44005dd8c4bcba5aa200a9532f75fb5b}\label{class_gauss_elimination_a44005dd8c4bcba5aa200a9532f75fb5b}} 
+\index{GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}!BackSub@{BackSub}}
+\index{BackSub@{BackSub}!GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}}
+\subsubsection{\texorpdfstring{BackSub()}{BackSub()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}}$<$ T $>$\+::Back\+Sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_matrix}{U\+Matrix}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption}) const}
+
+
+
+A function that completes the backsub for a upper triangular matrix. 
+
+\begin{DoxyPrecond}{Precondition}
+A vector of vectors is created with data stored and a single vector. T values must be the same stored with values to do the calculations. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+This will return a vector of x values that were calculated from the function.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The matrix, that is a \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$My\+Vector$<$\+T$>$$>$ of data \\
+\hline
+{\em B} & The My\+Vector$<$\+T$>$ object that has the B values stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gauss_elimination_aee32c76883aa4be9efb0480af4a09407}\label{class_gauss_elimination_aee32c76883aa4be9efb0480af4a09407}} 
+\index{GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}!DiagonalSolver@{DiagonalSolver}}
+\index{DiagonalSolver@{DiagonalSolver}!GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}}
+\subsubsection{\texorpdfstring{DiagonalSolver()}{DiagonalSolver()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}}$<$ T $>$\+::Diagonal\+Solver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_d_matrix}{D\+Matrix}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption}) const}
+
+
+
+Solves a diagonal matrix with elimination of LU decomposition. 
+
+\begin{DoxyPrecond}{Precondition}
+A diagonal object is created with data filled within it and a myvector object is created with data filled. T = T types must be the same 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The x vector will be calculated from the diagonal and b vector objects. Will throw an error if there is division by zero.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The diagonal matrix \\
+\hline
+{\em B} & \mbox{\hyperlink{class_my_vector}{My\+Vector}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ A \mbox{\hyperlink{class_my_vector}{My\+Vector}} object filled with x values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gauss_elimination_a2d069b26585ad8ec887bb496cd0076e7}\label{class_gauss_elimination_a2d069b26585ad8ec887bb496cd0076e7}} 
+\index{GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}!ForwardSub@{ForwardSub}}
+\index{ForwardSub@{ForwardSub}!GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}}
+\subsubsection{\texorpdfstring{ForwardSub()}{ForwardSub()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}}$<$ T $>$\+::Forward\+Sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption}) const}
+
+
+
+A function that completes the forwardsub for a lower triangular matrix. 
+
+\begin{DoxyPrecond}{Precondition}
+A vector of vectors is created with data stored and a single vector. T values must be the same stored with values to do the calculations. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+This will return a vector of x values that were calculated from the function.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The matrix, that is a \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$My\+Vector$<$\+T$>$$>$ of data \\
+\hline
+{\em B} & The My\+Vector$<$\+T$>$ object that has the B values stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gauss_elimination_a393e790f3c8ab830fad14120c552326c}\label{class_gauss_elimination_a393e790f3c8ab830fad14120c552326c}} 
+\index{GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}!GaussEliminate@{GaussEliminate}}
+\index{GaussEliminate@{GaussEliminate}!GaussElimination$<$ T $>$@{GaussElimination$<$ T $>$}}
+\subsubsection{\texorpdfstring{GaussEliminate()}{GaussEliminate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}}$<$ T $>$\+::Gauss\+Eliminate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{source,  }\item[{const \mbox{\hyperlink{class_my_vector}{My\+Vector}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the Gauss Elimination of a matrix and a B vector and returns a x vector for the calculated values. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: A matrix and B vector are created to calculate the forward. T values must be the same elimination and \mbox{\hyperlink{class_gauss_elimination}{Gauss\+Elimination}} object is created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Returns a x vector for the calculated values within the matrix and B vector 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The matrix \\
+\hline
+{\em B} & The b vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+My\+Vector$<$\+T$>$ A x vector for the calculated values of the matrix and B vector using Guass elimination (forward elimination) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_gauss_elimination_8h}{Gauss\+Elimination.\+h}}\item 
+Gauss\+Elimination.\+hpp\end{DoxyCompactItemize}

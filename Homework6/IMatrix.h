@@ -87,13 +87,68 @@ public:
      * @return Matrix<T> A Matrix that has been multiplied by the value
      */
   virtual M operator*(const T &val) const = 0;
-
+  /**
+   * @brief Works as the [] operator. To get data from the matrix.
+   * @pre A matrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position
+   */
   virtual T &operator()(const int &i, const int &j) = 0;
+  /**
+   * @brief Works as the [] operator. To get data from the matrix as a constant value.
+   * @pre A matrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned as a constant value. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position as a constant value
+   */
   virtual T &operator()(const int &i, const int &j) const = 0;
-
+  /**
+ * @brief Works as a addition between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be added.
+ * @post Returns the addition of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   virtual Matrix<T> add(const IMatrix<M, T> &source) const = 0;
+  /**
+ * @brief Works as a subtraction between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be subtracted.
+ * @post Returns the subtraction of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   virtual Matrix<T> subtract(const IMatrix<M, T> &source) const = 0;
+  /**
+ * @brief Works as a multiplcation between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be multipled.
+ * @post Returns the multiplcation of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   virtual Matrix<T> multiply(const IMatrix<M, T> &source) const = 0;
+  /**
+   * @brief Checks to see if two IMatrix objects are the same size, and every
+   * value withem are the same.
+   * @pre Two IMatrix objects are created and needs to be checked if they are equal
+   * @post returns true or false depending on if the IMatrix objects are the same.
+   * 
+   * @param source A IMatrix object
+   * @return true If they are equal
+   * @return false If they are not equal
+   */
   virtual bool equals(const IMatrix<M, T> &source) const = 0;
   /**
    * @brief Destroy the IMatrix object

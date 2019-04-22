@@ -1,0 +1,76 @@
+\hypertarget{class_cholesky_decomposition}{}\section{Cholesky\+Decomposition$<$ T $>$ Class Template Reference}
+\label{class_cholesky_decomposition}\index{CholeskyDecomposition$<$ T $>$@{CholeskyDecomposition$<$ T $>$}}
+
+
+File for calculating lower triangular matrix for a symmetric matrix. Template type t is assumed any value type such as int, double, etc..  
+
+
+
+
+{\ttfamily \#include $<$Cholesky\+Decomposition.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \mbox{\hyperlink{class_cholesky_decomposition_a2e61ad86b4d08faac1c7b3268ba77c9d}{Cholesky\+Decomp}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&source) const
+\begin{DoxyCompactList}\small\item\em Cholesky Decomposition function that calculates the lower triangular matrix for a symmetric matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Cholesky\+Decomposition$<$ T $>$}
+
+File for calculating lower triangular matrix for a symmetric matrix. Template type t is assumed any value type such as int, double, etc.. 
+
+\begin{DoxyAuthor}{Author}
+Jake Young 
+\end{DoxyAuthor}
+\begin{DoxyPrecond}{Precondition}
+\mbox{\hyperlink{class_cholesky_decomposition}{Cholesky\+Decomposition}} object is created and smatrix object is created for cholesky to work properly. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lower triangular matrix for a symmetric matrix. 
+\end{DoxyPostcond}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cholesky_decomposition_a2e61ad86b4d08faac1c7b3268ba77c9d}\label{class_cholesky_decomposition_a2e61ad86b4d08faac1c7b3268ba77c9d}} 
+\index{CholeskyDecomposition$<$ T $>$@{CholeskyDecomposition$<$ T $>$}!CholeskyDecomp@{CholeskyDecomp}}
+\index{CholeskyDecomp@{CholeskyDecomp}!CholeskyDecomposition$<$ T $>$@{CholeskyDecomposition$<$ T $>$}}
+\subsubsection{\texorpdfstring{CholeskyDecomp()}{CholeskyDecomp()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_l_matrix}{L\+Matrix}}$<$ T $>$ \mbox{\hyperlink{class_cholesky_decomposition}{Cholesky\+Decomposition}}$<$ T $>$\+::Cholesky\+Decomp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Cholesky Decomposition function that calculates the lower triangular matrix for a symmetric matrix. 
+
+\begin{DoxyPrecond}{Precondition}
+A smatrix object is created and has data to be used for the calculation. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A \mbox{\hyperlink{class_l_matrix}{L\+Matrix}} object is returned from the calculations of the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}. The function will throw an error if there is division by zero.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A symmetric matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+Matrix$<$\+T$>$ A lower bound matrix 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_cholesky_decomposition_8h}{Cholesky\+Decomposition.\+h}}\item 
+Cholesky\+Decomposition.\+hpp\end{DoxyCompactItemize}

@@ -21,6 +21,10 @@ LMatrix<T> CholeskyDecomposition<T>::CholeskyDecomp(const SMatrix<T> &source) co
                 {
                     sum += (temp(i, k) * temp(j, k));
                 }
+                if (temp(j, j) == 0)
+                {
+                    throw std::logic_error("Division by zero.");
+                }
                 temp(i, j) = (source[i][j] - sum) / temp(j, j);
             }
         }

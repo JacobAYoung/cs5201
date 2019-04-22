@@ -1,0 +1,500 @@
+\hypertarget{_s_matrix_8h}{}\section{S\+Matrix.\+h File Reference}
+\label{_s_matrix_8h}\index{SMatrix.h@{SMatrix.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include \char`\"{}My\+Vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I\+Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}S\+Matrix.\+hpp\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_s_matrix}{S\+Matrix$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} that has multiple methods of doing calculations for that \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_s_matrix_8h_a0533cce8223f99ff15fac15f7f65abfb}{operator==}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Equals operator. Checks to see if the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{_s_matrix_8h_af86542d9fad033fdefd1723f13e46501}{operator!=}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Not Equals operator. Checks to see if the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are not the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a983e4d3eadb563667c543fd10bf289f9}{operator-\/}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Negates every value within the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a2f487673178a6714cb3e1ecd69ec1736}{operator $\ast$}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} multiplication of two matricies. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_ae4d96e8457970e35fdde57fbba4d6393}{operator $\ast$}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate the multiplcation of the two matrix objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a5fd37bbb431bcf62730e99362bfc7dbd}{operator $\ast$}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate the multiplcation of the two matrix objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_adb3d5d3b337afbe4b7b892a198ca00e6}{operator+}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} addition of two matricies. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a78fed99d117be216291af0ce4842b846}{operator+}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate the addition of the two matrix objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a904ce52d53e66f205fdd7675cbc16aa1}{operator+}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate the addition of the two matrix objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a42572d8e22b23de5a8704fb1d6d1a080}{operator-\/}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} subtraction of two matricies. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a1b3c84b35d4edd03e1e828390c7c0978}{operator-\/}} (const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate the subtraction of the two matrix objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_s_matrix_8h_a2a68d004f4b9fe4a5992a3befa97afc9}{operator-\/}} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Calculate the subtraction of the two matrix objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{_s_matrix_8h_a118d5590e60bb5d44aa156d212228ecf}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Outputs every value within the columns and rows of the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::istream \& \mbox{\hyperlink{_s_matrix_8h_ac4441017f5f859b66de2883f4edc29cd}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&source)
+\begin{DoxyCompactList}\small\item\em Able to input values into the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_s_matrix_8h_a2f487673178a6714cb3e1ecd69ec1736}\label{_s_matrix_8h_a2f487673178a6714cb3e1ecd69ec1736}} 
+\index{SMatrix.h@{SMatrix.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$T$>$ operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} multiplication of two matricies. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object\textquotesingle{}s are created and the lhs column size is the same as the rhs row size. The value T must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} and rhs \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} to return the multiplication \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} that has been calculate by doing multiplication of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_ae4d96e8457970e35fdde57fbba4d6393}\label{_s_matrix_8h_ae4d96e8457970e35fdde57fbba4d6393}} 
+\index{SMatrix.h@{SMatrix.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate the multiplcation of the two matrix objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Both objects must be created and of the same type T=T 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Will throw an error if the matricies are not the same size. Multipies both matricies together and returns another matrix object.
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template type T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a5fd37bbb431bcf62730e99362bfc7dbd}\label{_s_matrix_8h_a5fd37bbb431bcf62730e99362bfc7dbd}} 
+\index{SMatrix.h@{SMatrix.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate the multiplcation of the two matrix objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Both objects must be created and of the same type T=T 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Will throw an error if the matricies are not the same size. Multipies both matricies together and returns another matrix object.
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template type T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_af86542d9fad033fdefd1723f13e46501}\label{_s_matrix_8h_af86542d9fad033fdefd1723f13e46501}} 
+\index{SMatrix.h@{SMatrix.h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Not Equals operator. Checks to see if the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are not the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are created. The value T must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects aren\textquotesingle{}t the same 
+
+false If the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_adb3d5d3b337afbe4b7b892a198ca00e6}\label{_s_matrix_8h_adb3d5d3b337afbe4b7b892a198ca00e6}} 
+\index{SMatrix.h@{SMatrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} addition of two matricies. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object\textquotesingle{}s are created and the lhs column size is the same as the rhs row size. The value T must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} and rhs \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} to return the addition \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} that has been calculate by doing addition of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a78fed99d117be216291af0ce4842b846}\label{_s_matrix_8h_a78fed99d117be216291af0ce4842b846}} 
+\index{SMatrix.h@{SMatrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate the addition of the two matrix objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Both objects must be created and of the same type T=T 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Will throw an error if the matricies are not the same size. Adds both matricies together and returns another matrix object.
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template type T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a904ce52d53e66f205fdd7675cbc16aa1}\label{_s_matrix_8h_a904ce52d53e66f205fdd7675cbc16aa1}} 
+\index{SMatrix.h@{SMatrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate the addition of the two matrix objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Both objects must be created and of the same type T=T 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Will throw an error if the matricies are not the same size. Adds both matricies together and returns another matrix object.
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template type T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a983e4d3eadb563667c543fd10bf289f9}\label{_s_matrix_8h_a983e4d3eadb563667c543fd10bf289f9}} 
+\index{SMatrix.h@{SMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Negates every value within the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object is created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Negates every value within the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} that has every value negated 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a42572d8e22b23de5a8704fb1d6d1a080}\label{_s_matrix_8h_a42572d8e22b23de5a8704fb1d6d1a080}} 
+\index{SMatrix.h@{SMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} subtraction of two matricies. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object\textquotesingle{}s are created and the lhs column size is the same as the rhs row size. The value T must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Calculates the lhs \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} and rhs \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} to return the subtraction \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} of the 2 matricies and returns it as a \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object. Throws an error the sizes of the matricies don\textquotesingle{}t line up 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object of the left hand side \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object of the right hand side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} that has been calculate by doing subtraction of the lhs and rhs matricies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a1b3c84b35d4edd03e1e828390c7c0978}\label{_s_matrix_8h_a1b3c84b35d4edd03e1e828390c7c0978}} 
+\index{SMatrix.h@{SMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate the subtraction of the two matrix objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Both objects must be created and of the same type T=T 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Will throw an error if the matricies are not the same size. Subtracts both matricies together and returns another matrix object.
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template type T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} \\
+\hline
+{\em rhs} & M\+Matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a2a68d004f4b9fe4a5992a3befa97afc9}\label{_s_matrix_8h_a2a68d004f4b9fe4a5992a3befa97afc9}} 
+\index{SMatrix.h@{SMatrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Calculate the subtraction of the two matrix objects. 
+
+\begin{DoxyPrecond}{Precondition}
+Both objects must be created and of the same type T=T 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Will throw an error if the matricies are not the same size. Subtracts both matricies together and returns another matrix object.
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template type T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_matrix}{Matrix}} \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix$<$\+T$>$ A \mbox{\hyperlink{class_matrix}{Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a118d5590e60bb5d44aa156d212228ecf}\label{_s_matrix_8h_a118d5590e60bb5d44aa156d212228ecf}} 
+\index{SMatrix.h@{SMatrix.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Outputs every value within the columns and rows of the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs every value that is within the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em out} & std\+::ostream object \\
+\hline
+{\em source} & The \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& The contents within the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_a0533cce8223f99ff15fac15f7f65abfb}\label{_s_matrix_8h_a0533cce8223f99ff15fac15f7f65abfb}} 
+\index{SMatrix.h@{SMatrix.h}!operator==@{operator==}}
+\index{operator==@{operator==}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Equals operator. Checks to see if the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are the same. 
+
+\begin{DoxyPrecond}{Precondition}
+Two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are created. The value T must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns true or false depending on if the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are the same or not 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object \\
+\hline
+{\em rhs} & \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects are the same 
+
+false If the two \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} objects aren\textquotesingle{}t the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_s_matrix_8h_ac4441017f5f859b66de2883f4edc29cd}\label{_s_matrix_8h_ac4441017f5f859b66de2883f4edc29cd}} 
+\index{SMatrix.h@{SMatrix.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!SMatrix.h@{SMatrix.h}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\mbox{\hyperlink{class_s_matrix}{S\+Matrix}}$<$ T $>$ \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Able to input values into the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}}. 
+
+\begin{DoxyPrecond}{Precondition}
+A \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object is created 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Inputs values into the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object 
+\end{DoxyPostcond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & template T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in} & std\+::istream object \\
+\hline
+{\em source} & The \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::istream\& Sets the values of the \mbox{\hyperlink{class_s_matrix}{S\+Matrix}} object 
+\end{DoxyReturn}

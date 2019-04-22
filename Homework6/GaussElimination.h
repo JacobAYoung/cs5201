@@ -81,7 +81,17 @@ public:
    * @return MyVector<T> 
    */
   MyVector<T> ForwardSub(const LMatrix<T> &A, const MyVector<T> &B) const;
-
+  /**
+ * @brief Solves a diagonal matrix with elimination of LU decomposition
+   * @pre A diagonal object is created with data filled within it and a myvector
+   * object is created with data filled. T = T types must be the same
+   * @post The x vector will be calculated from the diagonal and b vector
+   * objects. Will throw an error if there is division by zero.
+ * 
+ * @param A The diagonal matrix
+ * @param B MyVector object
+ * @return MyVector<T> A MyVector object filled with x values
+ */
   MyVector<T> DiagonalSolver(const DMatrix<T> &A, const MyVector<T> &B) const;
 };
 

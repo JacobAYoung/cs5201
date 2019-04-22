@@ -51,13 +51,29 @@ private:
   void copy(const MatrixController<M, T> &source);
 
 public:
+  /**
+ * @brief A type enumeration for all of my basic matrixs
+ * @pre These matrix classes must be created to be implemented.
+ * @post You can use these type enums for classiyfying code differences.
+ * LMatrix = 0;
+ * UMatrix = 1;
+ * DMatrix = 2;
+ * TMatrix = 3;
+ * 
+ */
   enum typeEnum
   {
     LMatrix,
     UMatrix,
     DMatrix,
     TMatrix
-  } m_type;
+  } /**
+   * @brief the value of the enumeration
+   * @pre The matrix classes must be created
+   * @post Gets the value of the current type enum value
+   * 
+   */
+  m_type;
   /**
    * 
    * @pre Construct a new LMatrix object

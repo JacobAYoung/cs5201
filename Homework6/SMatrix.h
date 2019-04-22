@@ -147,9 +147,27 @@ public:
      * position as a constant value
      */
   MyVector<T> &operator[](const int &i) const;
-
+  /**
+   * @brief Works as the [] operator. To get data from the matrix.
+   * @pre A DMatrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position
+   */
   T &operator()(const int &i, const int &j);
-
+  /**
+   * @brief Works as the [] operator. To get data from the matrix as a constant value.
+   * @pre A DMatrix must be created and have data stored within it. i and j must
+   * be positive and within the bounds of the matrix otherwise it will throw an error.
+   * @post Data at position i and j will be returned as a constant value. 
+   * 
+   * @param i int value at position i
+   * @param j int value at position j
+   * @return T& A element at the data position as a constant value
+   */
   T &operator()(const int &i, const int &j) const;
   /**
      * @brief Scalar multiplcation of a SMatrix and a T value. The T value must
@@ -168,37 +186,266 @@ public:
      * @return SMatrix<T> The c.o. is now equal to the rhs SMatrix object
      */
   SMatrix<T> &operator=(const SMatrix<T> &source);
-
+  /**
+ * @brief Sets the SMatrix object to the values of the dense matrix object
+ * @pre a dense matrix object is created to be copied from
+ * @post the dense matrix object's elements are copied to the SMatrix
+ * 
+ * @param source A dense Matrix
+ * @return SMatrix<T>& A symmetric matrix
+ */
   SMatrix<T> &operator=(const Matrix<T> &source);
 
+  /**
+ * @brief Works as a addition between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be added.
+ * @post Returns the addition of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> add(const IMatrix<Matrix<T>, T> &source) const;
+  /**
+ * @brief Works as a subtraction between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be subtracted.
+ * @post Returns the subtraction of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> subtract(const IMatrix<Matrix<T>, T> &source) const;
+  /**
+ * @brief Works as a multiplcation between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be multipled.
+ * @post Returns the multiplcation of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> multiply(const IMatrix<Matrix<T>, T> &source) const;
+  /**
+   * @brief Checks to see if two IMatrix objects are the same size, and every
+   * value withem are the same.
+   * @pre Two IMatrix objects are created and needs to be checked if they are equal
+   * @post returns true or false depending on if the IMatrix objects are the same.
+   * 
+   * @param source A IMatrix object
+   * @return true If they are equal
+   * @return false If they are not equal
+   */
   bool equals(const IMatrix<Matrix<T>, T> &source) const;
 
+  /**
+ * @brief Works as a addition between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be added.
+ * @post Returns the addition of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> add(const IMatrix<TMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a subtraction between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be subtracted.
+ * @post Returns the subtraction of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> subtract(const IMatrix<TMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a multiplcation between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be multipled.
+ * @post Returns the multiplcation of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> multiply(const IMatrix<TMatrix<T>, T> &source) const;
+  /**
+   * @brief Checks to see if two IMatrix objects are the same size, and every
+   * value withem are the same.
+   * @pre Two IMatrix objects are created and needs to be checked if they are equal
+   * @post returns true or false depending on if the IMatrix objects are the same.
+   * 
+   * @param source A IMatrix object
+   * @return true If they are equal
+   * @return false If they are not equal
+   */
   bool equals(const IMatrix<TMatrix<T>, T> &source) const;
 
+  /**
+ * @brief Works as a addition between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be added.
+ * @post Returns the addition of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> add(const IMatrix<LMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a subtraction between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be subtracted.
+ * @post Returns the subtraction of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> subtract(const IMatrix<LMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a multiplcation between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be multipled.
+ * @post Returns the multiplcation of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> multiply(const IMatrix<LMatrix<T>, T> &source) const;
+  /**
+   * @brief Checks to see if two IMatrix objects are the same size, and every
+   * value withem are the same.
+   * @pre Two IMatrix objects are created and needs to be checked if they are equal
+   * @post returns true or false depending on if the IMatrix objects are the same.
+   * 
+   * @param source A IMatrix object
+   * @return true If they are equal
+   * @return false If they are not equal
+   */
   bool equals(const IMatrix<LMatrix<T>, T> &source) const;
 
+  /**
+ * @brief Works as a addition between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be added.
+ * @post Returns the addition of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> add(const IMatrix<UMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a subtraction between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be subtracted.
+ * @post Returns the subtraction of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> subtract(const IMatrix<UMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a multiplcation between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be multipled.
+ * @post Returns the multiplcation of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> multiply(const IMatrix<UMatrix<T>, T> &source) const;
+  /**
+   * @brief Checks to see if two IMatrix objects are the same size, and every
+   * value withem are the same.
+   * @pre Two IMatrix objects are created and needs to be checked if they are equal
+   * @post returns true or false depending on if the IMatrix objects are the same.
+   * 
+   * @param source A IMatrix object
+   * @return true If they are equal
+   * @return false If they are not equal
+   */
   bool equals(const IMatrix<UMatrix<T>, T> &source) const;
 
+  /**
+ * @brief Works as a addition between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be added.
+ * @post Returns the addition of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> add(const IMatrix<SMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a subtraction between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be subtracted.
+ * @post Returns the subtraction of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> subtract(const IMatrix<SMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a multiplcation between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be multipled.
+ * @post Returns the multiplcation of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> multiply(const IMatrix<SMatrix<T>, T> &source) const;
+  /**
+   * @brief Checks to see if two IMatrix objects are the same size, and every
+   * value withem are the same.
+   * @pre Two IMatrix objects are created and needs to be checked if they are equal
+   * @post returns true or false depending on if the IMatrix objects are the same.
+   * 
+   * @param source A IMatrix object
+   * @return true If they are equal
+   * @return false If they are not equal
+   */
   bool equals(const IMatrix<SMatrix<T>, T> &source) const;
 
+  /**
+ * @brief Works as a addition between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be added.
+ * @post Returns the addition of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> add(const IMatrix<DMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a subtraction between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be subtracted.
+ * @post Returns the subtraction of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> subtract(const IMatrix<DMatrix<T>, T> &source) const;
+  /**
+ * @brief Works as a multiplcation between 2 IMatrix objects.
+ * @pre Two IMatrix objects must be created and data filled within them to be multipled.
+ * @post Returns the multiplcation of two IMatrix objects. T = T and will throw an
+ * error if the sizes are off.
+ * 
+ * @param source A IMatrix object
+ * @return Matrix<T> A dense matrix object.
+ */
   Matrix<T> multiply(const IMatrix<DMatrix<T>, T> &source) const;
+  /**
+   * @brief Checks to see if two IMatrix objects are the same size, and every
+   * value withem are the same.
+   * @pre Two IMatrix objects are created and needs to be checked if they are equal
+   * @post returns true or false depending on if the IMatrix objects are the same.
+   * 
+   * @param source A IMatrix object
+   * @return true If they are equal
+   * @return false If they are not equal
+   */
   bool equals(const IMatrix<DMatrix<T>, T> &source) const;
 };
 /**
@@ -253,10 +500,30 @@ SMatrix<T> operator-(const SMatrix<T> &source);
  */
 template <typename T>
 SMatrix<T> operator*(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
-
+/**
+ * @brief Calculate the multiplcation of the two matrix objects.
+ * @pre Both objects must be created and of the same type T=T
+ * @post Will throw an error if the matricies are not the same size. Multipies
+ * both matricies together and returns another matrix object.
+ * 
+ * @tparam T template type T
+ * @param lhs SMatrix
+ * @param rhs Matrix
+ * @return Matrix<T> A Matrix object 
+ */
 template <typename T>
 Matrix<T> operator*(const SMatrix<T> &lhs, const Matrix<T> &rhs);
-
+/**
+ * @brief Calculate the multiplcation of the two matrix objects.
+ * @pre Both objects must be created and of the same type T=T
+ * @post Will throw an error if the matricies are not the same size. Multipies
+ * both matricies together and returns another matrix object.
+ * 
+ * @tparam T template type T
+ * @param lhs Matrix
+ * @param rhs SMatrix
+ * @return Matrix<T> A Matrix object 
+ */
 template <typename T>
 Matrix<T> operator*(const Matrix<T> &lhs, const SMatrix<T> &rhs);
 /**
@@ -274,10 +541,30 @@ Matrix<T> operator*(const Matrix<T> &lhs, const SMatrix<T> &rhs);
  */
 template <typename T>
 SMatrix<T> operator+(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
-
+/**
+ * @brief Calculate the addition of the two matrix objects.
+ * @pre Both objects must be created and of the same type T=T
+ * @post Will throw an error if the matricies are not the same size. Adds
+ * both matricies together and returns another matrix object.
+ * 
+ * @tparam T template type T
+ * @param lhs SMatrix
+ * @param rhs Matrix
+ * @return Matrix<T> A Matrix object 
+ */
 template <typename T>
 Matrix<T> operator+(const SMatrix<T> &lhs, const Matrix<T> &rhs);
-
+/**
+ * @brief Calculate the addition of the two matrix objects.
+ * @pre Both objects must be created and of the same type T=T
+ * @post Will throw an error if the matricies are not the same size. Adds
+ * both matricies together and returns another matrix object.
+ * 
+ * @tparam T template type T
+ * @param lhs Matrix
+ * @param rhs SMatrix
+ * @return Matrix<T> A Matrix object 
+ */
 template <typename T>
 Matrix<T> operator+(const Matrix<T> &lhs, const SMatrix<T> &rhs);
 /**
@@ -295,10 +582,30 @@ Matrix<T> operator+(const Matrix<T> &lhs, const SMatrix<T> &rhs);
  */
 template <typename T>
 SMatrix<T> operator-(const SMatrix<T> &lhs, const SMatrix<T> &rhs);
-
+/**
+ * @brief Calculate the subtraction of the two matrix objects.
+ * @pre Both objects must be created and of the same type T=T
+ * @post Will throw an error if the matricies are not the same size. Subtracts
+ * both matricies together and returns another matrix object.
+ * 
+ * @tparam T template type T
+ * @param lhs SMatrix
+ * @param rhs MMatrix
+ * @return Matrix<T> A Matrix object 
+ */
 template <typename T>
 Matrix<T> operator-(const SMatrix<T> &lhs, const Matrix<T> &rhs);
-
+/**
+ * @brief Calculate the subtraction of the two matrix objects.
+ * @pre Both objects must be created and of the same type T=T
+ * @post Will throw an error if the matricies are not the same size. Subtracts
+ * both matricies together and returns another matrix object.
+ * 
+ * @tparam T template type T
+ * @param lhs Matrix
+ * @param rhs SMatrix
+ * @return Matrix<T> A Matrix object 
+ */
 template <typename T>
 Matrix<T> operator-(const Matrix<T> &lhs, const SMatrix<T> &rhs);
 /**
