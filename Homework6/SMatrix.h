@@ -147,6 +147,10 @@ public:
      * position as a constant value
      */
   MyVector<T> &operator[](const int &i) const;
+
+  T &operator()(const int &i, const int &j);
+
+  T &operator()(const int &i, const int &j) const;
   /**
      * @brief Scalar multiplcation of a SMatrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
@@ -166,6 +170,36 @@ public:
   SMatrix<T> &operator=(const SMatrix<T> &source);
 
   SMatrix<T> &operator=(const Matrix<T> &source);
+
+  Matrix<T> add(const IMatrix<Matrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<Matrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<Matrix<T>, T> &source) const;
+  bool equals(const IMatrix<Matrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<TMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<TMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<TMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<TMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<LMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<LMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<LMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<LMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<UMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<UMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<UMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<UMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<SMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<SMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<SMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<SMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<DMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<DMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<DMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<DMatrix<T>, T> &source) const;
 };
 /**
  * @brief Equals operator. Checks to see if the two SMatrix objects are the same

@@ -192,6 +192,666 @@ DMatrix<T> &DMatrix<T>::operator=(const Matrix<T> &source)
     return *this;
 }
 
+template <class T>
+Matrix<T> DMatrix<T>::add(const IMatrix<Matrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) + source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::subtract(const IMatrix<Matrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) - source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::multiply(const IMatrix<Matrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetRows())
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < source.GetColumns(); j++)
+            {
+                for (int k = 0; k < GetColumns(); k++)
+                {
+                    temp(i, j) += operator()(i, k) * source(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+bool DMatrix<T>::equals(const IMatrix<Matrix<T>, T> &source) const
+{
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    if (operator()(i, j) != source(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::add(const IMatrix<TMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) + source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::subtract(const IMatrix<TMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) - source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::multiply(const IMatrix<TMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetRows())
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < source.GetColumns(); j++)
+            {
+                for (int k = 0; k < GetColumns(); k++)
+                {
+                    temp(i, j) += operator()(i, k) * source(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+bool DMatrix<T>::equals(const IMatrix<TMatrix<T>, T> &source) const
+{
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    if (operator()(i, j) != source(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::add(const IMatrix<LMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) + source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::subtract(const IMatrix<LMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) - source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::multiply(const IMatrix<LMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetRows())
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < source.GetColumns(); j++)
+            {
+                for (int k = 0; k < GetColumns(); k++)
+                {
+                    temp(i, j) += operator()(i, k) * source(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+bool DMatrix<T>::equals(const IMatrix<LMatrix<T>, T> &source) const
+{
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    if (operator()(i, j) != source(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::add(const IMatrix<UMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) + source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::subtract(const IMatrix<UMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) - source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::multiply(const IMatrix<UMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetRows())
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < source.GetColumns(); j++)
+            {
+                for (int k = 0; k < GetColumns(); k++)
+                {
+                    temp(i, j) += operator()(i, k) * source(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+bool DMatrix<T>::equals(const IMatrix<UMatrix<T>, T> &source) const
+{
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    if (operator()(i, j) != source(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::add(const IMatrix<SMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) + source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::subtract(const IMatrix<SMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) - source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::multiply(const IMatrix<SMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetRows())
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < source.GetColumns(); j++)
+            {
+                for (int k = 0; k < GetColumns(); k++)
+                {
+                    temp(i, j) += operator()(i, k) * source(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+bool DMatrix<T>::equals(const IMatrix<SMatrix<T>, T> &source) const
+{
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    if (operator()(i, j) != source(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::add(const IMatrix<DMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) + source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::subtract(const IMatrix<DMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    temp(i, j) = operator()(i, j) - source(i, j);
+                }
+            }
+        }
+        else
+        {
+            throw std::length_error("Matrix sizes don't match.");
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+Matrix<T> DMatrix<T>::multiply(const IMatrix<DMatrix<T>, T> &source) const
+{
+    Matrix<T> temp(GetRows(), source.GetColumns());
+    if (GetColumns() == source.GetRows())
+    {
+        for (int i = 0; i < GetRows(); i++)
+        {
+            for (int j = 0; j < source.GetColumns(); j++)
+            {
+                for (int k = 0; k < GetColumns(); k++)
+                {
+                    temp(i, j) += operator()(i, k) * source(k, j);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::length_error("Matrix sizes don't match.");
+    }
+    return temp;
+}
+
+template <class T>
+bool DMatrix<T>::equals(const IMatrix<DMatrix<T>, T> &source) const
+{
+    if (GetColumns() == source.GetColumns())
+    {
+        if (GetRows() == source.GetRows())
+        {
+            for (int i = 0; i < GetRows(); i++)
+            {
+                for (int j = 0; j < GetColumns(); j++)
+                {
+                    if (operator()(i, j) != source(i, j))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
 template <typename T>
 bool operator==(const DMatrix<T> &lhs, const DMatrix<T> &rhs)
 {
@@ -670,7 +1330,6 @@ UMatrix<T> operator*(const DMatrix<T> &lhs, const UMatrix<T> &rhs)
     {
         for (int i = 0; i < lhs.GetRows(); i++)
         {
-            temp(i, i) = lhs(i, i) * rhs(i, i);
             for (int j = i; j < rhs.GetColumns(); j++)
             {
                 temp(i, j) += lhs(i, i) * rhs(i, j);
@@ -695,16 +1354,10 @@ TMatrix<T> operator*(const DMatrix<T> &lhs, const TMatrix<T> &rhs)
             temp(i, i) = lhs(i, i) * rhs(i, i);
             if (i < lhs.GetColumns() - 1)
             {
-                cout << "(" << i << ", " << i + 1 << ") = "
-                     << "(" << i << ", " << i << ") * "
-                     << "(" << i << ", " << i << ")" << endl;
                 temp(i, i + 1) += lhs(i, i) * rhs(i, i + 1);
             }
             if (i > 0)
             {
-                cout << "(" << i << ", " << i - 1 << ") = "
-                     << "(" << i << ", " << i << ") * "
-                     << "(" << i << ", " << i << ")" << endl;
                 temp(i, i - 1) += lhs(i, i) * rhs(i, i - 1);
             }
         }
@@ -943,9 +1596,9 @@ TMatrix<T> operator+(const DMatrix<T> &lhs, const TMatrix<T> &rhs)
                 temp(i, i) = lhs(i, i) + rhs(i, i);
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    if (!((j > i + 1) || (i > j + 1)))
+                    if (!((j > i + 1) || (i > j + 1)) && i != j)
                     {
-                        temp(i, j) = rhs[i][j];
+                        temp(i, j) = rhs(i, j);
                     }
                 }
             }
@@ -1192,9 +1845,9 @@ TMatrix<T> operator-(const DMatrix<T> &lhs, const TMatrix<T> &rhs)
                 temp(i, i) = lhs(i, i) - rhs(i, i);
                 for (int j = 0; j < lhs.GetColumns(); j++)
                 {
-                    if (!((j > i + 1) || (i > j + 1)))
+                    if (!((j > i + 1) || (i > j + 1)) && i != j)
                     {
-                        temp(i, j) = rhs[i][j];
+                        temp(i, j) = 0 - rhs(i, j);
                     }
                 }
             }
@@ -1220,7 +1873,10 @@ std::ostream &operator<<(std::ostream &out, const DMatrix<T> &source)
         {
             cout << source(i, j) << " ";
         }
-        cout << endl;
+        if (i != source.GetRows() - 1)
+        {
+            cout << endl;
+        }
     }
     return out;
 }

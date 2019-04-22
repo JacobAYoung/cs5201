@@ -87,6 +87,14 @@ public:
      * @return Matrix<T> A Matrix that has been multiplied by the value
      */
   virtual M operator*(const T &val) const = 0;
+
+  virtual T &operator()(const int &i, const int &j) = 0;
+  virtual T &operator()(const int &i, const int &j) const = 0;
+
+  virtual Matrix<T> add(const IMatrix<M, T> &source) const = 0;
+  virtual Matrix<T> subtract(const IMatrix<M, T> &source) const = 0;
+  virtual Matrix<T> multiply(const IMatrix<M, T> &source) const = 0;
+  virtual bool equals(const IMatrix<M, T> &source) const = 0;
   /**
    * @brief Destroy the IMatrix object
    * @pre IMatrix object is created to be destroyed from

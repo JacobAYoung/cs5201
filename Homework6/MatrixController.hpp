@@ -342,6 +342,32 @@ void MatrixController<M, T>::copy(const M &source)
             }
         }
         break;
+    case MatrixController<M, T>::TMatrix:
+        for (int i = 0; i < source.GetRows(); i++)
+        {
+            if (i == 0)
+            {
+                for (int j = i; j < i + 2; j++)
+                {
+                    myVect[i][j] = source(i, j);
+                }
+            }
+            else if (i == source.GetRows() - 1)
+            {
+                for (int j = i - 1; j < i + 1; j++)
+                {
+                    myVect[i][j - i + 1] = source(i, j);
+                }
+            }
+            else
+            {
+                for (int j = i - 1; j <= i + 1; j++)
+                {
+                    myVect[i][j - i + 1] = source(i, j);
+                }
+            }
+        }
+        break;
     }
     return;
 }

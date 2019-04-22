@@ -10,6 +10,21 @@
 
 using namespace std;
 
+template <class T>
+class DMatrix;
+
+template <class T>
+class LMatrix;
+
+template <class T>
+class UMatrix;
+
+template <class T>
+class SMatrix;
+
+template <class T>
+class TMatrix;
+
 /**
  * @file Matrix.h
  * @class Matrix
@@ -44,7 +59,6 @@ private:
   */
   MyVector<MyVector<T>> myVect;
 
-  //MatrixController<Matrix<T>, T> my_controller;
   /**
     * @brief Copy function that copies all the data from the source to the c.o.
     * Matrix
@@ -172,6 +186,10 @@ public:
      * position as a constant value
      */
   MyVector<T> &operator[](const int &i) const;
+
+  T &operator()(const int &i, const int &j);
+
+  T &operator()(const int &i, const int &j) const;
   /**
      * @brief Scalar multiplcation of a Matrix and a T value. The T value must
      * be on the right side of the multiplcation equation.
@@ -189,6 +207,36 @@ public:
      * @return Matrix<T> The c.o. is now equal to the rhs Matrix object
      */
   Matrix<T> &operator=(const Matrix<T> &source);
+
+  Matrix<T> add(const IMatrix<Matrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<Matrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<Matrix<T>, T> &source) const;
+  bool equals(const IMatrix<Matrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<TMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<TMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<TMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<TMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<LMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<LMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<LMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<LMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<UMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<UMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<UMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<UMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<SMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<SMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<SMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<SMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<DMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<DMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<DMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<DMatrix<T>, T> &source) const;
 };
 /**
  * @brief Equals operator. Checks to see if the two Matrix objects are the same

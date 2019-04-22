@@ -197,6 +197,36 @@ public:
    * @return T& A element at the data position as a constant value
    */
   T &operator()(const int &i, const int &j) const;
+
+  Matrix<T> add(const IMatrix<Matrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<Matrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<Matrix<T>, T> &source) const;
+  bool equals(const IMatrix<Matrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<TMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<TMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<TMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<TMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<LMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<LMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<LMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<LMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<UMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<UMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<UMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<UMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<SMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<SMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<SMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<SMatrix<T>, T> &source) const;
+
+  Matrix<T> add(const IMatrix<DMatrix<T>, T> &source) const;
+  Matrix<T> subtract(const IMatrix<DMatrix<T>, T> &source) const;
+  Matrix<T> multiply(const IMatrix<DMatrix<T>, T> &source) const;
+  bool equals(const IMatrix<DMatrix<T>, T> &source) const;
 };
 /**
  * @brief Equals operator. Checks to see if the two LMatrix objects are the same
