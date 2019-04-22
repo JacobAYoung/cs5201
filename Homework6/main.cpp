@@ -114,6 +114,7 @@ int main(int argc, char *argv[])
             {
                 cout << x[i] << endl;
             }
+
             cout << endl;
 
             cout << "A * x:" << endl;
