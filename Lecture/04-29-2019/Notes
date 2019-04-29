@@ -1,0 +1,99 @@
+Callbacks:
+
+1) Method 1:
+
+double integrate(double a, double b, int numPts, double (*f)(double))
+{
+  double delta = (b-a)/(numPts - 1);
+  double sum = 0;
+  for (int i = 0; i < numPts; i++)
+  {
+    sum += f(a + i * delta);
+  }
+  return sum * (b - a)/numPts;
+}
+
+The call: ?? = integrate(3, 4, 100, cos);
+
+An awful lot of ptr dereferencing.
+Poor performance
+
+2) Method 2: (c++ approach)
+
+class Integrater
+{
+  public:
+    double integrate(double a, double b, int numPts)
+    {
+      double delta = (b-a)/(numPts - 1), sum = 0;
+      for (int i = 0; i < numPts; i++)
+      {
+        sum += func2integrate(a+i*delta);
+      }
+      return sum * (b-a)/numPts;
+    }
+    virtual double func2Integrate(double x) = 0;
+};
+
+class IntegrateMe : public Integrater
+{
+  public:
+    virtual double func2Integrate(double x)
+    {
+      return cos(x);
+    }
+};
+
+The call:
+IntegrateMe f;
+?? = f.integrate(0, 3.14159, 45000);
+
+You have the overhead of virtual function call and you have to wrap up every function to integrate
+in its own class.
+
+
+3) Method 3:
+
+class function1
+{
+  public:
+    double operator()(double x)
+    {
+      return 1.0/(1 + x*x);
+    }
+};
+
+template <class T_function>
+double integrate(double a, double b, int numPts, T_function f)
+{
+  double delta = (b - a)/(numPts - 1), sum = 0;
+  for (int i = 0; i < numPts; ++i)
+  {
+    sum += f(a+i*delta);
+  }
+  return sum * (b-a)/numPts;
+}
+
+The call:
+?? = integrate(1,2,100,function1());
+
+We've improved performance by using template effectively
+
+
+4) Method 4: (Pointer to Function template)
+
+double function1(double x)
+{
+  return 1.0/(1+ x*x);
+}
+
+template <double T_function(double)>
+double integrate(double a, double b, int numPts)
+{
+  double delta = (b - a)/(numPts - 1), sum = 0;
+  for (int i = 0; i < numPts; i++)
+  {
+    sum += T_function(a+i*delta);
+  }
+  return sum * (b-a)/numPts;
+}
